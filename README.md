@@ -1,7 +1,7 @@
 Delivery
 ========
 
-Developers: Andrew Robinson, Grant Jennings, Michael Blades
+Developers: Andrew Robinson [@SirArkimedes](https://github.com/SirArkimedes), Grant Jennings, Michael Blades [@Cast324](https://github.com/Cast324)
 
 Everything else: Jared Golden
 
