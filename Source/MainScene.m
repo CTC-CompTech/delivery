@@ -52,7 +52,7 @@ static const CGFloat scrollSpeed = 100.f;
 - (void)swipeLeft {
     CCLOG(@"swipeLeft");
     CGPoint point;
-    if (_hero.position.x == 96) {
+    if (_hero.position.x <= 96) {
         point = ccp(34, _hero.position.y);
     }
     if (_hero.position.x == 159) {
@@ -66,6 +66,8 @@ static const CGFloat scrollSpeed = 100.f;
     }
     
     _hero.position = point;
+    
+//    CCLOG(@"%@", NSStringFromCGPoint(point));
     
 //    CCAnimation *walkAnim = [CCAnimation animationWithFrames:_hero delay:0.1 ];
 //    [_hero runAction:[CCAnimate actionWithAnimation: walkAnim restoreOriginalFrame:YES]];
@@ -84,11 +86,14 @@ static const CGFloat scrollSpeed = 100.f;
     if (_hero.position.x == 159) {
         point = ccp(224, _hero.position.y);
     }
-    if (_hero.position.x == 224) {
+    if (_hero.position.x >= 224) {
         point = ccp(287, _hero.position.y);
     }
     
     _hero.position = point;
+    
+//    CCLOG(@"%@", NSStringFromCGPoint(point));
+
 }
 
 @end
