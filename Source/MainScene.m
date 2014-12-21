@@ -1,4 +1,5 @@
 #import "MainScene.h"
+#import "CCAnimation.h"
 
 static const CGFloat scrollSpeed = 100.f;
 
@@ -51,49 +52,24 @@ static const CGFloat scrollSpeed = 100.f;
 
 - (void)swipeLeft {
     CCLOG(@"swipeLeft");
-    CGPoint point;
-    if (_hero.position.x <= 96) {
-        point = ccp(34, _hero.position.y);
+    CGPoint byPoint;
+    if (_hero.position.x <= 50) {
+        byPoint = ccp(0, 0);
+    } else {
+        byPoint = ccp(-64, 0);
     }
-    if (_hero.position.x == 159) {
-        point = ccp(96, _hero.position.y);
-    }
-    if (_hero.position.x == 224) {
-        point = ccp(159, _hero.position.y);
-    }
-    if (_hero.position.x == 287) {
-        point = ccp(224, _hero.position.y);
-    }
-    
-    _hero.position = point;
-    
-//    CCLOG(@"%@", NSStringFromCGPoint(point));
-    
-//    CCAnimation *walkAnim = [CCAnimation animationWithFrames:_hero delay:0.1 ];
-//    [_hero runAction:[CCAnimate actionWithAnimation: walkAnim restoreOriginalFrame:YES]];
-    
-//    [_hero runAction:[CCMoveTo actionWithDuration:0.3 position:point]];
+    [_hero runAction:[CCActionMoveBy actionWithDuration:0.1 position:byPoint]];
 }
 - (void)swipeRight {
     CCLOG(@"swipeRight");
-    CGPoint point;
-    if (_hero.position.x == 34) {
-        point = ccp(96, _hero.position.y);
+    CGPoint byPoint;
+    if (_hero.position.x >= 250) {
+        byPoint = ccp(0, 0);
+    } else {
+        byPoint = ccp(64, 0);
     }
-    if (_hero.position.x == 96) {
-        point = ccp(159, _hero.position.y);
-    }
-    if (_hero.position.x == 159) {
-        point = ccp(224, _hero.position.y);
-    }
-    if (_hero.position.x >= 224) {
-        point = ccp(287, _hero.position.y);
-    }
+    [_hero runAction:[CCActionMoveBy actionWithDuration:0.1 position:byPoint]];
     
-    _hero.position = point;
-    
-//    CCLOG(@"%@", NSStringFromCGPoint(point));
-
 }
 
 @end
