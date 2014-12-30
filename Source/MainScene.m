@@ -1,7 +1,11 @@
 #import "MainScene.h"
 #import "CCAnimation.h"
+#import "Obstacle.h"
 
 static const CGFloat scrollSpeed = 100.f;
+static const CGFloat firstObstaclePosition = 280.f;
+static const CGFloat distanceBetweenObstacles = 160.f;
+
 
 @implementation MainScene {
     CCPhysicsNode *_physicsNode;
@@ -12,11 +16,20 @@ static const CGFloat scrollSpeed = 100.f;
     CGPoint firstTouch;
     CGPoint lastTouch;
     
+    NSMutableArray *_obstacles;
+    
     NSArray *_grounds;
 }
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
+    
+    _obstacles = [NSMutableArray array];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
+    [self spawnNewObstacle];
     
     // listen for swipes to the left
     UISwipeGestureRecognizer * swipeLeft= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft)];
@@ -43,6 +56,40 @@ static const CGFloat scrollSpeed = 100.f;
             ground.position = ccp(ground.position.x, ground.position.y + 2 + ground.contentSize.height + 511);
         }
     }
+    
+    NSMutableArray *offScreenObstacles = nil;
+    for (CCNode *obstacle in _obstacles) {
+        CGPoint obstacleWorldPosition = [_physicsNode convertToWorldSpace:obstacle.position];
+        CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
+        if (obstacleScreenPosition.y < -obstacle.contentSize.height) {
+            if (!offScreenObstacles) {
+                offScreenObstacles = [NSMutableArray array];
+            }
+            [offScreenObstacles addObject:obstacle];
+        }
+    }
+    for (CCNode *obstacleToRemove in offScreenObstacles) {
+        [obstacleToRemove removeFromParent];
+        [_obstacles removeObject:obstacleToRemove];
+        // for each removed obstacle, add a new one
+        [self spawnNewObstacle];
+    }
+}
+
+- (void)spawnNewObstacle {
+    CCNode *previousObstacle = [_obstacles lastObject];
+    CGFloat previousObstacleYPosition = previousObstacle.position.y;
+    if (!previousObstacle) {
+        // this is the first obstacle
+        previousObstacleYPosition = firstObstaclePosition;
+    }
+    Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
+    obstacle.position = ccp(0, previousObstacleYPosition + distanceBetweenObstacles);
+    [obstacle setupRandomPosition];
+    [_physicsNode addChild:obstacle];
+    [_obstacles addObject:obstacle];
+    
+//    obstacle.zOrder = DrawingOrderPipes;
 }
 
 - (void)swipeLeft {
