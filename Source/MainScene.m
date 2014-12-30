@@ -3,7 +3,7 @@
 #import "Obstacle.h"
 
 static const CGFloat scrollSpeed = 100.f;
-static const CGFloat firstObstaclePosition = 280.f;
+static const CGFloat firstObstaclePosition = 450.f;
 static const CGFloat distanceBetweenObstacles = 160.f;
 
 
@@ -93,7 +93,7 @@ static const CGFloat distanceBetweenObstacles = 160.f;
 }
 
 - (void)swipeLeft {
-    CCLOG(@"swipeLeft");
+//    CCLOG(@"swipeLeft");
     CGPoint byPoint;
     if (_hero.position.x <= 50) {
         byPoint = ccp(0, 0);
@@ -104,7 +104,7 @@ static const CGFloat distanceBetweenObstacles = 160.f;
 }
 
 - (void)swipeRight {
-    CCLOG(@"swipeRight");
+//    CCLOG(@"swipeRight");
     CGPoint byPoint;
     if (_hero.position.x >= 250) {
         byPoint = ccp(0, 0);

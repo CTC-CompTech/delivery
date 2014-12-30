@@ -17,9 +17,8 @@
 }
 
 - (void)setupRandomPosition {
-    
     CGFloat random = (double)arc4random_uniform(101);
-    CCLOG(@"%f", random);
+//    CCLOG(@"%f", random);
     if (random <= 20) {
         _block1.visible = NO;
     }
