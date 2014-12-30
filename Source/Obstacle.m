@@ -35,9 +35,6 @@
     if (random <= 100 && random > 80) {
         _block5.visible = NO;
     }
-    
-    _block1.position = ccp(_block1.position.x, _block1.position.y);
-//    _bottomPipe.position = ccp(_bottomPipe.position.x, _topPipe.position.y + pipeDistance);
 }
 
 @end
