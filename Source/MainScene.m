@@ -17,7 +17,6 @@ static const CGFloat scrollSpeed = 100.f;
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
-    self.userInteractionEnabled = YES;
     
     // listen for swipes to the left
     UISwipeGestureRecognizer * swipeLeft= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft)];
@@ -46,10 +45,6 @@ static const CGFloat scrollSpeed = 100.f;
     }
 }
 
-- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
-    
-}
-
 - (void)swipeLeft {
     CCLOG(@"swipeLeft");
     CGPoint byPoint;
@@ -60,6 +55,7 @@ static const CGFloat scrollSpeed = 100.f;
     }
     [_hero runAction:[CCActionMoveBy actionWithDuration:0.1 position:byPoint]];
 }
+
 - (void)swipeRight {
     CCLOG(@"swipeRight");
     CGPoint byPoint;
