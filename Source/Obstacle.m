@@ -33,19 +33,19 @@
     CGFloat random = (double)arc4random_uniform(101);
 //    CCLOG(@"%f", random);
     if (random <= 20) {
-        _block1.visible = NO;
+        [_block1 removeFromParent];
     }
     if (random <= 40 && random > 20) {
-        _block2.visible = NO;
+        [_block2 removeFromParent];
     }
     if (random <= 60 && random > 40) {
-        _block3.visible = NO;
+        [_block3 removeFromParent];
     }
     if (random <= 80 && random > 60) {
-        _block4.visible = NO;
+        [_block4 removeFromParent];
     }
     if (random <= 100 && random > 80) {
-        _block5.visible = NO;
+        [_block5 removeFromParent];
     }
 }
 
