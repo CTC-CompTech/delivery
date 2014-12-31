@@ -4,7 +4,7 @@
 
 static const CGFloat scrollSpeed = 100.f;
 static const CGFloat firstObstaclePosition = 450.f;
-static const CGFloat distanceBetweenObstacles = 160.f;
+static const CGFloat distanceBetweenObstacles = 200.f;
 
 
 @implementation MainScene {
@@ -23,6 +23,11 @@ static const CGFloat distanceBetweenObstacles = 160.f;
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
+    
+    // set this class as delegate
+    _physicsNode.collisionDelegate = self;
+    // set collision txpe
+    _hero.physicsBody.collisionType = @"hero";
     
     _obstacles = [NSMutableArray array];
     [self spawnNewObstacle];
@@ -90,6 +95,11 @@ static const CGFloat distanceBetweenObstacles = 160.f;
     [_obstacles addObject:obstacle];
     
 //    obstacle.zOrder = DrawingOrderPipes;
+}
+
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
+    NSLog(@"Game Over");
+    return TRUE;
 }
 
 - (void)swipeLeft {

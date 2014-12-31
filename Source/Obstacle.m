@@ -16,6 +16,19 @@
     CCNode *_block5;
 }
 
+- (void)didLoadFromCCB {
+    _block1.physicsBody.collisionType = @"level";
+    _block1.physicsBody.sensor = TRUE;
+    _block2.physicsBody.collisionType = @"level";
+    _block2.physicsBody.sensor = TRUE;
+    _block3.physicsBody.collisionType = @"level";
+    _block3.physicsBody.sensor = TRUE;
+    _block4.physicsBody.collisionType = @"level";
+    _block4.physicsBody.sensor = TRUE;
+    _block5.physicsBody.collisionType = @"level";
+    _block5.physicsBody.sensor = TRUE;
+}
+
 - (void)setupRandomPosition {
     CGFloat random = (double)arc4random_uniform(101);
 //    CCLOG(@"%f", random);
