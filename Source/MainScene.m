@@ -13,6 +13,8 @@ static const CGFloat distanceBetweenObstacles = 200.f;
     CCNode *_ground2;
     CCNode *_hero;
     
+    CCButton *_restartButton;
+    
     CGPoint firstTouch;
     CGPoint lastTouch;
     
@@ -99,7 +101,13 @@ static const CGFloat distanceBetweenObstacles = 200.f;
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
     NSLog(@"Game Over");
+    _restartButton.visible = TRUE;
     return TRUE;
+}
+
+- (void)restart {
+    CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:scene];
 }
 
 - (void)swipeLeft {
