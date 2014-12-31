@@ -2,7 +2,7 @@
 #import "CCAnimation.h"
 #import "Obstacle.h"
 
-static const CGFloat scrollSpeed = 100.f;
+//static const CGFloat scrollSpeed = 100.f;
 static const CGFloat firstObstaclePosition = 450.f;
 static const CGFloat distanceBetweenObstacles = 200.f;
 
@@ -15,16 +15,22 @@ static const CGFloat distanceBetweenObstacles = 200.f;
     
     CCButton *_restartButton;
     
+    BOOL _gameOver;
+    CGFloat _scrollSpeed;
+    
     CGPoint firstTouch;
     CGPoint lastTouch;
     
     NSMutableArray *_obstacles;
     
     NSArray *_grounds;
+    
 }
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
+    
+    _scrollSpeed = 100.f;
     
     // set this class as delegate
     _physicsNode.collisionDelegate = self;
@@ -49,8 +55,8 @@ static const CGFloat distanceBetweenObstacles = 200.f;
 }
 
 - (void)update:(CCTime)delta {
-    _physicsNode.position = ccp(_physicsNode.position.x, _physicsNode.position.y - (scrollSpeed *delta));
-    _hero.position = ccp(_hero.position.x, _hero.position.y + delta * scrollSpeed);
+    _physicsNode.position = ccp(_physicsNode.position.x, _physicsNode.position.y - (_scrollSpeed *delta));
+    _hero.position = ccp(_hero.position.x, _hero.position.y + delta * _scrollSpeed);
 //    CCLOG(@"%@", NSStringFromCGPoint(_hero.position));
     // loop the ground
     for (CCNode *ground in _grounds) {
@@ -100,9 +106,24 @@ static const CGFloat distanceBetweenObstacles = 200.f;
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
-    NSLog(@"Game Over");
-    _restartButton.visible = TRUE;
+    [self gameOver];
     return TRUE;
+}
+
+- (void)gameOver {
+    if (!_gameOver) {
+        _scrollSpeed = 0.f;
+        _gameOver = TRUE;
+        _restartButton.visible = TRUE;
+        _hero.rotation = 90.f;
+//        _hero.physicsBody.allowsRotation = FALSE;
+        [_hero stopAllActions];
+        CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.2f position:ccp(-2, 2)];
+        CCActionInterval *reverseMovement = [moveBy reverse];
+        CCActionSequence *shakeSequence = [CCActionSequence actionWithArray:@[moveBy, reverseMovement]];
+        CCActionEaseBounce *bounce = [CCActionEaseBounce actionWithAction:shakeSequence];
+        [self runAction:bounce];
+    }
 }
 
 - (void)restart {
@@ -112,24 +133,28 @@ static const CGFloat distanceBetweenObstacles = 200.f;
 
 - (void)swipeLeft {
 //    CCLOG(@"swipeLeft");
-    CGPoint byPoint;
-    if (_hero.position.x <= 50) {
-        byPoint = ccp(0, 0);
-    } else {
-        byPoint = ccp(-64, 0);
-    }
+    if (!_gameOver) {
+        CGPoint byPoint;
+        if (_hero.position.x <= 50) {
+            byPoint = ccp(0, 0);
+        } else {
+            byPoint = ccp(-64, 0);
+        }
     [_hero runAction:[CCActionMoveBy actionWithDuration:0.1 position:byPoint]];
+    }
 }
 
 - (void)swipeRight {
 //    CCLOG(@"swipeRight");
-    CGPoint byPoint;
-    if (_hero.position.x >= 250) {
-        byPoint = ccp(0, 0);
-    } else {
-        byPoint = ccp(64, 0);
-    }
+    if (!_gameOver) {
+        CGPoint byPoint;
+        if (_hero.position.x >= 250) {
+            byPoint = ccp(0, 0);
+        } else {
+            byPoint = ccp(64, 0);
+        }
     [_hero runAction:[CCActionMoveBy actionWithDuration:0.1 position:byPoint]];
+    }
     
 }
 
