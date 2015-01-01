@@ -30,6 +30,11 @@
 }
 
 - (void)setupRandomPosition {
+    
+    int value = [[MainScene instance].obstacleCount intValue];
+    [MainScene instance].obstacleCount = [NSNumber numberWithInt:value + 1];
+//    NSLog(@"%@", [MainScene instance].obstacleCount);
+    
     CGFloat random = (double)arc4random_uniform(101);
 //    CCLOG(@"%f", random);
     if (random <= 20) {

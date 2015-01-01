@@ -6,6 +6,7 @@
 static const CGFloat firstObstaclePosition = 450.f;
 static const CGFloat distanceBetweenObstacles = 200.f;
 
+static MainScene *inst = nil;
 
 @implementation MainScene {
     CCPhysicsNode *_physicsNode;
@@ -27,10 +28,23 @@ static const CGFloat distanceBetweenObstacles = 200.f;
     
 }
 
+@synthesize obstacleCount;
+
+- (id)init {
+    if(self=[super init]) {
+        self.obstacleCount = 0;
+    }
+    return self;
+}
++ (MainScene*)instance {
+    if (!inst) inst = [[MainScene alloc] init];
+    return inst;
+}
+
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
     
-    _scrollSpeed = 100.f;
+//    _scrollSpeed = 100.f;
     
     // set this class as delegate
     _physicsNode.collisionDelegate = self;
@@ -59,6 +73,14 @@ static const CGFloat distanceBetweenObstacles = 200.f;
     _hero.position = ccp(_hero.position.x, _hero.position.y + delta * _scrollSpeed);
 //    CCLOG(@"%@", NSStringFromCGPoint(_hero.position));
     // loop the ground
+    
+    
+    if ([[MainScene instance].obstacleCount floatValue] >= 10) {
+        _scrollSpeed = 120.f;
+    } else {
+        _scrollSpeed = 100.f;
+    }
+    
     for (CCNode *ground in _grounds) {
         // get the world position of the ground
         CGPoint groundWorldPosition = [_physicsNode convertToWorldSpace:ground.position];
@@ -105,14 +127,14 @@ static const CGFloat distanceBetweenObstacles = 200.f;
 //    obstacle.zOrder = DrawingOrderPipes;
 }
 
--(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
     [self gameOver];
     return TRUE;
 }
 
 - (void)gameOver {
     if (!_gameOver) {
-        _scrollSpeed = 0.f;
+//        _scrollSpeed = 0.f;
         _gameOver = TRUE;
         _restartButton.visible = TRUE;
         _hero.rotation = 90.f;
