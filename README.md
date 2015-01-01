@@ -1,9 +1,9 @@
 Delivery
 ========
 
-Developers: Andrew Robinson [@SirArkimedes](https://github.com/SirArkimedes), Grant Jennings, Michael Blades [@Cast324](https://github.com/Cast324)
+Developers: Andrew Robinson ([@SirArkimedes](https://github.com/SirArkimedes)), Grant Jennings, Michael Blades ([@Cast324](https://github.com/Cast324))
 
-Everything else: Jared Golden
+Everything else: Jared Golden ([@TheGoldenPerspective](https://github.com/TheGoldenPerspective))
 
 SkillsUSA video game competition project.
 -----------
