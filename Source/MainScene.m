@@ -75,10 +75,12 @@ static MainScene *inst = nil;
     // loop the ground
     
     
-    if ([[MainScene instance].obstacleCount floatValue] >= 10) {
+    if ([[MainScene instance].obstacleCount floatValue] >= 20 && _gameOver != TRUE) {
         _scrollSpeed = 120.f;
-    } else {
+    } else if ([[MainScene instance].obstacleCount floatValue] <= 20 && _gameOver != TRUE){
         _scrollSpeed = 100.f;
+    } else if (_gameOver == TRUE) {
+        _scrollSpeed = 0.f;
     }
     
     for (CCNode *ground in _grounds) {
@@ -134,13 +136,12 @@ static MainScene *inst = nil;
 
 - (void)gameOver {
     if (!_gameOver) {
-//        _scrollSpeed = 0.f;
         _gameOver = TRUE;
         _restartButton.visible = TRUE;
         _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
         [_hero stopAllActions];
-        CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.2f position:ccp(-2, 2)];
+        CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.2f position:ccp(-6, 6)];
         CCActionInterval *reverseMovement = [moveBy reverse];
         CCActionSequence *shakeSequence = [CCActionSequence actionWithArray:@[moveBy, reverseMovement]];
         CCActionEaseBounce *bounce = [CCActionEaseBounce actionWithAction:shakeSequence];
