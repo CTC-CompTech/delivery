@@ -4,7 +4,7 @@
 
 //static const CGFloat scrollSpeed = 100.f;
 static const CGFloat firstObstaclePosition = 450.f;
-static const CGFloat distanceBetweenObstacles = 200.f;
+static const CGFloat distanceBetweenObstacles = 250.f;
 
 static MainScene *inst = nil;
 
@@ -76,9 +76,9 @@ static MainScene *inst = nil;
     
     
     if ([[MainScene instance].obstacleCount floatValue] >= 20 && _gameOver != TRUE) {
-        _scrollSpeed = 120.f;
+        _scrollSpeed = 210.f;
     } else if ([[MainScene instance].obstacleCount floatValue] <= 20 && _gameOver != TRUE){
-        _scrollSpeed = 100.f;
+        _scrollSpeed = 175.f;
     } else if (_gameOver == TRUE) {
         _scrollSpeed = 0.f;
     }
@@ -163,7 +163,7 @@ static MainScene *inst = nil;
         } else {
             byPoint = ccp(-64, 0);
         }
-    [_hero runAction:[CCActionMoveBy actionWithDuration:0.1 position:byPoint]];
+    [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
     }
 }
 
@@ -176,7 +176,7 @@ static MainScene *inst = nil;
         } else {
             byPoint = ccp(64, 0);
         }
-    [_hero runAction:[CCActionMoveBy actionWithDuration:0.1 position:byPoint]];
+    [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
     }
     
 }
