@@ -75,12 +75,18 @@ static MainScene *inst = nil;
     // loop the ground
     
     
-    if ([[MainScene instance].obstacleCount floatValue] >= 20 && _gameOver != TRUE) {
-        _scrollSpeed = 210.f;
-    } else if ([[MainScene instance].obstacleCount floatValue] <= 20 && _gameOver != TRUE){
-        _scrollSpeed = 175.f;
-    } else if (_gameOver == TRUE) {
-        _scrollSpeed = 0.f;
+//    if ([[MainScene instance].obstacleCount floatValue] >= 20 && _gameOver != TRUE) {
+//        _scrollSpeed = 210.f;
+//    } else if ([[MainScene instance].obstacleCount floatValue] <= 20 && _gameOver != TRUE){
+//        _scrollSpeed = 175.f;
+//    } else if (_gameOver == TRUE) {
+//        _scrollSpeed = 0.f;
+//    }
+    
+    if (_gameOver != YES) {
+        _scrollSpeed = [[MainScene instance].scrollingSpeed floatValue];
+    } else {
+        _scrollSpeed = 0;
     }
     
     for (CCNode *ground in _grounds) {
@@ -136,6 +142,7 @@ static MainScene *inst = nil;
 
 - (void)gameOver {
     if (!_gameOver) {
+        [MainScene instance].obstacleCount = 0;
         _gameOver = TRUE;
         _restartButton.visible = TRUE;
         _hero.rotation = 90.f;

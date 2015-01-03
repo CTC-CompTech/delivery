@@ -5,6 +5,7 @@
 }
 
 @property (retain, nonatomic) NSNumber *obstacleCount;
+@property (retain, nonatomic) NSNumber *scrollingSpeed;
 
 -(id)init;
 +(MainScene*)instance;

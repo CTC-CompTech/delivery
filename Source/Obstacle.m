@@ -35,23 +35,79 @@
     [MainScene instance].obstacleCount = [NSNumber numberWithInt:value + 1];
 //    NSLog(@"%@", [MainScene instance].obstacleCount);
     
-    CGFloat random = (double)arc4random_uniform(101);
-//    CCLOG(@"%f", random);
-    if (random <= 20) {
+    if ([[MainScene instance].obstacleCount intValue] >= 0 && [[MainScene instance].obstacleCount intValue] <= 10) {
+        [self removeBlockWithLevel:1];
+    } else if ([[MainScene instance].obstacleCount intValue] > 10 && [[MainScene instance].obstacleCount intValue] <= 20) {
+        [self removeBlockWithLevel:2];
+    } else {//if ([[MainScene instance].obstacleCount intValue] > 40 && [[MainScene instance].obstacleCount intValue] <= 60) {
+        [self removeBlockWithLevel:3];
+    }
+}
+
+- (void)removeBlockWithLevel:(int)level {
+    
+    NSInteger lane1, lane2;
+    
+    if (level == 1) {
+        lane1 = [self getLane];
+        
+        do {
+            lane2 = [self getLane];
+        } while ( lane1 == lane2 );
+        
+        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:175.f];
+        
+        [self removeBlock:lane1];
+        [self removeBlock:lane2];
+
+    } else if (level == 2) {
+        lane1 = [self getLane];
+        
+        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:175.f];
+        
+        [self removeBlock:lane1];
+        
+    } else if (level == 3) {
+        lane1 = [self getLane];
+        
+        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:210.f];
+        
+        [self removeBlock:lane1];
+        
+    }
+}
+
+- (void)removeBlock:(NSInteger)block {
+    if (block == 1) {
         [_block1 removeFromParent];
-    }
-    if (random <= 40 && random > 20) {
+    } else if (block == 2) {
         [_block2 removeFromParent];
-    }
-    if (random <= 60 && random > 40) {
+    } else if (block == 3) {
         [_block3 removeFromParent];
-    }
-    if (random <= 80 && random > 60) {
+    } else if (block == 4) {
         [_block4 removeFromParent];
-    }
-    if (random <= 100 && random > 80) {
+    } else if (block == 5) {
         [_block5 removeFromParent];
     }
+}
+
+- (NSInteger)getLane {
+    CGFloat random = (double)arc4random_uniform(101);
+    NSInteger ret = 1;
+    
+    if (random <= 20) {
+        ret = 1;
+    } else if (random <= 40 && random > 20) {
+        ret = 2;
+    } else if (random <= 60 && random > 40) {
+        ret = 3;
+    } else if (random <= 80 && random > 60) {
+        ret = 4;
+    } else if (random <= 100 && random > 80) {
+        ret = 5;
+    }
+    
+    return ret;
 }
 
 @end
