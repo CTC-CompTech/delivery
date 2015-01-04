@@ -39,8 +39,12 @@
         [self removeBlockWithLevel:1];
     } else if ([[MainScene instance].obstacleCount intValue] > 10 && [[MainScene instance].obstacleCount intValue] <= 20) {
         [self removeBlockWithLevel:2];
-    } else {//if ([[MainScene instance].obstacleCount intValue] > 40 && [[MainScene instance].obstacleCount intValue] <= 60) {
+    } else if ([[MainScene instance].obstacleCount intValue] > 40 && [[MainScene instance].obstacleCount intValue] <= 50) {
         [self removeBlockWithLevel:3];
+    } else if ([[MainScene instance].obstacleCount intValue] > 50 && [[MainScene instance].obstacleCount intValue] <= 60) {
+        [self removeBlockWithLevel:4];
+    } else {
+        [self removeBlockWithLevel:5];
     }
 }
 
@@ -56,6 +60,7 @@
         } while ( lane1 == lane2 );
         
         [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:175.f];
+        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
         [self removeBlock:lane2];
@@ -64,6 +69,7 @@
         lane1 = [self getLane];
         
         [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:175.f];
+        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
         
@@ -71,6 +77,23 @@
         lane1 = [self getLane];
         
         [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:210.f];
+        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
+        
+        [self removeBlock:lane1];
+        
+    } else if (level == 4) {
+        lane1 = [self getLane];
+        
+        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:210.f];
+        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
+        
+        [self removeBlock:lane1];
+        
+    } else if (level == 5) {
+        lane1 = [self getLane];
+        
+        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:210.f];
+        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
         
         [self removeBlock:lane1];
         

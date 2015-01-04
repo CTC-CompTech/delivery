@@ -4,7 +4,7 @@
 
 //static const CGFloat scrollSpeed = 100.f;
 static const CGFloat firstObstaclePosition = 450.f;
-static const CGFloat distanceBetweenObstacles = 250.f;
+//static const CGFloat distanceBetweenObstacles = 250.f;
 
 static MainScene *inst = nil;
 
@@ -18,6 +18,7 @@ static MainScene *inst = nil;
     
     BOOL _gameOver;
     CGFloat _scrollSpeed;
+    CGFloat distanceBetweenObstacles;
     
     CGPoint firstTouch;
     CGPoint lastTouch;
@@ -43,6 +44,10 @@ static MainScene *inst = nil;
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
+    
+    // Launch constants
+    [MainScene instance].obstacleCount = 0;
+    distanceBetweenObstacles = 250.f;
     
 //    _scrollSpeed = 100.f;
     
@@ -82,6 +87,9 @@ static MainScene *inst = nil;
 //    } else if (_gameOver == TRUE) {
 //        _scrollSpeed = 0.f;
 //    }
+    
+    // Constants
+    distanceBetweenObstacles = [[MainScene instance].obstacleDistance floatValue];
     
     if (_gameOver != YES) {
         _scrollSpeed = [[MainScene instance].scrollingSpeed floatValue];
