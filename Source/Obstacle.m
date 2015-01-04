@@ -35,15 +35,20 @@
     [MainScene instance].obstacleCount = [NSNumber numberWithInt:value + 1];
 //    NSLog(@"%@", [MainScene instance].obstacleCount);
     
-    if ([[MainScene instance].obstacleCount intValue] >= 0 && [[MainScene instance].obstacleCount intValue] <= 10) {
+    if ([[MainScene instance].obstacleCount intValue] >= 0 && [[MainScene instance].obstacleCount intValue] <= 5) {
         [self removeBlockWithLevel:1];
-    } else if ([[MainScene instance].obstacleCount intValue] > 10 && [[MainScene instance].obstacleCount intValue] <= 20) {
+//        CCLOG(@"Level 1");
+    } else if ([[MainScene instance].obstacleCount intValue] > 5 && [[MainScene instance].obstacleCount intValue] <= 15) {
+//        CCLOG(@"Level 2");
         [self removeBlockWithLevel:2];
-    } else if ([[MainScene instance].obstacleCount intValue] > 40 && [[MainScene instance].obstacleCount intValue] <= 50) {
+    } else if ([[MainScene instance].obstacleCount intValue] > 15 && [[MainScene instance].obstacleCount intValue] <= 25) {
+//        CCLOG(@"Level 3");
         [self removeBlockWithLevel:3];
-    } else if ([[MainScene instance].obstacleCount intValue] > 50 && [[MainScene instance].obstacleCount intValue] <= 60) {
+    } else if ([[MainScene instance].obstacleCount intValue] > 25 && [[MainScene instance].obstacleCount intValue] <= 40) {
+//        CCLOG(@"Level 4");
         [self removeBlockWithLevel:4];
     } else {
+//        CCLOG(@"Level 5");
         [self removeBlockWithLevel:5];
     }
 }
