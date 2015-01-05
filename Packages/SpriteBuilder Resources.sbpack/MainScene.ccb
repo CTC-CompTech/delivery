@@ -192,7 +192,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Delivery/Road New.png</string>
+									<string>Delivery/Road Newest.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -373,7 +373,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Delivery/Road New.png</string>
+									<string>Delivery/Road Newest.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -507,7 +507,7 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>159</real>
+									<real>160</real>
 									<real>160</real>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -590,6 +590,8 @@
 								<array/>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -1015,8 +1017,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

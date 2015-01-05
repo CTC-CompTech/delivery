@@ -153,7 +153,7 @@ static MainScene *inst = nil;
         [MainScene instance].obstacleCount = 0;
         _gameOver = TRUE;
         _restartButton.visible = TRUE;
-        _hero.rotation = 90.f;
+//        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
         [_hero stopAllActions];
         CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.2f position:ccp(-6, 6)];
