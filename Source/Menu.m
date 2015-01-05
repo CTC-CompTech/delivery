@@ -12,7 +12,7 @@
 
 - (void)play {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene];
+    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:2]];
 }
 
 @end

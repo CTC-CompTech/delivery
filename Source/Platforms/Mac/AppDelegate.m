@@ -39,7 +39,7 @@
     
     [[CCPackageManager sharedManager] loadPackages];
 
-    [director runWithScene:[CCBReader loadAsScene:@"MainScene"]];
+    [director runWithScene:[CCBReader loadAsScene:@"Menu"]];
 }
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
