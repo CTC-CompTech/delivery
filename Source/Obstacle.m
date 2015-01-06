@@ -51,6 +51,7 @@
 //        CCLOG(@"Level 5");
         [self removeBlockWithLevel:5];
     }
+//    [self removeBlockWithLevel:4];
 }
 
 - (void)removeBlockWithLevel:(int)level {
@@ -108,6 +109,20 @@
 - (void)removeBlock:(NSInteger)block {
     if (block == 1) {
         [_block1 removeFromParent];
+        
+//        if ([[MainScene instance].lasts count] == 0) {
+//            NSNumber *thisBlock = [NSNumber numberWithInteger:block];
+//            [[MainScene instance].lasts addObject:thisBlock];
+//        } else {
+//            NSNumber *first = [NSNumber numberWithInteger:5];
+//            if ([[MainScene instance].lasts objectAtIndex:0] == first) {
+//                NSNumber *thisBlock = [NSNumber numberWithInteger:block];
+//                [[MainScene instance].lasts setObject:thisBlock atIndexedSubscript:0];
+//                
+//                [[MainScene instance].lasts setObject:first atIndexedSubscript:1];
+//            }
+//        }
+        
     } else if (block == 2) {
         [_block2 removeFromParent];
     } else if (block == 3) {
@@ -116,6 +131,30 @@
         [_block4 removeFromParent];
     } else if (block == 5) {
         [_block5 removeFromParent];
+        
+//        if ([[MainScene instance].lasts count] == 0) {
+//            NSNumber *thisBlock = [NSNumber numberWithInteger:block];
+//            [[MainScene instance].lasts addObject:thisBlock];
+//        } else {
+//            NSNumber *first = [NSNumber numberWithInteger:1];
+//            if ([[MainScene instance].lasts objectAtIndex:0] == first) {
+//                NSNumber *thisBlock = [NSNumber numberWithInteger:block];
+//                [[MainScene instance].lasts setObject:thisBlock atIndexedSubscript:0];
+//        
+//                [[MainScene instance].lasts setObject:first atIndexedSubscript:1];
+//            }
+//        }
+    }
+    
+    if ([[MainScene instance].lasts count] == 0) {
+        NSNumber *thisBlock = [NSNumber numberWithInteger:block];
+        [[MainScene instance].lasts addObject:thisBlock];
+    } else {
+        NSNumber *first = [[MainScene instance].lasts objectAtIndex:0];
+        [[MainScene instance].lasts setObject:first atIndexedSubscript:1];
+        
+        NSNumber *thisBlock = [NSNumber numberWithInteger:block];
+        [[MainScene instance].lasts setObject:thisBlock atIndexedSubscript:0];
     }
 }
 

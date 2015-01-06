@@ -30,6 +30,7 @@ static MainScene *inst = nil;
 }
 
 @synthesize obstacleCount;
+@synthesize lasts;
 
 - (id)init {
     if(self=[super init]) {
@@ -38,7 +39,9 @@ static MainScene *inst = nil;
     return self;
 }
 + (MainScene*)instance {
-    if (!inst) inst = [[MainScene alloc] init];
+    if (!inst) {
+        inst = [[MainScene alloc] init];
+    }
     return inst;
 }
 
@@ -48,6 +51,8 @@ static MainScene *inst = nil;
     // Launch constants
     [MainScene instance].obstacleCount = 0;
     distanceBetweenObstacles = 250.f;
+    
+    [MainScene instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
     
 //    _scrollSpeed = 100.f;
     
@@ -136,7 +141,23 @@ static MainScene *inst = nil;
     }
     Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
     obstacle.position = ccp(0, previousObstacleYPosition + distanceBetweenObstacles);
+    
     [obstacle setupRandomPosition];
+    
+    if ([[MainScene instance].lasts count] == 2) {
+        if ([[MainScene instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:5] &&
+            [[MainScene instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:1]) {
+            
+            obstacle.position = ccp(0, previousObstacleYPosition + 250.f);
+            
+        } else if ([[MainScene instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:1] &&
+                   [[MainScene instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:5]) {
+            
+            obstacle.position = ccp(0, previousObstacleYPosition + 250.f);
+            
+        }
+    }
+    
     [_physicsNode addChild:obstacle];
     [_obstacles addObject:obstacle];
     

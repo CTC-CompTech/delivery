@@ -127,7 +127,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>isOne</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -851,7 +851,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>isFive</string>
 					</dict>
 					<dict>
 						<key>name</key>
