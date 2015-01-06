@@ -29,9 +29,6 @@ static MainScene *inst = nil;
     
 }
 
-@synthesize obstacleCount;
-@synthesize lasts;
-
 - (id)init {
     if(self=[super init]) {
         self.obstacleCount = 0;
