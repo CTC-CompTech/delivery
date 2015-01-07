@@ -194,8 +194,8 @@ static MainScene *inst = nil;
     if (!_gameOver) {
         [MainScene instance].obstacleCount = 0;
         _gameOver = TRUE;
-        _restartButton.visible = TRUE;
         _abilityButton.visible = FALSE;
+        _restartButton.visible = TRUE;
 //        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
         [_hero stopAllActions];
@@ -214,6 +214,7 @@ static MainScene *inst = nil;
 
 - (void)ability {
     _hero.physicsBody.collisionType = @"";
+    _abilityButton.visible = FALSE;
     CGFloat speedBefore = _scrollSpeed;
     [MainScene instance].abilityUse = YES;
     _scrollSpeed = 500.f;
@@ -225,6 +226,7 @@ static MainScene *inst = nil;
 //            _scrollSpeed = speedBefore;
             _scrollSpeed = speedBefore;
             [MainScene instance].abilityUse = NO;
+            _abilityButton.visible = TRUE;
             _hero.physicsBody.collisionType = @"hero";
         });
     });
