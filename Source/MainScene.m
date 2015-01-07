@@ -2,6 +2,12 @@
 #import "CCAnimation.h"
 #import "Obstacle.h"
 
+typedef NS_ENUM(NSInteger, DrawingOrder) {
+    DrawingOrderGround,
+    DrawingOrderObstacle,
+    DrawingOrderHero
+};
+
 //static const CGFloat scrollSpeed = 100.f;
 static const CGFloat firstObstaclePosition = 450.f;
 //static const CGFloat distanceBetweenObstacles = 250.f;
@@ -15,6 +21,7 @@ static MainScene *inst = nil;
     CCNode *_hero;
     
     CCButton *_restartButton;
+    CCButton *_abilityButton;
     
     BOOL _gameOver;
     CGFloat _scrollSpeed;
@@ -65,6 +72,11 @@ static MainScene *inst = nil;
     [self spawnNewObstacle];
     [self spawnNewObstacle];
     
+    for (CCNode *ground in _grounds) {
+        ground.zOrder = DrawingOrderGround;
+    }
+    _hero.zOrder = DrawingOrderHero;
+    
     // listen for swipes to the left
     UISwipeGestureRecognizer * swipeLeft= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
@@ -94,7 +106,19 @@ static MainScene *inst = nil;
     distanceBetweenObstacles = [[MainScene instance].obstacleDistance floatValue];
     
     if (_gameOver != YES) {
-        _scrollSpeed = [[MainScene instance].scrollingSpeed floatValue];
+        if ([MainScene instance].abilityUse == NO) {
+            if ([MainScene instance].level == [NSNumber numberWithInt:1]) {
+                _scrollSpeed = 175.f;
+            } else if ([MainScene instance].level == [NSNumber numberWithInt:2]) {
+                _scrollSpeed = 175.f;
+            } else if ([MainScene instance].level == [NSNumber numberWithInt:3]) {
+                _scrollSpeed = 210.f;
+            } else if ([MainScene instance].level == [NSNumber numberWithInt:4]) {
+                _scrollSpeed = 210.f;
+            } else if ([MainScene instance].level == [NSNumber numberWithInt:5]) {
+                _scrollSpeed = 210.f;
+            }
+        }
     } else {
         _scrollSpeed = 0;
     }
@@ -158,7 +182,7 @@ static MainScene *inst = nil;
     [_physicsNode addChild:obstacle];
     [_obstacles addObject:obstacle];
     
-//    obstacle.zOrder = DrawingOrderPipes;
+    obstacle.zOrder = DrawingOrderObstacle;
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
@@ -171,6 +195,7 @@ static MainScene *inst = nil;
         [MainScene instance].obstacleCount = 0;
         _gameOver = TRUE;
         _restartButton.visible = TRUE;
+        _abilityButton.visible = FALSE;
 //        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
         [_hero stopAllActions];
@@ -185,6 +210,24 @@ static MainScene *inst = nil;
 - (void)restart {
     CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+- (void)ability {
+    _hero.physicsBody.collisionType = @"";
+    CGFloat speedBefore = _scrollSpeed;
+    [MainScene instance].abilityUse = YES;
+    _scrollSpeed = 500.f;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //Here your non-main thread.
+        [NSThread sleepForTimeInterval:5.0f];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            //Here you returns to main thread.
+//            _scrollSpeed = speedBefore;
+            _scrollSpeed = speedBefore;
+            [MainScene instance].abilityUse = NO;
+            _hero.physicsBody.collisionType = @"hero";
+        });
+    });
 }
 
 - (void)swipeLeft {

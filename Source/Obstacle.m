@@ -65,7 +65,7 @@
             lane2 = [self getLane];
         } while ( lane1 == lane2 );
         
-        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:175.f];
+        [MainScene instance].level = [NSNumber numberWithInt:1];
         [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
@@ -74,7 +74,7 @@
     } else if (level == 2) {
         lane1 = [self getLane];
         
-        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:175.f];
+        [MainScene instance].level = [NSNumber numberWithInt:2];
         [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
@@ -82,7 +82,7 @@
     } else if (level == 3) {
         lane1 = [self getLane];
         
-        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:210.f];
+        [MainScene instance].level = [NSNumber numberWithInt:3];
         [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
@@ -90,7 +90,7 @@
     } else if (level == 4) {
         lane1 = [self getLane];
         
-        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:210.f];
+        [MainScene instance].level = [NSNumber numberWithInt:4];
         [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
         
         [self removeBlock:lane1];
@@ -98,7 +98,7 @@
     } else if (level == 5) {
         lane1 = [self getLane];
         
-        [MainScene instance].scrollingSpeed = [NSNumber numberWithFloat:210.f];
+        [MainScene instance].level = [NSNumber numberWithInt:5];
         [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
         
         [self removeBlock:lane1];
