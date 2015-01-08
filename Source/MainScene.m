@@ -223,6 +223,7 @@ static MainScene *inst = nil;
         [MainScene instance].obstacleCount = 0;
         _gameOver = TRUE;
         _abilityButton.visible = FALSE;
+        _pause.visible = FALSE;
         _restartButton.visible = TRUE;
         _backButton.visible = TRUE;
 //        _hero.rotation = 90.f;
