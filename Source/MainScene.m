@@ -18,7 +18,7 @@ static MainScene *inst = nil;
     CCPhysicsNode *_physicsNode;
     CCNode *_ground1;
     CCNode *_ground2;
-    CCNode *_hero;
+    CCSprite *_hero;
     
     CCButton *_restartButton;
     CCButton *_abilityButton;
@@ -58,6 +58,9 @@ static MainScene *inst = nil;
     distanceBetweenObstacles = 250.f;
     
     [MainScene instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
+    
+    CCSpriteFrame *car1 = [CCSpriteFrame frameWithImageNamed:@"Delivery/Jeep.png"];
+    [_hero setSpriteFrame:car1];
     
 //    _scrollSpeed = 100.f;
     
