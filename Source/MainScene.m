@@ -311,7 +311,12 @@ static MainScene *inst = nil;
             } else {
                 byPoint = ccp(-64, 0);
             }
-            [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
+            CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.075 position:byPoint];
+            CCActionRotateBy *rotateBy = [CCActionRotateBy actionWithDuration:0.0375 angle:-45];
+            CCActionInterval *rotateByReverse = [rotateBy reverse];
+            CCActionSequence *swipe = [CCActionSequence actionWithArray:@[rotateBy, moveBy, rotateByReverse]];
+            
+            [_hero runAction:swipe];
         }
     }
 }
@@ -326,7 +331,12 @@ static MainScene *inst = nil;
             } else {
                 byPoint = ccp(64, 0);
             }
-            [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
+            CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.075 position:byPoint];
+            CCActionRotateBy *rotateBy = [CCActionRotateBy actionWithDuration:0.0375 angle:45];
+            CCActionInterval *rotateByReverse = [rotateBy reverse];
+            CCActionSequence *swipe = [CCActionSequence actionWithArray:@[rotateBy, moveBy, rotateByReverse]];
+            
+            [_hero runAction:swipe];
         }
     }
     
