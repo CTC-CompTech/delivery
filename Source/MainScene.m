@@ -68,10 +68,16 @@ static MainScene *inst = nil;
     CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
     
     CCSpriteFrame *pickupTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Pickup Truck.png"];
-    [_hero setSpriteFrame:policeCar];
+    
+    CCSpriteFrame *sportsCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Sports Car.png"];
+    [_hero setSpriteFrame:sportsCar];
     
     if (_hero.spriteFrame == jeep || policeCar || pickupTruck) {
         _abilityButton.visible = FALSE;
+    }
+    
+    if (_hero.spriteFrame == sportsCar) {
+        _abilityButton.visible = TRUE;
     }
     
 //    _scrollSpeed = 100.f;
