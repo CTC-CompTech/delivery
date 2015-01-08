@@ -22,6 +22,7 @@ static MainScene *inst = nil;
     
     CCButton *_restartButton;
     CCButton *_abilityButton;
+    CCButton *_backButton;
     
     BOOL _gameOver;
     CGFloat _scrollSpeed;
@@ -196,6 +197,7 @@ static MainScene *inst = nil;
         _gameOver = TRUE;
         _abilityButton.visible = FALSE;
         _restartButton.visible = TRUE;
+        _backButton.visible = TRUE;
 //        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
         [_hero stopAllActions];
@@ -211,6 +213,11 @@ static MainScene *inst = nil;
 
 - (void)restart {
     CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
+    [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+- (void)backMenu {
+    CCScene *scene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] replaceScene:scene];
 }
 
