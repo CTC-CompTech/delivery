@@ -59,8 +59,16 @@ static MainScene *inst = nil;
     
     [MainScene instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
     
-    CCSpriteFrame *car1 = [CCSpriteFrame frameWithImageNamed:@"Delivery/Jeep.png"];
-    [_hero setSpriteFrame:car1];
+    CCSpriteFrame *jeep = [CCSpriteFrame frameWithImageNamed:@"Delivery/Jeep.png"];
+    
+    CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
+    
+    CCSpriteFrame *pickupTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Pickup Truck.png"];
+    [_hero setSpriteFrame:policeCar];
+    
+    if (_hero.spriteFrame == jeep || policeCar || pickupTruck) {
+        _abilityButton.visible = FALSE;
+    }
     
 //    _scrollSpeed = 100.f;
     
