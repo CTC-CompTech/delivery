@@ -21,12 +21,14 @@ static MainScene *inst = nil;
     CCSprite *_hero;
     
     CCSprite *_difficulty;
+    CCSprite *_pause;
     
     CCButton *_restartButton;
     CCButton *_abilityButton;
     CCButton *_backButton;
     
     BOOL _gameOver;
+    BOOL _paused;
     CGFloat _scrollSpeed;
     CGFloat distanceBetweenObstacles;
     
@@ -120,27 +122,29 @@ static MainScene *inst = nil;
     distanceBetweenObstacles = [[MainScene instance].obstacleDistance floatValue];
     
     if (_gameOver != YES) {
-        if ([MainScene instance].abilityUse == NO) {
-            if ([MainScene instance].level == [NSNumber numberWithInt:1]) {
-                _scrollSpeed = 175.f;
-                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Easy.png"];
-                [_difficulty setSpriteFrame:bar];
-            } else if ([MainScene instance].level == [NSNumber numberWithInt:2]) {
-                _scrollSpeed = 175.f;
-                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Okay.png"];
-                [_difficulty setSpriteFrame:bar];
-            } else if ([MainScene instance].level == [NSNumber numberWithInt:3]) {
-                _scrollSpeed = 210.f;
-                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Decent.png"];
-                [_difficulty setSpriteFrame:bar];
-            } else if ([MainScene instance].level == [NSNumber numberWithInt:4]) {
-                _scrollSpeed = 210.f;
-                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Close.png"];
-                [_difficulty setSpriteFrame:bar];
-            } else if ([MainScene instance].level == [NSNumber numberWithInt:5]) {
-                _scrollSpeed = 210.f;
-                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Max.png"];
-                [_difficulty setSpriteFrame:bar];
+        if (_paused != YES) {
+            if ([MainScene instance].abilityUse == NO) {
+                if ([MainScene instance].level == [NSNumber numberWithInt:1]) {
+                    _scrollSpeed = 175.f;
+                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Easy.png"];
+                    [_difficulty setSpriteFrame:bar];
+                } else if ([MainScene instance].level == [NSNumber numberWithInt:2]) {
+                    _scrollSpeed = 175.f;
+                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Okay.png"];
+                    [_difficulty setSpriteFrame:bar];
+                } else if ([MainScene instance].level == [NSNumber numberWithInt:3]) {
+                    _scrollSpeed = 210.f;
+                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Decent.png"];
+                    [_difficulty setSpriteFrame:bar];
+                } else if ([MainScene instance].level == [NSNumber numberWithInt:4]) {
+                    _scrollSpeed = 210.f;
+                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Close.png"];
+                    [_difficulty setSpriteFrame:bar];
+                } else if ([MainScene instance].level == [NSNumber numberWithInt:5]) {
+                    _scrollSpeed = 210.f;
+                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Max.png"];
+                    [_difficulty setSpriteFrame:bar];
+                }
             }
         }
     } else {
@@ -234,6 +238,12 @@ static MainScene *inst = nil;
     }
 }
 
+/*///////////////////////////////////////////
+*
+* Buttons
+*
+///////////////////////////////////////////*/
+
 - (void)restart {
     CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] replaceScene:scene];
@@ -242,6 +252,26 @@ static MainScene *inst = nil;
 - (void)backMenu {
     CCScene *scene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] replaceScene:scene];
+}
+
+- (void)pause {
+    CGFloat speedBefore = _scrollSpeed;
+    BOOL abilityHide = _abilityButton.visible;
+    if (_paused == NO) {
+        _paused = YES;
+        _scrollSpeed = 0.f;
+        _abilityButton.visible = FALSE;
+        _difficulty.visible = FALSE;
+    } else {
+        _paused = NO;
+        _scrollSpeed = speedBefore;
+        
+        if (abilityHide == YES) {
+            _abilityButton.visible = TRUE;
+        }
+        
+        _difficulty.visible = TRUE;
+    }
 }
 
 - (void)ability {
@@ -273,26 +303,30 @@ static MainScene *inst = nil;
 - (void)swipeLeft {
 //    CCLOG(@"swipeLeft");
     if (!_gameOver) {
-        CGPoint byPoint;
-        if (_hero.position.x <= 50) {
-            byPoint = ccp(0, 0);
-        } else {
-            byPoint = ccp(-64, 0);
+        if (!_paused) {
+            CGPoint byPoint;
+            if (_hero.position.x <= 50) {
+                byPoint = ccp(0, 0);
+            } else {
+                byPoint = ccp(-64, 0);
+            }
+            [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
         }
-    [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
     }
 }
 
 - (void)swipeRight {
 //    CCLOG(@"swipeRight");
     if (!_gameOver) {
-        CGPoint byPoint;
-        if (_hero.position.x >= 250) {
-            byPoint = ccp(0, 0);
-        } else {
-            byPoint = ccp(64, 0);
+        if (!_paused) {
+            CGPoint byPoint;
+            if (_hero.position.x >= 250) {
+                byPoint = ccp(0, 0);
+            } else {
+                byPoint = ccp(64, 0);
+            }
+            [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
         }
-    [_hero runAction:[CCActionMoveBy actionWithDuration:0.075 position:byPoint]];
     }
     
 }
