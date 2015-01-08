@@ -20,6 +20,8 @@ static MainScene *inst = nil;
     CCNode *_ground2;
     CCSprite *_hero;
     
+    CCSprite *_difficulty;
+    
     CCButton *_restartButton;
     CCButton *_abilityButton;
     CCButton *_backButton;
@@ -121,14 +123,24 @@ static MainScene *inst = nil;
         if ([MainScene instance].abilityUse == NO) {
             if ([MainScene instance].level == [NSNumber numberWithInt:1]) {
                 _scrollSpeed = 175.f;
+                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Easy.png"];
+                [_difficulty setSpriteFrame:bar];
             } else if ([MainScene instance].level == [NSNumber numberWithInt:2]) {
                 _scrollSpeed = 175.f;
+                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Okay.png"];
+                [_difficulty setSpriteFrame:bar];
             } else if ([MainScene instance].level == [NSNumber numberWithInt:3]) {
                 _scrollSpeed = 210.f;
+                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Decent.png"];
+                [_difficulty setSpriteFrame:bar];
             } else if ([MainScene instance].level == [NSNumber numberWithInt:4]) {
                 _scrollSpeed = 210.f;
+                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Close.png"];
+                [_difficulty setSpriteFrame:bar];
             } else if ([MainScene instance].level == [NSNumber numberWithInt:5]) {
                 _scrollSpeed = 210.f;
+                CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Max.png"];
+                [_difficulty setSpriteFrame:bar];
             }
         }
     } else {

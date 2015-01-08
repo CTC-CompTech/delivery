@@ -14,6 +14,8 @@
     CCNode *_block3;
     CCNode *_block4;
     CCNode *_block5;
+    
+    CCSprite *_difficulty;
 }
 
 - (void)didLoadFromCCB {
