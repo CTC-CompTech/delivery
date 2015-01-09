@@ -301,7 +301,7 @@ static MainScene *inst = nil;
 //            _scrollSpeed = speedBefore;
             _scrollSpeed = speedBefore;
             [MainScene instance].abilityUse = NO;
-            _fireBall.visible = FALSE;
+            [_fireBall stopSystem];
             // Speed may land on obstacle -- Give longer invinciblility
             [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
         });
@@ -312,6 +312,7 @@ static MainScene *inst = nil;
     CCLOG(@"Invincibility ended.");
     _hero.physicsBody.collisionType = @"hero";
     _abilityButton.visible = TRUE;
+//    _fireBall.visible = FALSE;
 }
 
 - (void)swipeLeft {
