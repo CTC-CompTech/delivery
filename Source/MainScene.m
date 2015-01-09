@@ -14,6 +14,14 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 static MainScene *inst = nil;
 
+@interface MainScene ()
+
+@property (strong, nonatomic) CCSpriteFrame *heroFrame;
+
+@property (strong, nonatomic) CCSpriteFrame *policeCarFrame;
+
+@end
+
 @implementation MainScene {
     CCPhysicsNode *_physicsNode;
     CCNode *_ground1;
@@ -28,6 +36,10 @@ static MainScene *inst = nil;
     CCButton *_restartButton;
     CCButton *_abilityButton;
     CCButton *_backButton;
+    
+    CCNode *_heartHolder;
+    CCNode *_heartRight;
+    CCNode *_heartLeft;
     
     BOOL _gameOver;
     BOOL _paused;
@@ -68,13 +80,16 @@ static MainScene *inst = nil;
     CCSpriteFrame *jeep = [CCSpriteFrame frameWithImageNamed:@"Delivery/Jeep.png"];
     
     CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
+    self.policeCarFrame = policeCar;
     
     CCSpriteFrame *pickupTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Pickup Truck.png"];
     
     CCSpriteFrame *sportsCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Sports Car.png"];
     
     CCSpriteFrame *lightRunner = [CCSpriteFrame frameWithImageNamed:@"Delivery/Light Runner.png"];
-    [_hero setSpriteFrame:sportsCar];
+    
+    [_hero setSpriteFrame:policeCar];
+    self.heroFrame = _hero.spriteFrame;
     
     if (_hero.spriteFrame == jeep || policeCar || pickupTruck || lightRunner) {
         _abilityButton.visible = FALSE;
@@ -82,6 +97,18 @@ static MainScene *inst = nil;
     
     if (_hero.spriteFrame == sportsCar) {
         _abilityButton.visible = TRUE;
+    }
+    
+    if (_hero.spriteFrame == jeep || sportsCar || pickupTruck || lightRunner) {
+        _heartHolder.visible = FALSE;
+        _heartLeft.visible = FALSE;
+        _heartRight.visible = FALSE;
+    }
+    
+    if (_hero.spriteFrame == policeCar) {
+        _heartHolder.visible = TRUE;
+        _heartLeft.visible = TRUE;
+        _heartRight.visible = TRUE;
     }
     
 //    _scrollSpeed = 100.f;
@@ -224,8 +251,21 @@ static MainScene *inst = nil;
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
-    [self gameOver];
-    return TRUE;
+    
+    // Check for two hearts car
+    if (self.heroFrame == self.policeCarFrame && _heartLeft.opacity == 1) {
+        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
+        [_heartLeft runAction:fade];
+        return FALSE;
+    } else {
+        if (self.heroFrame == self.policeCarFrame) {
+            CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
+            [_heartRight runAction:fade];
+        }
+        
+        [self gameOver];
+        return TRUE;
+    }
 }
 
 - (void)gameOver {
