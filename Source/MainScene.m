@@ -23,6 +23,8 @@ static MainScene *inst = nil;
     CCSprite *_difficulty;
     CCSprite *_pause;
     
+    CCParticleSystemBase *_fireBall;
+    
     CCButton *_restartButton;
     CCButton *_abilityButton;
     CCButton *_backButton;
@@ -284,6 +286,8 @@ static MainScene *inst = nil;
 - (void)ability {
     _hero.physicsBody.collisionType = @"";
     _abilityButton.visible = FALSE;
+    _fireBall.visible = TRUE;
+   [_fireBall resetSystem];
     CGFloat speedBefore = _scrollSpeed;
     [MainScene instance].abilityUse = YES;
     _scrollSpeed = 500.f;
@@ -295,6 +299,7 @@ static MainScene *inst = nil;
 //            _scrollSpeed = speedBefore;
             _scrollSpeed = speedBefore;
             [MainScene instance].abilityUse = NO;
+            _fireBall.visible = FALSE;
             // Speed may land on obstacle -- Give longer invinciblility
             [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
         });
