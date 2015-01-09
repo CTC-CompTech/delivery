@@ -72,7 +72,9 @@ static MainScene *inst = nil;
     CCSpriteFrame *pickupTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Pickup Truck.png"];
     
     CCSpriteFrame *sportsCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Sports Car.png"];
-    [_hero setSpriteFrame:sportsCar];
+    
+    CCSpriteFrame *lightRunner = [CCSpriteFrame frameWithImageNamed:@"Delivery/Light Runner.png"];
+    [_hero setSpriteFrame:lightRunner];
     
     if (_hero.spriteFrame == jeep || policeCar || pickupTruck) {
         _abilityButton.visible = FALSE;
