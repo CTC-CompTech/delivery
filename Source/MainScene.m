@@ -32,6 +32,8 @@ static MainScene *inst = nil;
     CCSprite *_pause;
     
     CCParticleSystemBase *_fireBall;
+    CCParticleSystemBase *_particleHeartR;
+    CCParticleSystemBase *_particleHeartL;
     
     CCButton *_restartButton;
     CCButton *_abilityButton;
@@ -254,11 +256,15 @@ static MainScene *inst = nil;
     
     // Check for two hearts car
     if (self.heroFrame == self.policeCarFrame && _heartLeft.opacity == 1) {
+        _particleHeartL.visible = TRUE;
+        [_particleHeartL resetSystem];
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
         [_heartLeft runAction:fade];
         return FALSE;
     } else {
         if (self.heroFrame == self.policeCarFrame) {
+            _particleHeartR.visible = TRUE;
+            [_particleHeartR resetSystem];
             CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
             [_heartRight runAction:fade];
         }
