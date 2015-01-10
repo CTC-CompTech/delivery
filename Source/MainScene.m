@@ -88,7 +88,7 @@ static MainScene *inst = nil;
     
     CCSpriteFrame *lightRunner = [CCSpriteFrame frameWithImageNamed:@"Delivery/Light Runner.png"];
     
-    [_hero setSpriteFrame:policeCar];
+    [_hero setSpriteFrame:lightRunner];
     self.heroFrame = _hero.spriteFrame;
     
     if (_hero.spriteFrame == jeep || policeCar || pickupTruck || lightRunner) {
