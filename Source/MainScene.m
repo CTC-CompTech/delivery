@@ -377,6 +377,9 @@ static MainScene *inst = nil;
             CCActionSequence *swipe = [CCActionSequence actionWithArray:@[rotateBy, moveBy, rotateByReverse]];
             
             [_hero runAction:swipe];
+            
+            // Make it so car cannot "drift"
+            [self performSelector:@selector(setZeroLeft) withObject:nil afterDelay:0.085];
         }
     }
 }
@@ -397,9 +400,20 @@ static MainScene *inst = nil;
             CCActionSequence *swipe = [CCActionSequence actionWithArray:@[rotateBy, moveBy, rotateByReverse]];
             
             [_hero runAction:swipe];
+            
+            // Make it so car cannot "drift"
+            [self performSelector:@selector(setZeroRight) withObject:nil afterDelay:0.085];
         }
     }
     
+}
+
+- (void)setZeroRight {
+    _hero.rotation = -45.f;
+}
+
+- (void)setZeroLeft {
+    _hero.rotation = 45.f;
 }
 
 @end
