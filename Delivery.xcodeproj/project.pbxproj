@@ -15,6 +15,7 @@
 		5B12102A197484DD004C1E1D /* DeliveryActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* DeliveryActivity.java */; };
 		5B121030197484FA004C1E1D /* DeliveryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* DeliveryActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
+		60DB055A1A6327660049A94C /* CarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB05591A6327660049A94C /* CarMenu.m */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
 		7A4036E819DE3F33007B6E8F /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
@@ -190,6 +191,8 @@
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
 		5B121034197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/iOS/Info.plist; sourceTree = "<group>"; };
 		5BA4619E1974C88900785744 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AndroidManifest.xml; path = Platforms/Android/AndroidManifest.xml; sourceTree = "<group>"; };
+		60DB05581A6327660049A94C /* CarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarMenu.h; path = Source/CarMenu.h; sourceTree = "<group>"; };
+		60DB05591A6327660049A94C /* CarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarMenu.m; path = Source/CarMenu.m; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* Delivery Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
 		7A40360319DDEE84007B6E8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Platforms/Mac/main.m; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				60DB05581A6327660049A94C /* CarMenu.h */,
+				60DB05591A6327660049A94C /* CarMenu.m */,
 				4D581C291A62284400DD1137 /* Goal.h */,
 				4D581C2A1A62284400DD1137 /* Goal.m */,
 				4D2F09461A53304300B4E947 /* Obstacle.h */,
@@ -879,6 +884,7 @@
 				4D581C2B1A62284400DD1137 /* Goal.m in Sources */,
 				4DA91FF41A5A41D900982339 /* Menu.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				60DB055A1A6327660049A94C /* CarMenu.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				4D2F09481A53304300B4E947 /* Obstacle.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
