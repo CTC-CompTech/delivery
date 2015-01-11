@@ -43,10 +43,13 @@ static MainScene *inst = nil;
     CCNode *_heartRight;
     CCNode *_heartLeft;
     
+    CCLabelTTF *_scoreLabel;
+    
     BOOL _gameOver;
     BOOL _paused;
     CGFloat _scrollSpeed;
     CGFloat distanceBetweenObstacles;
+    NSInteger _points;
     
     CGPoint firstTouch;
     CGPoint lastTouch;
@@ -252,6 +255,12 @@ static MainScene *inst = nil;
     obstacle.zOrder = DrawingOrderObstacle;
 }
 
+/*///////////////////////////////////////////
+ *
+ * Collisions
+ *
+ ///////////////////////////////////////////*/
+
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
     
     // Check for two hearts car
@@ -272,6 +281,13 @@ static MainScene *inst = nil;
         [self gameOver];
         return TRUE;
     }
+}
+
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
+    [goal removeFromParent];
+    _points++;
+    _scoreLabel.string = [NSString stringWithFormat:@"%ld", (long)_points];
+    return TRUE;
 }
 
 - (void)gameOver {
