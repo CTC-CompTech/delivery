@@ -413,7 +413,7 @@ static MainScene *inst = nil;
 }
 
 - (void)setZeroLeft {
-    _hero.rotation = 45.f;
+    _hero.rotation = -135.f;
 }
 
 @end
