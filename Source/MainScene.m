@@ -93,7 +93,7 @@ static MainScene *inst = nil;
     
     CCSpriteFrame *lightRunner = [CCSpriteFrame frameWithImageNamed:@"Delivery/Light Runner.png"];
     
-    [_hero setSpriteFrame:lightRunner];
+    [_hero setSpriteFrame:sportsCar];
     self.heroFrame = _hero.spriteFrame;
     
     if (_hero.spriteFrame == jeep || policeCar || pickupTruck || lightRunner) {
@@ -290,6 +290,13 @@ static MainScene *inst = nil;
     return TRUE;
 }
 
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ability:(CCNode *)hero goal:(CCNode *)goal {
+    [goal removeFromParent];
+    _points++;
+    _scoreLabel.string = [NSString stringWithFormat:@"%ld", (long)_points];
+    return TRUE;
+}
+
 - (void)gameOver {
     if (!_gameOver) {
         [MainScene instance].obstacleCount = 0;
@@ -348,7 +355,7 @@ static MainScene *inst = nil;
 }
 
 - (void)ability {
-    _hero.physicsBody.collisionType = @"";
+    _hero.physicsBody.collisionType = @"ability";
     _abilityButton.visible = FALSE;
     _fireBall.visible = TRUE;
    [_fireBall resetSystem];
