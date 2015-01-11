@@ -15,4 +15,9 @@
     [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:2]];
 }
 
+- (void)cars {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
+    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:2]];
+}
+
 @end
