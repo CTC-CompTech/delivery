@@ -118,7 +118,7 @@ static MainScene *inst = nil;
     
 //    _scrollSpeed = 100.f;
     
-    // set this class as delegate
+    // set this class as delegate 
     _physicsNode.collisionDelegate = self;
     // set collision txpe
     _hero.physicsBody.collisionType = @"hero";
