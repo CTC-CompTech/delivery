@@ -143,6 +143,7 @@ static MainScene *inst = nil;
     UISwipeGestureRecognizer * swipeRight= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeRight)];
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [[[CCDirector sharedDirector] view] addGestureRecognizer:swipeRight];
+    
 }
 
 - (void)update:(CCTime)delta {
@@ -162,6 +163,12 @@ static MainScene *inst = nil;
     
     // Constants
     distanceBetweenObstacles = [[MainScene instance].obstacleDistance floatValue];
+    
+    if (_hero.position.x < 0) {
+        [_hero stopAllActions];
+        _hero.position = ccp(160, _hero.position.y);
+        _hero.rotation = -90;
+    }
     
     if (_gameOver != YES) {
         if (_paused != YES) {
