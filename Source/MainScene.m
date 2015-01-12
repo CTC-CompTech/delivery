@@ -164,8 +164,6 @@ static MainScene *inst = nil;
     // Constants
     distanceBetweenObstacles = [[MainScene instance].obstacleDistance floatValue];
     
-    NSLog(@"%f", _hero.position.x);
-    
     if (_hero.position.x < 0 || _hero.position.x > 320) {
         [_hero stopAllActions];
         _hero.position = ccp(160, _hero.position.y);
@@ -351,6 +349,11 @@ static MainScene *inst = nil;
         _scrollSpeed = 0.f;
         _abilityButton.visible = FALSE;
         _difficulty.visible = FALSE;
+        
+        // Fix ability pause
+        [_fireBall stopSystem];
+//        _fireBall.visible = FALSE;
+        
     } else {
         _paused = NO;
         _scrollSpeed = speedBefore;
@@ -368,22 +371,37 @@ static MainScene *inst = nil;
     _abilityButton.visible = FALSE;
     _fireBall.visible = TRUE;
    [_fireBall resetSystem];
-    CGFloat speedBefore = _scrollSpeed;
+    NSNumber *speedBefore = [NSNumber numberWithFloat:_scrollSpeed];
     [MainScene instance].abilityUse = YES;
     _scrollSpeed = 500.f;
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //Here your non-main thread.
-        [NSThread sleepForTimeInterval:5.0f];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            //Here you returns to main thread.
-//            _scrollSpeed = speedBefore;
-            _scrollSpeed = speedBefore;
-            [MainScene instance].abilityUse = NO;
-            [_fireBall stopSystem];
-            // Speed may land on obstacle -- Give longer invinciblility
-            [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
-        });
-    });
+    
+    [self performSelector:@selector(abilityStop:) withObject:speedBefore afterDelay:5.0];
+    
+//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        //Here your non-main thread.
+//        [NSThread sleepForTimeInterval:5.0f];
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            //Here you returns to main thread.
+////            _scrollSpeed = speedBefore;
+////            _scrollSpeed = speedBefore;
+//            [MainScene instance].abilityUse = NO;
+//            [_fireBall stopSystem];
+//            // Speed may land on obstacle -- Give longer invinciblility
+//            [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
+//        });
+//    });
+}
+
+- (void)abilityStop:(NSNumber*)speedBefore {
+    
+    CGFloat speed = [speedBefore floatValue];
+    
+        _scrollSpeed = speed;
+        [MainScene instance].abilityUse = NO;
+        [_fireBall stopSystem];
+        // Speed may land on obstacle -- Give longer invinciblility
+        [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
+        
 }
 
 - (void)delayPerfect {
