@@ -164,7 +164,9 @@ static MainScene *inst = nil;
     // Constants
     distanceBetweenObstacles = [[MainScene instance].obstacleDistance floatValue];
     
-    if (_hero.position.x < 0) {
+    NSLog(@"%f", _hero.position.x);
+    
+    if (_hero.position.x < 0 || _hero.position.x > 320) {
         [_hero stopAllActions];
         _hero.position = ccp(160, _hero.position.y);
         _hero.rotation = -90;
