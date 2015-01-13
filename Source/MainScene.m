@@ -20,6 +20,8 @@ static MainScene *inst = nil;
 
 @property (strong, nonatomic) CCSpriteFrame *policeCarFrame;
 
+@property BOOL shouldAbility;
+
 @end
 
 @implementation MainScene {
@@ -102,6 +104,7 @@ static MainScene *inst = nil;
     
     if (_hero.spriteFrame == sportsCar) {
         _abilityButton.visible = TRUE;
+        self.shouldAbility = YES;
     }
     
     if (_hero.spriteFrame == jeep || sportsCar || pickupTruck || lightRunner) {
@@ -343,7 +346,6 @@ static MainScene *inst = nil;
 
 - (void)pause {
     CGFloat speedBefore = _scrollSpeed;
-    BOOL abilityHide = _abilityButton.visible;
     if (_paused == NO) {
         _paused = YES;
         _scrollSpeed = 0.f;
@@ -358,7 +360,7 @@ static MainScene *inst = nil;
         _paused = NO;
         _scrollSpeed = speedBefore;
         
-        if (abilityHide == YES) {
+        if (self.shouldAbility == YES) {
             _abilityButton.visible = TRUE;
         }
         
@@ -396,12 +398,18 @@ static MainScene *inst = nil;
     
     CGFloat speed = [speedBefore floatValue];
     
+    if (_paused == NO) {
         _scrollSpeed = speed;
-        [MainScene instance].abilityUse = NO;
-        [_fireBall stopSystem];
-        // Speed may land on obstacle -- Give longer invinciblility
         [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
-        
+    } else {
+        _hero.physicsBody.collisionType = @"hero";
+    }
+    
+    [MainScene instance].abilityUse = NO;
+    [_fireBall stopSystem];
+    // Speed may land on obstacle -- Give longer invinciblility
+//    [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
+    
 }
 
 - (void)delayPerfect {
