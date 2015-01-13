@@ -106,24 +106,21 @@ static MainScene *inst = nil;
         self.heroFrame = _hero.spriteFrame;
     }
     
-    if (_hero.spriteFrame == jeep || policeCar || pickupTruck || lightRunner) {
+    
+    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Sports Car.png"]) {
+        _abilityButton.visible = TRUE;
+    } else {
         _abilityButton.visible = FALSE;
     }
     
-    if (_hero.spriteFrame == sportsCar) {
-        _abilityButton.visible = TRUE;
-    }
-    
-    if (_hero.spriteFrame == jeep || sportsCar || pickupTruck || lightRunner) {
-        _heartHolder.visible = FALSE;
-        _heartLeft.visible = FALSE;
-        _heartRight.visible = FALSE;
-    }
-    
-    if (_hero.spriteFrame == policeCar) {
+    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"]) {
         _heartHolder.visible = TRUE;
         _heartLeft.visible = TRUE;
         _heartRight.visible = TRUE;
+    } else {
+        _heartHolder.visible = FALSE;
+        _heartLeft.visible = FALSE;
+        _heartRight.visible = FALSE;
     }
     
 //    _scrollSpeed = 100.f;
