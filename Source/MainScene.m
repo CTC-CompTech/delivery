@@ -83,11 +83,11 @@ static MainScene *inst = nil;
     distanceBetweenObstacles = 250.f;
     
     [MainScene instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
-        
+    
+    
+    // Selcted car functions
     CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
     self.policeCarFrame = policeCar;
-    
-    CCSpriteFrame *sportsCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Sports Car.png"];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"selectedCar"] == nil) {
@@ -100,11 +100,6 @@ static MainScene *inst = nil;
         CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
         [_hero setSpriteFrame:car];
         self.heroFrame = _hero.spriteFrame;
-    }
-    
-    if (_hero.spriteFrame == sportsCar) {
-        _abilityButton.visible = TRUE;
-        self.shouldAbility = YES;
     }
     
     if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Sports Car.png"]) {
@@ -123,7 +118,8 @@ static MainScene *inst = nil;
         _heartRight.visible = FALSE;
     }
     
-//    _scrollSpeed = 100.f;
+    // <-- End selected car ---> \\
+    
     
     // set this class as delegate
     _physicsNode.collisionDelegate = self;
@@ -278,14 +274,15 @@ static MainScene *inst = nil;
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
     
     // Check for two hearts car
-    if (self.heroFrame == self.policeCarFrame && _heartLeft.opacity == 1) {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"] && _heartLeft.opacity == 1) {
         _particleHeartL.visible = TRUE;
         [_particleHeartL resetSystem];
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
         [_heartLeft runAction:fade];
         return FALSE;
     } else {
-        if (self.heroFrame == self.policeCarFrame) {
+        if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"]) {
             _particleHeartR.visible = TRUE;
             [_particleHeartR resetSystem];
             CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
