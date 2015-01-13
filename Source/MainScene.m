@@ -416,7 +416,8 @@ static MainScene *inst = nil;
 - (void)delayPerfect {
     CCLOG(@"Invincibility ended.");
     _hero.physicsBody.collisionType = @"hero";
-    _abilityButton.visible = TRUE;
+    _abilityButton.visible = FALSE;
+    });
 //    _fireBall.visible = FALSE;
 }
 
