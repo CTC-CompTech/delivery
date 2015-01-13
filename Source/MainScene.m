@@ -93,8 +93,18 @@ static MainScene *inst = nil;
     
     CCSpriteFrame *lightRunner = [CCSpriteFrame frameWithImageNamed:@"Delivery/Light Runner.png"];
     
-    [_hero setSpriteFrame:sportsCar];
-    self.heroFrame = _hero.spriteFrame;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"selectedCar"] == nil) {
+        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
+        [_hero setSpriteFrame:defaultCar];
+        self.heroFrame = _hero.spriteFrame;
+    } else {
+        NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
+        
+        CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
+        [_hero setSpriteFrame:car];
+        self.heroFrame = _hero.spriteFrame;
+    }
     
     if (_hero.spriteFrame == jeep || policeCar || pickupTruck || lightRunner) {
         _abilityButton.visible = FALSE;
