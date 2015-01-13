@@ -436,7 +436,6 @@ static MainScene *inst = nil;
             }
         }
     }
-
 }
 
 - (void)swipeLeft {
