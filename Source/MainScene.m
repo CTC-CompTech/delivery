@@ -46,6 +46,7 @@ static MainScene *inst = nil;
     CCNode *_heartLeft;
     
     CCLabelTTF *_scoreLabel;
+    CCLabelTTF *_cooldownTimer;
     
     BOOL _gameOver;
     BOOL _paused;
@@ -366,6 +367,7 @@ static MainScene *inst = nil;
         }
         
         _difficulty.visible = TRUE;
+        
     }
 }
 
@@ -416,8 +418,25 @@ static MainScene *inst = nil;
 - (void)delayPerfect {
     CCLOG(@"Invincibility ended.");
     _hero.physicsBody.collisionType = @"hero";
-    _abilityButton.visible = TRUE;
-//    _fireBall.visible = FALSE;
+    
+    // Cooldown timer
+    _cooldownTimer.visible = TRUE;
+    NSInteger timer = [_cooldownTimer.string intValue];
+    timer--;
+    
+    if (timer > 0) {
+        _cooldownTimer.string = [NSString stringWithFormat:@"%ld", (long)timer];
+        [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
+    } else {
+        _cooldownTimer.visible = FALSE;
+        _cooldownTimer.string = @"10";
+        if (_gameOver == NO) {
+            if (_paused == NO) {
+                _abilityButton.visible = TRUE;
+            }
+        }
+    }
+
 }
 
 - (void)swipeLeft {
