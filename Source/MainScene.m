@@ -417,7 +417,6 @@ static MainScene *inst = nil;
     CCLOG(@"Invincibility ended.");
     _hero.physicsBody.collisionType = @"hero";
     _abilityButton.visible = FALSE;
-    });
 //    _fireBall.visible = FALSE;
 }
 
