@@ -83,23 +83,23 @@ static MainScene *inst = nil;
     distanceBetweenObstacles = 250.f;
     
     [MainScene instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
-    
-    CCSpriteFrame *jeep = [CCSpriteFrame frameWithImageNamed:@"Delivery/Jeep.png"];
-    
+        
     CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
     self.policeCarFrame = policeCar;
     
-    CCSpriteFrame *pickupTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Pickup Truck.png"];
-    
     CCSpriteFrame *sportsCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Sports Car.png"];
     
-    CCSpriteFrame *lightRunner = [CCSpriteFrame frameWithImageNamed:@"Delivery/Light Runner.png"];
-    
-    [_hero setSpriteFrame:sportsCar];
-    self.heroFrame = _hero.spriteFrame;
-    
-    if (_hero.spriteFrame == jeep || policeCar || pickupTruck || lightRunner) {
-        _abilityButton.visible = FALSE;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"selectedCar"] == nil) {
+        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
+        [_hero setSpriteFrame:defaultCar];
+        self.heroFrame = _hero.spriteFrame;
+    } else {
+        NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
+        
+        CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
+        [_hero setSpriteFrame:car];
+        self.heroFrame = _hero.spriteFrame;
     }
     
     if (_hero.spriteFrame == sportsCar) {
@@ -107,16 +107,20 @@ static MainScene *inst = nil;
         self.shouldAbility = YES;
     }
     
-    if (_hero.spriteFrame == jeep || sportsCar || pickupTruck || lightRunner) {
-        _heartHolder.visible = FALSE;
-        _heartLeft.visible = FALSE;
-        _heartRight.visible = FALSE;
+    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Sports Car.png"]) {
+        _abilityButton.visible = TRUE;
+    } else {
+        _abilityButton.visible = FALSE;
     }
     
-    if (_hero.spriteFrame == policeCar) {
+    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"]) {
         _heartHolder.visible = TRUE;
         _heartLeft.visible = TRUE;
         _heartRight.visible = TRUE;
+    } else {
+        _heartHolder.visible = FALSE;
+        _heartLeft.visible = FALSE;
+        _heartRight.visible = FALSE;
     }
     
 //    _scrollSpeed = 100.f;
