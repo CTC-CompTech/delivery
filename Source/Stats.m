@@ -26,5 +26,24 @@ static Stats *inst = nil;
     return inst;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    [coder encodeObject:_currentCoin forKey:@"currentCoin"];
+    [coder encodeObject:_totalCoin forKey:@"totalCoin"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    self = [super init];
+    if (self != nil)
+    {
+        _currentCoin = [coder decodeObjectForKey:@"currentCoin"];
+        _totalCoin = [coder decodeObjectForKey:@"totalCoin"];
+        
+    }
+    return self;
+}
+
+
 
 @end

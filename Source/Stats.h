@@ -15,6 +15,9 @@
 @property (retain, nonatomic) NSNumber *obstacleDistance;
 @property (retain, nonatomic) NSMutableArray *lasts;
 
+@property (retain, nonatomic) NSNumber *currentCoin;
+@property (retain, nonatomic) NSNumber *totalCoin;
+
 @property BOOL abilityUse;
 
 -(id)init;

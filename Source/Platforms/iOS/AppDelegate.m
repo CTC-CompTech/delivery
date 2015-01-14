@@ -28,6 +28,8 @@
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
 
+#import "Stats.h"
+
 @implementation AppController
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -52,6 +54,9 @@
     // Do any extra configuration of Cocos2d here (the example line changes the pixel format for faster rendering, but with less colors)
     //[cocos2dSetup setObject:kEAGLColorFormatRGB565 forKey:CCConfigPixelFormat];
     
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"stats"] != nil)
+        [self loadCustomObjectWithKey:@"stats"];
+    
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     return YES;
@@ -60,6 +65,40 @@
 - (CCScene*) startScene
 {
     return [CCBReader loadAsScene:@"Menu"];
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    
+    [[CCDirector sharedDirector] startAnimation];
+
+}
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // This needs to be here, otherwise this method won't work.
+    [[CCDirector sharedDirector] stopAnimation];
+    
+    Stats *stats = [[Stats alloc] init];
+    [self saveCustomObject:stats key:@"stats"];
+    
+}
+
+- (void)saveCustomObject:(Stats *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
+
+- (Stats *)loadCustomObjectWithKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:key];
+    Stats *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
 }
 
 @end
