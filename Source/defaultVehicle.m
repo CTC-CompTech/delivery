@@ -18,8 +18,10 @@
         _canUseAbility = true;
         _abilityTimeout = 0;
         _abilityCooldown = 5;
-        if ( (_carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Sports Car.png"]))
+        if ( !(_carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Sports Car.png"])){
+            NSLog(@"Broken Image!!!");
             return nil;
+        }
         else
             return self;
     
