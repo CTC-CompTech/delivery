@@ -90,6 +90,8 @@ static MainScene *inst = nil;
     CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
     self.policeCarFrame = policeCar;
     
+    self.shouldAbility = TRUE;
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"selectedCar"] == nil) {
         CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
@@ -379,6 +381,7 @@ static MainScene *inst = nil;
     NSNumber *speedBefore = [NSNumber numberWithFloat:_scrollSpeed];
     [MainScene instance].abilityUse = YES;
     _scrollSpeed = 500.f;
+    self.shouldAbility = FALSE;
     
     [self performSelector:@selector(abilityStop:) withObject:speedBefore afterDelay:5.0];
     
@@ -443,6 +446,7 @@ static MainScene *inst = nil;
         if (_gameOver == NO) {
             if (_paused == NO) {
                 _abilityButton.visible = TRUE;
+                self.shouldAbility = TRUE;
             }
         }
         
