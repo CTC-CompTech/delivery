@@ -326,6 +326,18 @@ static const CGFloat firstObstaclePosition = 450.f;
         _pause.visible = FALSE;
         _restartButton.visible = TRUE;
         _backButton.visible = TRUE;
+        
+        // Keep score
+        NSInteger intScore = [_scoreLabel.string integerValue];
+        NSInteger intTotal = [[Stats instance].totalCoin integerValue];
+        NSInteger intCurrent = [[Stats instance].currentCoin integerValue];
+        
+        NSNumber *scoreTotal = [NSNumber numberWithInteger:intScore + intTotal];
+        NSNumber *scoreCurrent = [NSNumber numberWithInteger:intScore + intCurrent];
+        
+        [Stats instance].totalCoin = scoreTotal;
+        [Stats instance].currentCoin = scoreCurrent;
+        
 //        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
         [_hero stopAllActions];
