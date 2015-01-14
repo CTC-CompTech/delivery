@@ -8,6 +8,7 @@
 
 #import "CCNode.h"
 #import "MainScene.h"
+#import "Stats.h"
 
 @interface Obstacle : CCNode
 

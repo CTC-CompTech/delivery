@@ -6,8 +6,18 @@
 //  Copyright (c) 2015 Apportable. All rights reserved.
 //
 
-#import "CCNode.h"
+#import <Foundation/Foundation.h>
 
-@interface Stats : CCNode
+@interface Stats : NSObject
+
+@property (retain, nonatomic) NSNumber *obstacleCount;
+@property (retain, nonatomic) NSNumber *level;
+@property (retain, nonatomic) NSNumber *obstacleDistance;
+@property (retain, nonatomic) NSMutableArray *lasts;
+
+@property BOOL abilityUse;
+
+-(id)init;
++(Stats*)instance;
 
 @end

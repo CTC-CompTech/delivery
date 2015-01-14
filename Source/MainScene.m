@@ -1,6 +1,7 @@
 #import "MainScene.h"
 #import "CCAnimation.h"
 #import "Obstacle.h"
+#import "Stats.h"
 
 typedef NS_ENUM(NSInteger, DrawingOrder) {
     DrawingOrderGround,
@@ -11,8 +12,6 @@ typedef NS_ENUM(NSInteger, DrawingOrder) {
 //static const CGFloat scrollSpeed = 100.f;
 static const CGFloat firstObstaclePosition = 450.f;
 //static const CGFloat distanceBetweenObstacles = 250.f;
-
-static MainScene *inst = nil;
 
 @interface MainScene ()
 
@@ -63,27 +62,27 @@ static MainScene *inst = nil;
     
 }
 
-- (id)init {
-    if(self=[super init]) {
-        self.obstacleCount = 0;
-    }
-    return self;
-}
-+ (MainScene*)instance {
-    if (!inst) {
-        inst = [[MainScene alloc] init];
-    }
-    return inst;
-}
+//- (id)init {
+//    if(self=[super init]) {
+//        self.obstacleCount = 0;
+//    }
+//    return self;
+//}
+//+ (MainScene*)instance {
+//    if (!inst) {
+//        inst = [[MainScene alloc] init];
+//    }
+//    return inst;
+//}
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
     
     // Launch constants
-    [MainScene instance].obstacleCount = 0;
+    [Stats instance].obstacleCount = 0;
     distanceBetweenObstacles = 250.f;
     
-    [MainScene instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
+    [Stats instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
     
     
     // Selcted car functions
@@ -167,7 +166,7 @@ static MainScene *inst = nil;
 //    }
     
     // Constants
-    distanceBetweenObstacles = [[MainScene instance].obstacleDistance floatValue];
+    distanceBetweenObstacles = [[Stats instance].obstacleDistance floatValue];
     
     if (_hero.position.x < 0 || _hero.position.x > 320) {
         [_hero stopAllActions];
@@ -177,24 +176,24 @@ static MainScene *inst = nil;
     
     if (_gameOver != YES) {
         if (_paused != YES) {
-            if ([MainScene instance].abilityUse == NO) {
-                if ([MainScene instance].level == [NSNumber numberWithInt:1]) {
+            if ([Stats instance].abilityUse == NO) {
+                if ([Stats instance].level == [NSNumber numberWithInt:1]) {
                     _scrollSpeed = 175.f;
                     CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Easy.png"];
                     [_difficulty setSpriteFrame:bar];
-                } else if ([MainScene instance].level == [NSNumber numberWithInt:2]) {
+                } else if ([Stats instance].level == [NSNumber numberWithInt:2]) {
                     _scrollSpeed = 175.f;
                     CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Okay.png"];
                     [_difficulty setSpriteFrame:bar];
-                } else if ([MainScene instance].level == [NSNumber numberWithInt:3]) {
+                } else if ([Stats instance].level == [NSNumber numberWithInt:3]) {
                     _scrollSpeed = 210.f;
                     CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Decent.png"];
                     [_difficulty setSpriteFrame:bar];
-                } else if ([MainScene instance].level == [NSNumber numberWithInt:4]) {
+                } else if ([Stats instance].level == [NSNumber numberWithInt:4]) {
                     _scrollSpeed = 210.f;
                     CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Close.png"];
                     [_difficulty setSpriteFrame:bar];
-                } else if ([MainScene instance].level == [NSNumber numberWithInt:5]) {
+                } else if ([Stats instance].level == [NSNumber numberWithInt:5]) {
                     _scrollSpeed = 210.f;
                     CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Max.png"];
                     [_difficulty setSpriteFrame:bar];
@@ -247,14 +246,14 @@ static MainScene *inst = nil;
     
     [obstacle setupRandomPosition];
     
-    if ([[MainScene instance].lasts count] == 2) {
-        if ([[MainScene instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:5] &&
-            [[MainScene instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:1]) {
+    if ([[Stats instance].lasts count] == 2) {
+        if ([[Stats instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:5] &&
+            [[Stats instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:1]) {
             
             obstacle.position = ccp(0, previousObstacleYPosition + 250.f);
             
-        } else if ([[MainScene instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:1] &&
-                   [[MainScene instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:5]) {
+        } else if ([[Stats instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:1] &&
+                   [[Stats instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:5]) {
             
             obstacle.position = ccp(0, previousObstacleYPosition + 250.f);
             
@@ -321,7 +320,7 @@ static MainScene *inst = nil;
 
 - (void)gameOver {
     if (!_gameOver) {
-        [MainScene instance].obstacleCount = 0;
+        [Stats instance].obstacleCount = 0;
         _gameOver = TRUE;
         _abilityButton.visible = FALSE;
         _pause.visible = FALSE;
@@ -387,7 +386,7 @@ static MainScene *inst = nil;
     _fireBall.visible = TRUE;
    [_fireBall resetSystem];
     NSNumber *speedBefore = [NSNumber numberWithFloat:_scrollSpeed];
-    [MainScene instance].abilityUse = YES;
+    [Stats instance].abilityUse = YES;
     _scrollSpeed = 500.f;
     self.shouldAbility = FALSE;
     
@@ -419,7 +418,7 @@ static MainScene *inst = nil;
         _hero.physicsBody.collisionType = @"hero";
     }
     
-    [MainScene instance].abilityUse = NO;
+    [Stats instance].abilityUse = NO;
     [_fireBall stopSystem];
     // Speed may land on obstacle -- Give longer invinciblility
 //    [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];

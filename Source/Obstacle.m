@@ -31,20 +31,20 @@
 
 - (void)setupRandomPosition {
     
-    int value = [[MainScene instance].obstacleCount intValue];
-    [MainScene instance].obstacleCount = [NSNumber numberWithInt:value + 1];
-//    NSLog(@"%@", [MainScene instance].obstacleCount);
+    int value = [[Stats instance].obstacleCount intValue];
+    [Stats instance].obstacleCount = [NSNumber numberWithInt:value + 1];
+//    NSLog(@"%@", [Stats instance].obstacleCount);
     
-    if ([[MainScene instance].obstacleCount intValue] >= 0 && [[MainScene instance].obstacleCount intValue] <= 5) {
+    if ([[Stats instance].obstacleCount intValue] >= 0 && [[Stats instance].obstacleCount intValue] <= 5) {
         [self removeBlockWithLevel:1];
 //        CCLOG(@"Level 1");
-    } else if ([[MainScene instance].obstacleCount intValue] > 5 && [[MainScene instance].obstacleCount intValue] <= 15) {
+    } else if ([[Stats instance].obstacleCount intValue] > 5 && [[Stats instance].obstacleCount intValue] <= 15) {
 //        CCLOG(@"Level 2");
         [self removeBlockWithLevel:2];
-    } else if ([[MainScene instance].obstacleCount intValue] > 15 && [[MainScene instance].obstacleCount intValue] <= 25) {
+    } else if ([[Stats instance].obstacleCount intValue] > 15 && [[Stats instance].obstacleCount intValue] <= 25) {
 //        CCLOG(@"Level 3");
         [self removeBlockWithLevel:3];
-    } else if ([[MainScene instance].obstacleCount intValue] > 25 && [[MainScene instance].obstacleCount intValue] <= 40) {
+    } else if ([[Stats instance].obstacleCount intValue] > 25 && [[Stats instance].obstacleCount intValue] <= 40) {
 //        CCLOG(@"Level 4");
         [self removeBlockWithLevel:4];
     } else {
@@ -65,8 +65,8 @@
             lane2 = [self getLane];
         } while ( lane1 == lane2 );
         
-        [MainScene instance].level = [NSNumber numberWithInt:1];
-        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
+        [Stats instance].level = [NSNumber numberWithInt:1];
+        [Stats instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
         [self removeBlock:lane2];
@@ -74,32 +74,32 @@
     } else if (level == 2) {
         lane1 = [self getLane];
         
-        [MainScene instance].level = [NSNumber numberWithInt:2];
-        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
+        [Stats instance].level = [NSNumber numberWithInt:2];
+        [Stats instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
         
     } else if (level == 3) {
         lane1 = [self getLane];
         
-        [MainScene instance].level = [NSNumber numberWithInt:3];
-        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
+        [Stats instance].level = [NSNumber numberWithInt:3];
+        [Stats instance].obstacleDistance = [NSNumber numberWithFloat:250.f];
         
         [self removeBlock:lane1];
         
     } else if (level == 4) {
         lane1 = [self getLane];
         
-        [MainScene instance].level = [NSNumber numberWithInt:4];
-        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
+        [Stats instance].level = [NSNumber numberWithInt:4];
+        [Stats instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
         
         [self removeBlock:lane1];
         
     } else if (level == 5) {
         lane1 = [self getLane];
         
-        [MainScene instance].level = [NSNumber numberWithInt:5];
-        [MainScene instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
+        [Stats instance].level = [NSNumber numberWithInt:5];
+        [Stats instance].obstacleDistance = [NSNumber numberWithFloat:200.f];
         
         [self removeBlock:lane1];
         
@@ -146,15 +146,15 @@
 //        }
     }
     
-    if ([[MainScene instance].lasts count] == 0) {
+    if ([[Stats instance].lasts count] == 0) {
         NSNumber *thisBlock = [NSNumber numberWithInteger:block];
-        [[MainScene instance].lasts addObject:thisBlock];
+        [[Stats instance].lasts addObject:thisBlock];
     } else {
-        NSNumber *first = [[MainScene instance].lasts objectAtIndex:0];
-        [[MainScene instance].lasts setObject:first atIndexedSubscript:1];
+        NSNumber *first = [[Stats instance].lasts objectAtIndex:0];
+        [[Stats instance].lasts setObject:first atIndexedSubscript:1];
         
         NSNumber *thisBlock = [NSNumber numberWithInteger:block];
-        [[MainScene instance].lasts setObject:thisBlock atIndexedSubscript:0];
+        [[Stats instance].lasts setObject:thisBlock atIndexedSubscript:0];
     }
 }
 

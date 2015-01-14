@@ -18,8 +18,8 @@
 		4D2F09481A53304300B4E947 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F09471A53304300B4E947 /* Obstacle.m */; };
 		4D581C2B1A62284400DD1137 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D581C2A1A62284400DD1137 /* Goal.m */; };
 		4DA91FF41A5A41D900982339 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA91FF31A5A41D900982339 /* Menu.m */; };
-		4DA99ADF1A66E32200ECEB94 /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA99ADE1A66E32200ECEB94 /* Stats.m */; };
 		4DA99AE21A66E3B700ECEB94 /* ScrollViewTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA99AE11A66E3B700ECEB94 /* ScrollViewTable.m */; };
+		4DA99AE61A66E47200ECEB94 /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA99AE51A66E47200ECEB94 /* Stats.m */; };
 		5B12100C19748281004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
 		5B121029197484DA004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
 		5B12102A197484DD004C1E1D /* DeliveryActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* DeliveryActivity.java */; };
@@ -192,11 +192,11 @@
 		4D581C2A1A62284400DD1137 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Goal.m; path = Source/Goal.m; sourceTree = "<group>"; };
 		4DA91FF21A5A41D900982339 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = Source/Menu.h; sourceTree = "<group>"; };
 		4DA91FF31A5A41D900982339 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Menu.m; path = Source/Menu.m; sourceTree = "<group>"; };
-		4DA99ADD1A66E32200ECEB94 /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stats.h; path = Source/Stats.h; sourceTree = "<group>"; };
-		4DA99ADE1A66E32200ECEB94 /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stats.m; path = Source/Stats.m; sourceTree = "<group>"; };
 		4DA99AE01A66E3B700ECEB94 /* ScrollViewTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollViewTable.h; path = Source/ScrollViewTable.h; sourceTree = "<group>"; };
 		4DA99AE11A66E3B700ECEB94 /* ScrollViewTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollViewTable.m; path = Source/ScrollViewTable.m; sourceTree = "<group>"; };
 		4DA99AE31A66E3F800ECEB94 /* vehicleIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vehicleIncludes.h; path = Source/vehicleIncludes.h; sourceTree = "<group>"; };
+		4DA99AE41A66E47200ECEB94 /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stats.h; path = Source/Stats.h; sourceTree = "<group>"; };
+		4DA99AE51A66E47200ECEB94 /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stats.m; path = Source/Stats.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100B19748281004C1E1D /* BridgeKitV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BridgeKitV3.framework; path = System/Library/Frameworks/BridgeKitV3.framework; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -339,8 +339,8 @@
 		4DA99ADB1A66E2F200ECEB94 /* Stats */ = {
 			isa = PBXGroup;
 			children = (
-				4DA99ADD1A66E32200ECEB94 /* Stats.h */,
-				4DA99ADE1A66E32200ECEB94 /* Stats.m */,
+				4DA99AE41A66E47200ECEB94 /* Stats.h */,
+				4DA99AE51A66E47200ECEB94 /* Stats.m */,
 			);
 			name = Stats;
 			sourceTree = "<group>";
@@ -934,8 +934,8 @@
 			files = (
 				4C68E48C1A64963400CAF048 /* defaultVehicle.m in Sources */,
 				4D581C2B1A62284400DD1137 /* Goal.m in Sources */,
+				4DA99AE61A66E47200ECEB94 /* Stats.m in Sources */,
 				4DA99AE21A66E3B700ECEB94 /* ScrollViewTable.m in Sources */,
-				4DA99ADF1A66E32200ECEB94 /* Stats.m in Sources */,
 				4DA91FF41A5A41D900982339 /* Menu.m in Sources */,
 				4CCE299C1A66D26B00FF0491 /* vehicleProxy.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
