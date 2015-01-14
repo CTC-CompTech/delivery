@@ -344,7 +344,7 @@ static MainScene *inst = nil;
 
 - (void)backMenu {
     CCScene *scene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] replaceScene:scene];
+    [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
 - (void)pause {
