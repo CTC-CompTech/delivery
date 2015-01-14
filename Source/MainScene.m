@@ -282,6 +282,11 @@ static MainScene *inst = nil;
         [_particleHeartL resetSystem];
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
         [_heartLeft runAction:fade];
+        
+        // Credit invincibility to not "disable" the rest of the obstacle.
+        _hero.physicsBody.collisionType = @"ability";
+        [self performSelector:@selector(invokeInvicible) withObject:nil afterDelay:.5];
+        
         return FALSE;
     } else {
         if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"]) {
@@ -294,6 +299,10 @@ static MainScene *inst = nil;
         [self gameOver];
         return TRUE;
     }
+}
+
+- (void)invokeInvicible {
+    _hero.physicsBody.collisionType = @"hero";
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
