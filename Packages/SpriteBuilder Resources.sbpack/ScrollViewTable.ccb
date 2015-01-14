@@ -1850,7 +1850,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Police Car Car Menu Table Selected.png</string>
+							<string>Delivery/Sports Car Car Menu Table Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1994,8 +1994,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
