@@ -30,8 +30,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
     [defaults synchronize];
-     
-    _deliveryTruck.togglesSelectedState = YES;
 }
 
 - (void)pickupTruck {
@@ -40,8 +38,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
     [defaults synchronize];
-    
-    _pickupTruck.togglesSelectedState = YES;
 }
 
 - (void)jeep {
@@ -50,9 +46,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
     [defaults synchronize];
-    
-    _jeep.togglesSelectedState = YES;
-
 }
 
 - (void)policeCar {
@@ -61,8 +54,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
     [defaults synchronize];
-    
-    _policeCar.togglesSelectedState = YES;
 }
 
 - (void)lightRunner {
@@ -71,8 +62,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
     [defaults synchronize];
-         
-    _lightRunner.togglesSelectedState = YES;
 }
 
 - (void)sportsCar {
@@ -81,8 +70,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
     [defaults synchronize];
-    
-    _sportsCar.togglesSelectedState = YES;
 }
 
 @end
