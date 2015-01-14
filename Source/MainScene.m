@@ -90,8 +90,6 @@ static MainScene *inst = nil;
     CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
     self.policeCarFrame = policeCar;
     
-    self.shouldAbility = TRUE;
-    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"selectedCar"] == nil) {
         CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
@@ -107,6 +105,7 @@ static MainScene *inst = nil;
     
     if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Sports Car.png"]) {
         _abilityButton.visible = TRUE;
+        self.shouldAbility = TRUE;
     } else {
         _abilityButton.visible = FALSE;
     }
