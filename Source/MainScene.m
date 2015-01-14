@@ -29,7 +29,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_ground2;
     CCSprite *_hero;
     
-    CCSprite *_difficulty;
     CCSprite *_pause;
     
     CCParticleSystemBase *_fireBall;
@@ -179,24 +178,14 @@ static const CGFloat firstObstaclePosition = 450.f;
             if ([Stats instance].abilityUse == NO) {
                 if ([Stats instance].level == [NSNumber numberWithInt:1]) {
                     _scrollSpeed = 175.f;
-                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Easy.png"];
-                    [_difficulty setSpriteFrame:bar];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:2]) {
                     _scrollSpeed = 175.f;
-                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Okay.png"];
-                    [_difficulty setSpriteFrame:bar];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:3]) {
                     _scrollSpeed = 210.f;
-                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Decent.png"];
-                    [_difficulty setSpriteFrame:bar];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:4]) {
                     _scrollSpeed = 210.f;
-                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Close.png"];
-                    [_difficulty setSpriteFrame:bar];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:5]) {
                     _scrollSpeed = 210.f;
-                    CCSpriteFrame *bar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Bar_Max.png"];
-                    [_difficulty setSpriteFrame:bar];
                 }
             }
         }
@@ -373,7 +362,6 @@ static const CGFloat firstObstaclePosition = 450.f;
         _paused = YES;
         _scrollSpeed = 0.f;
         _abilityButton.visible = FALSE;
-        _difficulty.visible = FALSE;
         
         // Fix ability pause
         [_fireBall stopSystem];
@@ -386,9 +374,6 @@ static const CGFloat firstObstaclePosition = 450.f;
         if (self.shouldAbility == YES) {
             _abilityButton.visible = TRUE;
         }
-        
-        _difficulty.visible = TRUE;
-        
     }
 }
 
