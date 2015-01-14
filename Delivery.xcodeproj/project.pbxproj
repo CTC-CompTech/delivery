@@ -11,6 +11,10 @@
 		4C68E48D1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
 		4C68E48E1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
 		4C68E48F1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
+		4CCE299C1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
+		4CCE299D1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
+		4CCE299E1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
+		4CCE299F1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
 		4D2F09481A53304300B4E947 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F09471A53304300B4E947 /* Obstacle.m */; };
 		4D581C2B1A62284400DD1137 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D581C2A1A62284400DD1137 /* Goal.m */; };
 		4DA91FF41A5A41D900982339 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA91FF31A5A41D900982339 /* Menu.m */; };
@@ -180,6 +184,8 @@
 		4C5799251A64D2070038B071 /* vehicleIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vehicleIncludes.h; sourceTree = "<group>"; };
 		4C68E48A1A64963400CAF048 /* defaultVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaultVehicle.h; path = Source/defaultVehicle.h; sourceTree = "<group>"; };
 		4C68E48B1A64963400CAF048 /* defaultVehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = defaultVehicle.m; path = Source/defaultVehicle.m; sourceTree = "<group>"; };
+		4CCE299A1A66D26B00FF0491 /* vehicleProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vehicleProxy.h; path = Source/vehicleProxy.h; sourceTree = "<group>"; };
+		4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = vehicleProxy.m; path = Source/vehicleProxy.m; sourceTree = "<group>"; };
 		4D2F09461A53304300B4E947 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Source/Obstacle.h; sourceTree = "<group>"; };
 		4D2F09471A53304300B4E947 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Source/Obstacle.m; sourceTree = "<group>"; };
 		4D581C291A62284400DD1137 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Goal.h; path = Source/Goal.h; sourceTree = "<group>"; };
@@ -193,7 +199,7 @@
 		5B121013197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121015197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B12101B19748413004C1E1D /* DeliveryActivity.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = DeliveryActivity.java; path = Source/Platforms/Android/java/org/cocos2d/Delivery/DeliveryActivity.java; sourceTree = "<group>"; };
-		5B121021197484A3004C1E1D /* Delivery Java.jar */ = {isa = PBXFileReference; explicitFileType = compiled.java.jar; includeInIndex = 0; path = "Delivery Java.jar"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B121021197484A3004C1E1D /* Delivery Java.jar */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; path = "Delivery Java.jar"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B12102E197484FA004C1E1D /* DeliveryActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryActivity.h; path = Source/Platforms/Android/DeliveryActivity.h; sourceTree = "<group>"; };
 		5B12102F197484FA004C1E1D /* DeliveryActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryActivity.m; path = Source/Platforms/Android/DeliveryActivity.m; sourceTree = "<group>"; };
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
@@ -321,6 +327,8 @@
 				4C68E48A1A64963400CAF048 /* defaultVehicle.h */,
 				4C68E48B1A64963400CAF048 /* defaultVehicle.m */,
 				4C5799251A64D2070038B071 /* vehicleIncludes.h */,
+				4CCE299A1A66D26B00FF0491 /* vehicleProxy.h */,
+				4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */,
 			);
 			name = "Vehicle Classes";
 			sourceTree = "<group>";
@@ -744,7 +752,7 @@
 		};
 		7A97910219E62E40001FFC4D /* cocos2dJava.jar */ = {
 			isa = PBXReferenceProxy;
-			fileType = compiled.java.jar;
+			fileType = file;
 			path = cocos2dJava.jar;
 			remoteRef = 7A97910119E62E40001FFC4D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -878,6 +886,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CCE299E1A66D26B00FF0491 /* vehicleProxy.m in Sources */,
 				4C68E48E1A64963400CAF048 /* defaultVehicle.m in Sources */,
 				5B12102A197484DD004C1E1D /* DeliveryActivity.java in Sources */,
 			);
@@ -890,6 +899,7 @@
 				4C68E48F1A64963400CAF048 /* defaultVehicle.m in Sources */,
 				7A4036E819DE3F33007B6E8F /* MainScene.m in Sources */,
 				7A40360419DDEE84007B6E8F /* main.m in Sources */,
+				4CCE299F1A66D26B00FF0491 /* vehicleProxy.m in Sources */,
 				7A59498E19E3941300F65F90 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -901,6 +911,7 @@
 				4C68E48D1A64963400CAF048 /* defaultVehicle.m in Sources */,
 				927F619E196C771E000F43EF /* MainScene.m in Sources */,
 				5B121030197484FA004C1E1D /* DeliveryActivity.m in Sources */,
+				4CCE299D1A66D26B00FF0491 /* vehicleProxy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -911,6 +922,7 @@
 				4C68E48C1A64963400CAF048 /* defaultVehicle.m in Sources */,
 				4D581C2B1A62284400DD1137 /* Goal.m in Sources */,
 				4DA91FF41A5A41D900982339 /* Menu.m in Sources */,
+				4CCE299C1A66D26B00FF0491 /* vehicleProxy.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				60DB055A1A6327660049A94C /* CarMenu.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
