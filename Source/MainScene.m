@@ -178,15 +178,15 @@ static const CGFloat firstObstaclePosition = 450.f;
         if (_paused != YES) {
             if ([Stats instance].abilityUse == NO) {
                 if ([Stats instance].level == [NSNumber numberWithInt:1]) {
-                    _scrollSpeed = 175.f;
+                    _scrollSpeed = 210.f;
                 } else if ([Stats instance].level == [NSNumber numberWithInt:2]) {
-                    _scrollSpeed = 175.f;
+                    _scrollSpeed = 210.f;
                 } else if ([Stats instance].level == [NSNumber numberWithInt:3]) {
-                    _scrollSpeed = 210.f;
+                    _scrollSpeed = 245.f;
                 } else if ([Stats instance].level == [NSNumber numberWithInt:4]) {
-                    _scrollSpeed = 210.f;
+                    _scrollSpeed = 245.f;
                 } else if ([Stats instance].level == [NSNumber numberWithInt:5]) {
-                    _scrollSpeed = 210.f;
+                    _scrollSpeed = 245.f;
                 }
             }
         }
@@ -240,12 +240,12 @@ static const CGFloat firstObstaclePosition = 450.f;
         if ([[Stats instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:5] &&
             [[Stats instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:1]) {
             
-            obstacle.position = ccp(0, previousObstacleYPosition + 250.f);
+            obstacle.position = ccp(0, previousObstacleYPosition + 275.f);
             
         } else if ([[Stats instance].lasts objectAtIndex:0] == [NSNumber numberWithInteger:1] &&
                    [[Stats instance].lasts objectAtIndex:1] == [NSNumber numberWithInteger:5]) {
             
-            obstacle.position = ccp(0, previousObstacleYPosition + 250.f);
+            obstacle.position = ccp(0, previousObstacleYPosition + 275.f);
             
         }
     }
