@@ -37,9 +37,13 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCParticleSystemBase *_particleHeartR;
     CCParticleSystemBase *_particleHeartL;
     
+    CCNode *_gameOverText;
+    CCNode *_gameOverBackground;
+    
     CCButton *_restartButton;
     CCButton *_abilityButton;
-    CCButton *_backButton;
+    CCButton *_mainMenu;
+    CCButton *_carsButton;
     
     CCNode *_heartHolder;
     CCNode *_heartRight;
@@ -365,8 +369,11 @@ static const CGFloat firstObstaclePosition = 450.f;
         _gameOver = TRUE;
         _abilityButton.visible = FALSE;
         _pause.visible = FALSE;
+        _gameOverBackground.visible = TRUE;
+        _gameOverText.visible = TRUE;
         _restartButton.visible = TRUE;
-        _backButton.visible = TRUE;
+        _mainMenu.visible = TRUE;
+        _carsButton.visible = TRUE;
         
         // Keep score
         NSInteger intScore = self.currentScore;
@@ -403,9 +410,15 @@ static const CGFloat firstObstaclePosition = 450.f;
     [[CCDirector sharedDirector] replaceScene:scene];
 }
 
-- (void)backMenu {
+- (void)menu {
     CCScene *scene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+}
+
+- (void)cars {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
+    [[CCDirector sharedDirector] pushScene:gameplayScene
+                            withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:.5]];
 }
 
 - (void)pause {

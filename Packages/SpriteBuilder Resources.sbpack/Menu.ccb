@@ -1376,10 +1376,10 @@
 						<key>value</key>
 						<array>
 							<real>291</real>
-							<real>540</real>
+							<real>0.95070421695709229</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -1484,10 +1484,10 @@
 						<key>value</key>
 						<array>
 							<real>263</real>
-							<real>526</real>
+							<real>0.92605632543563843</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
