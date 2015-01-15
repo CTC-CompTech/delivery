@@ -21,6 +21,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 @property BOOL shouldAbility;
 
+@property NSInteger currentScore;
+
 @end
 
 @implementation MainScene {
@@ -50,7 +52,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     BOOL _paused;
     CGFloat _scrollSpeed;
     CGFloat distanceBetweenObstacles;
-    NSInteger _points;
     
     CGPoint firstTouch;
     CGPoint lastTouch;
@@ -295,16 +296,67 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
     [goal removeFromParent];
-    _points++;
-    _scoreLabel.string = [NSString stringWithFormat:@"%ld", (long)_points];
+    NSInteger coinReturn = [self getCoins];
+    NSInteger totalRunCoin = _currentScore + coinReturn;
+    
+    _currentScore = totalRunCoin;
+    
+    // Format
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber *numToFormat = [NSNumber numberWithInteger:totalRunCoin];
+    NSString *formatted = [formatter stringFromNumber:numToFormat];
+    
+    _scoreLabel.string = formatted;
     return TRUE;
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ability:(CCNode *)hero goal:(CCNode *)goal {
     [goal removeFromParent];
-    _points++;
-    _scoreLabel.string = [NSString stringWithFormat:@"%ld", (long)_points];
+    NSInteger coinReturn = [self getCoins];
+    NSInteger totalRunCoin = _currentScore + coinReturn;
+    
+    _currentScore = totalRunCoin;
+    
+    // Format
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber *numToFormat = [NSNumber numberWithInteger:totalRunCoin];
+    NSString *formatted = [formatter stringFromNumber:numToFormat];
+    
+    _scoreLabel.string = formatted;
     return TRUE;
+}
+
+- (NSInteger)getCoins {
+    
+    NSInteger coinAmount = 0;
+        
+    if ([Stats instance].level == [NSNumber numberWithInt:1]) {
+        
+        coinAmount = 25;
+        
+    } else if ([Stats instance].level == [NSNumber numberWithInt:2]) {
+        
+        coinAmount = 50;
+        
+    } else if ([Stats instance].level == [NSNumber numberWithInt:3]) {
+        
+        coinAmount = 100;
+        
+    } else if ([Stats instance].level == [NSNumber numberWithInt:4]) {
+        
+        coinAmount = 150;
+        
+    } else if ([Stats instance].level == [NSNumber numberWithInt:5]) {
+        
+        coinAmount = 300;
+        
+    }
+    
+    return coinAmount;
 }
 
 - (void)gameOver {
