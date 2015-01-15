@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import "gamecentercontrol.h"
 
 #import "Stats.h"
 
@@ -58,6 +59,8 @@
         [self loadCustomObjectWithKey:@"stats"];
     
     [self setupCocos2dWithOptions:cocos2dSetup];
+    
+    [[gamecentercontrol sharedInstance] authenticateLocalUser];
     
     return YES;
 }
