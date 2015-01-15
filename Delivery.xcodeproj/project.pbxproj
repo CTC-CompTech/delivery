@@ -25,6 +25,9 @@
 		5B12102A197484DD004C1E1D /* DeliveryActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* DeliveryActivity.java */; };
 		5B121030197484FA004C1E1D /* DeliveryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* DeliveryActivity.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
+		60DA6FC11A673C6C00D3BDAD /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DA6FC01A673C6C00D3BDAD /* GameKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		60DA6FC31A673C7600D3BDAD /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DA6FC21A673C7600D3BDAD /* GameController.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		60DA6FC61A6752B900D3BDAD /* gamecentercontrol.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DA6FC51A6752B900D3BDAD /* gamecentercontrol.m */; };
 		60DB055A1A6327660049A94C /* CarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB05591A6327660049A94C /* CarMenu.m */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
@@ -204,12 +207,16 @@
 		5B121013197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121015197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B12101B19748413004C1E1D /* DeliveryActivity.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = DeliveryActivity.java; path = Source/Platforms/Android/java/org/cocos2d/Delivery/DeliveryActivity.java; sourceTree = "<group>"; };
-		5B121021197484A3004C1E1D /* Delivery Java.jar */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = archive.jar; path = "Delivery Java.jar"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B121021197484A3004C1E1D /* Delivery Java.jar */ = {isa = PBXFileReference; explicitFileType = compiled.java.jar; includeInIndex = 0; path = "Delivery Java.jar"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B12102E197484FA004C1E1D /* DeliveryActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryActivity.h; path = Source/Platforms/Android/DeliveryActivity.h; sourceTree = "<group>"; };
 		5B12102F197484FA004C1E1D /* DeliveryActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryActivity.m; path = Source/Platforms/Android/DeliveryActivity.m; sourceTree = "<group>"; };
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
 		5B121034197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/iOS/Info.plist; sourceTree = "<group>"; };
 		5BA4619E1974C88900785744 /* AndroidManifest.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = AndroidManifest.xml; path = Platforms/Android/AndroidManifest.xml; sourceTree = "<group>"; };
+		60DA6FC01A673C6C00D3BDAD /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		60DA6FC21A673C7600D3BDAD /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		60DA6FC41A6752B900D3BDAD /* gamecentercontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gamecentercontrol.h; path = Source/gamecentercontrol.h; sourceTree = "<group>"; };
+		60DA6FC51A6752B900D3BDAD /* gamecentercontrol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = gamecentercontrol.m; path = Source/gamecentercontrol.m; sourceTree = "<group>"; };
 		60DB05581A6327660049A94C /* CarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarMenu.h; path = Source/CarMenu.h; sourceTree = "<group>"; };
 		60DB05591A6327660049A94C /* CarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarMenu.m; path = Source/CarMenu.m; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* Delivery Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -307,6 +314,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60DA6FC31A673C7600D3BDAD /* GameController.framework in Frameworks */,
+				60DA6FC11A673C6C00D3BDAD /* GameKit.framework in Frameworks */,
 				7A97911819E631CD001FFC4D /* libcocos2d.a in Frameworks */,
 				8392007A18EE8E3300B6C429 /* GLKit.framework in Frameworks */,
 				B77F1B3217B978D7009739AE /* QuartzCore.framework in Frameworks */,
@@ -520,6 +529,8 @@
 				4DA99AE11A66E3B700ECEB94 /* ScrollViewTable.m */,
 				4D581C291A62284400DD1137 /* Goal.h */,
 				4D581C2A1A62284400DD1137 /* Goal.m */,
+				60DA6FC41A6752B900D3BDAD /* gamecentercontrol.h */,
+				60DA6FC51A6752B900D3BDAD /* gamecentercontrol.m */,
 				4D2F09461A53304300B4E947 /* Obstacle.h */,
 				4D2F09471A53304300B4E947 /* Obstacle.m */,
 				4DA91FF21A5A41D900982339 /* Menu.h */,
@@ -576,6 +587,8 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60DA6FC21A673C7600D3BDAD /* GameController.framework */,
+				60DA6FC01A673C6C00D3BDAD /* GameKit.framework */,
 				7A59493C19E37FB200F65F90 /* libz.dylib */,
 				7A59493A19E37F9300F65F90 /* OpenGL.framework */,
 				7A4036F419DE3FA8007B6E8F /* AppKit.framework */,
@@ -938,6 +951,7 @@
 				4DA99ADF1A66E32200ECEB94 /* Stats.m in Sources */,
 				4DA91FF41A5A41D900982339 /* Menu.m in Sources */,
 				4CCE299C1A66D26B00FF0491 /* vehicleProxy.m in Sources */,
+				60DA6FC61A6752B900D3BDAD /* gamecentercontrol.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				60DB055A1A6327660049A94C /* CarMenu.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,

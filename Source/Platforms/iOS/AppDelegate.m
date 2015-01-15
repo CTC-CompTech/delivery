@@ -27,6 +27,7 @@
 
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
+#import "gamecentercontrol.h"
 
 @implementation AppController
 
@@ -53,6 +54,8 @@
     //[cocos2dSetup setObject:kEAGLColorFormatRGB565 forKey:CCConfigPixelFormat];
     
     [self setupCocos2dWithOptions:cocos2dSetup];
+    
+    [[gamecentercontrol sharedInstance] authenticateLocalUser];
     
     return YES;
 }
