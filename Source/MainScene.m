@@ -336,23 +336,23 @@ static const CGFloat firstObstaclePosition = 450.f;
         
     if ([Stats instance].level == [NSNumber numberWithInt:1]) {
         
-        coinAmount = 25;
+        coinAmount = 10;
         
     } else if ([Stats instance].level == [NSNumber numberWithInt:2]) {
         
-        coinAmount = 50;
+        coinAmount = 25;
         
     } else if ([Stats instance].level == [NSNumber numberWithInt:3]) {
         
-        coinAmount = 100;
+        coinAmount = 50;
         
     } else if ([Stats instance].level == [NSNumber numberWithInt:4]) {
         
-        coinAmount = 150;
+        coinAmount = 100;
         
     } else if ([Stats instance].level == [NSNumber numberWithInt:5]) {
         
-        coinAmount = 300;
+        coinAmount = 150;
         
     }
     
