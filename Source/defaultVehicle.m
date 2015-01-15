@@ -32,7 +32,6 @@
 }
 
 
-
 -(void)moveLeft:(CCNode*)realVehicle {
     [self evaluateLeftOrRight:CAR_MOVE_LEFT parentPointer:realVehicle];
 }
@@ -46,11 +45,30 @@
 
 
 -(BOOL)evaluateLeftOrRight:(BOOL)leftOrRight parentPointer:(CCNode *)realVehicle{
-    if (leftOrRight == CAR_MOVE_LEFT)
-        return CAR_MOVE_LEFT;
+
+    CGPoint byPoint;
+    double angleToRotate = 0;
     
-    else
-        return CAR_MOVE_RIGHT;
+    if (!leftOrRight){
+        if (realVehicle.position.x <= 50) {byPoint = ccp(0, 0);}
+        else {byPoint = ccp(-64, 0);}
+        angleToRotate = -45;
+    }
+    
+    else if (leftOrRight){
+        if (realVehicle.position.x >= 250) {byPoint = ccp(0, 0);}
+        else {byPoint = ccp(64, 0);}
+        angleToRotate = 45;
+    }
+    
+    CCActionMoveBy *moveBy = [CCActionMoveBy actionWithDuration:0.075 position:byPoint];
+    CCActionRotateBy *rotateBy = [CCActionRotateBy actionWithDuration:0.0375 angle:angleToRotate];
+    CCActionRotateTo *rotateByReverse = [CCActionRotateTo actionWithDuration:0.0375 angle:-90];
+    CCActionSequence *swipe = [CCActionSequence actionWithArray:@[rotateBy, moveBy, rotateByReverse]];
+        
+    [realVehicle runAction:swipe];
+    return leftOrRight;
+
 }
 
 -(void)useAbility {
@@ -60,20 +78,15 @@
     self.canUseAbility = false;
 }
 
--(void)abilityUpdate:(CCTimer *)delta parentPointer:(CCNode *)realVehicle{
+-(void)abilityUpdate:(CCTime)delta parentPointer:(CCNode *)realVehicle{
     if (!self.canUseAbility){
         
     }
     return;
 }
 
--(void)passthroughUpdate:(CCTimer *)delta parentPointer:(CCNode *)realVehicle{
+-(void)passthroughUpdate:(CCTime)delta parentPointer:(CCNode *)realVehicle{
     [self abilityUpdate:delta parentPointer:realVehicle];
-}
-
--(void)onTypeChange:(CCNode *)realVehicle{
-    self.abilityTimeout = 0;
-    self.canUseAbility = true;
 }
 
 

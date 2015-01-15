@@ -1,4 +1,5 @@
 #import "cocos2d.h"
+#import "vehicleProxy.h"
 
 @interface MainScene : CCNode <CCPhysicsCollisionDelegate>
 

@@ -41,9 +41,6 @@
 // The argument realVehicle indicates that the method needs to be able to modify the image that the user sees.
 // Objects that shouln't be owned by the vehicle should be passed this way.
 
-// Do the reset of internal variables for when car type is changed. The super version should always be called in addition to the custom one.
--(void)onTypeChange:(CCNode*)realVehicle;
-
 // Move the car left and right one lane, respectively.
 -(void)moveLeft:(CCNode*)realVehicle;
 -(void)moveRight:(CCNode*)realVehicle;
@@ -55,10 +52,10 @@
 -(void)useAbility;
 
 // Allows per-frame updates and Cocos2D pausing. Should call abilityUpdate ASAP.
--(void)passthroughUpdate:(CCTimer*)delta parentPointer:(CCNode*)realVehicle;
+-(void)passthroughUpdate:(CCTime)delta parentPointer:(CCNode*)realVehicle;
 
 // Performs the ability. May be one-time or time-based.
--(void)abilityUpdate:(CCTimer*)delta parentPointer:(CCNode*)realVehicle; //Performs the actual ability.
+-(void)abilityUpdate:(CCTime)delta parentPointer:(CCNode*)realVehicle; //Performs the actual ability.
 
 
 @end

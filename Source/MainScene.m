@@ -29,7 +29,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCPhysicsNode *_physicsNode;
     CCNode *_ground1;
     CCNode *_ground2;
-    CCSprite *_hero;
+    vehicleProxy *_hero;
     
     CCSprite *_pause;
     
@@ -122,7 +122,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _heartLeft.visible = FALSE;
         _heartRight.visible = FALSE;
     }
-    
+    [_hero setVehicleType:0];
     // <-- End selected car ---> \\
     
     
@@ -526,6 +526,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    CCLOG(@"swipeLeft");
     if (!_gameOver) {
         if (!_paused) {
+            [_hero moveLeft];
+            /*
             CGPoint byPoint;
             if (_hero.position.x <= 50) {
                 byPoint = ccp(0, 0);
@@ -541,6 +543,7 @@ static const CGFloat firstObstaclePosition = 450.f;
             
             // Make it so car cannot "drift"
             [self performSelector:@selector(setZeroLeft) withObject:nil afterDelay:0.085];
+             */
         }
     }
 }
@@ -549,6 +552,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    CCLOG(@"swipeRight");
     if (!_gameOver) {
         if (!_paused) {
+            [_hero moveRight];
+            /*
             CGPoint byPoint;
             if (_hero.position.x >= 250) {
                 byPoint = ccp(0, 0);
@@ -564,6 +569,7 @@ static const CGFloat firstObstaclePosition = 450.f;
             
             // Make it so car cannot "drift"
             [self performSelector:@selector(setZeroRight) withObject:nil afterDelay:0.085];
+             */
         }
     }
     

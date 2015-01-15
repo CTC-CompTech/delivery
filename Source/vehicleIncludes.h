@@ -14,12 +14,12 @@
 #ifndef Delivery_vehicleIncludes_h
 #define Delivery_vehicleIncludes_h
 
-enum vehicleTypes{
+typedef enum {
+    defaultVehicleEnum,
     
     
     
-    
-};
+} vehicleType;
 
 
 #endif

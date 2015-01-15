@@ -8,10 +8,21 @@
 
 #import "CCNode.h"
 #import "defaultVehicle.h"
+#import "vehicleIncludes.h"
 
-@interface vehicleProxy : CCNode
+@interface vehicleProxy : CCSprite
+
+// Sets the type of car currently in use.
+-(void)setVehicleType:(vehicleType) inputOfType;
 
 // Reference to a car that does all the real behavior
-@property () defaultVehicle *containedCar;
+@property (retain) defaultVehicle *containedCar;
+
+// Passthrough functions that call methods on the polymorhic car.
+-(void)moveLeft;
+-(void)moveRight;
+-(void)useAbility;
+-(NSString *)getCarType;
+
 
 @end
