@@ -369,7 +369,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _backButton.visible = TRUE;
         
         // Keep score
-        NSInteger intScore = [_scoreLabel.string integerValue];
+        NSInteger intScore = self.currentScore;
         NSInteger intTotal = [[Stats instance].totalCoin integerValue];
         NSInteger intCurrent = [[Stats instance].currentCoin integerValue];
         
