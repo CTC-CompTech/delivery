@@ -49,6 +49,9 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_heartRight;
     CCNode *_heartLeft;
     
+    CCNode *_gamePlayCoin;
+    
+    CCLabelTTF *_gameOverCount;
     CCLabelTTF *_scoreLabel;
     CCLabelTTF *_cooldownTimer;
     
@@ -389,6 +392,26 @@ static const CGFloat firstObstaclePosition = 450.f;
         _abilityButton.visible = FALSE;
         _pause.visible = FALSE;
         
+        // Hide coins
+        _gamePlayCoin.visible = FALSE;
+        _scoreLabel.visible = FALSE;
+        
+        // Display on Content
+        _gameOverCount.visible = TRUE;
+        
+        NSInteger totalRunCoin = _currentScore;
+        
+        _currentScore = totalRunCoin;
+        
+        // Format
+        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+        
+        NSNumber *numToFormat = [NSNumber numberWithInteger:totalRunCoin];
+        NSString *formatted = [formatter stringFromNumber:numToFormat];
+        
+        _gameOverCount.string = formatted;
+        
         // Handle animations
         _gameOverText.position = ccp(-160, _gameOverText.position.y);
         [self performSelector:@selector(sweepTitle) withObject:nil afterDelay:.1];
@@ -397,6 +420,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _restartButton.position = ccp(480, _restartButton.position.y);
         _mainMenu.position = ccp(440, _mainMenu.position.y);
         _carsButton.position = ccp(521, _carsButton.position.y);
+        _gameOverCount.position = ccp(480, _gameOverCount.position.y);
         [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.2];
         
         _gameOverBackground.visible = TRUE;
@@ -440,11 +464,13 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCActionMoveTo *moveRestart = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _restartButton.position.y)];
     CCActionMoveTo *moveMenu = [CCActionMoveTo actionWithDuration:.25 position:ccp(120, _mainMenu.position.y)];
     CCActionMoveTo *moveCars = [CCActionMoveTo actionWithDuration:.25 position:ccp(201, _carsButton.position.y)];
+    CCActionMoveTo *moveScore = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverCount.position.y)];
     
     [_gameOverBackground runAction:moveBackground];
     [_restartButton runAction:moveRestart];
     [_mainMenu runAction:moveMenu];
     [_carsButton runAction:moveCars];
+    [_gameOverCount runAction:moveScore];
 
 }
 
