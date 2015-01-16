@@ -16,7 +16,10 @@
 @property (retain, nonatomic) NSMutableArray *lasts;
 
 @property (retain, nonatomic) NSNumber *currentCoin;
+
 @property (retain, nonatomic) NSNumber *totalCoin;
+@property (retain, nonatomic) NSNumber *collision;
+@property (retain, nonatomic) NSNumber *gameRuns;
 
 @property BOOL abilityUse;
 

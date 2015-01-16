@@ -126,6 +126,12 @@ static const CGFloat firstObstaclePosition = 450.f;
     // <-- End selected car ---> \\
     
     
+    // Track games run
+    NSInteger games = [[Stats instance].gameRuns integerValue];
+    games++;
+    
+    [Stats instance].gameRuns = [NSNumber numberWithInteger:games];
+    
     // set this class as delegate
     _physicsNode.collisionDelegate = self;
     // set collision txpe
@@ -280,6 +286,12 @@ static const CGFloat firstObstaclePosition = 450.f;
         _hero.physicsBody.collisionType = @"ability";
         [self performSelector:@selector(invokeInvicible) withObject:nil afterDelay:.5];
         
+        // Track collisions
+        NSInteger collision = [[Stats instance].collision integerValue];
+        collision++;
+        
+        [Stats instance].collision = [NSNumber numberWithInteger:collision];
+        
         return FALSE;
     } else {
         if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"]) {
@@ -290,6 +302,13 @@ static const CGFloat firstObstaclePosition = 450.f;
         }
         
         [self gameOver];
+        
+        // Track collisions
+        NSInteger collision = [[Stats instance].collision integerValue];
+        collision++;
+        
+        [Stats instance].collision = [NSNumber numberWithInteger:collision];
+        
         return TRUE;
     }
 }
