@@ -388,6 +388,17 @@ static const CGFloat firstObstaclePosition = 450.f;
         _gameOver = TRUE;
         _abilityButton.visible = FALSE;
         _pause.visible = FALSE;
+        
+        // Handle animations
+        _gameOverText.position = ccp(-160, _gameOverText.position.y);
+        [self performSelector:@selector(sweepTitle) withObject:nil afterDelay:.1];
+        
+        _gameOverBackground.position = ccp(480, _gameOverBackground.position.y);
+        _restartButton.position = ccp(480, _restartButton.position.y);
+        _mainMenu.position = ccp(440, _mainMenu.position.y);
+        _carsButton.position = ccp(521, _carsButton.position.y);
+        [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.2];
+        
         _gameOverBackground.visible = TRUE;
         _gameOverText.visible = TRUE;
         _restartButton.visible = TRUE;
@@ -416,6 +427,25 @@ static const CGFloat firstObstaclePosition = 450.f;
         CCActionEaseBounce *bounce = [CCActionEaseBounce actionWithAction:shakeSequence];
         [self runAction:bounce];
     }
+}
+
+- (void)sweepTitle {
+    CCActionMoveTo *moveTitle = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverText.position.y)];
+    
+    [_gameOverText runAction:moveTitle];
+}
+
+- (void)sweepContent {
+    CCActionMoveTo *moveBackground = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverBackground.position.y)];
+    CCActionMoveTo *moveRestart = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _restartButton.position.y)];
+    CCActionMoveTo *moveMenu = [CCActionMoveTo actionWithDuration:.25 position:ccp(120, _mainMenu.position.y)];
+    CCActionMoveTo *moveCars = [CCActionMoveTo actionWithDuration:.25 position:ccp(201, _carsButton.position.y)];
+    
+    [_gameOverBackground runAction:moveBackground];
+    [_restartButton runAction:moveRestart];
+    [_mainMenu runAction:moveMenu];
+    [_carsButton runAction:moveCars];
+
 }
 
 /*///////////////////////////////////////////
