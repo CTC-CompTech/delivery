@@ -55,12 +55,46 @@
     // Do any extra configuration of Cocos2d here (the example line changes the pixel format for faster rendering, but with less colors)
     //[cocos2dSetup setObject:kEAGLColorFormatRGB565 forKey:CCConfigPixelFormat];
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"stats"] != nil)
-        [self loadCustomObjectWithKey:@"stats"];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"stats"] != nil) {
+        Stats *stats = [self loadCustomObjectWithKey:@"stats"];
+        
+        // Make the stats
+        [Stats instance].currentCoin = stats.currentCoin;
+        [Stats instance].totalCoin = stats.totalCoin;
+        [Stats instance].collision = stats.collision;
+        [Stats instance].gameRuns = stats.gameRuns;
+        [Stats instance].loginDate = stats.loginDate;
+    }
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
     [[gamecentercontrol sharedInstance] authenticateLocalUser];
+    
+    // Coin-per-day
+    NSDate *currentDate = [NSDate date];
+    
+    NSDate *lastDate = [Stats instance].loginDate;
+    
+    if ([self isSameDayWithDate1:currentDate date2:lastDate] == YES) {
+        
+        NSLog(@"CurrentDate is same");
+        
+    } else {
+        
+        NSLog(@"CurrentDate is different");
+        
+        NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
+        NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
+        
+        NSInteger currentDayCoin = currentCoinCount + 3000;
+        NSInteger totalDayCoin = totalCoinCount + 3000;
+        
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:currentDayCoin];
+        [Stats instance].totalCoin = [NSNumber numberWithInteger:totalDayCoin];
+        
+    }
+    
+    [Stats instance].loginDate = currentDate;
     
     return YES;
 }
@@ -84,8 +118,8 @@
     // This needs to be here, otherwise this method won't work.
     [[CCDirector sharedDirector] stopAnimation];
     
-    Stats *stats = [[Stats alloc] init];
-    [self saveCustomObject:stats key:@"stats"];
+//    Stats *stats = [[Stats alloc] init];
+    [self saveCustomObject:[Stats instance] key:@"stats"];
     
 }
 
@@ -102,6 +136,18 @@
     NSData *encodedObject = [defaults objectForKey:key];
     Stats *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     return object;
+}
+
+- (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+    
+    return [comp1 day]   == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
 }
 
 @end

@@ -107,6 +107,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
         [_hero setSpriteFrame:car];
         self.heroFrame = _hero.spriteFrame;
+        
+        NSLog(@"RECT OF HERO: %@", NSStringFromCGRect([_hero boundingBox]));
+
     }
     
     if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Sports Car.png"]) {

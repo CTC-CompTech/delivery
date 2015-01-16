@@ -21,6 +21,8 @@
 @property (retain, nonatomic) NSNumber *collision;
 @property (retain, nonatomic) NSNumber *gameRuns;
 
+@property (retain, nonatomic) NSDate *loginDate;
+
 @property BOOL abilityUse;
 
 -(id)init;
