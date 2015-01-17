@@ -13,9 +13,21 @@
 
 #ifndef Delivery_vehicleIncludes_h
 #define Delivery_vehicleIncludes_h
+#import "whiteTruck.h"
+#import "sportsCar.h"
+#import "policeCar.h"
+#import "pickupTruck.h"
+#import "lightRunner.h"
+#import "jeep.h"
 
 typedef enum {
     defaultVehicleEnum,
+    whiteTruckEnum,
+    sportsCarEnum, // Add from here
+    policeCarEnum,
+    pickupTruckEnum,
+    lightRunnerEnum,
+    jeepEnum,
     
     
     

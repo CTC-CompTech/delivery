@@ -128,7 +128,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         _heartLeft.visible = FALSE;
         _heartRight.visible = FALSE;
     }
-    [_hero setVehicleType:0];
+    NSUserDefaults *getCarIndex = [NSUserDefaults standardUserDefaults];
+    [_hero setVehicleType:(vehicleType)[getCarIndex integerForKey:@"vehicleIndex"]];
+    getCarIndex = nil;
     // <-- End selected car ---> \\
     
     

@@ -22,13 +22,13 @@
 // Define the default properties for a car. Should be set to different values by redefining the initializer.
 
 // String-based name of the car. Should usually be set to the name of the current class.
-@property (readonly) NSString* carType;
+@property () NSString* carType;
 
 // Holds the default frame for this type of car.
-@property (readonly, retain) CCSpriteFrame* carFrame;
+@property (retain) CCSpriteFrame* carFrame;
 
 // abilityCooldown. Time in seconds before an ability can be used.
-@property (readonly) double abilityCooldown;
+@property () double abilityCooldown;
 
 // Default location for storing the remaining time on an ability.
 @property double abilityTimeout;

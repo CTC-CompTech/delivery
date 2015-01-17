@@ -7,6 +7,7 @@
 //
 
 #import "CCNode.h"
+#import "vehicleIncludes.h"
 
 @interface ScrollViewTable : CCNode
 

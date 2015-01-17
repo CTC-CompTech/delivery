@@ -16,8 +16,32 @@
 
         // Switch-case for adding new cars. Add new types to the bottom of this.
         switch (inputOfType) {
-            case 0:
+            case defaultVehicleEnum:
                 self.containedCar = [[defaultVehicle alloc]init];
+                break;
+                
+            case whiteTruckEnum:
+                self.containedCar = [[whiteTruck alloc]init];
+                break;
+            
+            case sportsCarEnum:
+                self.containedCar = [[sportsCar alloc]init];
+                break;
+                
+            case policeCarEnum:
+                self.containedCar = [[policeCar alloc]init];
+                break;
+                
+            case pickupTruckEnum:
+                self.containedCar = [[pickupTruck alloc]init];
+                break;
+                
+            case lightRunnerEnum:
+                self.containedCar = [[lightRunner alloc]init];
+                break;
+                
+            case jeepEnum:
+                self.containedCar = [[jeep alloc]init];
                 break;
                 
             default:

@@ -29,6 +29,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
+    [defaults setInteger:whiteTruckEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
 }
 
@@ -37,6 +38,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
+    [defaults setInteger:pickupTruckEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
 }
 
@@ -45,6 +47,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
+    [defaults setInteger:jeepEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
 }
 
@@ -53,6 +56,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
+    [defaults setInteger:policeCarEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
 }
 
@@ -61,6 +65,7 @@
          
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
+    [defaults setInteger:lightRunnerEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
 }
 
@@ -69,6 +74,7 @@
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
+    [defaults setInteger:sportsCarEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
 }
 
