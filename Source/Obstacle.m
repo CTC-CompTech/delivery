@@ -196,22 +196,33 @@
         switch (i) {
             case 1:
                 [_block1 setSpriteFrame:obstacleFrame];
+                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                    _block1.rotation = -45;
+                }
                 break;
             case 2:
                 [_block2 setSpriteFrame:obstacleFrame];
+                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                    _block2.rotation = -45;
+                }
                 break;
             case 3:
                 [_block3 setSpriteFrame:obstacleFrame];
+                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                    _block3.rotation = -45;
+                }
                 break;
             case 4:
                 [_block4 setSpriteFrame:obstacleFrame];
+                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                    _block4.rotation = -45;
+                }
                 break;
             case 5:
                 [_block5 setSpriteFrame:obstacleFrame];
-                break;
-                
-            default:
-                [_block1 setSpriteFrame:obstacleFrame];
+                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                    _block5.rotation = -45;
+                }
                 break;
         }
         
