@@ -15,6 +15,9 @@
 // Sets the type of car currently in use.
 -(void)setVehicleType:(vehicleType) inputOfType;
 
+// Sets the sprite to the one that the current car is using. (Overrides the one inserted by spritebuilder)
+-(void)setCorrectVehicleSprite;
+
 // Reference to a car that does all the real behavior
 @property (retain) defaultVehicle *containedCar;
 

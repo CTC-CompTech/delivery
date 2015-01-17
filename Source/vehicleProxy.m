@@ -78,10 +78,17 @@
     return self.containedCar.carType;
 }
 
+// Re-set the correct sprite
+-(void)setCorrectVehicleSprite{
+    [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
+}
+
 // Overriden initializer to create a default car for safety.
 -(id)init{
     if (self = [super init]){
-        [self setVehicleType:defaultVehicleEnum];
+        NSUserDefaults *getCarIndex = [NSUserDefaults standardUserDefaults];
+        [self setVehicleType:(vehicleType)[getCarIndex integerForKey:@"vehicleIndex"]];
+        getCarIndex = nil;
         return self;
     }
     return nil;

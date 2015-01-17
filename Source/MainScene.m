@@ -112,14 +112,14 @@ static const CGFloat firstObstaclePosition = 450.f;
 
     }
     
-    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Sports Car.png"]) {
+    if ([_hero.getCarType isEqual:@"sportsCar"]) {
         _abilityButton.visible = TRUE;
         self.shouldAbility = TRUE;
     } else {
         _abilityButton.visible = FALSE;
     }
     
-    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"]) {
+    if ([_hero.getCarType isEqual:@"policeCar"]) {
         _heartHolder.visible = TRUE;
         _heartLeft.visible = TRUE;
         _heartRight.visible = TRUE;
@@ -128,9 +128,8 @@ static const CGFloat firstObstaclePosition = 450.f;
         _heartLeft.visible = FALSE;
         _heartRight.visible = FALSE;
     }
-    NSUserDefaults *getCarIndex = [NSUserDefaults standardUserDefaults];
-    [_hero setVehicleType:(vehicleType)[getCarIndex integerForKey:@"vehicleIndex"]];
-    getCarIndex = nil;
+    
+    [_hero setCorrectVehicleSprite];
     // <-- End selected car ---> \\
     
     
@@ -283,8 +282,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
     
     // Check for two hearts car
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"] && _heartLeft.opacity == 1) {
+    if ([_hero.getCarType isEqual:@"policeCar"] && _heartLeft.opacity == 1) {
         _particleHeartL.visible = TRUE;
         [_particleHeartL resetSystem];
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
@@ -302,7 +300,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         
         return FALSE;
     } else {
-        if ([[defaults objectForKey:@"selectedCar"] isEqual: @"Delivery/Police Car.png"]) {
+        if ([_hero.getCarType isEqual:@"policeCar"]) {
             _particleHeartR.visible = TRUE;
             [_particleHeartR resetSystem];
             CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
