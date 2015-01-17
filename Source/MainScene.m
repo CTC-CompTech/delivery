@@ -570,10 +570,12 @@ static const CGFloat firstObstaclePosition = 450.f;
     _hero.physicsBody.collisionType = @"hero";
     
     // Cooldown timer
-    _cooldownTimer.visible = TRUE;
+    if (_paused == NO || _gameOver == YES) {
+        _cooldownTimer.visible = TRUE;
+    }
     NSInteger timer = [_cooldownTimer.string intValue];
     
-    if (_paused == YES) {
+    if (_paused == YES || _gameOver == YES) {
         
         _cooldownTimer.string = [NSString stringWithFormat:@"%ld", (long)timer];
         _cooldownTimer.visible = FALSE;
