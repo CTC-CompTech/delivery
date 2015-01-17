@@ -9,11 +9,11 @@
 #import "Obstacle.h"
 
 @implementation Obstacle {
-    CCNode *_block1;
-    CCNode *_block2;
-    CCNode *_block3;
-    CCNode *_block4;
-    CCNode *_block5;
+    CCSprite *_block1;
+    CCSprite *_block2;
+    CCSprite *_block3;
+    CCSprite *_block4;
+    CCSprite *_block5;
 }
 
 - (void)didLoadFromCCB {
@@ -34,6 +34,14 @@
     int value = [[Stats instance].obstacleCount intValue];
     [Stats instance].obstacleCount = [NSNumber numberWithInt:value + 1];
 //    NSLog(@"%@", [Stats instance].obstacleCount);
+    
+    // Can disable or enable
+    BOOL randomObstacles = YES;
+    
+    // Random obstacles
+    if (randomObstacles == YES) {
+        [self setFrames];
+    }
     
     if ([[Stats instance].obstacleCount intValue] >= 0 && [[Stats instance].obstacleCount intValue] <= 5) {
         [self removeBlockWithLevel:1];
@@ -156,6 +164,76 @@
         NSNumber *thisBlock = [NSNumber numberWithInteger:block];
         [[Stats instance].lasts setObject:thisBlock atIndexedSubscript:0];
     }
+}
+
+- (void)setFrames {
+    
+    for (int i = 0; i < 5; i++) {
+        
+        NSInteger obstacleNum = [self getObstacle];
+        NSString *frame;
+        
+        switch (obstacleNum) {
+            case 1:
+                frame = @"Delivery/Road Block.png";
+                break;
+            case 2:
+                frame = @"Delivery/Bomb Obstacle.png";
+                break;
+            case 3:
+                frame = @"Delivery/Cones Obstacle.png";
+                break;
+            case 4:
+                frame = @"Delivery/Brick Wall Obstacle.png";
+                break;
+            default:
+                frame = @"Delivery/Road Block.png";
+                break;
+        }
+        
+        CCSpriteFrame *obstacleFrame = [CCSpriteFrame frameWithImageNamed:frame];
+        
+        switch (i) {
+            case 1:
+                [_block1 setSpriteFrame:obstacleFrame];
+                break;
+            case 2:
+                [_block2 setSpriteFrame:obstacleFrame];
+                break;
+            case 3:
+                [_block3 setSpriteFrame:obstacleFrame];
+                break;
+            case 4:
+                [_block4 setSpriteFrame:obstacleFrame];
+                break;
+            case 5:
+                [_block5 setSpriteFrame:obstacleFrame];
+                break;
+                
+            default:
+                [_block1 setSpriteFrame:obstacleFrame];
+                break;
+        }
+        
+    }
+    
+}
+
+- (NSInteger)getObstacle {
+    CGFloat random = (double)arc4random_uniform(101);
+    NSInteger ret = 1;
+    
+    if (random <= 25) {
+        ret = 1;
+    } else if (random <= 50 && random > 25) {
+        ret = 2;
+    } else if (random <= 75 && random > 50) {
+        ret = 3;
+    } else if (random <= 100 && random > 75) {
+        ret = 4;
+    }
+    
+    return ret;
 }
 
 - (NSInteger)getLane {
