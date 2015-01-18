@@ -45,6 +45,10 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCButton *_mainMenu;
     CCButton *_carsButton;
     
+    CCButton *_pauseOptions;
+    CCButton *_pauseResume;
+    CCButton *_pauseMenu;
+    
     CCNode *_heartHolder;
     CCNode *_heartRight;
     CCNode *_heartLeft;
@@ -505,6 +509,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         _paused = YES;
         _scrollSpeed = 0.f;
         _abilityButton.visible = FALSE;
+        _pauseMenu.visible = TRUE;
+        _pauseOptions.visible = TRUE;
+        _pauseResume.visible = TRUE;
         
         // Fix ability pause
         [_fireBall stopSystem];
@@ -513,6 +520,9 @@ static const CGFloat firstObstaclePosition = 450.f;
     } else {
         _paused = NO;
         _scrollSpeed = speedBefore;
+        _pauseMenu.visible = FALSE;
+        _pauseOptions.visible = FALSE;
+        _pauseResume.visible = FALSE;
         
         if (self.shouldAbility == YES) {
             _abilityButton.visible = TRUE;
