@@ -54,6 +54,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_heartLeft;
     
     CCNode *_gamePlayCoin;
+    CCNode *_backgroundFade;
     
     CCLabelTTF *_gameOverCount;
     CCLabelTTF *_scoreLabel;
@@ -420,6 +421,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         _gameOverCount.string = formatted;
         
         // Handle animations
+        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];
+        [_backgroundFade runAction:fade];
+        
         _gameOverText.position = ccp(-160, _gameOverText.position.y);
         [self performSelector:@selector(sweepTitle) withObject:nil afterDelay:.1];
         
@@ -513,6 +517,8 @@ static const CGFloat firstObstaclePosition = 450.f;
         _pauseOptions.visible = TRUE;
         _pauseResume.visible = TRUE;
         
+        _backgroundFade.opacity = 1;
+        
         // Fix ability pause
         [_fireBall stopSystem];
 //        _fireBall.visible = FALSE;
@@ -523,6 +529,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         _pauseMenu.visible = FALSE;
         _pauseOptions.visible = FALSE;
         _pauseResume.visible = FALSE;
+        
+        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:.5f opacity:0];
+        [_backgroundFade runAction:fade];
         
         if (self.shouldAbility == YES) {
             _abilityButton.visible = TRUE;
