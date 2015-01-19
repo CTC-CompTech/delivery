@@ -530,6 +530,10 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
 }
 
+- (void)resume {
+    [self pause];
+}
+
 - (void)ability {
     _hero.physicsBody.collisionType = @"ability";
     _abilityButton.visible = FALSE;
