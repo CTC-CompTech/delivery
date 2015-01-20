@@ -6,7 +6,8 @@
 typedef NS_ENUM(NSInteger, DrawingOrder) {
     DrawingOrderGround,
     DrawingOrderObstacle,
-    DrawingOrderHero
+    DrawingOrderHero,
+    DrawingOrderRocket
 };
 
 //static const CGFloat scrollSpeed = 100.f;
@@ -20,6 +21,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 @property (strong, nonatomic) CCSpriteFrame *policeCarFrame;
 
 @property BOOL shouldAbility;
+
+@property BOOL rocketFire;
 
 @property NSInteger currentScore;
 
@@ -53,6 +56,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_heartRight;
     CCNode *_heartLeft;
     
+    CCNode *_rocket;
+    
     CCNode *_gamePlayCoin;
     CCNode *_backgroundFade;
     
@@ -64,6 +69,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     BOOL _paused;
     CGFloat _scrollSpeed;
     CGFloat distanceBetweenObstacles;
+    
+    CGFloat _rocketSpeed;
     
     CGPoint firstTouch;
     CGPoint lastTouch;
@@ -117,7 +124,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
     }
     
-    if ([_hero.getCarType isEqual:@"sportsCar"]) {
+    if ([_hero.getCarType isEqual:@"sportsCar"] || [_hero.getCarType isEqual:@"lightRunner"]) {
         _abilityButton.visible = TRUE;
         self.shouldAbility = TRUE;
     } else {
@@ -160,6 +167,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         ground.zOrder = DrawingOrderGround;
     }
     _hero.zOrder = DrawingOrderHero;
+    _rocket.zOrder = DrawingOrderRocket;
     
     // listen for swipes to the left
     UISwipeGestureRecognizer * swipeLeft= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft)];
@@ -175,6 +183,14 @@ static const CGFloat firstObstaclePosition = 450.f;
 - (void)update:(CCTime)delta {
     _physicsNode.position = ccp(_physicsNode.position.x, _physicsNode.position.y - (_scrollSpeed *delta));
     _hero.position = ccp(_hero.position.x, _hero.position.y + delta * _scrollSpeed);
+    
+    // Rocket is fired -- LightRunner vehicle
+    if (self.rocketFire) {
+        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _rocketSpeed);
+    } else {
+        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _scrollSpeed);
+    }
+    
 //    CCLOG(@"%@", NSStringFromCGPoint(_hero.position));
     // loop the ground
     
@@ -364,6 +380,34 @@ static const CGFloat firstObstaclePosition = 450.f;
     return TRUE;
 }
 
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair rocket:(CCNode *)rocket level:(CCNode *)level {
+    
+    NSMutableArray *obstaclesToDelete = [[NSMutableArray alloc] init];
+    
+    CGPoint hitLocation = [self convertToWorldSpace:rocket.position];
+    
+    for (CCSprite *obstacle in _obstacles) {
+        if (CGRectContainsPoint(obstacle.boundingBox, hitLocation)) {
+            [obstaclesToDelete addObject:obstacle];
+        }
+    }
+    
+    for (CCSprite *obstacle in obstaclesToDelete) {
+        [obstacle stopAllActions];
+        [_obstacles removeObject:obstacle];
+        [_physicsNode removeChild:obstacle cleanup:YES];
+    }
+    
+    // Clean up after collision
+    _rocket.visible = FALSE;
+    self.rocketFire = NO;
+    // self.shouldAbility = TRUE; -- Later use
+    _rocket.physicsBody.collisionType = @"";
+    _rocket.position = _hero.position;
+    
+    return TRUE;
+}
+
 - (NSInteger)getCoins {
     
     NSInteger coinAmount = 0;
@@ -544,30 +588,33 @@ static const CGFloat firstObstaclePosition = 450.f;
 }
 
 - (void)ability {
-    _hero.physicsBody.collisionType = @"ability";
-    _abilityButton.visible = FALSE;
-    _fireBall.visible = TRUE;
-   [_fireBall resetSystem];
-    NSNumber *speedBefore = [NSNumber numberWithFloat:_scrollSpeed];
-    [Stats instance].abilityUse = YES;
-    _scrollSpeed = 500.f;
-    self.shouldAbility = FALSE;
     
-    [self performSelector:@selector(abilityStop:) withObject:speedBefore afterDelay:5.0];
+    if ([_hero.getCarType isEqual:@"lightRunner"]) {
+        
+        self.rocketFire = YES;
+        _rocket.physicsBody.collisionType = @"rocket";
+        _rocket.visible = TRUE;
+        _rocketSpeed = 550.f;
+        _abilityButton.visible = FALSE;
+        self.shouldAbility = FALSE;
+        
+    }
     
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-//        //Here your non-main thread.
-//        [NSThread sleepForTimeInterval:5.0f];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            //Here you returns to main thread.
-////            _scrollSpeed = speedBefore;
-////            _scrollSpeed = speedBefore;
-//            [MainScene instance].abilityUse = NO;
-//            [_fireBall stopSystem];
-//            // Speed may land on obstacle -- Give longer invinciblility
-//            [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
-//        });
-//    });
+    if ([_hero.getCarType isEqual:@"sportsCar"]) {
+    
+        _hero.physicsBody.collisionType = @"ability";
+        _abilityButton.visible = FALSE;
+        _fireBall.visible = TRUE;
+        [_fireBall resetSystem];
+        NSNumber *speedBefore = [NSNumber numberWithFloat:_scrollSpeed];
+        [Stats instance].abilityUse = YES;
+        _scrollSpeed = 500.f;
+        self.shouldAbility = FALSE;
+        
+        [self performSelector:@selector(abilityStop:) withObject:speedBefore afterDelay:5.0];
+        
+    }
+    
 }
 
 - (void)abilityStop:(NSNumber*)speedBefore {
