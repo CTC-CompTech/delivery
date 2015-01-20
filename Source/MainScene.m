@@ -178,6 +178,10 @@ static const CGFloat firstObstaclePosition = 450.f;
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [[[CCDirector sharedDirector] view] addGestureRecognizer:swipeRight];
     
+    UITapGestureRecognizer *tapLimitRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLimitRecognizer:)];
+    [tapLimitRecognizer setNumberOfTapsRequired:2];
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:tapLimitRecognizer];
+    
 }
 
 - (void)update:(CCTime)delta {
@@ -672,6 +676,12 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
 }
 
+/*///////////////////////////////////////////
+ *
+ * User Interaction
+ *
+ ///////////////////////////////////////////*/
+
 - (void)swipeLeft {
 //    CCLOG(@"swipeLeft");
     if (!_gameOver) {
@@ -731,6 +741,10 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (void)setZeroLeft {
     _hero.rotation = -135.f;
+}
+
+- (void)tapLimitRecognizer:(UITapGestureRecognizer *)tapLimitRecognizer {
+    [self ability];
 }
 
 @end
