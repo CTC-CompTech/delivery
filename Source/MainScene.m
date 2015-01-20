@@ -744,7 +744,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 }
 
 - (void)tapLimitRecognizer:(UITapGestureRecognizer *)tapLimitRecognizer {
-    [self ability];
+    if (_abilityButton.visible)
+        [self ability];
 }
 
 @end
