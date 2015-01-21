@@ -462,7 +462,7 @@ static const CGFloat firstObstaclePosition = 450.f;
             [Stats instance].bestCoin = [NSNumber numberWithInteger:currentCoin];
             _bestCoin.string = [NSString stringWithFormat:@"%li", (long)currentCoin];
         } else {
-            _bestCoin.string = [NSString stringWithFormat:@"%li", bestCoin];
+            _bestCoin.string = [NSString stringWithFormat:@"%li", (long)bestCoin];
         }
         
         NSInteger totalRunCoin = _currentScore;
@@ -619,6 +619,8 @@ static const CGFloat firstObstaclePosition = 450.f;
         _rocketSpeed = 550.f;
         _abilityButton.visible = FALSE;
         self.shouldAbility = FALSE;
+        OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
+        [audio playEffect:@"Rocket.wav"];
         
     }
     
