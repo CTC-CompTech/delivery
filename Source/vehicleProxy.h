@@ -25,7 +25,11 @@
 -(void)moveLeft;
 -(void)moveRight;
 -(void)useAbility;
--(NSString *)getCarType;
+-(NSString *)getVehicleType;
+
+// Set and get the car speed.
+-(void)setVehicleSpeed:(double)newSpeed;
+-(double)getVehicleSpeed; // Exists for compatibility reasons.
 
 
 @end

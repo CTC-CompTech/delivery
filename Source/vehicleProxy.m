@@ -74,13 +74,22 @@
 }
 
 // Returns the name of the current type of car.
--(NSString *)getCarType{
+-(NSString *)getVehicleType{
     return self.containedCar.carType;
 }
 
 // Re-set the correct sprite
 -(void)setCorrectVehicleSprite{
     [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
+}
+
+// Set the speed of the internal vehicle.
+-(void)setVehicleSpeed:(double)newSpeed{
+    self.containedCar.vehicleSpeed = newSpeed;
+}
+
+-(double)getVehicleSpeed{
+    return self.containedCar.vehicleSpeed;
 }
 
 // Overriden initializer to create a default car for safety.

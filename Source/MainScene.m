@@ -69,7 +69,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     BOOL _gameOver;
     BOOL _paused;
-    CGFloat _scrollSpeed;
     CGFloat distanceBetweenObstacles;
     
     CGFloat _rocketSpeed;
@@ -126,14 +125,14 @@ static const CGFloat firstObstaclePosition = 450.f;
 
     }
     
-    if ([_hero.getCarType isEqual:@"sportsCar"] || [_hero.getCarType isEqual:@"lightRunner"]) {
+    if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"lightRunner"]) {
         _abilityButton.visible = TRUE;
         self.shouldAbility = TRUE;
     } else {
         _abilityButton.visible = FALSE;
     }
     
-    if ([_hero.getCarType isEqual:@"policeCar"]) {
+    if ([_hero.getVehicleType isEqual:@"policeCar"]) {
         _heartHolder.visible = TRUE;
         _heartLeft.visible = TRUE;
         _heartRight.visible = TRUE;
@@ -187,14 +186,12 @@ static const CGFloat firstObstaclePosition = 450.f;
 }
 
 - (void)update:(CCTime)delta {
-    _physicsNode.position = ccp(_physicsNode.position.x, _physicsNode.position.y - (_scrollSpeed *delta));
-    _hero.position = ccp(_hero.position.x, _hero.position.y + delta * _scrollSpeed);
     
     // Rocket is fired -- LightRunner vehicle
     if (self.rocketFire) {
-        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _rocketSpeed);
+        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _hero.getVehicleSpeed);
     } else {
-        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _scrollSpeed);
+        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _hero.getVehicleSpeed);
     }
     
 //    CCLOG(@"%@", NSStringFromCGPoint(_hero.position));
@@ -222,20 +219,20 @@ static const CGFloat firstObstaclePosition = 450.f;
         if (_paused != YES) {
             if ([Stats instance].abilityUse == NO) {
                 if ([Stats instance].level == [NSNumber numberWithInt:1]) {
-                    _scrollSpeed = 210.f;
+                    [_hero setVehicleSpeed:210.f];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:2]) {
-                    _scrollSpeed = 210.f;
+                    [_hero setVehicleSpeed:210.f];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:3]) {
-                    _scrollSpeed = 245.f;
+                    [_hero setVehicleSpeed:245.f];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:4]) {
-                    _scrollSpeed = 245.f;
+                    [_hero setVehicleSpeed:245.f];
                 } else if ([Stats instance].level == [NSNumber numberWithInt:5]) {
-                    _scrollSpeed = 245.f;
+                    [_hero setVehicleSpeed:245.f];
                 }
             }
         }
     } else {
-        _scrollSpeed = 0;
+        [_hero setVehicleSpeed:0];
     }
     
     for (CCNode *ground in _grounds) {
@@ -309,7 +306,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
     
     // Check for two hearts car
-    if ([_hero.getCarType isEqual:@"policeCar"] && _heartLeft.opacity == 1) {
+    if ([_hero.getVehicleType isEqual:@"policeCar"] && _heartLeft.opacity == 1) {
         _particleHeartL.visible = TRUE;
         [_particleHeartL resetSystem];
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
@@ -327,7 +324,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         
         return FALSE;
     } else {
-        if ([_hero.getCarType isEqual:@"policeCar"]) {
+        if ([_hero.getVehicleType isEqual:@"policeCar"]) {
             _particleHeartR.visible = TRUE;
             [_particleHeartR resetSystem];
             CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
@@ -577,10 +574,10 @@ static const CGFloat firstObstaclePosition = 450.f;
 }
 
 - (void)pause {
-    CGFloat speedBefore = _scrollSpeed;
+    CGFloat speedBefore = _hero.getVehicleSpeed;
     if (_paused == NO) {
         _paused = YES;
-        _scrollSpeed = 0.f;
+        [_hero setVehicleSpeed:0.f];
         _abilityButton.visible = FALSE;
         _pauseMenu.visible = TRUE;
         _pauseOptions.visible = TRUE;
@@ -594,7 +591,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         
     } else {
         _paused = NO;
-        _scrollSpeed = speedBefore;
+        [_hero setVehicleSpeed:speedBefore];
         _pauseMenu.visible = FALSE;
         _pauseOptions.visible = FALSE;
         _pauseResume.visible = FALSE;
@@ -614,7 +611,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (void)ability {
     
-    if ([_hero.getCarType isEqual:@"lightRunner"]) {
+    if ([_hero.getVehicleType isEqual:@"lightRunner"]) {
         
         self.rocketFire = YES;
         _rocket.physicsBody.collisionType = @"rocket";
@@ -625,15 +622,15 @@ static const CGFloat firstObstaclePosition = 450.f;
         
     }
     
-    if ([_hero.getCarType isEqual:@"sportsCar"]) {
+    if ([_hero.getVehicleType isEqual:@"sportsCar"]) {
     
         _hero.physicsBody.collisionType = @"ability";
         _abilityButton.visible = FALSE;
         _fireBall.visible = TRUE;
         [_fireBall resetSystem];
-        NSNumber *speedBefore = [NSNumber numberWithFloat:_scrollSpeed];
+        NSNumber *speedBefore = [NSNumber numberWithFloat:_hero.getVehicleSpeed];
         [Stats instance].abilityUse = YES;
-        _scrollSpeed = 500.f;
+        [_hero setVehicleSpeed:500.f];
         self.shouldAbility = FALSE;
         
         [self performSelector:@selector(abilityStop:) withObject:speedBefore afterDelay:5.0];
@@ -647,7 +644,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CGFloat speed = [speedBefore floatValue];
     
     if (_paused == NO) {
-        _scrollSpeed = speed;
+        [_hero setVehicleSpeed:speed];
         [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
     } else {
         _hero.physicsBody.collisionType = @"hero";

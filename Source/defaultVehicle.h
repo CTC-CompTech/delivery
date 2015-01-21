@@ -22,19 +22,22 @@
 // Define the default properties for a car. Should be set to different values by redefining the initializer.
 
 // String-based name of the car. Should usually be set to the name of the current class.
-@property () NSString* carType;
+@property (nonatomic, copy) NSString* carType;
 
 // Holds the default frame for this type of car.
-@property (retain) CCSpriteFrame* carFrame;
+@property (nonatomic, retain) CCSpriteFrame* carFrame;
 
 // abilityCooldown. Time in seconds before an ability can be used.
-@property () double abilityCooldown;
+@property (nonatomic) double abilityCooldown;
 
 // Default location for storing the remaining time on an ability.
-@property double abilityTimeout;
+@property (nonatomic) double abilityTimeout;
 
 // Default variable used for indicating if an ability is finished.
-@property () BOOL canUseAbility;
+@property (nonatomic) BOOL canUseAbility;
+
+// Double for holding and setting the movement speed of the vehicle.
+@property (nonatomic) double vehicleSpeed;
 
 
 
@@ -51,7 +54,7 @@
 // Uses the ability for this car.
 -(void)useAbility;
 
-// Allows per-frame updates and Cocos2D pausing. Should call abilityUpdate ASAP.
+// Allows per-frame updates and Cocos2D pausing. This base one should always be called.
 -(void)passthroughUpdate:(CCTime)delta parentPointer:(CCNode*)realVehicle;
 
 // Performs the ability. May be one-time or time-based.

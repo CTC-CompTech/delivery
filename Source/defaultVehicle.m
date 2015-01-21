@@ -14,11 +14,12 @@
 
 -(id)init{
     if (self = [super init]){
-        _carType = @"defaultCar";
-        _canUseAbility = true;
-        _abilityTimeout = 0;
-        _abilityCooldown = 5;
-        _carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
+        self.carType = @"defaultCar";
+        self.canUseAbility = true;
+        self.abilityTimeout = 0;
+        self.abilityCooldown = 5;
+        self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
+        self.vehicleSpeed = 210.0f;
         return self;
     }
     else
@@ -65,6 +66,7 @@
 
 }
 
+
 -(void)useAbility {
     if (self.canUseAbility == true){
         
@@ -81,6 +83,8 @@
 
 -(void)passthroughUpdate:(CCTime)delta parentPointer:(CCNode *)realVehicle{
     [self abilityUpdate:delta parentPointer:realVehicle];
+    realVehicle.parent.position = ccp(realVehicle.parent.position.x, realVehicle.parent.position.y - (self.vehicleSpeed * delta));
+    realVehicle.position = ccp(realVehicle.position.x, realVehicle.position.y + (delta * self.vehicleSpeed));
 }
 
 
