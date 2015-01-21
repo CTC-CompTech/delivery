@@ -68,17 +68,11 @@
 
 
 -(void)useAbility {
-    if (self.canUseAbility == true){
-        
-    }
-    self.canUseAbility = false;
+
 }
 
 -(void)abilityUpdate:(CCTime)delta parentPointer:(CCNode *)realVehicle{
-    if (!self.canUseAbility){
-        
-    }
-    return;
+
 }
 
 -(void)passthroughUpdate:(CCTime)delta parentPointer:(CCNode *)realVehicle{
