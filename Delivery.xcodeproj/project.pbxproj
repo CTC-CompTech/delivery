@@ -53,7 +53,6 @@
 		60DA6FC31A673C7600D3BDAD /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60DA6FC21A673C7600D3BDAD /* GameController.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		60DA6FC61A6752B900D3BDAD /* gamecentercontrol.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DA6FC51A6752B900D3BDAD /* gamecentercontrol.m */; };
 		60DB055A1A6327660049A94C /* CarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DB05591A6327660049A94C /* CarMenu.m */; };
-		60DBFD291A702704009846FF /* Rocket.wav in Resources */ = {isa = PBXBuildFile; fileRef = 60DBFD281A702704009846FF /* Rocket.wav */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
 		7A4036E819DE3F33007B6E8F /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
@@ -256,7 +255,6 @@
 		60DA6FC51A6752B900D3BDAD /* gamecentercontrol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = gamecentercontrol.m; path = Source/gamecentercontrol.m; sourceTree = "<group>"; };
 		60DB05581A6327660049A94C /* CarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CarMenu.h; path = Source/CarMenu.h; sourceTree = "<group>"; };
 		60DB05591A6327660049A94C /* CarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarMenu.m; path = Source/CarMenu.m; sourceTree = "<group>"; };
-		60DBFD281A702704009846FF /* Rocket.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Rocket.wav; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* Delivery Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
 		7A40360319DDEE84007B6E8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Platforms/Mac/main.m; sourceTree = "<group>"; };
@@ -458,7 +456,6 @@
 		60DBFD261A702692009846FF /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				60DBFD281A702704009846FF /* Rocket.wav */,
 			);
 			name = Audio;
 			sourceTree = "<group>";
@@ -923,7 +920,6 @@
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
 				B71F5918188484E7003F4D28 /* iPhone@2x.png in Resources */,
 				B7378977180762440076A88C /* Default.png in Resources */,
-				60DBFD291A702704009846FF /* Rocket.wav in Resources */,
 				B71F5911188484E7003F4D28 /* iPad-old.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

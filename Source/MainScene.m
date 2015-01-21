@@ -619,8 +619,6 @@ static const CGFloat firstObstaclePosition = 450.f;
         _rocketSpeed = 550.f;
         _abilityButton.visible = FALSE;
         self.shouldAbility = FALSE;
-        OALSimpleAudio *audio = [OALSimpleAudio sharedInstance];
-        [audio playEffect:@"Rocket.wav"];
         
     }
     
