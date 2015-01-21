@@ -16,6 +16,7 @@
 @property (retain, nonatomic) NSMutableArray *lasts;
 
 @property (retain, nonatomic) NSNumber *currentCoin;
+@property (retain, nonatomic) NSNumber *bestCoin;
 
 @property (retain, nonatomic) NSNumber *totalCoin;
 @property (retain, nonatomic) NSNumber *collision;

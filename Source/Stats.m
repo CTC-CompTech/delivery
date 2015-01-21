@@ -33,6 +33,8 @@ static Stats *inst = nil;
     [coder encodeObject:_collision forKey:@"collisions"];
     [coder encodeObject:_gameRuns forKey:@"gameRuns"];
     [coder encodeObject:_loginDate forKey:@"loginDate"];
+    [coder encodeObject:_bestCoin forKey:@"bestCoin"];
+
 }
 
 - (id)initWithCoder:(NSCoder *)coder;
@@ -45,6 +47,7 @@ static Stats *inst = nil;
         _collision = [coder decodeObjectForKey:@"collisions"];
         _gameRuns = [coder decodeObjectForKey:@"gameRuns"];
         _loginDate = [coder decodeObjectForKey:@"loginDate"];
+        _bestCoin = [coder decodeObjectForKey:@"bestCoin"];
         
     }
     return self;

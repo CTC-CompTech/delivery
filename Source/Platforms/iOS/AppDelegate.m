@@ -64,6 +64,8 @@
         [Stats instance].collision = stats.collision;
         [Stats instance].gameRuns = stats.gameRuns;
         [Stats instance].loginDate = stats.loginDate;
+        [Stats instance].bestCoin = stats.bestCoin;
+        
     }
     
     [self setupCocos2dWithOptions:cocos2dSetup];
