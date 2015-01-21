@@ -121,7 +121,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [_hero setSpriteFrame:car];
         self.heroFrame = _hero.spriteFrame;
         
-        NSLog(@"RECT OF HERO: %@", NSStringFromCGRect([_hero boundingBox]));
+//        NSLog(@"RECT OF HERO: %@", NSStringFromCGRect([_hero boundingBox]));
 
     }
     
@@ -189,7 +189,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     // Rocket is fired -- LightRunner vehicle
     if (self.rocketFire) {
-        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _hero.getVehicleSpeed);
+        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _rocketSpeed);
     } else {
         _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _hero.getVehicleSpeed);
     }
@@ -462,7 +462,7 @@ static const CGFloat firstObstaclePosition = 450.f;
             [Stats instance].bestCoin = [NSNumber numberWithInteger:currentCoin];
             _bestCoin.string = [NSString stringWithFormat:@"%li", (long)currentCoin];
         } else {
-            _bestCoin.string = [NSString stringWithFormat:@"%li", bestCoin];
+            _bestCoin.string = [NSString stringWithFormat:@"%li", (long)bestCoin];
         }
         
         NSInteger totalRunCoin = _currentScore;
