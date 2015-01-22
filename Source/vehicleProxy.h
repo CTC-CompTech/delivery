@@ -15,11 +15,14 @@
 // Sets the type of car currently in use.
 -(void)setVehicleType:(vehicleType) inputOfType;
 
-// Sets the sprite to the one that the current car is using. (Overrides the one inserted by spritebuilder)
--(void)setCorrectVehicleSprite;
+// Setup the vehicle. Used to reset the sprite and add objects to the scene.
+-(void)setupVehicle;
 
 // Reference to a car that does all the real behavior
 @property (retain) defaultVehicle *containedCar;
+
+// Is the internal car initialized with this parent?
+@property (nonatomic) bool isSetup;
 
 // Passthrough functions that call methods on the polymorhic car.
 -(void)moveLeft;

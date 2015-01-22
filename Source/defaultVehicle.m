@@ -81,5 +81,9 @@
     realVehicle.position = ccp(realVehicle.position.x, realVehicle.position.y + (delta * self.vehicleSpeed));
 }
 
+-(void)setupVehicle{
+    
+}
+
 
 @end

@@ -51,6 +51,8 @@
         // End of switch-case.
         
         [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
+        self.containedCar.parentVehicle = self;
+    self.isSetup = false;
     
 }
 
@@ -79,8 +81,12 @@
 }
 
 // Re-set the correct sprite
--(void)setCorrectVehicleSprite{
+-(void)setupVehicle{
+    if (!self.isSetup){
     [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
+    [self.containedCar setupVehicle];
+    self.isSetup = true;
+    }
 }
 
 // Set the speed of the internal vehicle.

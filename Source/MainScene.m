@@ -141,8 +141,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _heartLeft.visible = FALSE;
         _heartRight.visible = FALSE;
     }
-    
-    [_hero setCorrectVehicleSprite];
+
     // <-- End selected car ---> \\
     
     
@@ -186,6 +185,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 }
 
 - (void)update:(CCTime)delta {
+    [_hero setupVehicle];
     
     // Rocket is fired -- LightRunner vehicle
     if (self.rocketFire) {

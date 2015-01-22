@@ -39,10 +39,16 @@
 // Double for holding and setting the movement speed of the vehicle.
 @property (nonatomic) double vehicleSpeed;
 
+// Weak reference to the parent vehicleProxy
+@property (weak, nonatomic) CCSprite* parentVehicle;
+
 
 
 // The argument realVehicle indicates that the method needs to be able to modify the image that the user sees.
 // Objects that shouln't be owned by the vehicle should be passed this way.
+
+// Set up the vehicle when the proxy has a parent
+-(void)setupVehicle;
 
 // Move the car left and right one lane, respectively.
 -(void)moveLeft:(CCNode*)realVehicle;
