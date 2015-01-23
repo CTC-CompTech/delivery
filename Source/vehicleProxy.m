@@ -95,6 +95,7 @@
 
 // Set the speed of the internal vehicle.
 -(void)setVehicleSpeed:(double)newSpeed{
+    if (self.containedCar.canUseAbility == true)
     self.containedCar.vehicleSpeed = newSpeed;
 }
 

@@ -45,9 +45,10 @@
 
 -(void)useAbility{
     if (self.canUseAbility){
+        self.preAbilitySpeed = self.vehicleSpeed;
         self.abilityCooldown = JEEP_ABILITY_COOLDOWN;
         self.abilityTimeout = JEEP_ABILITY_DURATION;
-        self.vehicleSpeed = 300.0f;
+        self.vehicleSpeed = 500.0f;
         [self.particleEffect resetSystem];
         self.particleEffect.visible = true;
         self.parentVehicle.physicsBody.collisionType = @"ability";
@@ -59,18 +60,27 @@
 -(void)abilityUpdate:(CCTime)delta{
     if (!self.canUseAbility){
         
+        if ((self.abilityTimeout >= 1.5) && ((self.abilityTimeout - delta) < 1.5)){// Do when 1 seconds are remaining on the ability
+            self.vehicleSpeed = self.preAbilitySpeed;
+            [self.particleEffect stopSystem];
+        }
+        
         if (self.abilityTimeout >= 0){ // Do while the ability is running
             self.abilityTimeout -= delta;
         }
         
+        
         else if (self.abilityCooldown >= 0){ // Do while the ability is cooling down
+            
+            if ((self.abilityTimeout <= 0) && (self.abilityCooldown == JEEP_ABILITY_COOLDOWN)){ // Do when the ability first cools down
+                self.particleEffect.visible = false;
+                self.parentVehicle.physicsBody.collisionType = @"hero";
+            }
+            
             self.abilityCooldown -= delta;
         }
         
         else { // Do on ability reset
-            
-            self.particleEffect.visible = false;
-            self.parentVehicle.physicsBody.collisionType = @"hero";
             self.canUseAbility = true;
         }
         
