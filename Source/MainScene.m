@@ -125,7 +125,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
     }
     
-    if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"lightRunner"]) {
+    if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"lightRunner"] || [_hero.getVehicleType isEqual:@"pickupTruck"]) {
         _abilityButton.visible = TRUE;
         self.shouldAbility = TRUE;
     } else {
@@ -611,7 +611,25 @@ static const CGFloat firstObstaclePosition = 450.f;
     [self pause];
 }
 
+/*///////////////////////////////////////////
+ *
+ * Abilities
+ *
+ ///////////////////////////////////////////*/
+
 - (void)ability {
+    
+    if ([_hero.getVehicleType isEqual:@"pickupTruck"]) {
+        
+        _abilityButton.visible = FALSE;
+        [Stats instance].abilityUse = YES;
+        [_hero setVehicleSpeed:120.f];
+        NSNumber *speedBefore = [NSNumber numberWithFloat:_hero.getVehicleSpeed];
+        self.shouldAbility = FALSE;
+        
+        [self performSelector:@selector(unfreeze:) withObject:speedBefore afterDelay:7.0];
+        
+    }
     
     if ([_hero.getVehicleType isEqual:@"lightRunner"]) {
         
@@ -638,6 +656,19 @@ static const CGFloat firstObstaclePosition = 450.f;
         [self performSelector:@selector(abilityStop:) withObject:speedBefore afterDelay:5.0];
         
     }
+    
+}
+
+- (void)unfreeze:(NSNumber*)speedBefore {
+    
+    CGFloat speed = [speedBefore floatValue];
+    
+    if (_paused == NO) {
+        [_hero setVehicleSpeed:speed];
+        [self performSelector:@selector(delayPerfect) withObject:nil afterDelay:1.0];
+    }
+    
+    [Stats instance].abilityUse = NO;
     
 }
 
