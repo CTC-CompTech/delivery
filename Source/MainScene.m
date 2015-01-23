@@ -456,13 +456,30 @@ static const CGFloat firstObstaclePosition = 450.f;
         
         // Best Score
         NSInteger bestCoin = [[Stats instance].bestCoin integerValue];
-        NSInteger currentCoin = [_scoreLabel.string integerValue];
+        NSInteger currentCoin = self.currentScore;
         
         if (bestCoin < currentCoin) {
             [Stats instance].bestCoin = [NSNumber numberWithInteger:currentCoin];
-            _bestCoin.string = [NSString stringWithFormat:@"%li", (long)currentCoin];
+            
+            // Format
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            
+            NSNumber *numToFormat = [NSNumber numberWithInteger:currentCoin];
+            NSString *formatted = [formatter stringFromNumber:numToFormat];
+            
+            _bestCoin.string = [NSString stringWithFormat:@"%@", formatted];
+            
         } else {
-            _bestCoin.string = [NSString stringWithFormat:@"%li", (long)bestCoin];
+            
+            // Format
+            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+            
+            NSNumber *numToFormat = [NSNumber numberWithInteger:bestCoin];
+            NSString *formatted = [formatter stringFromNumber:numToFormat];
+            
+            _bestCoin.string = [NSString stringWithFormat:@"%@", formatted];
         }
         
         NSInteger totalRunCoin = _currentScore;
