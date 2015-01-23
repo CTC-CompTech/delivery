@@ -14,7 +14,9 @@
 
 @property (nonatomic) double preAbilitySpeed;
 
-@property (nonatomic, retain) CCParticleSystem* particleEffect;
+@property (nonatomic, weak) CCParticleSystem* particleEffect;
+
+@property (nonatomic, weak) CCNode* abilityButton;
 
 @end
 
@@ -54,7 +56,7 @@
     }
 }
 
--(void)abilityUpdate:(CCTime)delta parentPointer:(CCNode *)realVehicle{
+-(void)abilityUpdate:(CCTime)delta{
     if (!self.canUseAbility){
         
         if (self.abilityTimeout >= 0){ // Do while the ability is running
@@ -75,5 +77,16 @@
         
 }}
 
+-(void)onPause{
+    [super onPause];
+    [self.abilityOverlay setVisible:false];
+    self.particleEffect.paused = true;
+}
+
+-(void)onResume{
+    [super onResume];
+    [self.abilityOverlay setVisible:true];
+    self.particleEffect.paused = false;
+}
 
 @end

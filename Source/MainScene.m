@@ -440,6 +440,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (void)gameOver {
     if (!_gameOver) {
+        [_hero onPause];
         [Stats instance].obstacleCount = 0;
         _gameOver = TRUE;
         _abilityButton.visible = FALSE;
@@ -576,6 +577,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CGFloat speedBefore = _hero.getVehicleSpeed;
     if (_paused == NO) {
         _paused = YES;
+        [_hero onPause];
         [_hero setVehicleSpeed:0.f];
         _abilityButton.visible = FALSE;
         _pauseMenu.visible = TRUE;
@@ -590,6 +592,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         
     } else {
         _paused = NO;
+        [_hero onResume];
         [_hero setVehicleSpeed:speedBefore];
         _pauseMenu.visible = FALSE;
         _pauseOptions.visible = FALSE;
@@ -751,7 +754,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
     
 }
-
+/*
 - (void)setZeroRight {
     _hero.rotation = -45.f;
 }
@@ -759,7 +762,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 - (void)setZeroLeft {
     _hero.rotation = -135.f;
 }
-
+*/
 - (void)tapLimitRecognizer:(UITapGestureRecognizer *)tapLimitRecognizer {
     if (_abilityButton.visible)
         [self ability];

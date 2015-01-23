@@ -29,6 +29,8 @@
 -(void)moveRight;
 -(void)useAbility;
 -(NSString *)getVehicleType;
+-(void)onPause;
+-(void)onResume;
 
 // Set and get the car speed.
 -(void)setVehicleSpeed:(double)newSpeed;

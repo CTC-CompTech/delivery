@@ -42,6 +42,12 @@
 // Weak reference to the parent vehicleProxy
 @property (weak, nonatomic) CCSprite* parentVehicle;
 
+// Reference to the ability overlay
+@property (weak, nonatomic) CCNode* abilityOverlay;
+
+// Is the game paused?
+@property (nonatomic) bool isPaused;
+
 
 
 // The argument realVehicle indicates that the method needs to be able to modify the image that the user sees.
@@ -51,20 +57,23 @@
 -(void)setupVehicle;
 
 // Move the car left and right one lane, respectively.
--(void)moveLeft:(CCNode*)realVehicle;
--(void)moveRight:(CCNode*)realVehicle;
+-(void)moveLeft;
+-(void)moveRight;
 
 // Checks what lane the car is currently in and moves it.
--(BOOL)evaluateLeftOrRight:(BOOL)leftOrRight parentPointer:(CCNode*)realVehicle;
+-(BOOL)evaluateLeftOrRight:(BOOL)leftOrRight;
 
 // Uses the ability for this car.
 -(void)useAbility;
 
 // Allows per-frame updates and Cocos2D pausing. This base one should always be called.
--(void)passthroughUpdate:(CCTime)delta parentPointer:(CCNode*)realVehicle;
+-(void)passthroughUpdate:(CCTime)delta;
 
 // Performs the ability. May be one-time or time-based.
--(void)abilityUpdate:(CCTime)delta parentPointer:(CCNode*)realVehicle; //Performs the actual ability.
+-(void)abilityUpdate:(CCTime)delta; //Performs the actual ability.
 
+// Run when the game is paused or resumed (By external functions, not automatically)
+-(void)onPause;
+-(void)onResume;
 
 @end

@@ -58,21 +58,25 @@
 
 // Runs moveLeft and moveRight in the contained car.
 -(void)moveLeft {
-    [self.containedCar moveLeft:self];
+    if (self.containedCar.isPaused == false)
+    [self.containedCar moveLeft];
 }
 
 -(void)moveRight {
-    [self.containedCar moveRight:self];
+    if (self.containedCar.isPaused == false)
+    [self.containedCar moveRight];
 }
 
 // Uses the ability of the current car.
 -(void)useAbility {
+    if (self.containedCar.isPaused == false)
     [self.containedCar useAbility];
 }
 
 // Updates the state of the selected car.
 -(void)update:(CCTime)delta {
-    [self.containedCar passthroughUpdate:delta parentPointer:self];
+    if (self.containedCar.isPaused == false)
+    [self.containedCar passthroughUpdate:delta];
 }
 
 // Returns the name of the current type of car.
@@ -96,6 +100,14 @@
 
 -(double)getVehicleSpeed{
     return self.containedCar.vehicleSpeed;
+}
+
+-(void)onPause{
+    [self.containedCar onPause];
+}
+
+-(void)onResume{
+    [self.containedCar onResume];
 }
 
 // Overriden initializer to create a default car for safety.
