@@ -62,7 +62,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_backgroundFade;
     
     CCLabelTTF *_bestCoin;
-    CCLabelTTF *_bestTag;
+    CCLabelTTF *_pocketCoin;
     CCLabelTTF *_gameOverCount;
     CCLabelTTF *_scoreLabel;
     CCLabelTTF *_cooldownTimer;
@@ -297,6 +297,18 @@ static const CGFloat firstObstaclePosition = 450.f;
     obstacle.zOrder = DrawingOrderObstacle;
 }
 
+- (NSString *)formatter:(NSInteger)toFormat {
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber *numToFormat = [NSNumber numberWithInteger:toFormat];
+    NSString *formatted = [formatter stringFromNumber:numToFormat];
+    
+    return formatted;
+    
+}
+
 /*///////////////////////////////////////////
  *
  * Collisions
@@ -354,14 +366,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     _currentScore = totalRunCoin;
     
-    // Format
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    
-    NSNumber *numToFormat = [NSNumber numberWithInteger:totalRunCoin];
-    NSString *formatted = [formatter stringFromNumber:numToFormat];
-    
-    _scoreLabel.string = formatted;
+    _scoreLabel.string = [self formatter:totalRunCoin];
     return TRUE;
 }
 
@@ -372,14 +377,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     _currentScore = totalRunCoin;
     
-    // Format
-    NSNumberFormatter *formatter = [NSNumberFormatter new];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    
-    NSNumber *numToFormat = [NSNumber numberWithInteger:totalRunCoin];
-    NSString *formatted = [formatter stringFromNumber:numToFormat];
-    
-    _scoreLabel.string = formatted;
+    _scoreLabel.string = [self formatter:totalRunCoin];
     return TRUE;
 }
 
@@ -461,39 +459,18 @@ static const CGFloat firstObstaclePosition = 450.f;
         if (bestCoin < currentCoin) {
             [Stats instance].bestCoin = [NSNumber numberWithInteger:currentCoin];
             
-            // Format
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-            
-            NSNumber *numToFormat = [NSNumber numberWithInteger:currentCoin];
-            NSString *formatted = [formatter stringFromNumber:numToFormat];
-            
-            _bestCoin.string = [NSString stringWithFormat:@"%@", formatted];
+            _bestCoin.string = [self formatter:currentCoin];
             
         } else {
             
-            // Format
-            NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-            [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-            
-            NSNumber *numToFormat = [NSNumber numberWithInteger:bestCoin];
-            NSString *formatted = [formatter stringFromNumber:numToFormat];
-            
-            _bestCoin.string = [NSString stringWithFormat:@"%@", formatted];
+            _bestCoin.string = [self formatter:bestCoin];
         }
         
         NSInteger totalRunCoin = _currentScore;
         
         _currentScore = totalRunCoin;
         
-        // Format
-        NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-        [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-        
-        NSNumber *numToFormat = [NSNumber numberWithInteger:totalRunCoin];
-        NSString *formatted = [formatter stringFromNumber:numToFormat];
-        
-        _gameOverCount.string = formatted;
+        _gameOverCount.string = [self formatter:totalRunCoin];
         
         // Handle animations
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];
@@ -508,7 +485,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _carsButton.position = ccp(521, _carsButton.position.y);
         _gameOverCount.position = ccp(480, _gameOverCount.position.y);
         _bestCoin.position = ccp(480 + 65, _bestCoin.position.y);
-        _bestTag.position = ccp(480 + 53, _bestTag.position.y);
+        _pocketCoin.position = ccp(480 + 65, _pocketCoin.position.y);
         [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.2];
         
         _gameOverBackground.visible = TRUE;
@@ -517,7 +494,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _mainMenu.visible = TRUE;
         _carsButton.visible = TRUE;
         _bestCoin.visible = TRUE;
-        _bestTag.visible = TRUE;
+        _pocketCoin.visible = TRUE;
         
         // Keep score
         NSInteger intScore = self.currentScore;
@@ -529,6 +506,11 @@ static const CGFloat firstObstaclePosition = 450.f;
         
         [Stats instance].totalCoin = scoreTotal;
         [Stats instance].currentCoin = scoreCurrent;
+        
+        // Pocket coin
+        NSInteger pocket = [[Stats instance].currentCoin integerValue];
+        
+        _pocketCoin.string = [self formatter:pocket];
         
 //        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
@@ -555,8 +537,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCActionMoveTo *moveMenu = [CCActionMoveTo actionWithDuration:.25 position:ccp(120, _mainMenu.position.y)];
     CCActionMoveTo *moveCars = [CCActionMoveTo actionWithDuration:.25 position:ccp(201, _carsButton.position.y)];
     CCActionMoveTo *moveScore = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverCount.position.y)];
-    CCActionMoveTo *moveBest = [CCActionMoveTo actionWithDuration:.25 position:ccp(213, _bestCoin.position.y)];
-    CCActionMoveTo *moveBestLabel = [CCActionMoveTo actionWithDuration:.25 position:ccp(225, _bestTag.position.y)];
+    CCActionMoveTo *moveBest = [CCActionMoveTo actionWithDuration:.25 position:ccp(262, _bestCoin.position.y)];
+    CCActionMoveTo *movePocket = [CCActionMoveTo actionWithDuration:.25 position:ccp(262, _pocketCoin.position.y)];
     
     [_gameOverBackground runAction:moveBackground];
     [_restartButton runAction:moveRestart];
@@ -564,8 +546,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     [_carsButton runAction:moveCars];
     [_gameOverCount runAction:moveScore];
     [_bestCoin runAction:moveBest];
-    [_bestTag runAction:moveBestLabel];
-
+    [_pocketCoin runAction:movePocket];
+    
 }
 
 /*///////////////////////////////////////////

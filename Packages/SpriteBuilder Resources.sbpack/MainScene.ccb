@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>64</integer>
+	<integer>65</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -881,8 +881,6 @@
 										<string>ccbResources/ccbParticleFire.png</string>
 									</dict>
 								</array>
-								<key>selected</key>
-								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>
@@ -4564,7 +4562,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Stat Box.png</string>
+							<string>Delivery/Game Over Stat Box v2.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4600,6 +4598,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -4818,7 +4818,7 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>62</integer>
+				<integer>63</integer>
 				<key>baseClass</key>
 				<string>CCLabelTTF</string>
 				<key>children</key>
@@ -4828,7 +4828,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string>_bestTag</string>
+				<string>_bestCoin</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -4856,8 +4856,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>225.00003051757812</real>
-							<real>0.61443662643432617</real>
+							<real>262.00003051757812</real>
+							<real>0.69718277454376221</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -4870,8 +4870,8 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.5</real>
-							<real>0.5</real>
+							<real>1</real>
+							<real>0.0</real>
 						</array>
 					</dict>
 					<dict>
@@ -4894,7 +4894,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>Best:</string>
+							<string>0</string>
 							<false/>
 						</array>
 					</dict>
@@ -4913,7 +4913,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>12</real>
+							<real>15</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -4957,7 +4957,7 @@
 						<key>type</key>
 						<string>IntegerLabeled</string>
 						<key>value</key>
-						<integer>0</integer>
+						<integer>2</integer>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -4965,7 +4965,7 @@
 						<key>type</key>
 						<string>IntegerLabeled</string>
 						<key>value</key>
-						<integer>0</integer>
+						<integer>1</integer>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -5046,7 +5046,7 @@
 			</dict>
 			<dict>
 				<key>UUID</key>
-				<integer>63</integer>
+				<integer>64</integer>
 				<key>baseClass</key>
 				<string>CCLabelTTF</string>
 				<key>children</key>
@@ -5056,7 +5056,7 @@
 				<key>displayName</key>
 				<string>CCLabelTTF</string>
 				<key>memberVarAssignmentName</key>
-				<string>_bestCoin</string>
+				<string>_pocketCoin</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -5084,11 +5084,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>213.00003051757812</real>
-							<real>0.57570421695709229</real>
+							<real>262</real>
+							<real>345</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>2</integer>
+							<integer>0</integer>
 						</array>
 					</dict>
 					<dict>
@@ -5098,7 +5098,7 @@
 						<string>Point</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>1</real>
 							<real>0.0</real>
 						</array>
 					</dict>
@@ -5141,7 +5141,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>12</real>
+							<real>15</real>
 							<integer>0</integer>
 						</array>
 					</dict>
