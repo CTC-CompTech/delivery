@@ -178,9 +178,9 @@ static const CGFloat firstObstaclePosition = 450.f;
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [[[CCDirector sharedDirector] view] addGestureRecognizer:swipeRight];
     
-    UITapGestureRecognizer *tapLimitRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLimitRecognizer:)];
-    [tapLimitRecognizer setNumberOfTapsRequired:2];
-    [[[CCDirector sharedDirector] view] addGestureRecognizer:tapLimitRecognizer];
+//    UITapGestureRecognizer *tapLimitRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLimitRecognizer:)];
+//    [tapLimitRecognizer setNumberOfTapsRequired:2];
+//    [[[CCDirector sharedDirector] view] addGestureRecognizer:tapLimitRecognizer];
     
 }
 
