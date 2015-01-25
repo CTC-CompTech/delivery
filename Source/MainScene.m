@@ -66,6 +66,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCLabelTTF *_gameOverCount;
     CCLabelTTF *_scoreLabel;
     CCLabelTTF *_cooldownTimer;
+    CCLabelTTF *_lightRunnerAbility;
     
     BOOL _gameOver;
     BOOL _paused;
@@ -140,6 +141,10 @@ static const CGFloat firstObstaclePosition = 450.f;
         _heartHolder.visible = FALSE;
         _heartLeft.visible = FALSE;
         _heartRight.visible = FALSE;
+    }
+    
+    if ([_hero.getVehicleType isEqual:@"lightRunner"]) {
+        _lightRunnerAbility.visible = TRUE;
     }
 
     // <-- End selected car ---> \\
@@ -399,8 +404,33 @@ static const CGFloat firstObstaclePosition = 450.f;
         [_physicsNode removeChild:obstacle cleanup:YES];
     }
     
+    // Shots fired -- haha
+    if (_paused == NO || _gameOver == YES) {
+        _lightRunnerAbility.visible = TRUE;
+    }
+    
+    NSInteger fireCount = [_lightRunnerAbility.string integerValue];
+    
+    if (_paused == YES || _gameOver == YES) {
+        
+        _lightRunnerAbility.string = [NSString stringWithFormat:@"%ld", (long)fireCount];
+        _lightRunnerAbility.visible = FALSE;
+        
+    } else if (fireCount > 1) {
+        
+        fireCount--;
+        
+        _lightRunnerAbility.string = [NSString stringWithFormat:@"%ld", (long)fireCount];
+        
+    } else {
+        
+        _lightRunnerAbility.visible = FALSE;
+        _rocket.visible = FALSE;
+        _abilityButton.visible = FALSE;
+        
+    }
+    
     // Clean up after collision
-    _rocket.visible = FALSE;
     self.rocketFire = NO;
     // self.shouldAbility = TRUE; -- Later use
     _rocket.physicsBody.collisionType = @"";
@@ -637,7 +667,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _rocket.physicsBody.collisionType = @"rocket";
         _rocket.visible = TRUE;
         _rocketSpeed = 550.f;
-        _abilityButton.visible = FALSE;
+//        _abilityButton.visible = FALSE;
         self.shouldAbility = FALSE;
         
     }
