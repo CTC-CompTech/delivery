@@ -25,7 +25,7 @@
 
 #import "CCActivity.h"
 
-BRIDGE_CLASS("org.cocos2d.Delivery.DeliveryActivity")
+BRIDGE_CLASS("com.apportable.GLActivity")
 @interface DeliveryActivity : CCActivity
 
 @end

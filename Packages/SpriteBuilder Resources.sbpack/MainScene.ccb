@@ -4598,8 +4598,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -5752,7 +5750,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Menu Button Selected.png</string>
+							<string>Delivery/Pause Menu Main Menu Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -5939,6 +5937,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
