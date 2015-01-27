@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C6038C91A77F18700451DA0 /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6038C81A77F18700451DA0 /* runnerRocket.m */; };
 		4C68E48C1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
 		4C68E48D1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
 		4C68E48E1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
@@ -209,6 +210,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C6038C71A77F18700451DA0 /* runnerRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runnerRocket.h; sourceTree = "<group>"; };
+		4C6038C81A77F18700451DA0 /* runnerRocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = runnerRocket.m; sourceTree = "<group>"; };
 		4C68E48A1A64963400CAF048 /* defaultVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaultVehicle.h; path = Source/defaultVehicle.h; sourceTree = "<group>"; };
 		4C68E48B1A64963400CAF048 /* defaultVehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = defaultVehicle.m; path = Source/defaultVehicle.m; sourceTree = "<group>"; };
 		4C97608F1A6AFA0B00553897 /* whiteTruck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = whiteTruck.h; path = Source/whiteTruck.h; sourceTree = "<group>"; };
@@ -243,7 +246,7 @@
 		5B121013197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121015197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B12101B19748413004C1E1D /* DeliveryActivity.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = DeliveryActivity.java; path = Source/Platforms/Android/java/org/cocos2d/Delivery/DeliveryActivity.java; sourceTree = "<group>"; };
-		5B121021197484A3004C1E1D /* Delivery Java.jar */ = {isa = PBXFileReference; explicitFileType = compiled.java.jar; includeInIndex = 0; path = "Delivery Java.jar"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B121021197484A3004C1E1D /* Delivery Java.jar */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; path = "Delivery Java.jar"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B12102E197484FA004C1E1D /* DeliveryActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryActivity.h; path = Source/Platforms/Android/DeliveryActivity.h; sourceTree = "<group>"; };
 		5B12102F197484FA004C1E1D /* DeliveryActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryActivity.m; path = Source/Platforms/Android/DeliveryActivity.m; sourceTree = "<group>"; };
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
@@ -369,9 +372,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C6038C21A77D1AE00451DA0 /* Vehicle Ability Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4C6038C71A77F18700451DA0 /* runnerRocket.h */,
+				4C6038C81A77F18700451DA0 /* runnerRocket.m */,
+			);
+			name = "Vehicle Ability Classes";
+			sourceTree = "<group>";
+		};
 		4C68E4881A64946800CAF048 /* Vehicle Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C6038C21A77D1AE00451DA0 /* Vehicle Ability Classes */,
 				4C68E48A1A64963400CAF048 /* defaultVehicle.h */,
 				4C68E48B1A64963400CAF048 /* defaultVehicle.m */,
 				4DA99AE31A66E3F800ECEB94 /* vehicleIncludes.h */,
@@ -842,7 +855,7 @@
 		};
 		7A97910219E62E40001FFC4D /* cocos2dJava.jar */ = {
 			isa = PBXReferenceProxy;
-			fileType = compiled.java.jar;
+			fileType = file;
 			path = cocos2dJava.jar;
 			remoteRef = 7A97910119E62E40001FFC4D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
@@ -1039,6 +1052,7 @@
 				4C9760AF1A6AFFB600553897 /* jeep.m in Sources */,
 				60DA6FC61A6752B900D3BDAD /* gamecentercontrol.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
+				4C6038C91A77F18700451DA0 /* runnerRocket.m in Sources */,
 				60DB055A1A6327660049A94C /* CarMenu.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				4D2F09481A53304300B4E947 /* Obstacle.m in Sources */,

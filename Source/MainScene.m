@@ -403,38 +403,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [_obstacles removeObject:obstacle];
         [_physicsNode removeChild:obstacle cleanup:YES];
     }
-    
-    // Shots fired -- haha
-    if (_paused == NO || _gameOver == YES) {
-        _lightRunnerAbility.visible = TRUE;
-    }
-    
-    NSInteger fireCount = [_lightRunnerAbility.string integerValue];
-    
-    if (_paused == YES || _gameOver == YES) {
-        
-        _lightRunnerAbility.string = [NSString stringWithFormat:@"%ld", (long)fireCount];
-        _lightRunnerAbility.visible = FALSE;
-        
-    } else if (fireCount > 1) {
-        
-        fireCount--;
-        
-        _lightRunnerAbility.string = [NSString stringWithFormat:@"%ld", (long)fireCount];
-        
-    } else {
-        
-        _lightRunnerAbility.visible = FALSE;
-        _rocket.visible = FALSE;
-        _abilityButton.visible = FALSE;
-        
-    }
-    
-    // Clean up after collision
-    self.rocketFire = NO;
-    // self.shouldAbility = TRUE; -- Later use
-    _rocket.physicsBody.collisionType = @"";
-    _rocket.position = _hero.position;
+    [rocket removeFromParentAndCleanup:YES];
     
     return TRUE;
 }
