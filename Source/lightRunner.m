@@ -8,6 +8,17 @@
 
 #import "lightRunner.h"
 
+@interface lightRunner ()
+
+@property (nonatomic) unsigned int useCount;
+
+@property (nonatomic, weak) CCSprite* rocket;
+
+@property (nonatomic, weak) CCNode* abilityButton;
+
+@end
+
+
 @implementation lightRunner
 
 -(id)init{
@@ -25,5 +36,19 @@
     else
         return nil;
 }
+
+
+
+-(void)setupVehicle{
+    [self.parentVehicle.scene addChild:[CCBReader load:@"Light Runner Overlay" owner:self]];
+    self.rocket.visible = false;
+    self.useCount = 3;
+}
+
+
+-(void)useAbility{
+    
+}
+
 
 @end

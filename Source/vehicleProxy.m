@@ -52,7 +52,8 @@
         
         [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
         self.containedCar.parentVehicle = self;
-    self.isSetup = false;
+        [self.physicsBody setCollisionGroup:@0x01]; // Vehicle group is 0x01, allies should be set to this also
+        self.isSetup = false;
     
 }
 
