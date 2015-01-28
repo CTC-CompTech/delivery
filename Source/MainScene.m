@@ -175,6 +175,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     _rocket.zOrder = DrawingOrderRocket;
     
     // listen for swipes to the left
+#if __CC_PLATFORM_IOS
     UISwipeGestureRecognizer * swipeLeft= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeLeft)];
     swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
     [[[CCDirector sharedDirector] view] addGestureRecognizer:swipeLeft];
@@ -182,6 +183,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     UISwipeGestureRecognizer * swipeRight= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeRight)];
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [[[CCDirector sharedDirector] view] addGestureRecognizer:swipeRight];
+#endif
     
 //    UITapGestureRecognizer *tapLimitRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLimitRecognizer:)];
 //    [tapLimitRecognizer setNumberOfTapsRequired:2];
@@ -793,9 +795,9 @@ static const CGFloat firstObstaclePosition = 450.f;
     _hero.rotation = -135.f;
 }
 */
-- (void)tapLimitRecognizer:(UITapGestureRecognizer *)tapLimitRecognizer {
-    if (_abilityButton.visible)
-        [self ability];
-}
+//- (void)tapLimitRecognizer:(UITapGestureRecognizer *)tapLimitRecognizer {
+//    if (_abilityButton.visible)
+//        [self ability];
+//}
 
 @end
