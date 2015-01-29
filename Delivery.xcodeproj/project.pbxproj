@@ -335,6 +335,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D3418E61A79C7A3006BCB5F /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				601700BB1A72D6B200CD560A /* Stats.h */,
+				601700BC1A72D6B200CD560A /* Stats.m */,
+			);
+			name = Stats;
+			sourceTree = "<group>";
+		};
+		4D3418E81A79C7B3006BCB5F /* Vehicle */ = {
+			isa = PBXGroup;
+			children = (
+				601700A51A72D6B200CD560A /* defaultVehicle.h */,
+				601700A61A72D6B200CD560A /* defaultVehicle.m */,
+				601700BD1A72D6B200CD560A /* vehicleIncludes.h */,
+				601700BE1A72D6B200CD560A /* vehicleProxy.h */,
+				601700BF1A72D6B200CD560A /* vehicleProxy.m */,
+				4D3418EA1A79C7DB006BCB5F /* Abilities */,
+				4D3418E91A79C7CD006BCB5F /* Vehicle Types */,
+			);
+			name = Vehicle;
+			sourceTree = "<group>";
+		};
+		4D3418E91A79C7CD006BCB5F /* Vehicle Types */ = {
+			isa = PBXGroup;
+			children = (
+				601700AB1A72D6B200CD560A /* jeep.h */,
+				601700AC1A72D6B200CD560A /* jeep.m */,
+				601700AD1A72D6B200CD560A /* lightRunner.h */,
+				601700AE1A72D6B200CD560A /* lightRunner.m */,
+				601700B31A72D6B200CD560A /* pickupTruck.h */,
+				601700B41A72D6B200CD560A /* pickupTruck.m */,
+				601700B51A72D6B200CD560A /* policeCar.h */,
+				601700B61A72D6B200CD560A /* policeCar.m */,
+				601700B91A72D6B200CD560A /* sportsCar.h */,
+				601700BA1A72D6B200CD560A /* sportsCar.m */,
+				601700C01A72D6B200CD560A /* whiteTruck.h */,
+				601700C11A72D6B200CD560A /* whiteTruck.m */,
+			);
+			name = "Vehicle Types";
+			sourceTree = "<group>";
+		};
+		4D3418EA1A79C7DB006BCB5F /* Abilities */ = {
+			isa = PBXGroup;
+			children = (
+				4D25614F1A79B24500B1FC02 /* runnerRocket.h */,
+				4D2561501A79B24500B1FC02 /* runnerRocket.m */,
+			);
+			name = Abilities;
+			sourceTree = "<group>";
+		};
 		5B12100D197483EE004C1E1D /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +444,8 @@
 			children = (
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
+				601700A71A72D6B200CD560A /* gamecentercontrol.h */,
+				601700A81A72D6B200CD560A /* gamecentercontrol.m */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -497,40 +550,19 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				4D25614F1A79B24500B1FC02 /* runnerRocket.h */,
-				4D2561501A79B24500B1FC02 /* runnerRocket.m */,
+				4D3418E61A79C7A3006BCB5F /* Stats */,
+				4D3418E81A79C7B3006BCB5F /* Vehicle */,
+				7A40362019DDEF0D007B6E8F /* Platforms */,
 				601700A31A72D6B200CD560A /* CarMenu.h */,
 				601700A41A72D6B200CD560A /* CarMenu.m */,
-				601700A51A72D6B200CD560A /* defaultVehicle.h */,
-				601700A61A72D6B200CD560A /* defaultVehicle.m */,
-				601700A71A72D6B200CD560A /* gamecentercontrol.h */,
-				601700A81A72D6B200CD560A /* gamecentercontrol.m */,
 				601700A91A72D6B200CD560A /* Goal.h */,
 				601700AA1A72D6B200CD560A /* Goal.m */,
-				601700AB1A72D6B200CD560A /* jeep.h */,
-				601700AC1A72D6B200CD560A /* jeep.m */,
-				601700AD1A72D6B200CD560A /* lightRunner.h */,
-				601700AE1A72D6B200CD560A /* lightRunner.m */,
 				601700AF1A72D6B200CD560A /* Menu.h */,
 				601700B01A72D6B200CD560A /* Menu.m */,
 				601700B11A72D6B200CD560A /* Obstacle.h */,
 				601700B21A72D6B200CD560A /* Obstacle.m */,
-				601700B31A72D6B200CD560A /* pickupTruck.h */,
-				601700B41A72D6B200CD560A /* pickupTruck.m */,
-				601700B51A72D6B200CD560A /* policeCar.h */,
-				601700B61A72D6B200CD560A /* policeCar.m */,
 				601700B71A72D6B200CD560A /* ScrollViewTable.h */,
 				601700B81A72D6B200CD560A /* ScrollViewTable.m */,
-				601700B91A72D6B200CD560A /* sportsCar.h */,
-				601700BA1A72D6B200CD560A /* sportsCar.m */,
-				601700BB1A72D6B200CD560A /* Stats.h */,
-				601700BC1A72D6B200CD560A /* Stats.m */,
-				601700BD1A72D6B200CD560A /* vehicleIncludes.h */,
-				601700BE1A72D6B200CD560A /* vehicleProxy.h */,
-				601700BF1A72D6B200CD560A /* vehicleProxy.m */,
-				601700C01A72D6B200CD560A /* whiteTruck.h */,
-				601700C11A72D6B200CD560A /* whiteTruck.m */,
-				7A40362019DDEF0D007B6E8F /* Platforms */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
