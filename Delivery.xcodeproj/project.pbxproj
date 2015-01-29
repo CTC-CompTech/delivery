@@ -7,48 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C6038C91A77F18700451DA0 /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6038C81A77F18700451DA0 /* runnerRocket.m */; };
-		4C68E48C1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
-		4C68E48D1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
-		4C68E48E1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
-		4C68E48F1A64963400CAF048 /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C68E48B1A64963400CAF048 /* defaultVehicle.m */; };
-		4C9760911A6AFA0B00553897 /* whiteTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760901A6AFA0B00553897 /* whiteTruck.m */; };
-		4C9760921A6AFA0B00553897 /* whiteTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760901A6AFA0B00553897 /* whiteTruck.m */; };
-		4C9760931A6AFA0B00553897 /* whiteTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760901A6AFA0B00553897 /* whiteTruck.m */; };
-		4C9760941A6AFA0B00553897 /* whiteTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760901A6AFA0B00553897 /* whiteTruck.m */; };
-		4C9760971A6AFCB000553897 /* sportsCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760961A6AFCB000553897 /* sportsCar.m */; };
-		4C9760981A6AFCB000553897 /* sportsCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760961A6AFCB000553897 /* sportsCar.m */; };
-		4C9760991A6AFCB000553897 /* sportsCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760961A6AFCB000553897 /* sportsCar.m */; };
-		4C97609A1A6AFCB000553897 /* sportsCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760961A6AFCB000553897 /* sportsCar.m */; };
-		4C97609D1A6AFD2B00553897 /* policeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97609C1A6AFD2B00553897 /* policeCar.m */; };
-		4C97609E1A6AFD2B00553897 /* policeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97609C1A6AFD2B00553897 /* policeCar.m */; };
-		4C97609F1A6AFD2B00553897 /* policeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97609C1A6AFD2B00553897 /* policeCar.m */; };
-		4C9760A01A6AFD2B00553897 /* policeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C97609C1A6AFD2B00553897 /* policeCar.m */; };
-		4C9760A31A6AFEA500553897 /* pickupTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A21A6AFEA500553897 /* pickupTruck.m */; };
-		4C9760A41A6AFEA500553897 /* pickupTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A21A6AFEA500553897 /* pickupTruck.m */; };
-		4C9760A51A6AFEA500553897 /* pickupTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A21A6AFEA500553897 /* pickupTruck.m */; };
-		4C9760A61A6AFEA500553897 /* pickupTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A21A6AFEA500553897 /* pickupTruck.m */; };
-		4C9760A91A6AFF5F00553897 /* lightRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A81A6AFF5F00553897 /* lightRunner.m */; };
-		4C9760AA1A6AFF5F00553897 /* lightRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A81A6AFF5F00553897 /* lightRunner.m */; };
-		4C9760AB1A6AFF5F00553897 /* lightRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A81A6AFF5F00553897 /* lightRunner.m */; };
-		4C9760AC1A6AFF5F00553897 /* lightRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760A81A6AFF5F00553897 /* lightRunner.m */; };
-		4C9760AF1A6AFFB600553897 /* jeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760AE1A6AFFB600553897 /* jeep.m */; };
-		4C9760B01A6AFFB600553897 /* jeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760AE1A6AFFB600553897 /* jeep.m */; };
-		4C9760B11A6AFFB600553897 /* jeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760AE1A6AFFB600553897 /* jeep.m */; };
-		4C9760B21A6AFFB600553897 /* jeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9760AE1A6AFFB600553897 /* jeep.m */; };
-		4CCE299C1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
-		4CCE299D1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
-		4CCE299E1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
-		4CCE299F1A66D26B00FF0491 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */; };
-		4D2F09481A53304300B4E947 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2F09471A53304300B4E947 /* Obstacle.m */; };
-		4D581C2B1A62284400DD1137 /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D581C2A1A62284400DD1137 /* Goal.m */; };
-		4DA91FF41A5A41D900982339 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA91FF31A5A41D900982339 /* Menu.m */; };
-		4DA99AE21A66E3B700ECEB94 /* ScrollViewTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA99AE11A66E3B700ECEB94 /* ScrollViewTable.m */; };
-		4DA99AE61A66E47200ECEB94 /* Stats.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA99AE51A66E47200ECEB94 /* Stats.m */; };
-		5B12100C19748281004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
-		5B121029197484DA004C1E1D /* BridgeKitV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B12100B19748281004C1E1D /* BridgeKitV3.framework */; };
-		5B12102A197484DD004C1E1D /* DeliveryActivity.java in Sources */ = {isa = PBXBuildFile; fileRef = 5B12101B19748413004C1E1D /* DeliveryActivity.java */; };
-		5B121030197484FA004C1E1D /* DeliveryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* DeliveryActivity.m */; };
+		4D2561511A79B24500B1FC02 /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		601700C21A72D6B200CD560A /* CarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A41A72D6B200CD560A /* CarMenu.m */; };
 		601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A61A72D6B200CD560A /* defaultVehicle.m */; };
@@ -213,42 +172,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C6038C71A77F18700451DA0 /* runnerRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runnerRocket.h; sourceTree = "<group>"; };
-		4C6038C81A77F18700451DA0 /* runnerRocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = runnerRocket.m; sourceTree = "<group>"; };
-		4C68E48A1A64963400CAF048 /* defaultVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaultVehicle.h; path = Source/defaultVehicle.h; sourceTree = "<group>"; };
-		4C68E48B1A64963400CAF048 /* defaultVehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = defaultVehicle.m; path = Source/defaultVehicle.m; sourceTree = "<group>"; };
-		4C97608F1A6AFA0B00553897 /* whiteTruck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = whiteTruck.h; path = Source/whiteTruck.h; sourceTree = "<group>"; };
-		4C9760901A6AFA0B00553897 /* whiteTruck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = whiteTruck.m; path = Source/whiteTruck.m; sourceTree = "<group>"; };
-		4C9760951A6AFCB000553897 /* sportsCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = sportsCar.h; path = Source/sportsCar.h; sourceTree = "<group>"; };
-		4C9760961A6AFCB000553897 /* sportsCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = sportsCar.m; path = Source/sportsCar.m; sourceTree = "<group>"; };
-		4C97609B1A6AFD2B00553897 /* policeCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = policeCar.h; path = Source/policeCar.h; sourceTree = "<group>"; };
-		4C97609C1A6AFD2B00553897 /* policeCar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = policeCar.m; path = Source/policeCar.m; sourceTree = "<group>"; };
-		4C9760A11A6AFEA500553897 /* pickupTruck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pickupTruck.h; path = Source/pickupTruck.h; sourceTree = "<group>"; };
-		4C9760A21A6AFEA500553897 /* pickupTruck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = pickupTruck.m; path = Source/pickupTruck.m; sourceTree = "<group>"; };
-		4C9760A71A6AFF5F00553897 /* lightRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lightRunner.h; path = Source/lightRunner.h; sourceTree = "<group>"; };
-		4C9760A81A6AFF5F00553897 /* lightRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lightRunner.m; path = Source/lightRunner.m; sourceTree = "<group>"; };
-		4C9760AD1A6AFFB600553897 /* jeep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jeep.h; path = Source/jeep.h; sourceTree = "<group>"; };
-		4C9760AE1A6AFFB600553897 /* jeep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = jeep.m; path = Source/jeep.m; sourceTree = "<group>"; };
-		4CCE299A1A66D26B00FF0491 /* vehicleProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vehicleProxy.h; path = Source/vehicleProxy.h; sourceTree = "<group>"; };
-		4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = vehicleProxy.m; path = Source/vehicleProxy.m; sourceTree = "<group>"; };
-		4D2F09461A53304300B4E947 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Source/Obstacle.h; sourceTree = "<group>"; };
-		4D2F09471A53304300B4E947 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Source/Obstacle.m; sourceTree = "<group>"; };
-		4D581C291A62284400DD1137 /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Goal.h; path = Source/Goal.h; sourceTree = "<group>"; };
-		4D581C2A1A62284400DD1137 /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Goal.m; path = Source/Goal.m; sourceTree = "<group>"; };
-		4DA91FF21A5A41D900982339 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = Source/Menu.h; sourceTree = "<group>"; };
-		4DA91FF31A5A41D900982339 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Menu.m; path = Source/Menu.m; sourceTree = "<group>"; };
-		4DA99AE01A66E3B700ECEB94 /* ScrollViewTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ScrollViewTable.h; path = Source/ScrollViewTable.h; sourceTree = "<group>"; };
-		4DA99AE11A66E3B700ECEB94 /* ScrollViewTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ScrollViewTable.m; path = Source/ScrollViewTable.m; sourceTree = "<group>"; };
-		4DA99AE31A66E3F800ECEB94 /* vehicleIncludes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = vehicleIncludes.h; path = Source/vehicleIncludes.h; sourceTree = "<group>"; };
-		4DA99AE41A66E47200ECEB94 /* Stats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Stats.h; path = Source/Stats.h; sourceTree = "<group>"; };
-		4DA99AE51A66E47200ECEB94 /* Stats.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Stats.m; path = Source/Stats.m; sourceTree = "<group>"; };
+		4D25614F1A79B24500B1FC02 /* runnerRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runnerRocket.h; sourceTree = "<group>"; };
+		4D2561501A79B24500B1FC02 /* runnerRocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = runnerRocket.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121013197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121015197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
-		5B12101B19748413004C1E1D /* DeliveryActivity.java */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.java; name = DeliveryActivity.java; path = Source/Platforms/Android/java/org/cocos2d/Delivery/DeliveryActivity.java; sourceTree = "<group>"; };
-		5B121021197484A3004C1E1D /* Delivery Java.jar */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = file; path = "Delivery Java.jar"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B12102E197484FA004C1E1D /* DeliveryActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DeliveryActivity.h; path = Source/Platforms/Android/DeliveryActivity.h; sourceTree = "<group>"; };
 		5B12102F197484FA004C1E1D /* DeliveryActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DeliveryActivity.m; path = Source/Platforms/Android/DeliveryActivity.m; sourceTree = "<group>"; };
 		5B121033197485FE004C1E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Android/Info.plist; sourceTree = "<group>"; };
@@ -404,57 +334,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C6038C21A77D1AE00451DA0 /* Vehicle Ability Classes */ = {
-			isa = PBXGroup;
-			children = (
-				4C6038C71A77F18700451DA0 /* runnerRocket.h */,
-				4C6038C81A77F18700451DA0 /* runnerRocket.m */,
-			);
-			name = "Vehicle Ability Classes";
-			sourceTree = "<group>";
-		};
-		4C68E4881A64946800CAF048 /* Vehicle Classes */ = {
-			isa = PBXGroup;
-			children = (
-				4C6038C21A77D1AE00451DA0 /* Vehicle Ability Classes */,
-				4C68E48A1A64963400CAF048 /* defaultVehicle.h */,
-				4C68E48B1A64963400CAF048 /* defaultVehicle.m */,
-				4DA99AE31A66E3F800ECEB94 /* vehicleIncludes.h */,
-				4CCE299A1A66D26B00FF0491 /* vehicleProxy.h */,
-				4CCE299B1A66D26B00FF0491 /* vehicleProxy.m */,
-				4C9760B31A6AFFFF00553897 /* Car Types */,
-			);
-			name = "Vehicle Classes";
-			sourceTree = "<group>";
-		};
-		4C9760B31A6AFFFF00553897 /* Car Types */ = {
-			isa = PBXGroup;
-			children = (
-				4C97608F1A6AFA0B00553897 /* whiteTruck.h */,
-				4C9760901A6AFA0B00553897 /* whiteTruck.m */,
-				4C9760951A6AFCB000553897 /* sportsCar.h */,
-				4C9760961A6AFCB000553897 /* sportsCar.m */,
-				4C97609B1A6AFD2B00553897 /* policeCar.h */,
-				4C97609C1A6AFD2B00553897 /* policeCar.m */,
-				4C9760A11A6AFEA500553897 /* pickupTruck.h */,
-				4C9760A21A6AFEA500553897 /* pickupTruck.m */,
-				4C9760A71A6AFF5F00553897 /* lightRunner.h */,
-				4C9760A81A6AFF5F00553897 /* lightRunner.m */,
-				4C9760AD1A6AFFB600553897 /* jeep.h */,
-				4C9760AE1A6AFFB600553897 /* jeep.m */,
-			);
-			name = "Car Types";
-			sourceTree = "<group>";
-		};
-		4DA99ADB1A66E2F200ECEB94 /* Stats */ = {
-			isa = PBXGroup;
-			children = (
-				4DA99AE41A66E47200ECEB94 /* Stats.h */,
-				4DA99AE51A66E47200ECEB94 /* Stats.m */,
-			);
-			name = Stats;
-			sourceTree = "<group>";
-		};
 		5B12100D197483EE004C1E1D /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,6 +496,8 @@
 		B737893C1807616C0076A88C /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				4D25614F1A79B24500B1FC02 /* runnerRocket.h */,
+				4D2561501A79B24500B1FC02 /* runnerRocket.m */,
 				601700A31A72D6B200CD560A /* CarMenu.h */,
 				601700A41A72D6B200CD560A /* CarMenu.m */,
 				601700A51A72D6B200CD560A /* defaultVehicle.h */,
@@ -878,14 +759,6 @@
 			remoteRef = 7A9790FF19E62E40001FFC4D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
- 
-		7A97910219E62E40001FFC4D /* cocos2dJava.jar */ = {
-			isa = PBXReferenceProxy;
-			fileType = file;
-			path = cocos2dJava.jar;
-			remoteRef = 7A97910119E62E40001FFC4D /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		7A97910419E62E40001FFC4D /* libcocos2d-mac.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1058,13 +931,11 @@
 				601700C91A72D6B200CD560A /* Obstacle.m in Sources */,
 				601700CF1A72D6B200CD560A /* vehicleProxy.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
- 
-				4C6038C91A77F18700451DA0 /* runnerRocket.m in Sources */,
-				60DB055A1A6327660049A94C /* CarMenu.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				601700D01A72D6B200CD560A /* whiteTruck.m in Sources */,
 				601700C61A72D6B200CD560A /* jeep.m in Sources */,
 				601700CA1A72D6B200CD560A /* pickupTruck.m in Sources */,
+				4D2561511A79B24500B1FC02 /* runnerRocket.m in Sources */,
 				5B121038197487F2004C1E1D /* AppDelegate.m in Sources */,
 				601700CB1A72D6B200CD560A /* policeCar.m in Sources */,
 				601700C21A72D6B200CD560A /* CarMenu.m in Sources */,
