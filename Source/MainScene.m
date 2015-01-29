@@ -524,6 +524,12 @@ static const CGFloat firstObstaclePosition = 450.f;
         CCActionSequence *shakeSequence = [CCActionSequence actionWithArray:@[moveBy, reverseMovement, moveBy2, reverseMovement2]];
         CCActionEaseBounce *bounce = [CCActionEaseBounce actionWithAction:shakeSequence];
         [self runAction:bounce];
+        
+        
+        // ANDROID
+#if __CC_PLATFORM_ANDROID
+        [self saveCustomObject:[Stats instance] key:@"stats"];
+#endif
     }
 }
 
@@ -799,5 +805,13 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    if (_abilityButton.visible)
 //        [self ability];
 //}
+
+- (void)saveCustomObject:(Stats *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
 
 @end

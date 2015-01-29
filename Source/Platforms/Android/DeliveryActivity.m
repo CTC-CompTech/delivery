@@ -27,10 +27,27 @@
 
 #import <AndroidKit/AndroidKeyEvent.h>
 
+#import "Stats.h"
+
 @implementation DeliveryActivity
 
 - (CCScene *)startScene
 {
+    
+    // Load defaults
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"stats"] != nil) {
+        Stats *stats = [self loadCustomObjectWithKey:@"stats"];
+        
+        // Make the statss
+        [Stats instance].currentCoin = stats.currentCoin;
+        [Stats instance].totalCoin = stats.totalCoin;
+        [Stats instance].collision = stats.collision;
+        [Stats instance].gameRuns = stats.gameRuns;
+        [Stats instance].loginDate = stats.loginDate;
+        [Stats instance].bestCoin = stats.bestCoin;
+        
+    }
+
     return [CCBReader loadAsScene:@"Menu"];
 }
 
@@ -41,6 +58,13 @@
         [self finish];
     }
     return NO;
+}
+
+- (Stats *)loadCustomObjectWithKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:key];
+    Stats *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
 }
 
 @end
