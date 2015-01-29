@@ -28,6 +28,9 @@
 #import "AppDelegate.h"
 #import "CCBuilderReader.h"
 
+#import "Stats.h"
+#import "gamecentercontrol.h"
+
 @implementation AppController
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -54,12 +57,94 @@
     
     [self setupCocos2dWithOptions:cocos2dSetup];
     
+    // Load defaults
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"stats"] != nil) {
+        Stats *stats = [self loadCustomObjectWithKey:@"stats"];
+        
+        // Make the stats
+        [Stats instance].currentCoin = stats.currentCoin;
+        [Stats instance].totalCoin = stats.totalCoin;
+        [Stats instance].collision = stats.collision;
+        [Stats instance].gameRuns = stats.gameRuns;
+        [Stats instance].loginDate = stats.loginDate;
+        [Stats instance].bestCoin = stats.bestCoin;
+        
+    }
+    
+    // Game Center
+    [[gamecentercontrol sharedInstance] authenticateLocalUser];
+    
+    // Coin-per-day
+    NSDate *currentDate = [NSDate date];
+    
+    NSDate *lastDate = [Stats instance].loginDate;
+    
+    if ([self isSameDayWithDate1:currentDate date2:lastDate] == YES) {
+        
+        NSLog(@"CurrentDate is same");
+        
+    } else {
+        
+        NSLog(@"CurrentDate is different");
+        
+        NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
+        NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
+        
+        NSInteger currentDayCoin = currentCoinCount + 3000;
+        NSInteger totalDayCoin = totalCoinCount + 3000;
+        
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:currentDayCoin];
+        [Stats instance].totalCoin = [NSNumber numberWithInteger:totalDayCoin];
+        
+    }
+    
+    [Stats instance].loginDate = currentDate;
+    
     return YES;
 }
 
 - (CCScene*) startScene
 {
-    return [CCBReader loadAsScene:@"MainScene"];
+    return [CCBReader loadAsScene:@"Menu"];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    // This needs to be here, otherwise this method won't work.
+    [[CCDirector sharedDirector] stopAnimation];
+    
+    //    Stats *stats = [[Stats alloc] init];
+    [self saveCustomObject:[Stats instance] key:@"stats"];
+    
+}
+
+- (void)saveCustomObject:(Stats *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
+}
+
+- (Stats *)loadCustomObjectWithKey:(NSString *)key {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *encodedObject = [defaults objectForKey:key];
+    Stats *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
+}
+
+- (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+    
+    return [comp1 day]   == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
 }
 
 @end
