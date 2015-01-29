@@ -2943,7 +2943,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>CCLabelTTF</string>
+				<string>scoreLabel</string>
 				<key>memberVarAssignmentName</key>
 				<string>_scoreLabel</string>
 				<key>memberVarAssignmentType</key>
@@ -5083,10 +5083,10 @@
 						<key>value</key>
 						<array>
 							<real>262</real>
-							<real>345</real>
+							<real>0.60739433765411377</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -5269,6 +5269,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -5484,8 +5486,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -6154,8 +6154,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

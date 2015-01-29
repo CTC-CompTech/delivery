@@ -47,6 +47,30 @@
         [Stats instance].bestCoin = stats.bestCoin;
         
     }
+    
+    // Coin-per-day
+    NSDate *currentDate = [NSDate date];
+    
+    NSDate *lastDate = [Stats instance].loginDate;
+    
+    if ([self isSameDayWithDate1:currentDate date2:lastDate] == YES) {
+        
+        NSLog(@"CurrentDate is same");
+        
+    } else {
+        
+        NSLog(@"CurrentDate is different");
+        
+        NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
+        NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
+        
+        NSInteger currentDayCoin = currentCoinCount + 3000;
+        NSInteger totalDayCoin = totalCoinCount + 3000;
+        
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:currentDayCoin];
+        [Stats instance].totalCoin = [NSNumber numberWithInteger:totalDayCoin];
+        
+    }
 
     return [CCBReader loadAsScene:@"Menu"];
 }
@@ -65,6 +89,18 @@
     NSData *encodedObject = [defaults objectForKey:key];
     Stats *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     return object;
+}
+
+- (BOOL)isSameDayWithDate1:(NSDate*)date1 date2:(NSDate*)date2 {
+    NSCalendar* calendar = [NSCalendar currentCalendar];
+    
+    unsigned unitFlags = NSYearCalendarUnit | NSMonthCalendarUnit |  NSDayCalendarUnit;
+    NSDateComponents* comp1 = [calendar components:unitFlags fromDate:date1];
+    NSDateComponents* comp2 = [calendar components:unitFlags fromDate:date2];
+    
+    return [comp1 day]   == [comp2 day] &&
+    [comp1 month] == [comp2 month] &&
+    [comp1 year]  == [comp2 year];
 }
 
 @end
