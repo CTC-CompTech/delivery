@@ -11,12 +11,36 @@
 
 @implementation Menu {
     
+    CCPhysicsNode *_physicsNode;
+    
     CCLabelTTF *_coinCurrent;
+    
+    CCNode *_ground1;
+    CCNode *_ground2;
+    
+    NSArray *_grounds;
+    
+}
+
+- (void)update:(CCTime)delta {
+    
+    for (CCNode *ground in _grounds) {
+        // get the world position of the ground
+        CGPoint groundWorldPosition = [_physicsNode convertToWorldSpace:ground.position];
+        // get the screen position of the ground
+        CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
+        // if the left corner is one complete width off the screen, move it to the right
+        if (groundScreenPosition.y <= (-1 * ground.contentSize.width + 1100)) { // 552 // 537
+            ground.position = ccp(ground.position.x, ground.position.y + 2 + ground.contentSize.height + 511);
+        }
+    }
     
 }
 
 - (void)onEnter {
     [super onEnter];
+    
+    _grounds = @[_ground1, _ground2];
         
     NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
     
