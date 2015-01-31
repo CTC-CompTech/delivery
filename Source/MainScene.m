@@ -627,6 +627,10 @@ static const CGFloat firstObstaclePosition = 450.f;
     [self pause];
 }
 
+- (void)options {
+    // TODO: Add options
+}
+
 /*///////////////////////////////////////////
  *
  * Abilities
