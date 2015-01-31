@@ -26,6 +26,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 @property NSInteger currentScore;
 
+@property CGPoint startPosition;
+
 @end
 
 @implementation MainScene {
@@ -198,7 +200,29 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    [tapLimitRecognizer setNumberOfTapsRequired:2];
 //    [[[CCDirector sharedDirector] view] addGestureRecognizer:tapLimitRecognizer];
     
+    self.userInteractionEnabled = TRUE;
 }
+
+#if __CC_PLATFORM_ANDROID
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    CGPoint touchLocation = [touch locationInNode:self];
+    self.startPosition = touchLocation;
+}
+
+- (void)touchEnded:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    CGPoint endPosition = [touch locationInNode:self];
+    
+    if (self.startPosition.x < endPosition.x) {
+        // Right swipe
+        [self swipeRight];
+    } else if (self.startPosition.x > endPosition.x) {
+        // Left swipe
+        [self swipeLeft];
+    }
+}
+#endif
 
 - (void)update:(CCTime)delta {
     [_hero setupVehicle];
