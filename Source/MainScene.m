@@ -61,6 +61,9 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_gamePlayCoin;
     CCNode *_backgroundFade;
     
+    CCLightNode *_redLight;
+    CCLightNode *_blueLight;
+    
     CCLabelTTF *_bestCoin;
     CCLabelTTF *_pocketCoin;
     CCLabelTTF *_gameOverCount;
@@ -137,6 +140,12 @@ static const CGFloat firstObstaclePosition = 450.f;
         _heartHolder.visible = TRUE;
         _heartLeft.visible = TRUE;
         _heartRight.visible = TRUE;
+        
+        // Lights
+        _redLight.visible = TRUE;
+        _blueLight.visible = TRUE;
+        [self performSelector:@selector(policeLights)];
+
     } else {
         _heartHolder.visible = FALSE;
         _heartLeft.visible = FALSE;
@@ -805,6 +814,45 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    if (_abilityButton.visible)
 //        [self ability];
 //}
+
+/*///////////////////////////////////////////
+ *
+ * Custom Actions
+ *
+ ///////////////////////////////////////////*/
+
+- (void)policeLights {
+    
+    CCActionFadeIn *fadeIn = [CCActionFadeIn actionWithDuration:.5];
+    CCActionFadeOut *fadeOut = [CCActionFadeOut actionWithDuration:.5];
+    
+    BOOL firstrun = NO;
+    
+    if (_redLight.specularColor == [CCColor redColor] && _blueLight.specularColor == [CCColor blueColor]) {
+        [_redLight runAction:fadeOut];
+        firstrun = YES;
+    }
+        
+    if (_redLight.opacity == 0) {
+        [_redLight runAction:fadeIn];
+        _redLight.specularColor = [CCColor redColor];
+    } else if (_redLight.opacity == 1 && firstrun == NO) {
+        [_redLight runAction:fadeOut];
+        _redLight.specularColor = [CCColor blackColor];
+
+    }
+    
+    if (_blueLight.opacity == 0) {
+        [_blueLight runAction:fadeIn];
+        _blueLight.specularColor = [CCColor blueColor];
+    } else if (_blueLight.opacity == 1 && firstrun == NO) {
+        [_blueLight runAction:fadeOut];
+        _blueLight.specularColor = [CCColor blackColor];
+    }
+    
+    [self performSelector:@selector(policeLights) withObject:nil afterDelay:1];
+    
+}
 
 - (void)saveCustomObject:(Stats *)object key:(NSString *)key {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
