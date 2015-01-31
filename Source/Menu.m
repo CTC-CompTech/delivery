@@ -17,10 +17,7 @@
 
 - (void)onEnter {
     [super onEnter];
-    
-    Stats *stats;
-    NSLog(@"CURRENT COIN: %@", stats.currentCoin);
-    
+        
     NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
     
     // Format
