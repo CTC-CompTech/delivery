@@ -58,8 +58,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_heartRight;
     CCNode *_heartLeft;
     
-    CCNode *_rocket;
-    
     CCNode *_gamePlayCoin;
     CCNode *_backgroundFade;
     
@@ -71,7 +69,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCLabelTTF *_gameOverCount;
     CCLabelTTF *_scoreLabel;
     CCLabelTTF *_cooldownTimer;
-    CCLabelTTF *_lightRunnerAbility;
     
     BOOL _gameOver;
     BOOL _paused;
@@ -131,7 +128,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
     }
     
-    if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"lightRunner"] || [_hero.getVehicleType isEqual:@"pickupTruck"]) {
+    if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"pickupTruck"]) {
         _abilityButton.visible = TRUE;
         self.shouldAbility = TRUE;
     } else {
@@ -152,10 +149,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         _heartLeft.visible = FALSE;
         _heartRight.visible = FALSE;
     }
-    
-    if ([_hero.getVehicleType isEqual:@"lightRunner"]) {
-        _lightRunnerAbility.visible = TRUE;
-    }
+
 
     // <-- End selected car ---> \\
     
@@ -182,7 +176,6 @@ static const CGFloat firstObstaclePosition = 450.f;
         ground.zOrder = DrawingOrderGround;
     }
     _hero.zOrder = DrawingOrderHero;
-    _rocket.zOrder = DrawingOrderRocket;
     
     // listen for swipes to the left
 #if __CC_PLATFORM_IOS
@@ -225,13 +218,6 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (void)update:(CCTime)delta {
     [_hero setupVehicle];
-    
-    // Rocket is fired -- LightRunner vehicle
-    if (self.rocketFire) {
-        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _rocketSpeed);
-    } else {
-        _rocket.position = ccp(_rocket.position.x, _rocket.position.y + delta * _hero.getVehicleSpeed);
-    }
     
 //    CCLOG(@"%@", NSStringFromCGPoint(_hero.position));
     // loop the ground
@@ -421,10 +407,10 @@ static const CGFloat firstObstaclePosition = 450.f;
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair rocket:(CCNode *)rocket level:(CCNode *)level {
-    
+    /*
     NSMutableArray *obstaclesToDelete = [[NSMutableArray alloc] init];
     
-    CGPoint hitLocation = [self convertToWorldSpace:rocket.position];
+    CGPoint hitLocation = [_physicsNode convertToNodeSpace:[rocket convertToWorldSpace:rocket.position]];
     
     for (CCSprite *obstacle in _obstacles) {
         if (CGRectContainsPoint(obstacle.boundingBox, hitLocation)) {
@@ -437,7 +423,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         [_obstacles removeObject:obstacle];
         [_physicsNode removeChild:obstacle cleanup:YES];
     }
-    [rocket removeFromParentAndCleanup:YES];
+     */
+    [level removeFromParent];
+    [rocket removeFromParent];
     
     return TRUE;
 }
@@ -671,17 +659,6 @@ static const CGFloat firstObstaclePosition = 450.f;
         self.shouldAbility = FALSE;
         
         [self performSelector:@selector(unfreeze:) withObject:speedBefore afterDelay:7.0];
-        
-    }
-    
-    if ([_hero.getVehicleType isEqual:@"lightRunner"]) {
-        
-        self.rocketFire = YES;
-        _rocket.physicsBody.collisionType = @"rocket";
-        _rocket.visible = TRUE;
-        _rocketSpeed = 550.f;
-//        _abilityButton.visible = FALSE;
-        self.shouldAbility = FALSE;
         
     }
     

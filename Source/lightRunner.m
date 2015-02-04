@@ -53,11 +53,11 @@
         runnerRocket* tempSprite = [runnerRocket spriteWithTexture:self.rocket.texture rect:self.rocket.textureRect];
         tempSprite.position = self.parentVehicle.position;
         tempSprite.movementSpeed = self.vehicleSpeed + 300.0;
-        [self.parentVehicle.physicsNode addChild:tempSprite];
-        tempSprite.physicsBody = [CCPhysicsBody bodyWithRect:self.rocket.boundingBox cornerRadius:0.0];
+        tempSprite.physicsBody = [CCPhysicsBody bodyWithRect:self.rocket.textureRect cornerRadius:0.0];
         tempSprite.physicsBody.type = CCPhysicsBodyTypeStatic;
         tempSprite.physicsBody.collisionGroup = @0x01;
         tempSprite.physicsBody.collisionType = @"rocket";
+        [self.parentVehicle.physicsNode addChild:tempSprite];
         self.useCount--;
     }
 }
