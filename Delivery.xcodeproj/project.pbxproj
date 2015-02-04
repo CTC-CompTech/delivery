@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4D2561511A79B24500B1FC02 /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
 		4D3418CD1A79C5D2006BCB5F /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
+		4D7D3E5F1A826349003F7A57 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D3E5E1A826349003F7A57 /* GameOver.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		601700C21A72D6B200CD560A /* CarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A41A72D6B200CD560A /* CarMenu.m */; };
 		601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A61A72D6B200CD560A /* defaultVehicle.m */; };
@@ -175,6 +176,8 @@
 /* Begin PBXFileReference section */
 		4D25614F1A79B24500B1FC02 /* runnerRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runnerRocket.h; sourceTree = "<group>"; };
 		4D2561501A79B24500B1FC02 /* runnerRocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = runnerRocket.m; sourceTree = "<group>"; };
+		4D7D3E5D1A826349003F7A57 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
+		4D7D3E5E1A826349003F7A57 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -386,6 +389,21 @@
 			name = Abilities;
 			sourceTree = "<group>";
 		};
+		4D7D3E611A826356003F7A57 /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				601700A31A72D6B200CD560A /* CarMenu.h */,
+				601700A41A72D6B200CD560A /* CarMenu.m */,
+				601700AF1A72D6B200CD560A /* Menu.h */,
+				601700B01A72D6B200CD560A /* Menu.m */,
+				601700B71A72D6B200CD560A /* ScrollViewTable.h */,
+				601700B81A72D6B200CD560A /* ScrollViewTable.m */,
+				4D7D3E5D1A826349003F7A57 /* GameOver.h */,
+				4D7D3E5E1A826349003F7A57 /* GameOver.m */,
+			);
+			name = Menus;
+			sourceTree = "<group>";
+		};
 		5B12100D197483EE004C1E1D /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -553,16 +571,11 @@
 				4D3418E61A79C7A3006BCB5F /* Stats */,
 				4D3418E81A79C7B3006BCB5F /* Vehicle */,
 				7A40362019DDEF0D007B6E8F /* Platforms */,
-				601700A31A72D6B200CD560A /* CarMenu.h */,
-				601700A41A72D6B200CD560A /* CarMenu.m */,
 				601700A91A72D6B200CD560A /* Goal.h */,
 				601700AA1A72D6B200CD560A /* Goal.m */,
-				601700AF1A72D6B200CD560A /* Menu.h */,
-				601700B01A72D6B200CD560A /* Menu.m */,
 				601700B11A72D6B200CD560A /* Obstacle.h */,
 				601700B21A72D6B200CD560A /* Obstacle.m */,
-				601700B71A72D6B200CD560A /* ScrollViewTable.h */,
-				601700B81A72D6B200CD560A /* ScrollViewTable.m */,
+				4D7D3E611A826356003F7A57 /* Menus */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
@@ -967,6 +980,7 @@
 				601700CF1A72D6B200CD560A /* vehicleProxy.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
+				4D7D3E5F1A826349003F7A57 /* GameOver.m in Sources */,
 				601700D01A72D6B200CD560A /* whiteTruck.m in Sources */,
 				601700C61A72D6B200CD560A /* jeep.m in Sources */,
 				601700CA1A72D6B200CD560A /* pickupTruck.m in Sources */,

@@ -1,6 +1,7 @@
 #import "MainScene.h"
 #import "CCAnimation.h"
 #import "Obstacle.h"
+#import "GameOver.h"
 #import "Stats.h"
 
 typedef NS_ENUM(NSInteger, DrawingOrder) {
@@ -45,10 +46,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCNode *_gameOverText;
     CCNode *_gameOverBackground;
     
-    CCButton *_restartButton;
     CCButton *_abilityButton;
-    CCButton *_mainMenu;
-    CCButton *_carsButton;
     
     CCButton *_pauseOptions;
     CCButton *_pauseResume;
@@ -66,9 +64,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCLightNode *_redLight;
     CCLightNode *_blueLight;
     
-    CCLabelTTF *_bestCoin;
-    CCLabelTTF *_pocketCoin;
-    CCLabelTTF *_gameOverCount;
     CCLabelTTF *_scoreLabel;
     CCLabelTTF *_cooldownTimer;
     CCLabelTTF *_lightRunnerAbility;
@@ -479,56 +474,19 @@ static const CGFloat firstObstaclePosition = 450.f;
         _abilityButton.visible = FALSE;
         _pause.visible = FALSE;
         
+        // Run to sperate gameover screen
+        GameOver *gameOver = (GameOver *)[CCBReader load:@"GameOver"];
+        gameOver.currentScore = _currentScore;
+        [gameOver runGameOver];
+        [self addChild:gameOver];
+        
         // Hide coins
         _gamePlayCoin.visible = FALSE;
         _scoreLabel.visible = FALSE;
         
-        // Display on Content
-        _gameOverCount.visible = TRUE;
-        
-        // Best Score
-        NSInteger bestCoin = [[Stats instance].bestCoin integerValue];
-        NSInteger currentCoin = self.currentScore;
-        
-        if (bestCoin < currentCoin) {
-            [Stats instance].bestCoin = [NSNumber numberWithInteger:currentCoin];
-            
-            _bestCoin.string = [self formatter:currentCoin];
-            
-        } else {
-            
-            _bestCoin.string = [self formatter:bestCoin];
-        }
-        
-        NSInteger totalRunCoin = _currentScore;
-        
-        _currentScore = totalRunCoin;
-        
-        _gameOverCount.string = [self formatter:totalRunCoin];
-        
         // Handle animations
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];
         [_backgroundFade runAction:fade];
-        
-        _gameOverText.position = ccp(-160, _gameOverText.position.y);
-        [self performSelector:@selector(sweepTitle) withObject:nil afterDelay:.1];
-        
-        _gameOverBackground.position = ccp(480, _gameOverBackground.position.y);
-        _restartButton.position = ccp(480, _restartButton.position.y);
-        _mainMenu.position = ccp(440, _mainMenu.position.y);
-        _carsButton.position = ccp(521, _carsButton.position.y);
-        _gameOverCount.position = ccp(480, _gameOverCount.position.y);
-        _bestCoin.position = ccp(480 + 65, _bestCoin.position.y);
-        _pocketCoin.position = ccp(480 + 65, _pocketCoin.position.y);
-        [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.2];
-        
-        _gameOverBackground.visible = TRUE;
-        _gameOverText.visible = TRUE;
-        _restartButton.visible = TRUE;
-        _mainMenu.visible = TRUE;
-        _carsButton.visible = TRUE;
-        _bestCoin.visible = TRUE;
-        _pocketCoin.visible = TRUE;
         
         // Keep score
         NSInteger intScore = self.currentScore;
@@ -540,11 +498,6 @@ static const CGFloat firstObstaclePosition = 450.f;
         
         [Stats instance].totalCoin = scoreTotal;
         [Stats instance].currentCoin = scoreCurrent;
-        
-        // Pocket coin
-        NSInteger pocket = [[Stats instance].currentCoin integerValue];
-        
-        _pocketCoin.string = [self formatter:pocket];
         
 //        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
@@ -565,51 +518,15 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
 }
 
-- (void)sweepTitle {
-    CCActionMoveTo *moveTitle = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverText.position.y)];
-    
-    [_gameOverText runAction:moveTitle];
-}
-
-- (void)sweepContent {
-    CCActionMoveTo *moveBackground = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverBackground.position.y)];
-    CCActionMoveTo *moveRestart = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _restartButton.position.y)];
-    CCActionMoveTo *moveMenu = [CCActionMoveTo actionWithDuration:.25 position:ccp(120, _mainMenu.position.y)];
-    CCActionMoveTo *moveCars = [CCActionMoveTo actionWithDuration:.25 position:ccp(201, _carsButton.position.y)];
-    CCActionMoveTo *moveScore = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverCount.position.y)];
-    CCActionMoveTo *moveBest = [CCActionMoveTo actionWithDuration:.25 position:ccp(262, _bestCoin.position.y)];
-    CCActionMoveTo *movePocket = [CCActionMoveTo actionWithDuration:.25 position:ccp(262, _pocketCoin.position.y)];
-    
-    [_gameOverBackground runAction:moveBackground];
-    [_restartButton runAction:moveRestart];
-    [_mainMenu runAction:moveMenu];
-    [_carsButton runAction:moveCars];
-    [_gameOverCount runAction:moveScore];
-    [_bestCoin runAction:moveBest];
-    [_pocketCoin runAction:movePocket];
-    
-}
-
 /*///////////////////////////////////////////
 *
 * Buttons
 *
 ///////////////////////////////////////////*/
 
-- (void)restart {
-    CCScene *scene = [CCBReader loadAsScene:@"MainScene"];
-    [[CCDirector sharedDirector] replaceScene:scene];
-}
-
 - (void)menu {
     CCScene *scene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
-}
-
-- (void)cars {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
-                            withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionLeft duration:.5]];
 }
 
 - (void)pause {
