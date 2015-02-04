@@ -462,12 +462,6 @@ static const CGFloat firstObstaclePosition = 450.f;
         _abilityButton.visible = FALSE;
         _pause.visible = FALSE;
         
-        // Run to sperate gameover screen
-        GameOver *gameOver = (GameOver *)[CCBReader load:@"GameOver"];
-        gameOver.currentScore = _currentScore;
-        [gameOver runGameOver];
-        [self addChild:gameOver];
-        
         // Hide coins
         _gamePlayCoin.visible = FALSE;
         _scoreLabel.visible = FALSE;
@@ -486,6 +480,12 @@ static const CGFloat firstObstaclePosition = 450.f;
         
         [Stats instance].totalCoin = scoreTotal;
         [Stats instance].currentCoin = scoreCurrent;
+        
+        // Run to seperate gameover screen
+        GameOver *gameOver = (GameOver *)[CCBReader load:@"GameOver"];
+        gameOver.currentScore = _currentScore;
+        [gameOver runGameOver];
+        [self addChild:gameOver];
         
 //        _hero.rotation = 90.f;
 //        _hero.physicsBody.allowsRotation = FALSE;
