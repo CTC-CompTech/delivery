@@ -18,7 +18,7 @@
         self.canUseAbility = true;
         self.abilityTimeout = 0;
         self.abilityCooldown = 5;
-        self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
+        self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
         self.vehicleSpeed = 210.0f;
         self.isPaused = false;
         return self;

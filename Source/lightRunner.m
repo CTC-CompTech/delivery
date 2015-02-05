@@ -25,7 +25,7 @@
 -(id)init{
     if (self = [super init]){
         self.carType = @"lightRunner";
-        if ( !(self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Light Runner.png"])){
+        if ( !(self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Light Runner.png"])){
             NSLog(@"Broken Image!!!");
             return nil;
         }

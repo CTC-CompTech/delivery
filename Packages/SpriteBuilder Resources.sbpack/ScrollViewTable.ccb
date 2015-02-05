@@ -166,7 +166,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Delivery Truck Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Delivery Truck Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -220,7 +220,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Delivery Truck Car Menu Table Selected.png</string>
+							<string>Delivery/Car Menu/Delivery Truck Car Menu Table Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -494,7 +494,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pickup Truck Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Pickup Truck Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -548,7 +548,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pickup Truck Car Menu Table Selected.png</string>
+							<string>Delivery/Car Menu/Pickup Truck Car Menu Table Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -820,7 +820,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Jeep Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Jeep Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -874,7 +874,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Jeep Car Menu Table Selected.png</string>
+							<string>Delivery/Car Menu/Jeep Car Menu Table Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1146,7 +1146,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Police Car Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Police Car Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1200,7 +1200,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Police Car Car Menu Table Selected.png</string>
+							<string>Delivery/Car Menu/Police Car Car Menu Table Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1472,7 +1472,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Light Runner Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Light Runner Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1526,7 +1526,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Light Runner Car Menu Table Selected.png</string>
+							<string>Delivery/Car Menu/Light Runner Car Menu Table Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1798,7 +1798,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Sports Car Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Sports Car Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1852,7 +1852,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Sports Car Car Menu Table Selected.png</string>
+							<string>Delivery/Car Menu/Sports Car Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>

@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>39</integer>
+	<integer>44</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -183,7 +183,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Road Block.png</string>
+							<string>Delivery/Obstacles/Road Block.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -263,8 +263,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -410,7 +408,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Road Block.png</string>
+							<string>Delivery/Obstacles/Road Block.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -635,7 +633,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Road Block.png</string>
+							<string>Delivery/Obstacles/Road Block.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -860,7 +858,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Road Block.png</string>
+							<string>Delivery/Obstacles/Road Block.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1085,7 +1083,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Road Block.png</string>
+							<string>Delivery/Obstacles/Road Block.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1165,6 +1163,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

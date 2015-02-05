@@ -78,6 +78,58 @@
 			<key>previewFolderHidden</key>
 			<true/>
 		</dict>
+		<key>Delivery</key>
+		<dict>
+			<key>format_android_dither</key>
+			<true/>
+			<key>format_ios_dither</key>
+			<true/>
+		</dict>
+		<key>Delivery/Car Menu</key>
+		<dict>
+			<key>format_android</key>
+			<integer>3</integer>
+			<key>format_ios</key>
+			<integer>3</integer>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>Delivery/Heros</key>
+		<dict>
+			<key>format_android</key>
+			<integer>3</integer>
+			<key>format_ios</key>
+			<integer>3</integer>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>Delivery/Menu</key>
+		<dict>
+			<key>format_android</key>
+			<integer>3</integer>
+			<key>format_ios</key>
+			<integer>3</integer>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>Delivery/Obstacles</key>
+		<dict>
+			<key>format_android</key>
+			<integer>3</integer>
+			<key>format_ios</key>
+			<integer>3</integer>
+			<key>isSmartSpriteSheet</key>
+			<true/>
+		</dict>
+		<key>Delivery/Road Newest.png</key>
+		<dict>
+			<key>format_android_dither</key>
+			<true/>
+			<key>format_ios_compress</key>
+			<true/>
+			<key>format_ios_dither</key>
+			<true/>
+		</dict>
 		<key>Sprites</key>
 		<dict/>
 		<key>ccbResources</key>
@@ -166,7 +218,7 @@
 	<key>versionStr</key>
 	<string>revision : 10891b8575
 sku : default
-version : 1.4.0
+version : 1.4.7
 </string>
 </dict>
 </plist>

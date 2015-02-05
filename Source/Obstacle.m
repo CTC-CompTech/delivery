@@ -175,19 +175,19 @@
         
         switch (obstacleNum) {
             case 1:
-                frame = @"Delivery/Road Block.png";
+                frame = @"Delivery/Obstacles/Road Block.png";
                 break;
             case 2:
-                frame = @"Delivery/Bomb Obstacle.png";
+                frame = @"Delivery/Obstacles/Bomb Obstacle.png";
                 break;
             case 3:
-                frame = @"Delivery/Cones Obstacle.png";
+                frame = @"Delivery/Obstacles/Cones Obstacle.png";
                 break;
             case 4:
-                frame = @"Delivery/Brick Wall Obstacle.png";
+                frame = @"Delivery/Obstacles/Brick Wall Obstacle.png";
                 break;
             default:
-                frame = @"Delivery/Road Block.png";
+                frame = @"Delivery/Obstacles/Road Block.png";
                 break;
         }
         
@@ -196,31 +196,31 @@
         switch (i) {
             case 1:
                 [_block1 setSpriteFrame:obstacleFrame];
-                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                if ([frame isEqual: @"Delivery/Obstacles/Bomb Obstacle.png"]) {
                     _block1.rotation = -45;
                 }
                 break;
             case 2:
                 [_block2 setSpriteFrame:obstacleFrame];
-                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                if ([frame isEqual: @"Delivery/Obstacles/Bomb Obstacle.png"]) {
                     _block2.rotation = -45;
                 }
                 break;
             case 3:
                 [_block3 setSpriteFrame:obstacleFrame];
-                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                if ([frame isEqual: @"Delivery/Obstacles/Bomb Obstacle.png"]) {
                     _block3.rotation = -45;
                 }
                 break;
             case 4:
                 [_block4 setSpriteFrame:obstacleFrame];
-                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                if ([frame isEqual: @"Delivery/Obstacles/Bomb Obstacle.png"]) {
                     _block4.rotation = -45;
                 }
                 break;
             case 5:
                 [_block5 setSpriteFrame:obstacleFrame];
-                if ([frame isEqual: @"Delivery/Bomb Obstacle.png"]) {
+                if ([frame isEqual: @"Delivery/Obstacles/Bomb Obstacle.png"]) {
                     _block5.rotation = -45;
                 }
                 break;

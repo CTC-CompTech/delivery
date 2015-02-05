@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>303</integer>
+	<integer>333</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1411,7 +1411,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Delivery/Truck.png</string>
+									<string>Delivery/Heros/Truck.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -1709,7 +1709,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/PowerButton.png</string>
+							<string>Delivery/Menu/PowerButton.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1763,7 +1763,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/PowerButton_pressed.png</string>
+							<string>Delivery/Menu/PowerButton_pressed.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2250,7 +2250,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pause.png</string>
+							<string>Delivery/Menu/Pause.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2304,7 +2304,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Selected Pause.png</string>
+							<string>Delivery/Menu/Selected Pause.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2528,7 +2528,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/TwoHearts.png</string>
+							<string>Delivery/Menu/TwoHearts.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2929,7 +2929,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/TwoHearts_Heart.png</string>
+							<string>Delivery/Menu/TwoHearts_Heart.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -3330,7 +3330,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/TwoHearts_Heart.png</string>
+							<string>Delivery/Menu/TwoHearts_Heart.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -3646,7 +3646,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Coin Newest.png</string>
+							<string>Delivery/Menu/Coin Newest.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4149,7 +4149,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pause Menu Resume Button.png</string>
+							<string>Delivery/Menu/Pause Menu Resume Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4203,7 +4203,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pause Menu Resume Button Selected.png</string>
+							<string>Delivery/Menu/Pause Menu Resume Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4483,7 +4483,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pause Menu Main Menu Button.png</string>
+							<string>Delivery/Menu/Pause Menu Main Menu Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4537,7 +4537,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pause Menu Main Menu Button Selected.png</string>
+							<string>Delivery/Menu/Pause Menu Main Menu Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4919,7 +4919,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pause Menu Options Button.png</string>
+							<string>Delivery/Menu/Pause Menu Options Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4973,7 +4973,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Pause Menu Options Button Selected.png</string>
+							<string>Delivery/Menu/Pause Menu Options Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -5117,6 +5117,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

@@ -104,12 +104,12 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     
     // Selcted car functions
-    CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Police Car.png"];
+    CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"];
     self.policeCarFrame = policeCar;
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"selectedCar"] == nil) {
-        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
+        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
         [_hero setSpriteFrame:defaultCar];
         self.heroFrame = _hero.spriteFrame;
     } else {

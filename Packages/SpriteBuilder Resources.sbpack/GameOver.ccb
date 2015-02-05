@@ -110,7 +110,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Stat Box v2.png</string>
+							<string>Delivery/Menu/Game Over Stat Box v2.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -274,7 +274,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Try Again Button.png</string>
+							<string>Delivery/Menu/Game Over Try Again Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -328,7 +328,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Try Again Button Selected.png</string>
+							<string>Delivery/Menu/Game Over Try Again Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -600,7 +600,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Menu Button.png</string>
+							<string>Delivery/Menu/Game Over Menu Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -654,7 +654,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Menu Button Selected.png</string>
+							<string>Delivery/Menu/Game Over Menu Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -926,7 +926,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Cars Button.png</string>
+							<string>Delivery/Menu/Game Over Cars Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -980,7 +980,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Cars Button Selected.png</string>
+							<string>Delivery/Menu/Game Over Cars Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1124,6 +1124,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1157,8 +1159,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>160</real>
-							<real>0.87676054239273071</real>
+							<real>162</real>
+							<real>0.8785211443901062</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1196,7 +1198,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Text.png</string>
+							<string>Delivery/Menu/Game Over Text.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1951,8 +1953,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>

@@ -182,7 +182,7 @@
 								<key>value</key>
 								<array>
 									<string></string>
-									<string>Delivery/Rocket.png</string>
+									<string>Delivery/Heros/Rocket.png</string>
 								</array>
 							</dict>
 							<dict>
@@ -218,8 +218,6 @@
 								<array/>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -439,7 +437,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/PowerButton.png</string>
+							<string>Delivery/Menu/PowerButton.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -493,7 +491,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/PowerButton_pressed.png</string>
+							<string>Delivery/Menu/PowerButton_pressed.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -637,6 +635,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>

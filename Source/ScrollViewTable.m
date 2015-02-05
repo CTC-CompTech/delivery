@@ -21,11 +21,11 @@
 
 - (void)deliveryTruck {
     
-//    CCSpriteFrame *deliveryTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Truck.png"];
+//    CCSpriteFrame *deliveryTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
     
 //    NSArray *selectedCar = @[deliveryTruck];
     
-    NSString *selectedCar = @"Delivery/Truck.png";
+    NSString *selectedCar = @"Delivery/Heros/Truck.png";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
@@ -34,7 +34,7 @@
 }
 
 - (void)pickupTruck {
-    NSString *selectedCar = @"Delivery/Pickup Truck.png";
+    NSString *selectedCar = @"Delivery/Heros/Pickup Truck.png";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
@@ -43,7 +43,7 @@
 }
 
 - (void)jeep {
-    NSString *selectedCar = @"Delivery/Jeep.png";
+    NSString *selectedCar = @"Delivery/Heros/Jeep.png";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
@@ -52,7 +52,7 @@
 }
 
 - (void)policeCar {
-    NSString *selectedCar = @"Delivery/Police Car.png";
+    NSString *selectedCar = @"Delivery/Heros/Police Car.png";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
@@ -61,7 +61,7 @@
 }
 
 - (void)lightRunner {
-    NSString *selectedCar = @"Delivery/Light Runner.png";
+    NSString *selectedCar = @"Delivery/Heros/Light Runner.png";
          
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];
@@ -70,7 +70,7 @@
 }
 
 - (void)sportsCar {
-    NSString *selectedCar = @"Delivery/Sports Car.png";
+    NSString *selectedCar = @"Delivery/Heros/Sports Car.png";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:selectedCar forKey:@"selectedCar"];

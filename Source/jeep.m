@@ -26,7 +26,7 @@
 -(id)init{
     if (self = [super init]){
         self.carType = @"jeep";
-        self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Jeep.png"];
+        self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Jeep.png"];
     
     
     

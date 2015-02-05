@@ -13,7 +13,7 @@
 -(id)init{
     if (self = [super init]){
         self.carType = @"pickupTruck";
-        if ( !(self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Pickup Truck.png"])){
+        if ( !(self.carFrame = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Pickup Truck.png"])){
             NSLog(@"Broken Image!!!");
             return nil;
         }
