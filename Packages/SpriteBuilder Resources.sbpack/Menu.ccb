@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>120</integer>
+	<integer>132</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -508,7 +508,7 @@
 						<key>displayName</key>
 						<string>Truck</string>
 						<key>memberVarAssignmentName</key>
-						<string>_hero</string>
+						<string></string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>physicsBody</key>
@@ -1169,7 +1169,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Play Now Menu button Selected.png</string>
+							<string>Delivery/Menu/Play Now Menu button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1495,7 +1495,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Cars main menu button selected.png</string>
+							<string>Delivery/Menu/Cars main menu button selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1821,7 +1821,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Credits Main Menu button selected.png</string>
+							<string>Delivery/Menu/Credits Main Menu button selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2147,7 +2147,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Options Main Menu button selected.png</string>
+							<string>Delivery/Menu/Options Main Menu button selected.png</string>
 						</array>
 					</dict>
 					<dict>

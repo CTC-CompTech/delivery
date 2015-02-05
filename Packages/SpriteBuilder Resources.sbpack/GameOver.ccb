@@ -285,7 +285,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Try Again Button Selected.png</string>
+							<string>Delivery/Menu/Game Over Try Again Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -611,7 +611,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Menu Button Selected.png</string>
+							<string>Delivery/Menu/Game Over Menu Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -937,7 +937,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Game Over Cars Button Selected.png</string>
+							<string>Delivery/Menu/Game Over Cars Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
