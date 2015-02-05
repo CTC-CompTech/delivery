@@ -40,6 +40,7 @@
 		60C1711D1A733AF0003BD166 /* sportsCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700BA1A72D6B200CD560A /* sportsCar.m */; };
 		60C1711E1A733AF0003BD166 /* vehicleProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700BF1A72D6B200CD560A /* vehicleProxy.m */; };
 		60C1711F1A733AF0003BD166 /* whiteTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700C11A72D6B200CD560A /* whiteTruck.m */; };
+		60D07E2B1A8407A80088CE95 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D3E5E1A826349003F7A57 /* GameOver.m */; };
 		60DB40221A7342860077CDF2 /* DeliveryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* DeliveryActivity.m */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
@@ -945,6 +946,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60D07E2B1A8407A80088CE95 /* GameOver.m in Sources */,
 				4D3418CD1A79C5D2006BCB5F /* runnerRocket.m in Sources */,
 				60DB40221A7342860077CDF2 /* DeliveryActivity.m in Sources */,
 				60C171121A733AF0003BD166 /* CarMenu.m in Sources */,
