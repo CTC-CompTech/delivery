@@ -231,39 +231,11 @@
 }
 
 - (NSInteger)getObstacle {
-    CGFloat random = (double)arc4random_uniform(101);
-    NSInteger ret = 1;
-    
-    if (random <= 25) {
-        ret = 1;
-    } else if (random <= 50 && random > 25) {
-        ret = 2;
-    } else if (random <= 75 && random > 50) {
-        ret = 3;
-    } else if (random <= 100 && random > 75) {
-        ret = 4;
-    }
-    
-    return ret;
+    return (double)arc4random_uniform(3) + 1;
 }
 
 - (NSInteger)getLane {
-    CGFloat random = (double)arc4random_uniform(101);
-    NSInteger ret = 1;
-    
-    if (random <= 20) {
-        ret = 1;
-    } else if (random <= 40 && random > 20) {
-        ret = 2;
-    } else if (random <= 60 && random > 40) {
-        ret = 3;
-    } else if (random <= 80 && random > 60) {
-        ret = 4;
-    } else if (random <= 100 && random > 80) {
-        ret = 5;
-    }
-    
-    return ret;
+    return (double)arc4random_uniform(4) + 1;
 }
 
 @end

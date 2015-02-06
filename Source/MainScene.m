@@ -1,6 +1,6 @@
 #import "MainScene.h"
 #import "CCAnimation.h"
-#import "Obstacle.h"
+#import "fastObstacle.h"
 #import "GameOver.h"
 #import "Stats.h"
 
@@ -292,7 +292,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         // this is the first obstacle
         previousObstacleYPosition = firstObstaclePosition;
     }
-    Obstacle *obstacle = (Obstacle *)[CCBReader load:@"Obstacle"];
+    fastObstacle *obstacle = [[fastObstacle alloc] init];
     obstacle.position = ccp(0, previousObstacleYPosition + distanceBetweenObstacles);
     
     [obstacle setupRandomPosition];
