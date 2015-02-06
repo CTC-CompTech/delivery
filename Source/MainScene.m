@@ -42,6 +42,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCParticleSystemBase *_fireBall;
     CCParticleSystemBase *_particleHeartR;
     CCParticleSystemBase *_particleHeartL;
+    CCParticleSystemBase *_rocketBoom;
     
     CCNode *_gameOverText;
     CCNode *_gameOverBackground;
@@ -419,7 +420,13 @@ static const CGFloat firstObstaclePosition = 450.f;
         [_physicsNode removeChild:obstacle cleanup:YES];
     }
      */
+    
+    CGPoint hitLocation = [_physicsNode convertToWorldSpace:rocket.position];
+
+    _rocketBoom.position = hitLocation;
+    _rocketBoom.visible = YES;
     [level removeFromParent];
+    [_rocketBoom resetSystem];
     [rocket removeFromParent];
     
     return TRUE;
