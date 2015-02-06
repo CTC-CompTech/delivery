@@ -60,6 +60,10 @@
         [self.parentVehicle.physicsNode addChild:tempSprite];
         self.useCount--;
     }
+    
+    if (self.useCount == 0) {
+        self.abilityButton.visible = FALSE;
+    }
 }
 
 -(void)onPause{
