@@ -271,7 +271,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     for (CCNode *obstacle in _obstacles) {
         CGPoint obstacleWorldPosition = [_physicsNode convertToWorldSpace:obstacle.position];
         CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
-        if (obstacleScreenPosition.y < -obstacle.contentSize.height) {
+        if (obstacleScreenPosition.y + 100 < -obstacle.contentSize.height) {
             if (!offScreenObstacles) {
                 offScreenObstacles = [NSMutableArray array];
             }
