@@ -7,9 +7,26 @@
 //
 
 #import "CarMenu.h"
+#import "Stats.h"
 
 @implementation CarMenu {
     CCButton *_backCar;
+    
+    // TEMP
+    CCButton *_addBtn;
+    CCButton *_clear;
+    // TEMP
+}
+
+- (void)clear {
+    [Stats instance].ownedCars = [[NSMutableArray alloc] init];
+    [[Stats instance].ownedCars addObject:@"DeliveryTruck"];
+    NSLog(@"%@", [Stats instance].ownedCars);
+}
+
+- (void)addBtn {
+    NSLog(@"%@", [Stats instance].ownedCars);
+    [Stats instance].currentCoin = [NSNumber numberWithInteger:[[Stats instance].currentCoin integerValue] + 5000];
 }
 
 - (void)BackMenu {
