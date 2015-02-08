@@ -73,6 +73,8 @@
         
         if (![Stats instance].ownedCars) {
             
+            [Stats instance].ownedCars = [[NSMutableArray alloc] initWithObjects:stats.ownedCars, nil];
+            
             [[Stats instance].ownedCars addObject:[NSString stringWithFormat:@"DeliveryTruck"]];
             NSLog(@"%@", [Stats instance].ownedCars);
             

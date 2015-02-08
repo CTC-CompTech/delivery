@@ -38,7 +38,7 @@
     
     for (NSString *grabbedCar in [Stats instance].ownedCars) {
         
-        if ([grabbedCar isEqual: @"Pickup Truck"]) {
+        if ([grabbedCar isEqual: @"PickupTruck"]) {
             _PTLock.visible = FALSE;
         }
         
@@ -71,10 +71,13 @@
         [defaults setObject:selectedCar forKey:@"selectedCar"];
         [defaults setInteger:pickupTruckEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
+        
+        // TODO: Setup some sort of "alert" of when car is being replaced.
+        
     } else {
         self.amountToTakeOut = 5000;
         self.carTouched = @"Pickup Truck";
-        [self displayAlertWithAmount:@"5000"];
+        [self displayAlertWithAmount:5000];
     }
 }
 
@@ -119,19 +122,19 @@
     for (NSString *grabbedCar in [Stats instance].ownedCars) {
         if (car == grabbedCar) {
             return TRUE;
-        } else {
-            return FALSE;
         }
     }
     
     return FALSE;
 }
 
-- (void)displayAlertWithAmount:(NSString*)amount {
+- (void)displayAlertWithAmount:(NSInteger)amount {
+    
+    NSString *formattedAmount = [self formatter:amount];
     
 #if __CC_PLATFORM_IOS
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Buy Car?"
-                                                    message:[NSString stringWithFormat:@"Would you like to buy this car for %@ coins?", amount]
+                                                    message:[NSString stringWithFormat:@"Would you like to buy this car for %@ coins?", formattedAmount]
                                                    delegate:self
                                           cancelButtonTitle:@"No"
                                           otherButtonTitles:@"Yes, please", nil];
@@ -150,7 +153,7 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    // the user clicked one of the OK/Cancel buttons
+    
     if (buttonIndex == 1) {
         
         if (self.amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
@@ -169,15 +172,26 @@
             
             if ([self.carTouched isEqual: @"Pickup Truck"]) {
                 _PTLock.visible = FALSE;
-                [[Stats instance].ownedCars addObject:@"Pickup Truck"];
-                NSLog(@"%@", [Stats instance].ownedCars);
+                [[Stats instance].ownedCars addObject:@"PickupTruck"];
             }
             
         }
         
     } else {
-        NSLog(@"cancel");
+        return;
     }
+}
+
+- (NSString *)formatter:(NSInteger)toFormat {
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber *numToFormat = [NSNumber numberWithInteger:toFormat];
+    NSString *formatted = [formatter stringFromNumber:numToFormat];
+    
+    return formatted;
+    
 }
 
 @end
