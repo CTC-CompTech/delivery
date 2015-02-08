@@ -46,6 +46,13 @@
         [Stats instance].loginDate = stats.loginDate;
         [Stats instance].bestCoin = stats.bestCoin;
         
+        [Stats instance].ownedCars = stats.ownedCars;
+        
+        if (![Stats instance].ownedCars) {
+            
+            [[Stats instance].ownedCars addObject:[NSString stringWithFormat:@"DeliveryTruck"]];
+            
+        }
     }
     
     // Coin-per-day

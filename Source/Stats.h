@@ -15,6 +15,8 @@
 @property (retain, nonatomic) NSNumber *obstacleDistance;
 @property (retain, nonatomic) NSMutableArray *lasts;
 
+@property (retain, nonatomic) NSMutableArray *ownedCars;
+
 @property (retain, nonatomic) NSNumber *currentCoin;
 @property (retain, nonatomic) NSNumber *bestCoin;
 

@@ -34,6 +34,8 @@ static Stats *inst = nil;
     [coder encodeObject:_gameRuns forKey:@"gameRuns"];
     [coder encodeObject:_loginDate forKey:@"loginDate"];
     [coder encodeObject:_bestCoin forKey:@"bestCoin"];
+    
+    [coder encodeObject:_ownedCars forKey:@"ownedCars"];
 
 }
 
@@ -48,6 +50,8 @@ static Stats *inst = nil;
         _gameRuns = [coder decodeObjectForKey:@"gameRuns"];
         _loginDate = [coder decodeObjectForKey:@"loginDate"];
         _bestCoin = [coder decodeObjectForKey:@"bestCoin"];
+        
+        _ownedCars = [coder decodeObjectForKey:@"ownedCars"];
         
     }
     return self;
