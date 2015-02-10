@@ -43,7 +43,7 @@
 	<key>publishEnablediPhone</key>
 	<true/>
 	<key>publishEnvironment</key>
-	<integer>0</integer>
+	<integer>1</integer>
 	<key>publishResolution_android_phone</key>
 	<true/>
 	<key>publishResolution_android_phonehd</key>
@@ -166,7 +166,7 @@
 	<key>versionStr</key>
 	<string>revision : 10891b8575
 sku : default
-version : 1.4.0
+version : 1.4.7
 </string>
 </dict>
 </plist>
