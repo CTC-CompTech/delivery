@@ -9,7 +9,7 @@
 #import "CarMenu.h"
 #import "Stats.h"
 
-static const CGFloat scrollSpeed = 210.f;
+static const CGFloat scrollSpeed = 150.f;
 
 @implementation CarMenu {
     CCButton *_backCar;
@@ -32,7 +32,20 @@ static const CGFloat scrollSpeed = 210.f;
 
 - (void)update:(CCTime)delta {
     
-    _physicsNode.position = ccp(_physicsNode.position.x - (scrollSpeed *delta), _physicsNode.position.y);
+    
+    for (CCNode *ground in _grounds){
+        ground.position = ccp((ground.position.x + (-scrollSpeed * delta)), ground.position.y);
+        if (ground.position.x <= (-ground.boundingBox.size.width)){
+            ground.position = ccp(ground.scene.boundingBox.size.width, ground.position.y);
+        }
+    }
+    
+    
+    
+    
+    /*
+    
+    _physicsNode.position = ccp(_physicsNode.position.x - (scrollSpeed * delta), _physicsNode.position.y);
     
     // loop the ground
     for (CCNode *ground in _grounds) {
@@ -46,6 +59,7 @@ static const CGFloat scrollSpeed = 210.f;
 //            NSLog(@"%@", NSStringFromCGPoint(ground.position));
         }
     }
+     */
 }
 
 - (void)clear {
