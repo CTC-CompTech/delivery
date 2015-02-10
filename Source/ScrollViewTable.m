@@ -168,7 +168,7 @@
 - (BOOL)doesUserOwnCar:(NSString *)car {
     
     for (NSString *grabbedCar in [Stats instance].ownedCars) {
-        if (car == grabbedCar) {
+        if ([car isEqualToString: grabbedCar]) {
             return TRUE;
         }
     }
