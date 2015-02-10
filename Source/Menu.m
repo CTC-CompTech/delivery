@@ -66,4 +66,10 @@
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
+- (void)credits {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
+    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+}
+
+
 @end
