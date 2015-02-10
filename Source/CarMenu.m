@@ -14,9 +14,12 @@ static const CGFloat scrollSpeed = 150.f;
 @implementation CarMenu {
     CCButton *_backCar;
     
-    CCPhysicsNode *_physicsNode;
     CCNode *_ground1;
     CCNode *_ground2;
+    
+    CCNode *_hero;
+    
+    CCLabelTTF *_carTitle;
     
     NSArray *_grounds;
     
@@ -32,6 +35,7 @@ static const CGFloat scrollSpeed = 150.f;
 
 - (void)update:(CCTime)delta {
     
+    _hero.position = ccp(_hero.position.x + (scrollSpeed * delta), _hero.position.y);
     
     for (CCNode *ground in _grounds){
         ground.position = ccp((ground.position.x + (-scrollSpeed * delta)), ground.position.y);
@@ -39,27 +43,6 @@ static const CGFloat scrollSpeed = 150.f;
             ground.position = ccp(ground.scene.boundingBox.size.width, ground.position.y);
         }
     }
-    
-    
-    
-    
-    /*
-    
-    _physicsNode.position = ccp(_physicsNode.position.x - (scrollSpeed * delta), _physicsNode.position.y);
-    
-    // loop the ground
-    for (CCNode *ground in _grounds) {
-        // get the world position of the ground
-        CGPoint groundWorldPosition = [_physicsNode convertToWorldSpace:ground.position];
-        // get the screen position of the ground
-        CGPoint groundScreenPosition = [self convertToNodeSpace:groundWorldPosition];
-        // if the left corner is one complete width off the screen, move it to the right
-        if (groundScreenPosition.x <= (-1 * ground.contentSize.width)) {
-            ground.position = ccp(ground.position.x + 2 * ground.contentSize.width - 1, ground.position.y);
-//            NSLog(@"%@", NSStringFromCGPoint(ground.position));
-        }
-    }
-     */
 }
 
 - (void)clear {
