@@ -270,16 +270,15 @@ static const CGFloat firstObstaclePosition = 450.f;
     NSMutableArray *offScreenObstacles = nil;
     for (CCNode *obstacle in _obstacles) {
         CGPoint obstacleWorldPosition = [_physicsNode convertToWorldSpace:obstacle.position];
-        CGPoint obstacleScreenPosition = [self convertToNodeSpace:obstacleWorldPosition];
-        if (obstacleScreenPosition.y + 100 < -obstacle.contentSize.height) {
-            if (!offScreenObstacles) {
+        if (obstacleWorldPosition.y < -100) {
+            if (offScreenObstacles == nil) {
                 offScreenObstacles = [NSMutableArray array];
             }
             [offScreenObstacles addObject:obstacle];
         }
     }
     for (CCNode *obstacleToRemove in offScreenObstacles) {
-        [obstacleToRemove removeFromParent];
+        [obstacleToRemove removeFromParentAndCleanup:YES];
         [_obstacles removeObject:obstacleToRemove];
         // for each removed obstacle, add a new one
         [self spawnNewObstacle];

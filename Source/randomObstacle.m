@@ -29,7 +29,8 @@ static NSArray* _obstacleTextures;
             self.rotation = -45;
         }
         
-        self.physicsBody = [CCPhysicsBody bodyWithRect:self.textureRect cornerRadius:0];
+        self.scale = .5;
+        self.physicsBody = [CCPhysicsBody bodyWithRect:self.boundingBox cornerRadius:0];
         self.physicsBody.type = CCPhysicsBodyTypeStatic;
         self.physicsBody.collisionType = @"level";
         self.scale = 0.703;

@@ -59,12 +59,6 @@
     else return nil;
 }
 
--(void)update:(CCTime)delta{
-    if ([self convertToWorldSpace:self.position].y <= -100){
-        [self removeFromParentAndCleanup:YES];
-    }
-}
-
 - (void)setupRandomPosition {
     
     int value = [[Stats instance].obstacleCount intValue];
