@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>153</integer>
+	<integer>159</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1062,7 +1062,7 @@
 						<key>value</key>
 						<array>
 							<real>164</real>
-							<real>0.47535210847854614</real>
+							<real>0.48767605423927307</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1110,8 +1110,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>225</real>
-							<real>100</real>
+							<real>215</real>
+							<real>87</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1156,7 +1156,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Play Now Menu button.png</string>
+							<string>Delivery/Menu/Play Now Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1167,7 +1167,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Play Now Menu button Selected.png</string>
+							<string>Delivery/Menu/Play Now Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1210,7 +1210,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Play Now Menu button Selected.png</string>
+							<string>Delivery/Menu/Play Now Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1436,8 +1436,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>137</real>
-							<real>67</real>
+							<real>165</real>
+							<real>62</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1482,7 +1482,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Cars main menu button.png</string>
+							<string>Delivery/Menu/Cars Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1493,7 +1493,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Cars main menu button selected.png</string>
+							<string>Delivery/Menu/Cars Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1536,7 +1536,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Cars main menu button selected.png</string>
+							<string>Delivery/Menu/Cars Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1714,7 +1714,7 @@
 						<key>value</key>
 						<array>
 							<real>163</real>
-							<real>0.054577615112066269</real>
+							<real>0.063380427658557892</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1762,8 +1762,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>100</real>
-							<real>43</real>
+							<real>115</real>
+							<real>50</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1808,7 +1808,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Credits Main Menu button.png</string>
+							<string>Delivery/Menu/Credits Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1819,7 +1819,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Credits Main Menu button selected.png</string>
+							<string>Delivery/Menu/Credits Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1862,7 +1862,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Credits Main Menu button selected.png</string>
+							<string>Delivery/Menu/Credits Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2006,8 +2006,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2042,7 +2040,7 @@
 						<key>value</key>
 						<array>
 							<real>163</real>
-							<real>0.16021136939525604</real>
+							<real>0.18838037550449371</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -2090,8 +2088,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>100</real>
-							<real>43</real>
+							<real>115</real>
+							<real>50</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -2136,7 +2134,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Options Main Menu button.png</string>
+							<string>Delivery/Menu/Options Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2147,7 +2145,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Options Main Menu button selected.png</string>
+							<string>Delivery/Menu/Options Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2190,7 +2188,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Options Main Menu button selected.png</string>
+							<string>Delivery/Menu/Options Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
