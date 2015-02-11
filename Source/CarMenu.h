@@ -10,4 +10,13 @@
 
 @interface CarMenu : CCNode
 
+-(id)init;
++(CarMenu*)instance;
+
+@property (retain) NSString *titleCar;
+
+@property BOOL isMoving;
+@property BOOL shouldMove;
+@property BOOL didPressWhileMoving;
+
 @end

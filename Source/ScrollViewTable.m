@@ -8,6 +8,7 @@
 
 #import "ScrollViewTable.h"
 #import "Stats.h"
+#import "CarMenu.h"
 
 @interface ScrollViewTable ()
 
@@ -33,24 +34,55 @@
     
 }
 
+- (id)init {
+    if(self=[super init]) {
+        // Set title
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSInteger carInteger = [defaults integerForKey:@"vehicleIndex"];
+        
+        NSString *carTitle;
+        if (carInteger == 0 || 1) {
+            carTitle = @"Delivery Truck";
+        }
+        if (carInteger == 2) {
+            carTitle = @"Sports Car";
+        }
+        if (carInteger == 3) {
+            carTitle = @"Police Car";
+        }
+        if (carInteger == 4) {
+            carTitle = @"Pickup Truck";
+        }
+        if (carInteger == 5) {
+            carTitle = @"Light Runner";
+        }
+        if (carInteger == 6) {
+            carTitle = @"Jeep";
+        }
+        
+        [CarMenu instance].titleCar = carTitle;
+    }
+    return self;
+}
+
 - (void)onEnter {
     [super onEnter];
     
     for (NSString *grabbedCar in [Stats instance].ownedCars) {
         
-        if ([grabbedCar isEqual: @"PickupTruck"]) {
+        if ([grabbedCar isEqual: @"Pickup Truck"]) {
             _PTLock.visible = FALSE;
         }
         if ([grabbedCar isEqual: @"Jeep"]) {
             _JLock.visible = FALSE;
         }
-        if ([grabbedCar isEqual: @"PoliceCar"]) {
+        if ([grabbedCar isEqual: @"Police Car"]) {
             _PLock.visible = FALSE;
         }
-        if ([grabbedCar isEqual: @"LightRunner"]) {
+        if ([grabbedCar isEqual: @"Light Runner"]) {
             _LRLock.visible = FALSE;
         }
-        if ([grabbedCar isEqual: @"SportsCar"]) {
+        if ([grabbedCar isEqual: @"Sports Car"]) {
             _SLock.visible = FALSE;
         }
         
@@ -70,11 +102,15 @@
     [defaults setObject:selectedCar forKey:@"selectedCar"];
     [defaults setInteger:whiteTruckEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
+    
+    [self performSelector:@selector(didSet) withObject:nil];
+    
+    [CarMenu instance].titleCar = @"Delivery Truck";
 }
 
 - (void)pickupTruck {
     
-    BOOL doesOwn = [self doesUserOwnCar:@"PickupTruck"];
+    BOOL doesOwn = [self doesUserOwnCar:@"Pickup Truck"];
     
     if (doesOwn == TRUE) {
         NSString *selectedCar = @"Delivery/Heros/Pickup Truck.png";
@@ -84,11 +120,13 @@
         [defaults setInteger:pickupTruckEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
         
-        // TODO: Setup some sort of "alert" of when car is being replaced.
+        [self performSelector:@selector(didSet) withObject:nil];
+        
+        [CarMenu instance].titleCar = @"Pickup Truck";
         
     } else {
         self.amountToTakeOut = 5000;
-        self.carTouched = @"PickupTruck";
+        self.carTouched = @"Pickup Truck";
         [self displayAlertWithAmount:self.amountToTakeOut];
     }
 }
@@ -104,6 +142,11 @@
         [defaults setObject:selectedCar forKey:@"selectedCar"];
         [defaults setInteger:jeepEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
+        
+        [self performSelector:@selector(didSet) withObject:nil];
+        
+        [CarMenu instance].titleCar = @"Jeep";
+        
     } else {
         self.amountToTakeOut = 10000;
         self.carTouched = @"Jeep";
@@ -113,7 +156,7 @@
 
 - (void)policeCar {
     
-    BOOL doesOwn = [self doesUserOwnCar:@"PoliceCar"];
+    BOOL doesOwn = [self doesUserOwnCar:@"Police Car"];
     
     if (doesOwn == TRUE) {
         NSString *selectedCar = @"Delivery/Heros/Police Car.png";
@@ -122,16 +165,21 @@
         [defaults setObject:selectedCar forKey:@"selectedCar"];
         [defaults setInteger:policeCarEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
+        
+        [self performSelector:@selector(didSet) withObject:nil];
+        
+        [CarMenu instance].titleCar = @"Police Car";
+        
     } else {
         self.amountToTakeOut = 20000;
-        self.carTouched = @"PoliceCar";
+        self.carTouched = @"Police Car";
         [self displayAlertWithAmount:self.amountToTakeOut];
     }
 }
 
 - (void)lightRunner {
     
-    BOOL doesOwn = [self doesUserOwnCar:@"LightRunner"];
+    BOOL doesOwn = [self doesUserOwnCar:@"Light Runner"];
     
     if (doesOwn == TRUE) {
         NSString *selectedCar = @"Delivery/Heros/Light Runner.png";
@@ -140,16 +188,21 @@
         [defaults setObject:selectedCar forKey:@"selectedCar"];
         [defaults setInteger:lightRunnerEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
+        
+        [self performSelector:@selector(didSet) withObject:nil];
+        
+        [CarMenu instance].titleCar = @"Light Runner";
+        
     } else {
         self.amountToTakeOut = 50000;
-        self.carTouched = @"LightRunner";
+        self.carTouched = @"Light Runner";
         [self displayAlertWithAmount:self.amountToTakeOut];
     }
 }
 
 - (void)sportsCar {
     
-    BOOL doesOwn = [self doesUserOwnCar:@"SportsCar"];
+    BOOL doesOwn = [self doesUserOwnCar:@"Sports Car"];
     
     if (doesOwn == TRUE) {
         NSString *selectedCar = @"Delivery/Heros/Sports Car.png";
@@ -158,9 +211,14 @@
         [defaults setObject:selectedCar forKey:@"selectedCar"];
         [defaults setInteger:sportsCarEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
+        
+        [self performSelector:@selector(didSet) withObject:nil];
+        
+        [CarMenu instance].titleCar = @"Sports Car";
+        
     } else {
         self.amountToTakeOut = 100000;
-        self.carTouched = @"SportsCar";
+        self.carTouched = @"Sports Car";
         [self displayAlertWithAmount:self.amountToTakeOut];
     }
 }
@@ -218,32 +276,45 @@
             NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
             [Stats instance].currentCoin = [NSNumber numberWithInteger:currentCoin - self.amountToTakeOut];
             
-            if ([self.carTouched isEqual: @"PickupTruck"]) {
+            if ([self.carTouched isEqual: @"Pickup Truck"]) {
                 _PTLock.visible = FALSE;
-                [[Stats instance].ownedCars addObject:@"PickupTruck"];
             }
             if ([self.carTouched isEqual: @"Jeep"]) {
                 _JLock.visible = FALSE;
-                [[Stats instance].ownedCars addObject:@"Jeep"];
             }
-            if ([self.carTouched isEqual: @"PoliceCar"]) {
+            if ([self.carTouched isEqual: @"Police Car"]) {
                 _PLock.visible = FALSE;
-                [[Stats instance].ownedCars addObject:@"PoliceCar"];
             }
-            if ([self.carTouched isEqual: @"LightRunner"]) {
+            if ([self.carTouched isEqual: @"Light Runner"]) {
                 _LRLock.visible = FALSE;
-                [[Stats instance].ownedCars addObject:@"LightRunner"];
             }
-            if ([self.carTouched isEqual: @"SportsCar"]) {
+            if ([self.carTouched isEqual: @"Sports Car"]) {
                 _SLock.visible = FALSE;
-                [[Stats instance].ownedCars addObject:@"SportsCar"];
             }
+            
+            [[Stats instance].ownedCars addObject:self.carTouched];
+            [CarMenu instance].titleCar = self.carTouched;
             
         }
         
     } else {
         return;
     }
+}
+
+- (void)didSet {
+    
+    if ([CarMenu instance].isMoving == NO) {
+        [CarMenu instance].shouldMove = YES;
+        [self performSelector:@selector(endSet) withObject:nil afterDelay:1.5f];
+    } else {
+        [CarMenu instance].didPressWhileMoving = YES;
+    }
+    
+}
+
+- (void)endSet {
+    [CarMenu instance].shouldMove = NO;
 }
 
 - (NSString *)formatter:(NSInteger)toFormat {
