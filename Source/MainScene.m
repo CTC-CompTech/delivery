@@ -17,9 +17,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 @interface MainScene ()
 
-@property (strong, nonatomic) CCSpriteFrame *heroFrame;
-
-@property (strong, nonatomic) CCSpriteFrame *policeCarFrame;
+//@property (strong, nonatomic) CCSpriteFrame *heroFrame;
 
 @property BOOL shouldAbility;
 
@@ -102,27 +100,23 @@ static const CGFloat firstObstaclePosition = 450.f;
     distanceBetweenObstacles = 250.f;
     
     [Stats instance].lasts = [[NSMutableArray alloc] initWithCapacity:2];
-    
-    
-    // Selcted car functions
-    CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"];
-    self.policeCarFrame = policeCar;
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"selectedCar"] == nil) {
-        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
-        [_hero setSpriteFrame:defaultCar];
-        self.heroFrame = _hero.spriteFrame;
-    } else {
-        NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
         
-        CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
-        [_hero setSpriteFrame:car];
-        self.heroFrame = _hero.spriteFrame;
-        
-//        NSLog(@"RECT OF HERO: %@", NSStringFromCGRect([_hero boundingBox]));
-
-    }
+//    // Selcted car functions
+//    CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"];
+    
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    if ([defaults objectForKey:@"selectedCar"] == nil) {
+////        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
+////        [_hero setSpriteFrame:defaultCar];
+//    } else {
+////        NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
+//        
+////        CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
+////        [_hero setSpriteFrame:car];
+//        
+////        NSLog(@"RECT OF HERO: %@", NSStringFromCGRect([_hero boundingBox]));
+//
+//    }
     
     if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"pickupTruck"]) {
         _abilityButton.visible = TRUE;
@@ -370,7 +364,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         collision++;
         
         [Stats instance].collision = [NSNumber numberWithInteger:collision];
-        
+                
         return TRUE;
     }
 }
@@ -472,9 +466,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         _gamePlayCoin.visible = FALSE;
         _scoreLabel.visible = FALSE;
         
-        // Handle animations
-        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];
-        [_backgroundFade runAction:fade];
+//        // Handle animations
+//        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];
+//        [_backgroundFade runAction:fade];
         
         // Keep score
         NSInteger intScore = self.currentScore;

@@ -118,6 +118,7 @@
         NSUserDefaults *getCarIndex = [NSUserDefaults standardUserDefaults];
         [self setVehicleType:(vehicleType)[getCarIndex integerForKey:@"vehicleIndex"]];
         getCarIndex = nil;
+        [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
         return self;
     }
     return nil;
