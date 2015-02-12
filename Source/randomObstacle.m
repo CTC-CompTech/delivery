@@ -28,7 +28,7 @@ static NSArray* _obstacleTextures;
         
         self.scale = 0.703;
         self.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:10 andCenter:ccp(self.textureRect.size.width/2.0,self.textureRect.size.height/2.0)];
-        self.physicsBody.type = CCPhysicsBodyTypeStatic;
+        self.physicsBody.type = CCPhysicsBodyTypeDynamic;
         self.physicsBody.collisionType = @"level";
         self.physicsBody.collisionGroup = @0x02;
         
@@ -40,6 +40,13 @@ static NSArray* _obstacleTextures;
     }
     
     else return nil;
+}
+
+-(void)update:(CCTime)delta{
+    if (self.physicsBody.type == CCPhysicsBodyTypeDynamic){
+        self.physicsBody.velocity = ccp(self.physicsBody.velocity.x/1.1,self.physicsBody.velocity.y/1.1);
+        self.physicsBody.angularVelocity = self.physicsBody.angularVelocity/1.1;
+    }
 }
 
 @end

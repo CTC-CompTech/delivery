@@ -364,7 +364,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         collision++;
         
         [Stats instance].collision = [NSNumber numberWithInteger:collision];
-                
+        
         return TRUE;
     }
 }
