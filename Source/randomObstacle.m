@@ -25,12 +25,9 @@ static NSArray* _obstacleTextures;
         
         self.spriteFrame = [_obstacleTextures objectAtIndex:arc4random_uniform(3)];
         self.rotation = 90;
-        if (self.spriteFrame == [_obstacleTextures objectAtIndex:0]){
-            self.rotation = -45;
-        }
         
         self.scale = 0.703;
-        self.physicsBody = [CCPhysicsBody bodyWithRect:CGRectMake(0, 0, 67, 25) cornerRadius:0];
+        self.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:10 andCenter:ccp(self.textureRect.size.width/2.0,self.textureRect.size.height/2.0)];
         self.physicsBody.type = CCPhysicsBodyTypeStatic;
         self.physicsBody.collisionType = @"level";
         self.physicsBody.collisionGroup = @0x02;

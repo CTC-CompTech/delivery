@@ -53,7 +53,7 @@
         runnerRocket* tempSprite = [runnerRocket spriteWithTexture:self.rocket.texture rect:self.rocket.textureRect];
         tempSprite.position = self.parentVehicle.position;
         tempSprite.movementSpeed = self.vehicleSpeed + 300.0;
-        tempSprite.physicsBody = [CCPhysicsBody bodyWithRect:CGRectMake(0, 0, tempSprite.boundingBox.size.width, tempSprite.boundingBox.size.height) cornerRadius:0.0];
+        tempSprite.physicsBody = [CCPhysicsBody bodyWithCircleOfRadius:10 andCenter:ccp(tempSprite.textureRect.size.width/2.0,tempSprite.textureRect.size.height/2.0)];
         tempSprite.physicsBody.type = CCPhysicsBodyTypeStatic;
         tempSprite.physicsBody.collisionGroup = @0x01;
         tempSprite.physicsBody.collisionType = @"rocket";
