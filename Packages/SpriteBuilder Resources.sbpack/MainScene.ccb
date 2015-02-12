@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>388</integer>
+	<integer>409</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1490,6 +1490,8 @@
 								</array>
 							</dict>
 						</array>
+						<key>selected</key>
+						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -5197,8 +5199,6 @@
 						<string>ccbResources/ccbParticleFire.png</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
