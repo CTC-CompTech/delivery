@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>216</integer>
+	<integer>234</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -504,11 +504,11 @@
 						<key>children</key>
 						<array/>
 						<key>customClass</key>
-						<string>vehicleProxy</string>
+						<string></string>
 						<key>displayName</key>
 						<string>Truck</string>
 						<key>memberVarAssignmentName</key>
-						<string></string>
+						<string>_hero</string>
 						<key>memberVarAssignmentType</key>
 						<integer>1</integer>
 						<key>physicsBody</key>
@@ -594,10 +594,10 @@
 								<key>value</key>
 								<array>
 									<real>160</real>
-									<real>198</real>
+									<real>0.35387325286865234</real>
 									<integer>0</integer>
 									<integer>0</integer>
-									<integer>0</integer>
+									<integer>2</integer>
 								</array>
 							</dict>
 							<dict>

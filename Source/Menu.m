@@ -9,6 +9,8 @@
 #import "Menu.h"
 #import "Stats.h"
 
+static const CGFloat scrollSpeed = 210.f;
+
 @implementation Menu {
     
     CCPhysicsNode *_physicsNode;
@@ -18,6 +20,8 @@
     CCNode *_ground1;
     CCNode *_ground2;
     
+    CCSprite *_hero;
+    
     NSArray *_grounds;
     
 }
@@ -25,6 +29,7 @@
 - (void)update:(CCTime)delta {
     
     for (CCNode *ground in _grounds) {
+        ground.position = ccp(ground.position.x, (ground.position.y + (-scrollSpeed * delta)));
         // get the world position of the ground
         CGPoint groundWorldPosition = [_physicsNode convertToWorldSpace:ground.position];
         // get the screen position of the ground
@@ -34,6 +39,13 @@
             ground.position = ccp(ground.position.x, ground.position.y + 2 + ground.contentSize.height + 511);
         }
     }
+//    
+//    for (CCNode *ground in _grounds){
+//        ground.position = ccp(ground.position.x, (ground.position.y + (-scrollSpeed * delta)));
+//        if (ground.position.y <= (-ground.boundingBox.size.height)){
+//            ground.position = ccp(ground.position.x, ground.scene.boundingBox.size.height);
+//        }
+//    }
     
 }
 
@@ -53,6 +65,12 @@
     
     _coinCurrent.string = [NSString stringWithFormat:@"%@", formatted];
     
+    // Set selected car
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
+    
+    _hero.spriteFrame = [CCSpriteFrame frameWithImageNamed:selectedCar];
 }
 
 - (void)play {
