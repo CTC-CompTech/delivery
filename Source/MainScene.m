@@ -104,19 +104,19 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    // Selcted car functions
 //    CCSpriteFrame *policeCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"];
     
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    if ([defaults objectForKey:@"selectedCar"] == nil) {
-////        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
-////        [_hero setSpriteFrame:defaultCar];
-//    } else {
-////        NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
-//        
-////        CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
-////        [_hero setSpriteFrame:car];
-//        
-////        NSLog(@"RECT OF HERO: %@", NSStringFromCGRect([_hero boundingBox]));
-//
-//    }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"selectedCar"] == nil) {
+        CCSpriteFrame *defaultCar = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
+        [_hero setSpriteFrame:defaultCar];
+    } else {
+        NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
+        
+        CCSpriteFrame *car = [CCSpriteFrame frameWithImageNamed:selectedCar];
+        [_hero setSpriteFrame:car];
+        
+        NSLog(@"RECT OF HERO: %@", NSStringFromCGRect([_hero boundingBox]));
+
+    }
     
     if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"pickupTruck"]) {
         _abilityButton.visible = TRUE;
