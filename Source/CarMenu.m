@@ -68,7 +68,7 @@ static CarMenu *inst = nil;
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
-        
+    
     // Set coin total
     NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
     

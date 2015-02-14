@@ -17,6 +17,9 @@ static const CGFloat scrollSpeed = 210.f;
     
     CCLabelTTF *_coinCurrent;
     
+    CCLightNode *_redLight;
+    CCLightNode *_blueLight;
+    
     CCNode *_ground1;
     CCNode *_ground2;
     
@@ -71,6 +74,12 @@ static const CGFloat scrollSpeed = 210.f;
     NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
     
     _hero.spriteFrame = [CCSpriteFrame frameWithImageNamed:selectedCar];
+    
+    if (_hero.spriteFrame == [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"]) {
+        _redLight.visible = YES;
+        _blueLight.visible = YES;
+    }
+    
 }
 
 - (void)play {
