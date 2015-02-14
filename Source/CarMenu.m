@@ -36,6 +36,7 @@ static CarMenu *inst = nil;
     CCSprite *_fakeHero;
     
     CCLabelTTF *_carTitle;
+    CCLabelTTF *_coinCurrent;
     
     NSArray *_grounds;
     
@@ -62,6 +63,18 @@ static CarMenu *inst = nil;
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
+    
+    // Set coin total
+    NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
+    
+    // Format
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber *numToFormat = [NSNumber numberWithInteger:currentCoin];
+    NSString *formatted = [formatter stringFromNumber:numToFormat];
+    
+    _coinCurrent.string = [NSString stringWithFormat:@"%@", formatted];
     
     // Set title of menu
     _carTitle.string = [CarMenu instance].titleCar;
