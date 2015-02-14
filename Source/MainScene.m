@@ -463,9 +463,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         _gamePlayCoin.visible = FALSE;
         _scoreLabel.visible = FALSE;
         
-//        // Handle animations
-//        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];
-//        [_backgroundFade runAction:fade];
+        // Handle animations
+        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];
+        [_backgroundFade runAction:fade];
         
         // Keep score
         NSInteger intScore = self.currentScore;

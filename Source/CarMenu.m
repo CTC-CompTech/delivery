@@ -32,6 +32,11 @@ static CarMenu *inst = nil;
     CCNode *_ground1;
     CCNode *_ground2;
     
+    CCLightNode *_redLight;
+    CCLightNode *_blueLight;
+    CCLightNode *_redLightFake;
+    CCLightNode *_blueLightFake;
+    
     CCSprite *_hero;
     CCSprite *_fakeHero;
     
@@ -63,7 +68,7 @@ static CarMenu *inst = nil;
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
-    
+        
     // Set coin total
     NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
     
@@ -85,6 +90,11 @@ static CarMenu *inst = nil;
     // Fix Delivery
     if ([constructedFrame isEqualToString:@"Delivery/Heros/Delivery Truck.png"]) {
         constructedFrame = @"Delivery/Heros/Truck.png";
+    }
+    
+    if ([constructedFrame isEqualToString:@"Delivery/Heros/Police Car.png"]) {
+        _blueLight.visible = YES;
+        _redLight.visible = YES;
     }
     
     _hero.spriteFrame = [CCSpriteFrame frameWithImageNamed:constructedFrame];
@@ -117,6 +127,20 @@ static CarMenu *inst = nil;
         
         _hero.position = self.initialHero;
         _fakeHero.position = self.initialFake;
+        
+        if ([[CarMenu instance].titleCar isEqualToString:@"Police Car"]) {
+            if (![CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"]) {
+                _blueLight.visible = NO;
+                _redLight.visible = NO;
+            }
+            _blueLightFake.visible = YES;
+            _blueLightFake.visible = YES;
+        } else {
+            _blueLight.visible = NO;
+            _redLight.visible = NO;
+            _blueLightFake.visible = NO;
+            _redLightFake.visible = NO;
+        }
         
         // Replace method fires, prevent that
         self.doReplace = NO;
@@ -164,6 +188,26 @@ static CarMenu *inst = nil;
         constructedFrame = @"Delivery/Heros/Truck.png";
     }
     
+    if ([constructedFrame isEqualToString:@"Delivery/Heros/Police Car.png"]) {
+        if (![CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"]) {
+            _blueLight.visible = NO;
+            _redLight.visible = NO;
+        }
+        
+        _blueLightFake.visible = YES;
+        _redLightFake.visible = YES;
+    } else if (_hero.spriteFrame == [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"]) {
+        _blueLight.visible = YES;
+        _redLight.visible = YES;
+        _blueLightFake.visible = NO;
+        _redLightFake.visible = NO;
+    } else {
+        _blueLight.visible = NO;
+        _redLight.visible = NO;
+        _blueLightFake.visible = NO;
+        _redLightFake.visible = NO;
+    }
+    
     _fakeHero.spriteFrame = [CCSpriteFrame frameWithImageNamed:constructedFrame];
 
     CCActionMoveTo *moveHero = [CCActionMoveTo actionWithDuration:1.5f position:ccp(_hero.position.x + 400, _hero.position.y)];
@@ -193,9 +237,21 @@ static CarMenu *inst = nil;
         // Move back
         _hero.position = self.initialHero;
         _fakeHero.position = self.initialFake;
+        
+        if ([constructedFrame isEqualToString:@"Delivery/Heros/Police Car.png"]) {
+            _blueLight.visible = YES;
+            _redLight.visible = YES;
+            _blueLightFake.visible = NO;
+            _redLightFake.visible = NO;
+        } else {
+            _blueLight.visible = NO;
+            _redLight.visible = NO;
+            _blueLightFake.visible = NO;
+            _redLightFake.visible = NO;
+        }
     
         [CarMenu instance].isMoving = NO;
-
+        
     } else {
         self.doReplace = YES;
     }
