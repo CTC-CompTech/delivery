@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>506</integer>
+	<integer>515</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -3668,8 +3668,6 @@
 						<array/>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -4984,10 +4982,10 @@
 						<key>value</key>
 						<array>
 							<array>
-								<real>0.9994240403175354</real>
-								<real>0.98555368185043335</real>
 								<real>0.0</real>
-								<real>0.0</real>
+								<real>1</real>
+								<real>1</real>
+								<real>1</real>
 							</array>
 							<array>
 								<real>0.0</real>
@@ -5069,6 +5067,8 @@
 						<string>ccbResources/ccbParticleFire.png</string>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
