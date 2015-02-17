@@ -8,6 +8,7 @@
 
 #import "Menu.h"
 #import "Stats.h"
+#import "vehicleIncludes.h"
 
 static const CGFloat scrollSpeed = 210.f;
 
