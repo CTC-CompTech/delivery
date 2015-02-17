@@ -73,7 +73,17 @@ static const CGFloat scrollSpeed = 210.f;
     
     NSString *selectedCar = [defaults objectForKey:@"selectedCar"];
     
-    _hero.spriteFrame = [CCSpriteFrame frameWithImageNamed:selectedCar];
+    // Check if nil, this was crashing the menu for newly installed applications
+    if (selectedCar != nil) {
+        _hero.spriteFrame = [CCSpriteFrame frameWithImageNamed:selectedCar];
+    } else {
+        
+        // Set this car as default.
+        NSString *defaultCar = @"Delivery/Heros/Truck.png";
+        [defaults setObject:defaultCar forKey:@"selectedCar"];
+        [defaults setInteger:whiteTruckEnum forKey:@"vehicleIndex"];
+        [defaults synchronize];
+    }
     
     if (_hero.spriteFrame == [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Police Car.png"]) {
         _redLight.visible = YES;
