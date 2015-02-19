@@ -7,6 +7,7 @@
 //
 
 #import "policeCar.h"
+#import "vehicleProxy.h"
 
 @implementation policeCar
 
@@ -24,6 +25,17 @@
     }
     else
         return nil;
+}
+
+-(void)setupVehicle{
+    [self.parentVehicle.scene addChild:[CCBReader load:@"Police Car Overlay" owner:self]];
+    [self.redLight removeFromParentAndCleanup:NO];
+    [self.blueLight removeFromParentAndCleanup:NO];
+    [self.parentVehicle addChild:self.redLight];
+    [self.parentVehicle addChild:self.blueLight];
+    vehicleProxy* tempParent = (vehicleProxy*)self.parentVehicle;
+    [tempParent.lifeMeter setLifes:2];
+    tempParent.physicsBody.collisionType = @"policeCar";
 }
 
 @end

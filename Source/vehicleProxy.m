@@ -14,8 +14,13 @@
 
 -(void)setVehicleType:(vehicleType)inputOfType{
 
+    self.physicsBody.collisionType = @"hero";
+    [self.physicsBody setCollisionGroup:@0x01]; // Vehicle group is 0x01, allies should be set to this also
+    
         // Switch-case for adding new cars. Add new types to the bottom of this.
         switch (inputOfType) {
+                
+                
             case defaultVehicleEnum:
                 self.containedCar = [[defaultVehicle alloc]init];
                 break;
@@ -52,7 +57,6 @@
         
         [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
         self.containedCar.parentVehicle = self;
-        [self.physicsBody setCollisionGroup:@0x01]; // Vehicle group is 0x01, allies should be set to this also
         self.isSetup = false;
     
 }

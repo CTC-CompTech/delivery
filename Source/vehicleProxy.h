@@ -9,6 +9,7 @@
 #import "CCNode.h"
 #import "defaultVehicle.h"
 #import "vehicleIncludes.h"
+#import "lifeMeter.h"
 
 @interface vehicleProxy : CCSprite
 
@@ -19,7 +20,10 @@
 -(void)setupVehicle;
 
 // Reference to a car that does all the real behavior
-@property (retain) defaultVehicle *containedCar;
+@property (retain, nonatomic) defaultVehicle *containedCar;
+
+// Reference to the life meter in the main scene
+@property (nonatomic,weak) lifeMeter* lifeMeter;
 
 // Is the internal car initialized with this parent?
 @property (nonatomic) bool isSetup;

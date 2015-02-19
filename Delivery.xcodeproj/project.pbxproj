@@ -13,6 +13,9 @@
 		4CB8C02B1A851F5D00214C22 /* randomObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C02A1A851F5D00214C22 /* randomObstacle.m */; };
 		4CB8C02C1A851F5D00214C22 /* randomObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C02A1A851F5D00214C22 /* randomObstacle.m */; };
 		4CB8C02D1A851F5D00214C22 /* randomObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C02A1A851F5D00214C22 /* randomObstacle.m */; };
+		4CC204801A95A3CF0030C34E /* lifeMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2047F1A95A3CF0030C34E /* lifeMeter.m */; };
+		4CC204811A95A3CF0030C34E /* lifeMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2047F1A95A3CF0030C34E /* lifeMeter.m */; };
+		4CC204821A95A3CF0030C34E /* lifeMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2047F1A95A3CF0030C34E /* lifeMeter.m */; };
 		4D2561511A79B24500B1FC02 /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
 		4D3418CD1A79C5D2006BCB5F /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
 		4D7D3E5F1A826349003F7A57 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D3E5E1A826349003F7A57 /* GameOver.m */; };
@@ -187,6 +190,8 @@
 		4CB8C0241A8516FD00214C22 /* fastObstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = fastObstacle.m; path = Source/fastObstacle.m; sourceTree = "<group>"; };
 		4CB8C0291A851F5D00214C22 /* randomObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = randomObstacle.h; path = Source/randomObstacle.h; sourceTree = "<group>"; };
 		4CB8C02A1A851F5D00214C22 /* randomObstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = randomObstacle.m; path = Source/randomObstacle.m; sourceTree = "<group>"; };
+		4CC2047E1A95A3CF0030C34E /* lifeMeter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = lifeMeter.h; path = Source/lifeMeter.h; sourceTree = "<group>"; };
+		4CC2047F1A95A3CF0030C34E /* lifeMeter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lifeMeter.m; path = Source/lifeMeter.m; sourceTree = "<group>"; };
 		4D25614F1A79B24500B1FC02 /* runnerRocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = runnerRocket.h; sourceTree = "<group>"; };
 		4D2561501A79B24500B1FC02 /* runnerRocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = runnerRocket.m; sourceTree = "<group>"; };
 		4D7D3E5D1A826349003F7A57 /* GameOver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOver.h; sourceTree = "<group>"; };
@@ -372,6 +377,8 @@
 				601700BF1A72D6B200CD560A /* vehicleProxy.m */,
 				4D3418EA1A79C7DB006BCB5F /* Abilities */,
 				4D3418E91A79C7CD006BCB5F /* Vehicle Types */,
+				4CC2047E1A95A3CF0030C34E /* lifeMeter.h */,
+				4CC2047F1A95A3CF0030C34E /* lifeMeter.m */,
 			);
 			name = Vehicle;
 			sourceTree = "<group>";
@@ -961,6 +968,7 @@
 				7A4036E819DE3F33007B6E8F /* MainScene.m in Sources */,
 				7A40360419DDEE84007B6E8F /* main.m in Sources */,
 				7A59498E19E3941300F65F90 /* AppDelegate.m in Sources */,
+				4CC204821A95A3CF0030C34E /* lifeMeter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -987,6 +995,7 @@
 				60C1711D1A733AF0003BD166 /* sportsCar.m in Sources */,
 				60C1711E1A733AF0003BD166 /* vehicleProxy.m in Sources */,
 				60C1711F1A733AF0003BD166 /* whiteTruck.m in Sources */,
+				4CC204811A95A3CF0030C34E /* lifeMeter.m in Sources */,
 				60C171111A7339F1003BD166 /* Stats.m in Sources */,
 				927F619E196C771E000F43EF /* MainScene.m in Sources */,
 			);
@@ -1007,6 +1016,7 @@
 				601700CC1A72D6B200CD560A /* ScrollViewTable.m in Sources */,
 				601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */,
 				601700C91A72D6B200CD560A /* Obstacle.m in Sources */,
+				4CC204801A95A3CF0030C34E /* lifeMeter.m in Sources */,
 				601700CF1A72D6B200CD560A /* vehicleProxy.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,

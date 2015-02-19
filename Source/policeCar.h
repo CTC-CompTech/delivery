@@ -10,4 +10,7 @@
 
 @interface policeCar : defaultVehicle
 
+@property (nonatomic) CCNode* redLight;
+@property (nonatomic) CCNode* blueLight;
+
 @end

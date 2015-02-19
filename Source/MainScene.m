@@ -77,6 +77,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     NSArray *_grounds;
     
+    lifeMeter* _lifeMeter;
+    
 }
 
 //- (id)init {
@@ -123,13 +125,13 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
     
     if ([_hero.getVehicleType isEqual:@"policeCar"]) {
-        _heartHolder.visible = TRUE;
-        _heartLeft.visible = TRUE;
-        _heartRight.visible = TRUE;
+    //    _heartHolder.visible = TRUE;
+    //    _heartLeft.visible = TRUE;
+     //   _heartRight.visible = TRUE;
         
         // Lights
-        _redLight.visible = TRUE;
-        _blueLight.visible = TRUE;
+       // _redLight.visible = TRUE;
+       // _blueLight.visible = TRUE;
 
     } else {
         _heartHolder.visible = FALSE;
@@ -140,6 +142,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 
     // <-- End selected car ---> \\
     
+    // Set life meter variable so the car instance can control it
+    _hero.lifeMeter = _lifeMeter;
     
     // Track games run
     NSInteger games = [[Stats instance].gameRuns integerValue];
@@ -149,8 +153,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     // set this class as delegate
     _physicsNode.collisionDelegate = self;
-    // set collision txpe
-    _hero.physicsBody.collisionType = @"hero";
     
     _obstacles = [NSMutableArray array];
     [self spawnNewObstacle];
@@ -366,8 +368,42 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
 }
 
+-(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair policeCar:(CCNode *)policeCar level:(CCNode *)level{
+    if ([_hero.lifeMeter getLifeCount] > 0){
+        _hero.physicsBody.collisionType = @"ability";
+        [self performSelector:@selector(invokeInvinciblePoliceCar) withObject:nil afterDelay:.5];
+        
+        // Track collisions
+        NSInteger collision = [[Stats instance].collision integerValue];
+        collision++;
+        
+        [Stats instance].collision = [NSNumber numberWithInteger:collision];
+        [_hero.lifeMeter subtractLife];
+        
+        return FALSE;
+    }
+    
+    else {
+        [self gameOver];
+        
+        // Track collisions
+        NSInteger collision = [[Stats instance].collision integerValue];
+        collision++;
+        
+        [Stats instance].collision = [NSNumber numberWithInteger:collision];
+        
+        return TRUE;
+    }
+    
+}
+
+
 - (void)invokeInvicible {
     _hero.physicsBody.collisionType = @"hero";
+}
+
+-(void)invokeInvinciblePoliceCar{
+    _hero.physicsBody.collisionType = @"policeCar";
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
