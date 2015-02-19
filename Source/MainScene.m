@@ -306,7 +306,7 @@ static const CGFloat firstObstaclePosition = 450.f;
  *
  ///////////////////////////////////////////*/
 
-- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(randomObstacle*)level {
 
         [self gameOver];
         
