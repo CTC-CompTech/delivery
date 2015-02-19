@@ -38,8 +38,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCSprite *_pause;
     
     CCParticleSystemBase *_fireBall;
-    CCParticleSystemBase *_particleHeartR;
-    CCParticleSystemBase *_particleHeartL;
     CCParticleSystemBase *_rocketBoom;
     
     CCNode *_gameOverText;
@@ -50,10 +48,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCButton *_pauseOptions;
     CCButton *_pauseResume;
     CCButton *_pauseMenu;
-    
-    CCNode *_heartHolder;
-    CCNode *_heartRight;
-    CCNode *_heartLeft;
     
     CCNode *_gamePlayCoin;
     CCNode *_backgroundFade;
@@ -123,22 +117,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     } else {
         _abilityButton.visible = FALSE;
     }
-    
-    if ([_hero.getVehicleType isEqual:@"policeCar"]) {
-    //    _heartHolder.visible = TRUE;
-    //    _heartLeft.visible = TRUE;
-     //   _heartRight.visible = TRUE;
-        
-        // Lights
-       // _redLight.visible = TRUE;
-       // _blueLight.visible = TRUE;
-
-    } else {
-        _heartHolder.visible = FALSE;
-        _heartLeft.visible = FALSE;
-        _heartRight.visible = FALSE;
-    }
-
 
     // <-- End selected car ---> \\
     
