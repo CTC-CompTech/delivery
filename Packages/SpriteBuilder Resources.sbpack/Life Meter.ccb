@@ -139,6 +139,17 @@
 					</dict>
 					<dict>
 						<key>name</key>
+						<string>flip</string>
+						<key>type</key>
+						<string>Flip</string>
+						<key>value</key>
+						<array>
+							<true/>
+							<false/>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>effects</string>
 						<key>type</key>
 						<string>EffectControl</string>
@@ -179,7 +190,7 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>0.0</real>
+							<real>-22</real>
 							<real>-23</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -217,7 +228,7 @@
 						<string>Text</string>
 						<key>value</key>
 						<array>
-							<string>1</string>
+							<string>0</string>
 							<false/>
 						</array>
 					</dict>
@@ -353,6 +364,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
@@ -360,7 +373,7 @@
 		<key>displayName</key>
 		<string>CCNode</string>
 		<key>memberVarAssignmentName</key>
-		<string>_lifeMeter</string>
+		<string></string>
 		<key>memberVarAssignmentType</key>
 		<integer>1</integer>
 		<key>properties</key>

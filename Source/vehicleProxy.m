@@ -13,9 +13,6 @@
 // Used to set the vehicle type.
 
 -(void)setVehicleType:(vehicleType)inputOfType{
-
-    self.physicsBody.collisionType = @"hero";
-    [self.physicsBody setCollisionGroup:@0x01]; // Vehicle group is 0x01, allies should be set to this also
     
         // Switch-case for adding new cars. Add new types to the bottom of this.
         switch (inputOfType) {
@@ -93,6 +90,8 @@
 -(void)setupVehicle{
     if (!self.isSetup){
     [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
+    self.physicsBody.collisionType = @"hero";
+    [self.physicsBody setCollisionGroup:@0x01]; // Vehicle group is 0x01, allies should be set to this also
     [self.containedCar setupVehicle];
     self.isSetup = true;
     }

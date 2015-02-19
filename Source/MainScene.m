@@ -329,33 +329,7 @@ static const CGFloat firstObstaclePosition = 450.f;
  ///////////////////////////////////////////*/
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(CCNode *)level {
-    
-    // Check for two hearts car
-    if ([_hero.getVehicleType isEqual:@"policeCar"] && _heartLeft.opacity == 1) {
-        _particleHeartL.visible = TRUE;
-        [_particleHeartL resetSystem];
-        CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
-        [_heartLeft runAction:fade];
-        
-        // Credit invincibility to not "disable" the rest of the obstacle.
-        _hero.physicsBody.collisionType = @"ability";
-        [self performSelector:@selector(invokeInvicible) withObject:nil afterDelay:.5];
-        
-        // Track collisions
-        NSInteger collision = [[Stats instance].collision integerValue];
-        collision++;
-        
-        [Stats instance].collision = [NSNumber numberWithInteger:collision];
-        
-        return FALSE;
-    } else {
-        if ([_hero.getVehicleType isEqual:@"policeCar"]) {
-            _particleHeartR.visible = TRUE;
-            [_particleHeartR resetSystem];
-            CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.5f opacity:0];
-            [_heartRight runAction:fade];
-        }
-        
+
         [self gameOver];
         
         // Track collisions
@@ -365,7 +339,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [Stats instance].collision = [NSNumber numberWithInteger:collision];
         
         return TRUE;
-    }
+    
 }
 
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair policeCar:(CCNode *)policeCar level:(CCNode *)level{
@@ -407,6 +381,17 @@ static const CGFloat firstObstaclePosition = 450.f;
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
+    [goal removeFromParent];
+    NSInteger coinReturn = [self getCoins];
+    NSInteger totalRunCoin = _currentScore + coinReturn;
+    
+    _currentScore = totalRunCoin;
+    
+    _scoreLabel.string = [self formatter:totalRunCoin];
+    return TRUE;
+}
+
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair policeCar:(CCNode *)hero goal:(CCNode *)goal {
     [goal removeFromParent];
     NSInteger coinReturn = [self getCoins];
     NSInteger totalRunCoin = _currentScore + coinReturn;
@@ -498,6 +483,9 @@ static const CGFloat firstObstaclePosition = 450.f;
         // Hide coins
         _gamePlayCoin.visible = FALSE;
         _scoreLabel.visible = FALSE;
+        
+        // ...And Heart counter...
+        _lifeMeter.visible = FALSE;
         
         // Handle animations
         CCActionInterval *fade = [CCActionFadeTo actionWithDuration:1.0f opacity:1];

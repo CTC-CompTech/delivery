@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>564</integer>
+	<integer>630</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -3269,8 +3269,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>280</real>
-							<real>0.92957746982574463</real>
+							<real>265.85934448242188</real>
+							<real>0.84720033407211304</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -3318,7 +3318,7 @@
 						<key>type</key>
 						<string>FontTTF</string>
 						<key>value</key>
-						<string>Delivery/phagspa.ttf</string>
+						<string>Helvetica</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -3327,7 +3327,7 @@
 						<string>FloatScale</string>
 						<key>value</key>
 						<array>
-							<real>25</real>
+							<real>38</real>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -3358,7 +3358,7 @@
 						<key>type</key>
 						<string>IntegerLabeled</string>
 						<key>value</key>
-						<integer>1</integer>
+						<integer>2</integer>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -3477,8 +3477,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>296</real>
-							<real>0.95774650573730469</real>
+							<real>288</real>
+							<real>0.88769328594207764</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -3502,9 +3502,9 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.22683103382587433</real>
-							<real>0.22683103382587433</real>
-							<false/>
+							<real>0.34999999403953552</real>
+							<real>0.34999999403953552</real>
+							<true/>
 							<integer>0</integer>
 						</array>
 					</dict>
@@ -3552,6 +3552,70 @@
 						<array/>
 					</dict>
 				</array>
+			</dict>
+			<dict>
+				<key>UUID</key>
+				<integer>536</integer>
+				<key>baseClass</key>
+				<string>CCBFile</string>
+				<key>children</key>
+				<array/>
+				<key>customClass</key>
+				<string></string>
+				<key>displayName</key>
+				<string>lifeMeter</string>
+				<key>memberVarAssignmentName</key>
+				<string>_lifeMeter</string>
+				<key>memberVarAssignmentType</key>
+				<integer>1</integer>
+				<key>properties</key>
+				<array>
+					<dict>
+						<key>name</key>
+						<string>name</string>
+						<key>type</key>
+						<string>StringSimple</string>
+						<key>value</key>
+						<string></string>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>position</string>
+						<key>type</key>
+						<string>Position</string>
+						<key>value</key>
+						<array>
+							<real>265.85934448242188</real>
+							<real>543</real>
+							<integer>0</integer>
+							<integer>0</integer>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>scale</string>
+						<key>type</key>
+						<string>ScaleLock</string>
+						<key>value</key>
+						<array>
+							<real>1</real>
+							<real>1</real>
+							<false/>
+							<integer>0</integer>
+						</array>
+					</dict>
+					<dict>
+						<key>name</key>
+						<string>ccbFile</string>
+						<key>type</key>
+						<string>CCBFile</string>
+						<key>value</key>
+						<string>Life Meter.ccb</string>
+					</dict>
+				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -5065,68 +5129,6 @@
 						<string>Texture</string>
 						<key>value</key>
 						<string>ccbResources/ccbParticleFire.png</string>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>UUID</key>
-				<integer>536</integer>
-				<key>baseClass</key>
-				<string>CCBFile</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>lifeMeter</string>
-				<key>memberVarAssignmentName</key>
-				<string>_lifeMeter</string>
-				<key>memberVarAssignmentType</key>
-				<integer>1</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>name</string>
-						<key>type</key>
-						<string>StringSimple</string>
-						<key>value</key>
-						<string></string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>280</real>
-							<real>497</real>
-							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<false/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>ccbFile</string>
-						<key>type</key>
-						<string>CCBFile</string>
-						<key>value</key>
-						<string>Life Meter.ccb</string>
 					</dict>
 				</array>
 			</dict>
