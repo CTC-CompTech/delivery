@@ -34,7 +34,7 @@
     [self.parentVehicle addChild:self.redLight];
     [self.parentVehicle addChild:self.blueLight];
     vehicleProxy* tempParent = (vehicleProxy*)self.parentVehicle;
-    [tempParent.lifeMeter setLifes:2];
+    [tempParent.lifeMeter setLifes:1];
     tempParent.physicsBody.collisionType = @"policeCar";
 }
 

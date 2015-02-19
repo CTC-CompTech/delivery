@@ -377,8 +377,6 @@
 				601700BF1A72D6B200CD560A /* vehicleProxy.m */,
 				4D3418EA1A79C7DB006BCB5F /* Abilities */,
 				4D3418E91A79C7CD006BCB5F /* Vehicle Types */,
-				4CC2047E1A95A3CF0030C34E /* lifeMeter.h */,
-				4CC2047F1A95A3CF0030C34E /* lifeMeter.m */,
 			);
 			name = Vehicle;
 			sourceTree = "<group>";
@@ -405,6 +403,8 @@
 		4D3418EA1A79C7DB006BCB5F /* Abilities */ = {
 			isa = PBXGroup;
 			children = (
+				4CC2047E1A95A3CF0030C34E /* lifeMeter.h */,
+				4CC2047F1A95A3CF0030C34E /* lifeMeter.m */,
 				4D25614F1A79B24500B1FC02 /* runnerRocket.h */,
 				4D2561501A79B24500B1FC02 /* runnerRocket.m */,
 			);
