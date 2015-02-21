@@ -10,6 +10,8 @@
 
 @interface randomObstacle ()
 
+@property (nonatomic,readwrite) int obstacleIndex;
+
 @end
 
 @implementation randomObstacle
@@ -22,8 +24,8 @@ static NSArray* _obstacleTextures;
             _obstacleTextures = [NSArray arrayWithObjects:[CCSpriteFrame frameWithImageNamed:@"Delivery/Obstacles/Bomb Obstacle.png"],[CCSpriteFrame frameWithImageNamed:@"Delivery/Obstacles/Road Block.png"],[CCSpriteFrame frameWithImageNamed:@"Delivery/Obstacles/Cones Obstacle.png"],[CCSpriteFrame frameWithImageNamed:@"Delivery/Obstacles/Brick Wall Obstacle.png"],nil];
         }
         
-        
-        self.spriteFrame = [_obstacleTextures objectAtIndex:arc4random_uniform(3)];
+        self.obstacleIndex = arc4random_uniform(3);
+        self.spriteFrame = [_obstacleTextures objectAtIndex:self.obstacleIndex];
         self.rotation = 90;
         
         self.scale = 0.703;
@@ -47,6 +49,10 @@ static NSArray* _obstacleTextures;
         self.physicsBody.velocity = ccp(self.physicsBody.velocity.x/1.1,self.physicsBody.velocity.y/1.1);
         self.physicsBody.angularVelocity = self.physicsBody.angularVelocity/1.1;
     }
+}
+
+-(int)getObstacleType{
+    return (obstacleType)self.obstacleIndex;
 }
 
 @end

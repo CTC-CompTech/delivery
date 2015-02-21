@@ -10,4 +10,14 @@
 
 @interface randomObstacle : CCSprite
 
+@property (nonatomic, readonly) int obstacleIndex;
+-(int)getObstacleType;
+
 @end
+
+typedef enum {
+    obstacleBomb,
+    obstacleRoadBlock,
+    obstacleCone,
+    obstacleWall
+} obstacleType;
