@@ -113,12 +113,6 @@ static const CGFloat scrollSpeed = 210.f;
     
 }
 
-- (void)cars {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
-                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
-}
-
 - (void)credits {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
     [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
