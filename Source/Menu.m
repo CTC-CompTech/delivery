@@ -119,6 +119,12 @@ static const CGFloat scrollSpeed = 210.f;
 }
 
 - (void)hero {
+    CCAnimationManager* animationManager = self.userObject;
+    [animationManager runAnimationsForSequenceNamed:@"CarsMenu"];
+    [self performSelector:@selector(moveScene) withObject:nil afterDelay:1.1f];
+}
+
+- (void)moveScene {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
     [[CCDirector sharedDirector] pushScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
