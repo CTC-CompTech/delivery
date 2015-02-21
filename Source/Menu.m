@@ -30,6 +30,10 @@ static const CGFloat scrollSpeed = 210.f;
     
 }
 
+- (void)didLoadFromCCB {
+    self.userInteractionEnabled = YES;
+}
+
 - (void)update:(CCTime)delta {
     
     for (CCNode *ground in _grounds) {
@@ -93,6 +97,22 @@ static const CGFloat scrollSpeed = 210.f;
     
 }
 
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
+{
+    
+    for (CCNode *ground in _grounds) {
+        
+        CGPoint touchLocation = [touch locationInNode:ground];
+        
+        if (!CGPointEqualToPoint(touchLocation, CGPointZero)) {
+            CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+            [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+        }
+        
+    }
+    
+}
+
 - (void)play {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
     [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
@@ -109,5 +129,10 @@ static const CGFloat scrollSpeed = 210.f;
     [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
+- (void)hero {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
+    [[CCDirector sharedDirector] pushScene:gameplayScene
+                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+}
 
 @end
