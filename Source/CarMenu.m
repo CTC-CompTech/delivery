@@ -20,7 +20,6 @@ static CarMenu *inst = nil;
 
 @property CGPoint realInitialHero;
 
-@property BOOL doReplace;
 @property BOOL loadAnimationIsMoving;
 
 @end
@@ -54,7 +53,6 @@ static CarMenu *inst = nil;
 - (id)init {
     if(self=[super init]) {
         self.titleCar = @"Delivery Truck";
-        self.doReplace = YES;
     }
     return self;
 }
@@ -143,7 +141,9 @@ static CarMenu *inst = nil;
         }
         
         // Replace method fires, prevent that
-        self.doReplace = NO;
+        [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(replaceCars) object:nil];
+        
+//        self.doReplace = NO;
         
         [CarMenu instance].isMoving = YES;
         [self performSelector:@selector(moveCars) withObject:nil];
@@ -223,38 +223,33 @@ static CarMenu *inst = nil;
 
 - (void)replaceCars {
     
-    if (self.doReplace == YES) {
-        // Construct Sprite Frame
-        NSString *constructedFrame = [NSString stringWithFormat:@"Delivery/Heros/%@.png", [CarMenu instance].titleCar];
+    // Construct Sprite Frame
+    NSString *constructedFrame = [NSString stringWithFormat:@"Delivery/Heros/%@.png", [CarMenu instance].titleCar];
     
-        // Fix Delivery
-        if ([constructedFrame isEqualToString:@"Delivery/Heros/Delivery Truck.png"]) {
-            constructedFrame = @"Delivery/Heros/Truck.png";
-        }
-    
-        _hero.spriteFrame = [CCSpriteFrame frameWithImageNamed:constructedFrame];
-    
-        // Move back
-        _hero.position = self.initialHero;
-        _fakeHero.position = self.initialFake;
-        
-        if ([constructedFrame isEqualToString:@"Delivery/Heros/Police Car.png"]) {
-            _blueLight.visible = YES;
-            _redLight.visible = YES;
-            _blueLightFake.visible = NO;
-            _redLightFake.visible = NO;
-        } else {
-            _blueLight.visible = NO;
-            _redLight.visible = NO;
-            _blueLightFake.visible = NO;
-            _redLightFake.visible = NO;
-        }
-    
-        [CarMenu instance].isMoving = NO;
-        
-    } else {
-        self.doReplace = YES;
+    // Fix Delivery
+    if ([constructedFrame isEqualToString:@"Delivery/Heros/Delivery Truck.png"]) {
+        constructedFrame = @"Delivery/Heros/Truck.png";
     }
+    
+    _hero.spriteFrame = [CCSpriteFrame frameWithImageNamed:constructedFrame];
+    
+    // Move back
+    _hero.position = self.initialHero;
+    _fakeHero.position = self.initialFake;
+    
+    if ([constructedFrame isEqualToString:@"Delivery/Heros/Police Car.png"]) {
+        _blueLight.visible = YES;
+        _redLight.visible = YES;
+        _blueLightFake.visible = NO;
+        _redLightFake.visible = NO;
+    } else {
+        _blueLight.visible = NO;
+        _redLight.visible = NO;
+        _blueLightFake.visible = NO;
+        _redLightFake.visible = NO;
+    }
+    
+    [CarMenu instance].isMoving = NO;
     
 }
 
