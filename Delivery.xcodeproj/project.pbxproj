@@ -28,7 +28,6 @@
 		601700C61A72D6B200CD560A /* jeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700AC1A72D6B200CD560A /* jeep.m */; };
 		601700C71A72D6B200CD560A /* lightRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700AE1A72D6B200CD560A /* lightRunner.m */; };
 		601700C81A72D6B200CD560A /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B01A72D6B200CD560A /* Menu.m */; };
-		601700C91A72D6B200CD560A /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B21A72D6B200CD560A /* Obstacle.m */; };
 		601700CA1A72D6B200CD560A /* pickupTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B41A72D6B200CD560A /* pickupTruck.m */; };
 		601700CB1A72D6B200CD560A /* policeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B61A72D6B200CD560A /* policeCar.m */; };
 		601700CC1A72D6B200CD560A /* ScrollViewTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B81A72D6B200CD560A /* ScrollViewTable.m */; };
@@ -43,7 +42,6 @@
 		60C171161A733AF0003BD166 /* jeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700AC1A72D6B200CD560A /* jeep.m */; };
 		60C171171A733AF0003BD166 /* lightRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700AE1A72D6B200CD560A /* lightRunner.m */; };
 		60C171181A733AF0003BD166 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B01A72D6B200CD560A /* Menu.m */; };
-		60C171191A733AF0003BD166 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B21A72D6B200CD560A /* Obstacle.m */; };
 		60C1711A1A733AF0003BD166 /* pickupTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B41A72D6B200CD560A /* pickupTruck.m */; };
 		60C1711B1A733AF0003BD166 /* policeCar.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B61A72D6B200CD560A /* policeCar.m */; };
 		60C1711C1A733AF0003BD166 /* ScrollViewTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700B81A72D6B200CD560A /* ScrollViewTable.m */; };
@@ -222,8 +220,6 @@
 		601700AE1A72D6B200CD560A /* lightRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = lightRunner.m; path = Source/lightRunner.m; sourceTree = "<group>"; };
 		601700AF1A72D6B200CD560A /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Menu.h; path = Source/Menu.h; sourceTree = "<group>"; };
 		601700B01A72D6B200CD560A /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Menu.m; path = Source/Menu.m; sourceTree = "<group>"; };
-		601700B11A72D6B200CD560A /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Source/Obstacle.h; sourceTree = "<group>"; };
-		601700B21A72D6B200CD560A /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Source/Obstacle.m; sourceTree = "<group>"; };
 		601700B31A72D6B200CD560A /* pickupTruck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pickupTruck.h; path = Source/pickupTruck.h; sourceTree = "<group>"; };
 		601700B41A72D6B200CD560A /* pickupTruck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = pickupTruck.m; path = Source/pickupTruck.m; sourceTree = "<group>"; };
 		601700B51A72D6B200CD560A /* policeCar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = policeCar.h; path = Source/policeCar.h; sourceTree = "<group>"; };
@@ -597,8 +593,6 @@
 				7A40362019DDEF0D007B6E8F /* Platforms */,
 				601700A91A72D6B200CD560A /* Goal.h */,
 				601700AA1A72D6B200CD560A /* Goal.m */,
-				601700B11A72D6B200CD560A /* Obstacle.h */,
-				601700B21A72D6B200CD560A /* Obstacle.m */,
 				4D7D3E611A826356003F7A57 /* Menus */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
@@ -988,7 +982,6 @@
 				60C171161A733AF0003BD166 /* jeep.m in Sources */,
 				60C171171A733AF0003BD166 /* lightRunner.m in Sources */,
 				60C171181A733AF0003BD166 /* Menu.m in Sources */,
-				60C171191A733AF0003BD166 /* Obstacle.m in Sources */,
 				60C1711A1A733AF0003BD166 /* pickupTruck.m in Sources */,
 				60C1711B1A733AF0003BD166 /* policeCar.m in Sources */,
 				60C1711C1A733AF0003BD166 /* ScrollViewTable.m in Sources */,
@@ -1015,7 +1008,6 @@
 				601700C51A72D6B200CD560A /* Goal.m in Sources */,
 				601700CC1A72D6B200CD560A /* ScrollViewTable.m in Sources */,
 				601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */,
-				601700C91A72D6B200CD560A /* Obstacle.m in Sources */,
 				4CC204801A95A3CF0030C34E /* lifeMeter.m in Sources */,
 				601700CF1A72D6B200CD560A /* vehicleProxy.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
