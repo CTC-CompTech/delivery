@@ -1121,8 +1121,6 @@
 								</array>
 							</dict>
 						</array>
-						<key>selected</key>
-						<true/>
 					</dict>
 				</array>
 				<key>customClass</key>
@@ -1323,7 +1321,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Car Menu/Jeep Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Jeep Car Menu Table.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2152,7 +2150,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Car Menu/Police Car Car Menu Table New.png</string>
+							<string>Delivery/Car Menu/Police Car Car Menu Table.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2350,6 +2348,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
