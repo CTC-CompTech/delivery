@@ -399,6 +399,19 @@ static const CGFloat firstObstaclePosition = 450.f;
     return TRUE;
 }
 
+- (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ability:(CCNode *)hero level:(CCNode *)level {
+    CCActionFadeOut *fadeOut = [CCActionFadeOut actionWithDuration:.5f];
+    [level runAction:fadeOut];
+    
+    [self performSelector:@selector(removeLevelAfterAbility:) withObject:level afterDelay:.5f];
+    
+    return TRUE;
+}
+
+- (void)removeLevelAfterAbility:(CCNode*)level {
+    [level removeFromParent];
+}
+
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair rocket:(CCNode *)rocket level:(CCNode *)level {
     /*
     NSMutableArray *obstaclesToDelete = [[NSMutableArray alloc] init];
