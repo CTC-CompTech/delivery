@@ -177,7 +177,7 @@
 }
 
 - (int)getLane {
-    return arc4random_uniform(4) + 1;
+    return arc4random_uniform(5) + 1;
 }
 
 @end
