@@ -88,6 +88,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    return inst;
 //}
 
+#pragma mark - Load
+
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
     
@@ -182,6 +184,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
 }
 #endif
+
+#pragma mark - Update
 
 - (void)update:(CCTime)delta {
     [_hero setupVehicle];
@@ -288,6 +292,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     obstacle.zOrder = DrawingOrderObstacle;
 }
 
+#pragma mark - Formatter
+
 - (NSString *)formatter:(NSInteger)toFormat {
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
@@ -305,6 +311,8 @@ static const CGFloat firstObstaclePosition = 450.f;
  * Collisions
  *
  ///////////////////////////////////////////*/
+
+#pragma mark - Collisions
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero level:(randomObstacle*)level {
 
@@ -450,6 +458,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     return coinAmount;
 }
 
+#pragma mark - Game Over
+
 - (void)gameOver {
     if (!_gameOver) {
         [_hero onPause];
@@ -511,6 +521,8 @@ static const CGFloat firstObstaclePosition = 450.f;
 *
 ///////////////////////////////////////////*/
 
+#pragma mark - Buttons
+
 - (void)menu {
     CCScene *scene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
@@ -563,6 +575,8 @@ static const CGFloat firstObstaclePosition = 450.f;
  * Abilities
  *
  ///////////////////////////////////////////*/
+
+#pragma mark - Abilities or what is left
 
 - (void)ability {
     
@@ -669,6 +683,8 @@ static const CGFloat firstObstaclePosition = 450.f;
  *
  ///////////////////////////////////////////*/
 
+#pragma mark - User Interaction
+
 - (void)swipeLeft {
 //    CCLOG(@"swipeLeft");
     if (!_gameOver) {
@@ -740,6 +756,8 @@ static const CGFloat firstObstaclePosition = 450.f;
  * Custom Actions
  *
  ///////////////////////////////////////////*/
+
+#pragma mark - Custom Actions
 
 - (void)saveCustomObject:(Stats *)object key:(NSString *)key {
     NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];

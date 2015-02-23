@@ -64,6 +64,8 @@ static CarMenu *inst = nil;
     return inst;
 }
 
+#pragma mark - Load
+
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];
     
@@ -111,6 +113,8 @@ static CarMenu *inst = nil;
     [self performSelector:@selector(loadAnimationEnd) withObject:nil afterDelay:1.6f];
     
 }
+
+#pragma mark - Update
 
 - (void)update:(CCTime)delta {
     
@@ -174,6 +178,8 @@ static CarMenu *inst = nil;
  * Animations
  *
  ///////////////////////////////////////////*/
+
+#pragma mark - Animations
 
 - (void)moveCars {
     
@@ -262,6 +268,8 @@ static CarMenu *inst = nil;
  * Buttons
  *
  ///////////////////////////////////////////*/
+
+#pragma mark - Buttons
 
 - (void)clear {
     [Stats instance].ownedCars = [[NSMutableArray alloc] init];

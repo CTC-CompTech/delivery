@@ -29,6 +29,8 @@
 
 @implementation fastObstacle
 
+#pragma mark - init
+
 -(id)init{
     if (self = [super init]){
         self.block1 = [[randomObstacle alloc] init];
@@ -59,6 +61,8 @@
     else return nil;
 }
 
+#pragma mark - Main method
+
 - (void)setupRandomPosition {
     
     int value = [[Stats instance].obstacleCount intValue];
@@ -83,6 +87,8 @@
     }
     //    [self removeBlockWithLevel:4];
 }
+
+#pragma mark - Support methods
 
 - (void)removeBlockWithLevel:(int)level {
     
@@ -171,6 +177,8 @@
         [[Stats instance].lasts setObject:thisBlock atIndexedSubscript:0];
     }
 }
+
+#pragma mark - Random number generators
 
 - (int)getObstacle {
     return arc4random_uniform(3) + 1;

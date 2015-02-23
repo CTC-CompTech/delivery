@@ -22,6 +22,8 @@
 
 @implementation lightRunner
 
+#pragma mark - init
+
 -(id)init{
     if (self = [super init]){
         self.carType = @"lightRunner";
@@ -47,6 +49,7 @@
     self.useCount = 3;
 }
 
+#pragma mark - Ability
 
 -(void)useAbility{
     if (self.useCount > 0){
@@ -65,6 +68,8 @@
         self.abilityButton.visible = FALSE;
     }
 }
+
+#pragma mark - Runtime
 
 -(void)onPause{
     self.abilityButton.visible = false;

@@ -10,6 +10,8 @@
 
 @implementation pickupTruck
 
+#pragma mark - init
+
 -(id)init{
     if (self = [super init]){
         self.carType = @"pickupTruck";

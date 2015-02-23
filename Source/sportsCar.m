@@ -10,6 +10,8 @@
 
 @implementation sportsCar
 
+#pragma mark - init
+
 -(id)init{
     if (self = [super init]){
         self.carType = @"sportsCar";

@@ -17,6 +17,8 @@
 @implementation randomObstacle
 static NSArray* _obstacleTextures;
 
+#pragma mark - init
+
 -(id)init{
     if (self = [super init]){
         
@@ -44,12 +46,16 @@ static NSArray* _obstacleTextures;
     else return nil;
 }
 
+#pragma mark - Update
+
 -(void)update:(CCTime)delta{
     if (self.physicsBody.type == CCPhysicsBodyTypeDynamic){
         self.physicsBody.velocity = ccp(self.physicsBody.velocity.x/1.1,self.physicsBody.velocity.y/1.1);
         self.physicsBody.angularVelocity = self.physicsBody.angularVelocity/1.1;
     }
 }
+
+#pragma mark - Support methods
 
 -(int)getObstacleType{
     return (obstacleType)self.obstacleIndex;

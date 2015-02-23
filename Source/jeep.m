@@ -23,6 +23,8 @@
 
 @implementation jeep
 
+#pragma mark - init
+
 -(id)init{
     if (self = [super init]){
         self.carType = @"jeep";
@@ -42,6 +44,8 @@
     [self.parentVehicle addChild:self.particleEffect];
     self.particleEffect.position = ccp(self.parentVehicle.boundingBox.size.width / 2.0, self.parentVehicle.boundingBox.size.height / 2.0);
 }
+
+#pragma mark - Ability
 
 -(void)useAbility{
     if (self.canUseAbility){
@@ -86,6 +90,8 @@
         
         
 }}
+
+#pragma mark - Runtime
 
 -(void)onPause{
     [super onPause];

@@ -30,6 +30,8 @@ static const CGFloat scrollSpeed = 210.f;
     
 }
 
+#pragma mark - Load
+
 - (void)didLoadFromCCB {
     self.userInteractionEnabled = YES;
 }
@@ -97,6 +99,8 @@ static const CGFloat scrollSpeed = 210.f;
     
 }
 
+#pragma mark - Touches
+
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
 {
     
@@ -112,6 +116,8 @@ static const CGFloat scrollSpeed = 210.f;
     }
     
 }
+
+#pragma mark - Buttons
 
 - (void)credits {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];

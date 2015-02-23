@@ -25,6 +25,8 @@
     
 }
 
+#pragma mark - Main call
+
 - (void)runGameOver {
     
     // Best Score
@@ -68,6 +70,8 @@
     
 }
 
+#pragma mark - Animations
+
 - (void)sweepTitle {
     CCActionMoveTo *moveTitle = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverText.position.y)];
     
@@ -98,6 +102,8 @@
  * Buttons
  *
  ///////////////////////////////////////////*/
+
+#pragma mark - Buttons
 
 - (void)restart {
     CCScene *scene = [CCBReader loadAsScene:@"MainScene"];

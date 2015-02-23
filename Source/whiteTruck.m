@@ -10,6 +10,8 @@
 
 @implementation whiteTruck
 
+#pragma mark - init
+
 -(id)init{
     if (self = [super init]){
         self.carType = @"whiteTruck";

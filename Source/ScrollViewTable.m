@@ -90,6 +90,8 @@
     
 }
 
+#pragma mark - Scroll buttons
+
 - (void)deliveryTruck {
     
 //    CCSpriteFrame *deliveryTruck = [CCSpriteFrame frameWithImageNamed:@"Delivery/Heros/Truck.png"];
@@ -223,6 +225,8 @@
     }
 }
 
+#pragma mark - Car check
+
 - (BOOL)doesUserOwnCar:(NSString *)car {
     
     for (NSString *grabbedCar in [Stats instance].ownedCars) {
@@ -233,6 +237,8 @@
     
     return FALSE;
 }
+
+#pragma mark - Alert
 
 - (void)displayAlertWithAmount:(NSInteger)amount {
     
@@ -315,6 +321,8 @@
     }
 }
 
+#pragma mark - End methods
+
 - (void)didSet {
     
     if ([CarMenu instance].didPressWhileMoving == NO) {
@@ -331,6 +339,8 @@
 - (void)endSet {
     [CarMenu instance].shouldMove = NO;
 }
+
+#pragma mark - Formatter
 
 - (NSString *)formatter:(NSInteger)toFormat {
     
