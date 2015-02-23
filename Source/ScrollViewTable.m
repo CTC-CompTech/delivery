@@ -317,11 +317,13 @@
 
 - (void)didSet {
     
-    if ([CarMenu instance].isMoving == NO) {
-        [CarMenu instance].shouldMove = YES;
-        [self performSelector:@selector(endSet) withObject:nil afterDelay:1.5f];
-    } else {
-        [CarMenu instance].didPressWhileMoving = YES;
+    if ([CarMenu instance].didPressWhileMoving == NO) {
+        if ([CarMenu instance].isMoving == NO) {
+            [CarMenu instance].shouldMove = YES;
+            [self performSelector:@selector(endSet) withObject:nil afterDelay:1.5f];
+        } else {
+            [CarMenu instance].didPressWhileMoving = YES;
+        }
     }
     
 }

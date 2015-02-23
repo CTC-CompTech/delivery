@@ -177,8 +177,8 @@ static CarMenu *inst = nil;
 
 - (void)moveCars {
     
-    self.initialHero = self.realInitialHero;
-    self.initialFake = _fakeHero.position;
+//    self.initialHero = self.realInitialHero;
+//    self.initialFake = _fakeHero.position;
     
     // Construct Sprite Frame
     NSString *constructedFrame = [NSString stringWithFormat:@"Delivery/Heros/%@.png", [CarMenu instance].titleCar];
