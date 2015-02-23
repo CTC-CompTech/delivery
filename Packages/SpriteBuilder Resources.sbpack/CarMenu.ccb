@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>149</integer>
+	<integer>169</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1416,7 +1416,7 @@
 													<array>
 														<real>0.0</real>
 														<real>0.0</real>
-														<real>1</real>
+														<real>0.0</real>
 														<real>1</real>
 													</array>
 												</dict>
@@ -1604,7 +1604,7 @@
 										<array>
 											<real>0.0</real>
 											<real>0.0</real>
-											<real>1</real>
+											<real>0.0</real>
 											<real>1</real>
 										</array>
 									</dict>
@@ -1630,6 +1630,10 @@
 										<real>100</real>
 									</dict>
 								</array>
+								<key>selected</key>
+								<true/>
+								<key>seqExpanded</key>
+								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>
@@ -2053,7 +2057,7 @@
 													<array>
 														<real>0.0</real>
 														<real>0.0</real>
-														<real>1</real>
+														<real>0.0</real>
 														<real>1</real>
 													</array>
 												</dict>
@@ -2241,7 +2245,7 @@
 										<array>
 											<real>0.0</real>
 											<real>0.0</real>
-											<real>1</real>
+											<real>0.0</real>
 											<real>1</real>
 										</array>
 									</dict>
@@ -2267,6 +2271,8 @@
 										<real>100</real>
 									</dict>
 								</array>
+								<key>seqExpanded</key>
+								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>
@@ -4114,8 +4120,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
