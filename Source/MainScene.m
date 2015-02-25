@@ -122,6 +122,9 @@ static const CGFloat firstObstaclePosition = 450.f;
 
     // <-- End selected car ---> \\
     
+    // Expand the pause button's pressable area.
+    [_pause setHitAreaExpansion:40.f];
+    
     // Set life meter variable so the car instance can control it
     _hero.lifeMeter = _lifeMeter;
     
