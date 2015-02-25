@@ -12,8 +12,7 @@
 
 - (void)BackMenu {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
-                            withTransition:[CCTransition transitionPushWithDirection:CCTransitionDirectionRight duration:.5]];
+    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
 -(void)SecretGame {
