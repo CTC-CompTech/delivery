@@ -9,6 +9,7 @@
 #import "Menu.h"
 #import "Stats.h"
 #import "vehicleIncludes.h"
+#import "Credits.h"
 
 static const CGFloat scrollSpeed = 210.f;
 
@@ -20,6 +21,8 @@ static const CGFloat scrollSpeed = 210.f;
     
     CCLightNode *_redLight;
     CCLightNode *_blueLight;
+    
+    CCNode *_fadeBackground;
     
     CCNode *_ground1;
     CCNode *_ground2;
@@ -99,6 +102,42 @@ static const CGFloat scrollSpeed = 210.f;
     
 }
 
+
+#pragma mark - Helping methods
+
+- (void)creditsRemove {
+    
+    // Get scenes
+    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+    
+    // Children of Menu - Index of 0 will always be Menu
+    NSArray *array = [[runningScene.children objectAtIndex:0] children];
+    
+    // Find the node that is of Credits class.
+    for (CCNode *node in array) {
+        if ([node isKindOfClass:[Credits class]]) {
+            
+            CCActionFadeOut *fadeNode = [CCActionFadeOut actionWithDuration:.3];
+            [[node.children objectAtIndex:0] runAction:fadeNode]; // node.children is required because the initial node isn't actually displayed.
+            [[node.children objectAtIndex:1] removeFromParent]; // This is the button.
+            [self performSelector:@selector(removeNode:) withObject:node afterDelay:.6f];
+            
+        }
+        
+        if ([node.name isEqualToString:@"Fade"]) {
+            
+            // Fade background
+            CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
+            [node runAction:fadeBack];
+            
+        }
+    }
+}
+
+- (void)removeNode:(CCNode*)node {
+    [node removeFromParent];
+}
+
 #pragma mark - Touches
 
 - (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
@@ -120,8 +159,16 @@ static const CGFloat scrollSpeed = 210.f;
 #pragma mark - Buttons
 
 - (void)credits {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+//    CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
+//    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+    
+    CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
+    [_fadeBackground runAction:fadeBack];
+    
+    // Run to seperate credits screen
+    Credits *credits = (Credits *)[CCBReader load:@"Credits"];
+    [credits runCredits];
+    [self addChild:credits];
 }
 
 - (void)hero {

@@ -7,12 +7,35 @@
 //
 
 #import "Credits.h"
+#import "Menu.h"
 
-@implementation Credits
+@implementation Credits {
+    CCNode *_creditsMenu;
+}
+
+- (void)runCredits {
+    _creditsMenu.position = ccp(480, _creditsMenu.position.y);
+    [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.1];
+}
+
+- (void)sweepContent {
+    CCActionMoveTo *moveContent = [CCActionMoveTo actionWithDuration:.5 position:ccp(0, _creditsMenu.position.y)];
+    [_creditsMenu runAction:moveContent];
+}
+
+/*///////////////////////////////////////////
+ *
+ * If added or removed nodes in Credits, check the Menu class for changes!
+ *
+ ///////////////////////////////////////////*/
 
 - (void)BackMenu {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+    
+    Menu *mainMenu = (Menu *)[CCBReader load:@"Menu"];
+    [mainMenu creditsRemove];
+    
+//    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
+//    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
 -(void)SecretGame {

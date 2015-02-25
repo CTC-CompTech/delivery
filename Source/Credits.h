@@ -10,4 +10,6 @@
 
 @interface Credits : CCNode
 
+- (void)runCredits;
+
 @end

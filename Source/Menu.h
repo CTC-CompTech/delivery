@@ -10,4 +10,6 @@
 
 @interface Menu : CCNode
 
+- (void)creditsRemove;
+
 @end
