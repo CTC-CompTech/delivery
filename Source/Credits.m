@@ -10,7 +10,14 @@
 #import "Menu.h"
 
 @implementation Credits {
+    
     CCNode *_creditsMenu;
+    
+    CCButton *_backButton;
+}
+
+- (void)didLoadFromCCB {
+    [_backButton setHitAreaExpansion:40.f];
 }
 
 - (void)runCredits {

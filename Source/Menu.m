@@ -24,6 +24,9 @@ static const CGFloat scrollSpeed = 210.f;
     
     CCNode *_fadeBackground;
     
+    CCButton *_creditsButton;
+    CCButton *_optionsButton;
+    
     CCNode *_ground1;
     CCNode *_ground2;
     
@@ -37,6 +40,9 @@ static const CGFloat scrollSpeed = 210.f;
 
 - (void)didLoadFromCCB {
     self.userInteractionEnabled = YES;
+    
+    [_creditsButton setHitAreaExpansion:20.f];
+    [_optionsButton setHitAreaExpansion:20.f];
 }
 
 - (void)update:(CCTime)delta {
