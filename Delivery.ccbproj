@@ -90,6 +90,8 @@
 		</dict>
 		<key>Delivery/Menu</key>
 		<dict>
+			<key>isDirty</key>
+			<true/>
 			<key>isSmartSpriteSheet</key>
 			<true/>
 		</dict>

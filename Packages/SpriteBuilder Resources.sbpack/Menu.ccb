@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>505</integer>
+	<integer>523</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1813,8 +1813,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>51.380001068115234</real>
-							<real>0.95422536134719849</real>
+							<real>39.964668273925781</real>
+							<real>0.93868535757064819</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1862,8 +1862,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>115</real>
-							<real>50</real>
+							<real>87</real>
+							<real>87</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1908,7 +1908,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Options Button.png</string>
+							<string>Delivery/Menu/Settings Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1919,7 +1919,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Options Button Selected.png</string>
+							<string>Delivery/Menu/Settings Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1962,7 +1962,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Options Button Selected.png</string>
+							<string>Delivery/Menu/Settings Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
