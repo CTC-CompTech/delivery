@@ -189,4 +189,10 @@ static const CGFloat scrollSpeed = 210.f;
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
+- (void)options {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Options"];
+    [[CCDirector sharedDirector] pushScene:gameplayScene
+                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+}
+
 @end
