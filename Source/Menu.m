@@ -10,6 +10,7 @@
 #import "Stats.h"
 #import "vehicleIncludes.h"
 #import "Credits.h"
+#import "StatsNode.h"
 
 static const CGFloat scrollSpeed = 210.f;
 
@@ -26,6 +27,7 @@ static const CGFloat scrollSpeed = 210.f;
     
     CCButton *_creditsButton;
     CCButton *_optionsButton;
+    CCButton *_statsButton;
     
     CCNode *_ground1;
     CCNode *_ground2;
@@ -191,6 +193,12 @@ static const CGFloat scrollSpeed = 210.f;
 
 - (void)options {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Options"];
+    [[CCDirector sharedDirector] pushScene:gameplayScene
+                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+}
+
+- (void)stats {
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Stats"];
     [[CCDirector sharedDirector] pushScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }

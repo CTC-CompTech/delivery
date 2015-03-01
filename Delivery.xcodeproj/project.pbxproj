@@ -20,6 +20,7 @@
 		4D3418CD1A79C5D2006BCB5F /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
 		4D7D3E5F1A826349003F7A57 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D3E5E1A826349003F7A57 /* GameOver.m */; };
 		4D86006D1AA0C4B1007187FF /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D86006C1AA0C4B1007187FF /* Options.m */; };
+		4DDBA3261AA2B0BE008B08E3 /* StatsNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBA3251AA2B0BE008B08E3 /* StatsNode.m */; };
 		5B121038197487F2004C1E1D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B737893E1807617C0076A88C /* AppDelegate.m */; };
 		600DFB2A1A854B09004DDC64 /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DFB291A854B09004DDC64 /* Credits.m */; };
 		601700C21A72D6B200CD560A /* CarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A41A72D6B200CD560A /* CarMenu.m */; };
@@ -197,6 +198,8 @@
 		4D7D3E5E1A826349003F7A57 /* GameOver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOver.m; sourceTree = "<group>"; };
 		4D86006B1AA0C4B1007187FF /* Options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Options.h; path = Source/Options.h; sourceTree = "<group>"; };
 		4D86006C1AA0C4B1007187FF /* Options.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Options.m; path = Source/Options.m; sourceTree = "<group>"; };
+		4DDBA3241AA2B0BE008B08E3 /* StatsNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatsNode.h; path = Source/StatsNode.h; sourceTree = "<group>"; };
+		4DDBA3251AA2B0BE008B08E3 /* StatsNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatsNode.m; path = Source/StatsNode.m; sourceTree = "<group>"; };
 		5B12100919748273004C1E1D /* libEGL.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libEGL.so; path = /usr/lib/armv7a/libEGL.so; sourceTree = SDKROOT; };
 		5B12100F197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
 		5B121011197483EE004C1E1D /* ic_launcher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_launcher.png; sourceTree = "<group>"; };
@@ -425,6 +428,8 @@
 				600DFB291A854B09004DDC64 /* Credits.m */,
 				4D86006B1AA0C4B1007187FF /* Options.h */,
 				4D86006C1AA0C4B1007187FF /* Options.m */,
+				4DDBA3241AA2B0BE008B08E3 /* StatsNode.h */,
+				4DDBA3251AA2B0BE008B08E3 /* StatsNode.m */,
 			);
 			name = Menus;
 			sourceTree = "<group>";
@@ -1016,6 +1021,7 @@
 				601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */,
 				4CC204801A95A3CF0030C34E /* lifeMeter.m in Sources */,
 				601700CF1A72D6B200CD560A /* vehicleProxy.m in Sources */,
+				4DDBA3261AA2B0BE008B08E3 /* StatsNode.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,
 				7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */,
 				4D7D3E5F1A826349003F7A57 /* GameOver.m in Sources */,
