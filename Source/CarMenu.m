@@ -186,6 +186,10 @@ static CarMenu *inst = nil;
 //    self.initialHero = self.realInitialHero;
 //    self.initialFake = _fakeHero.position;
     
+    // Update displaying coin count
+    NSString *coin = [self formatter:[[Stats instance].currentCoin integerValue]];
+    _coinCurrent.string = coin;
+
     // Construct Sprite Frame
     NSString *constructedFrame = [NSString stringWithFormat:@"Delivery/Heros/%@.png", [CarMenu instance].titleCar];
     
@@ -286,6 +290,20 @@ static CarMenu *inst = nil;
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] pushScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+}
+
+#pragma mark - Formatter
+
+- (NSString *)formatter:(NSInteger)toFormat {
+    
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    
+    NSNumber *numToFormat = [NSNumber numberWithInteger:toFormat];
+    NSString *formatted = [formatter stringFromNumber:numToFormat];
+    
+    return formatted;
+    
 }
 
 @end
