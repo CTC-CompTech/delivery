@@ -128,12 +128,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     // Set life meter variable so the car instance can control it
     _hero.lifeMeter = _lifeMeter;
     
-    // Track games run
-    NSInteger games = [[Stats instance].gameRuns integerValue];
-    games++;
-    
-    [Stats instance].gameRuns = [NSNumber numberWithInteger:games];
-    
     // set this class as delegate
     _physicsNode.collisionDelegate = self;
     
@@ -505,6 +499,12 @@ static const CGFloat firstObstaclePosition = 450.f;
         
         [Stats instance].totalCoin = scoreTotal;
         [Stats instance].currentCoin = scoreCurrent;
+        
+        // Track games run
+        NSInteger games = [[Stats instance].gameRuns integerValue];
+        games++;
+        
+        [Stats instance].gameRuns = [NSNumber numberWithInteger:games];
         
         // Run to seperate gameover screen
         GameOver *gameOver = (GameOver *)[CCBReader load:@"GameOver"];
