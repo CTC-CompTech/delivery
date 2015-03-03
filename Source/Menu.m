@@ -121,6 +121,10 @@ static const CGFloat scrollSpeed = 210.f;
     // Children of Menu - Index of 0 will always be Menu
     NSArray *array = [[runningScene.children objectAtIndex:0] children];
     
+    // Re-enable touches
+    CCNode *menuNode = [runningScene.children objectAtIndex:0];
+    menuNode.userInteractionEnabled = YES;
+    
     // Find the node that is of Credits class.
     for (CCNode *node in array) {
         if ([node isKindOfClass:[Credits class]]) {
@@ -176,6 +180,10 @@ static const CGFloat scrollSpeed = 210.f;
     // Run to seperate credits screen
     Credits *credits = (Credits *)[CCBReader load:@"Credits"];
     [credits runCredits];
+    
+    // Disable touches for incoming menu
+    self.userInteractionEnabled = NO;
+    
     [self addChild:credits];
 }
 

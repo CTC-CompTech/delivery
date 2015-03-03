@@ -3584,8 +3584,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -3713,7 +3711,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Truck</string>
+				<string>Sports Car</string>
 				<key>memberVarAssignmentName</key>
 				<string>_sportsCar</string>
 				<key>memberVarAssignmentType</key>
@@ -3837,7 +3835,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Truck</string>
+				<string>Light Runner</string>
 				<key>memberVarAssignmentName</key>
 				<string>_lightRunner</string>
 				<key>memberVarAssignmentType</key>
@@ -3961,7 +3959,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Truck</string>
+				<string>Police Car</string>
 				<key>memberVarAssignmentName</key>
 				<string>_policeCar</string>
 				<key>memberVarAssignmentType</key>
@@ -4085,7 +4083,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Truck</string>
+				<string>Pickup Truck</string>
 				<key>memberVarAssignmentName</key>
 				<string>_pickupTruck</string>
 				<key>memberVarAssignmentType</key>
@@ -4209,7 +4207,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Truck</string>
+				<string>Jeep</string>
 				<key>memberVarAssignmentName</key>
 				<string>_jeep</string>
 				<key>memberVarAssignmentType</key>
@@ -4322,6 +4320,8 @@
 						<array/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
