@@ -113,7 +113,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [_hero setSpriteFrame:car];
     }
     
-    if ([_hero.getVehicleType isEqual:@"sportsCar"] || [_hero.getVehicleType isEqual:@"pickupTruck"]) {
+    if (/*[_hero.getVehicleType isEqual:@"sportsCar"] || */[_hero.getVehicleType isEqual:@"pickupTruck"]) {
         _abilityButton.visible = TRUE;
         self.shouldAbility = TRUE;
     } else {
@@ -607,7 +607,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [self performSelector:@selector(unfreeze:) withObject:speedBefore afterDelay:7.0];
         
     }
-    
+    /*
     if ([_hero.getVehicleType isEqual:@"sportsCar"]) {
     
         _hero.physicsBody.collisionType = @"ability";
@@ -622,7 +622,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [self performSelector:@selector(abilityStop:) withObject:speedBefore afterDelay:5.0];
         
     }
-    
+    */
 }
 
 - (void)unfreeze:(NSNumber*)speedBefore {
