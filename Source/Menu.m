@@ -129,9 +129,13 @@ static const CGFloat scrollSpeed = 210.f;
     for (CCNode *node in array) {
         if ([node isKindOfClass:[Credits class]]) {
             
-            CCActionFadeOut *fadeNode = [CCActionFadeOut actionWithDuration:.3];
-            [[node.children objectAtIndex:0] runAction:fadeNode]; // node.children is required because the initial node isn't actually displayed.
-            [[node.children objectAtIndex:1] removeFromParent]; // This is the button.
+            // Fade all nodes on Credits
+            for (CCNode *childNode in node.children) {
+                CCActionFadeOut *fadeNode = [CCActionFadeOut actionWithDuration:.5];
+                [childNode runAction:fadeNode];
+            }
+            [node removeChildByName:@"Back Button"];
+            
             [self performSelector:@selector(removeNode:) withObject:node afterDelay:.6f];
             
         }
