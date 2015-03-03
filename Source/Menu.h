@@ -11,5 +11,6 @@
 @interface Menu : CCNode
 
 - (void)creditsRemove;
+- (void)statsRemove;
 
 @end

@@ -146,6 +146,43 @@ static const CGFloat scrollSpeed = 210.f;
     }
 }
 
+- (void)statsRemove {
+    
+    // Get scenes
+    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+    
+    // Children of Menu - Index of 0 will always be Menu
+    NSArray *array = [[runningScene.children objectAtIndex:0] children];
+    
+    // Re-enable touches
+    CCNode *menuNode = [runningScene.children objectAtIndex:0];
+    menuNode.userInteractionEnabled = YES;
+    
+    // Find the node that is of Credits class.
+    for (CCNode *node in array) {
+        if ([node isKindOfClass:[StatsNode class]]) {
+            
+            // Fade all nodes on StatsNode
+            for (CCNode *childNode in node.children) {
+                CCActionFadeOut *fadeNode = [CCActionFadeOut actionWithDuration:.5];
+                [childNode runAction:fadeNode];
+            }
+            [node removeChildByName:@"Back Button"];
+            
+            [self performSelector:@selector(removeNode:) withObject:node afterDelay:.6f];
+            
+        }
+        
+        if ([node.name isEqualToString:@"Fade"]) {
+            
+            // Fade background
+            CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
+            [node runAction:fadeBack];
+            
+        }
+    }
+}
+
 - (void)removeNode:(CCNode*)node {
     [node removeFromParent];
 }
@@ -206,9 +243,22 @@ static const CGFloat scrollSpeed = 210.f;
 }
 
 - (void)stats {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Stats"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
-                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+//    CCScene *gameplayScene = [CCBReader loadAsScene:@"Stats"];
+//    [[CCDirector sharedDirector] pushScene:gameplayScene
+//                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+    
+    CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
+    [_fadeBackground runAction:fadeBack];
+    
+    // Run to seperate credits screen
+    StatsNode *stats = (StatsNode *)[CCBReader load:@"Stats"];
+    [stats runStats];
+    
+    // Disable touches for incoming menu
+    self.userInteractionEnabled = NO;
+    
+    [self addChild:stats];
+    
 }
 
 @end

@@ -10,4 +10,6 @@
 
 @interface StatsNode : CCNode
 
+- (void)runStats;
+
 @end

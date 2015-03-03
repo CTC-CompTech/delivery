@@ -8,6 +8,7 @@
 
 #import "StatsNode.h"
 #import "Stats.h"
+#import "Menu.h"
 
 @implementation StatsNode {
     
@@ -74,12 +75,27 @@
     
 }
 
+#pragma mark - Helper methods
+
+- (void)runStats {
+    _statsNode.position = ccp(480, _statsNode.position.y);
+    [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.1];
+}
+
+- (void)sweepContent {
+    CCActionMoveTo *moveContent = [CCActionMoveTo actionWithDuration:.5 position:ccp(0, _statsNode.position.y)];
+    [_statsNode runAction:moveContent];
+}
+
 #pragma mark - Buttons
 
 - (void)back {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
-                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+//    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
+//    [[CCDirector sharedDirector] pushScene:gameplayScene
+//                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+    
+    Menu *mainMenu = (Menu *)[CCBReader load:@"Menu"];
+    [mainMenu statsRemove];
 }
 
 #pragma mark - Formatter
