@@ -307,8 +307,11 @@
             [[Stats instance].ownedCars addObject:self.carTouched];
             [CarMenu instance].titleCar = self.carTouched;
             
+            // Fix selected car Object
+            NSString *selectedCarObj = [NSString stringWithFormat:@"Delivery/Heros/%@", self.carTouched];
+            
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:self.carTouched forKey:@"selectedCar"];
+            [defaults setObject:selectedCarObj forKey:@"selectedCar"];
             [defaults setInteger:carEnum forKey:@"vehicleIndex"];
             [defaults synchronize];
             
