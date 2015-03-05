@@ -251,7 +251,6 @@
                                           cancelButtonTitle:@"No"
                                           otherButtonTitles:@"Yes, please", nil];
     [alert show];
-#endif
     
 //#if __CC_PLATFORM_ANDROID
 //    dispatch_async(dispatch_get_main_queue(), ^{
@@ -323,6 +322,7 @@
         return;
     }
 }
+#endif
 
 #pragma mark - End methods
 

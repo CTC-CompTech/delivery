@@ -18,6 +18,8 @@
 		4CC204821A95A3CF0030C34E /* lifeMeter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2047F1A95A3CF0030C34E /* lifeMeter.m */; };
 		4D2561511A79B24500B1FC02 /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
 		4D3418CD1A79C5D2006BCB5F /* runnerRocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2561501A79B24500B1FC02 /* runnerRocket.m */; };
+		4D70F2C01AA7F00D00ACD917 /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D86006C1AA0C4B1007187FF /* Options.m */; };
+		4D70F2C11AA7F00D00ACD917 /* StatsNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBA3251AA2B0BE008B08E3 /* StatsNode.m */; };
 		4D7D3E5F1A826349003F7A57 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D3E5E1A826349003F7A57 /* GameOver.m */; };
 		4D86006D1AA0C4B1007187FF /* Options.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D86006C1AA0C4B1007187FF /* Options.m */; };
 		4DDBA3261AA2B0BE008B08E3 /* StatsNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDBA3251AA2B0BE008B08E3 /* StatsNode.m */; };
@@ -980,6 +982,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D70F2C01AA7F00D00ACD917 /* Options.m in Sources */,
+				4D70F2C11AA7F00D00ACD917 /* StatsNode.m in Sources */,
 				60F2A12F1A87D1CF00B03203 /* Credits.m in Sources */,
 				4CB8C0261A8516FD00214C22 /* fastObstacle.m in Sources */,
 				60D07E2B1A8407A80088CE95 /* GameOver.m in Sources */,

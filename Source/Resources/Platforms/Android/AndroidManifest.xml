@@ -11,7 +11,7 @@
         android:versionName="3.0"
         android:allowBackup="true"
         android:label="Delivery"
-        android:debuggable="false"
+        android:debuggable="true"
         android:icon="@drawable/ic_launcher">
         <activity
             android:versionCode="3"
