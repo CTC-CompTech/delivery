@@ -307,7 +307,7 @@
             [CarMenu instance].titleCar = self.carTouched;
             
             // Fix selected car Object
-            NSString *selectedCarObj = [NSString stringWithFormat:@"Delivery/Heros/%@", self.carTouched];
+            NSString *selectedCarObj = [NSString stringWithFormat:@"Delivery/Heros/%@.png", self.carTouched];
             
             NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
             [defaults setObject:selectedCarObj forKey:@"selectedCar"];
