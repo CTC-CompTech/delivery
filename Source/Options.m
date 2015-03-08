@@ -38,6 +38,19 @@
     [defaults setObject:defaultCar forKey:@"selectedCar"];
     [defaults setInteger:whiteTruckEnum forKey:@"vehicleIndex"];
     [defaults synchronize];
+    
+    [self saveCustomObject:[Stats instance] key:@"stats"];
+    
+}
+
+#pragma mark - Custom Actions
+
+- (void)saveCustomObject:(Stats *)object key:(NSString *)key {
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:object];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:key];
+    [defaults synchronize];
+    
 }
 
 @end
