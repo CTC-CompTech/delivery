@@ -7,6 +7,8 @@
 //
 
 #import "Options.h"
+#import "Stats.h"
+#import "vehicleIncludes.h"
 
 @implementation Options
 
@@ -16,6 +18,26 @@
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] pushScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+}
+
+- (void)reset {
+    [Stats instance].ownedCars = nil;
+    [Stats instance].currentCoin = nil;
+    
+    // Should this be reset?
+    [Stats instance].totalCoin = nil;
+    
+    [Stats instance].gameRuns = nil;
+    [Stats instance].collision = nil;
+    [Stats instance].bestCoin = nil;
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    // Set this car as default.
+    NSString *defaultCar = @"Delivery/Heros/Truck.png";
+    [defaults setObject:defaultCar forKey:@"selectedCar"];
+    [defaults setInteger:whiteTruckEnum forKey:@"vehicleIndex"];
+    [defaults synchronize];
 }
 
 @end
