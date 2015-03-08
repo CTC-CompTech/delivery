@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>569</integer>
+	<integer>584</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1813,8 +1813,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>39.964668273925781</real>
-							<real>0.93868535757064819</real>
+							<real>32.145889282226562</real>
+							<real>0.94686406850814819</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1838,8 +1838,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.66585445404052734</real>
-							<real>0.66585445404052734</real>
+							<real>0.55589008331298828</real>
+							<real>0.55589008331298828</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -2106,6 +2106,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -3706,8 +3708,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
