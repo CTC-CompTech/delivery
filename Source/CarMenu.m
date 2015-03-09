@@ -277,7 +277,7 @@ static CarMenu *inst = nil;
 
 - (void)clear {
     [Stats instance].ownedCars = [[NSMutableArray alloc] init];
-    [[Stats instance].ownedCars addObject:@"DeliveryTruck"];
+//    [[Stats instance].ownedCars addObject:@"DeliveryTruck"];
     NSLog(@"%@", [Stats instance].ownedCars);
 }
 

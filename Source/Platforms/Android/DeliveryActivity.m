@@ -52,7 +52,7 @@
             
             [Stats instance].ownedCars = [[NSMutableArray alloc] initWithObjects:stats.ownedCars, nil];
             
-            [[Stats instance].ownedCars addObject:[NSString stringWithFormat:@"DeliveryTruck"]];
+//            [[Stats instance].ownedCars addObject:[NSString stringWithFormat:@"DeliveryTruck"]];
             
         }
     }
