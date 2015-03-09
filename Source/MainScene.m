@@ -147,6 +147,9 @@ static const CGFloat firstObstaclePosition = 450.f;
     UISwipeGestureRecognizer * swipeRight= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeRight)];
     swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
     [[[CCDirector sharedDirector] view] addGestureRecognizer:swipeRight];
+    UISwipeGestureRecognizer *swipeUp= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeUp)];
+    swipeUp.direction = UISwipeGestureRecognizerDirectionUp;
+    [[[CCDirector sharedDirector] view] addGestureRecognizer:swipeUp];
 #endif
     
 //    UITapGestureRecognizer *tapLimitRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapLimitRecognizer:)];
@@ -749,6 +752,11 @@ static const CGFloat firstObstaclePosition = 450.f;
     }
     
 }
+
+- (void)swipeUp {
+    [_hero useAbility];
+}
+
 /*
 - (void)setZeroRight {
     _hero.rotation = -45.f;
