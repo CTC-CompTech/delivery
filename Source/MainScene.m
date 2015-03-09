@@ -73,6 +73,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     lifeMeter* _lifeMeter;
     
+    OALAudioTrack* _musicHolder;
+    
 }
 
 //- (id)init {
@@ -89,6 +91,15 @@ static const CGFloat firstObstaclePosition = 450.f;
 //}
 
 #pragma mark - Load
+
+-(void)onEnter{
+    [super onEnter];
+    if (_musicHolder == nil){
+        
+    _musicHolder = [[OALAudioTrack alloc]init];
+    [_musicHolder playFile:@"Party.mp3"];
+    }
+}
 
 - (void)didLoadFromCCB {
     _grounds = @[_ground1, _ground2];

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4CABC6601AADF752006A3ADD /* Party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CABC65F1AADF752006A3ADD /* Party.mp3 */; };
+		4CABC6611AADF752006A3ADD /* Party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CABC65F1AADF752006A3ADD /* Party.mp3 */; };
 		4CB8C0251A8516FD00214C22 /* fastObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C0241A8516FD00214C22 /* fastObstacle.m */; };
 		4CB8C0261A8516FD00214C22 /* fastObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C0241A8516FD00214C22 /* fastObstacle.m */; };
 		4CB8C0271A8516FD00214C22 /* fastObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C0241A8516FD00214C22 /* fastObstacle.m */; };
@@ -188,6 +190,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4CABC65F1AADF752006A3ADD /* Party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Party.mp3; sourceTree = "<group>"; };
 		4CB8C0231A8516FD00214C22 /* fastObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fastObstacle.h; path = Source/fastObstacle.h; sourceTree = "<group>"; };
 		4CB8C0241A8516FD00214C22 /* fastObstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = fastObstacle.m; path = Source/fastObstacle.m; sourceTree = "<group>"; };
 		4CB8C0291A851F5D00214C22 /* randomObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = randomObstacle.h; path = Source/randomObstacle.h; sourceTree = "<group>"; };
@@ -362,6 +365,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CABC65D1AADF73F006A3ADD /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				4CABC65F1AADF752006A3ADD /* Party.mp3 */,
+			);
+			name = Audio;
+			sourceTree = "<group>";
+		};
 		4D3418E61A79C7A3006BCB5F /* Stats */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +707,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4CABC65D1AADF73F006A3ADD /* Audio */,
 				7A40366119DDF8C2007B6E8F /* Platforms */,
 				5B12100D197483EE004C1E1D /* res */,
 				B73789911807667A0076A88C /* Icons */,
@@ -884,6 +896,7 @@
 				927F61B1196C771E000F43EF /* iPad-old@2x.png in Resources */,
 				927F61B2196C771E000F43EF /* iPhone-old@2x.png in Resources */,
 				927F61B4196C771E000F43EF /* Settings@2x.png in Resources */,
+				4CABC6611AADF752006A3ADD /* Party.mp3 in Resources */,
 				927F61B5196C771E000F43EF /* Default-Landscape~ipad.png in Resources */,
 				B78A0B10198AF87200C63841 /* Published-Android in Resources */,
 				927F61B6196C771E000F43EF /* iPhone-old.png in Resources */,
@@ -906,6 +919,7 @@
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
+				4CABC6601AADF752006A3ADD /* Party.mp3 in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
