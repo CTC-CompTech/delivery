@@ -8,6 +8,16 @@
 
 #import "pickupTruck.h"
 
+@interface pickupTruck ()
+
+@property (nonatomic) double preAbilitySpeed;
+
+@property (nonatomic, weak) CCNode* abilityButton;
+
+@property (nonatomic, weak) CCLabelTTF* countdownTimer;
+
+@end
+
 @implementation pickupTruck
 
 #pragma mark - init
