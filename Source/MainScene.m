@@ -113,12 +113,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [_hero setSpriteFrame:car];
     }
     
-    if (/*[_hero.getVehicleType isEqual:@"sportsCar"] || */[_hero.getVehicleType isEqual:@"pickupTruck"]) {
-        _abilityButton.visible = TRUE;
-        self.shouldAbility = TRUE;
-    } else {
         _abilityButton.visible = FALSE;
-    }
 
     // <-- End selected car ---> \\
     
@@ -595,7 +590,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 #pragma mark - Abilities or what is left
 
 - (void)ability {
-    
+    /*
     if ([_hero.getVehicleType isEqual:@"pickupTruck"]) {
         
         _abilityButton.visible = FALSE;
@@ -607,6 +602,7 @@ static const CGFloat firstObstaclePosition = 450.f;
         [self performSelector:@selector(unfreeze:) withObject:speedBefore afterDelay:7.0];
         
     }
+     */
     /*
     if ([_hero.getVehicleType isEqual:@"sportsCar"]) {
     
