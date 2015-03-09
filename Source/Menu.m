@@ -203,6 +203,7 @@ static const CGFloat scrollSpeed = 210.f;
         if (!CGPointEqualToPoint(touchLocation, CGPointZero)) {
             CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
             [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+            return;
         }
         
     }
