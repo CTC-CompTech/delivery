@@ -274,12 +274,63 @@
     
 }
 
+- (void)didWantToBuy {
+    
+    if (self.amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+                                                        message:@"You do not have enough coins to buy this car."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Okay, sorry."
+                                              otherButtonTitles:nil];
+        [alert show];
+        
+    } else {
+        
+        NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:currentCoin - self.amountToTakeOut];
+        
+        NSInteger carEnum;
+        if ([self.carTouched isEqual: @"Pickup Truck"]) {
+            _PTLock.visible = FALSE;
+            carEnum = pickupTruckEnum;
+        }
+        if ([self.carTouched isEqual: @"Jeep"]) {
+            _JLock.visible = FALSE;
+            carEnum = jeepEnum;
+        }
+        if ([self.carTouched isEqual: @"Police Car"]) {
+            _PLock.visible = FALSE;
+            carEnum = policeCarEnum;
+        }
+        if ([self.carTouched isEqual: @"Light Runner"]) {
+            _LRLock.visible = FALSE;
+            carEnum = lightRunnerEnum;
+        }
+        if ([self.carTouched isEqual: @"Sports Car"]) {
+            _SLock.visible = FALSE;
+            carEnum = sportsCarEnum;
+        }
+        
+        [[Stats instance].ownedCars addObject:self.carTouched];
+        [CarMenu instance].titleCar = self.carTouched;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:self.carTouched forKey:@"selectedCar"];
+        [defaults setInteger:carEnum forKey:@"vehicleIndex"];
+        [defaults synchronize];
+        
+        [self performSelector:@selector(didSet) withObject:nil];
+    }
+    
+}
+
 //- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    
+//
 //    if (buttonIndex == 1) {
-//        
+//
 //        if (self.amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
-//            
+//
 //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
 //                                                            message:@"You do not have enough coins to buy this car."
 //                                                           delegate:nil
