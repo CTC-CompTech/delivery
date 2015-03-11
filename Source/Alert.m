@@ -42,13 +42,13 @@
 
 - (void)runAlertWithAmount:(NSInteger)passedAmount {
     
-    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:.8] rate:2];
-    
-    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:1] rate:2];
-    
-    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
-    
-    [_alertMenu runAction:sequence];
+//    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:.8] rate:2];
+//    
+//    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:1] rate:2];
+//    
+//    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
+//    
+//    [_alertMenu runAction:sequence];
     
     NSString *formattedAmount = [self formatter:passedAmount];
     
@@ -59,29 +59,38 @@
     
 }
 
+- (void)fadeAndDelete {
+    CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
+    [_fadeBackground runAction:fadeBack];
+    
+    for (CCNode *node in self.children) {
+        CCActionFadeOut *fade = [CCActionFadeOut actionWithDuration:.5];
+        [node runAction:fade];
+    }
+    
+    // Remove buttons
+    [self removeChildByName:@"Yes"];
+    [self removeChildByName:@"No"];
+    [self removeChildByName:@"Okay"];
+}
+
 #pragma mark - Buttons
 
 - (void)yesPlease {
     
-    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:.5 scaleX:1 scaleY:.8] rate:2];
-    
-    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:.5 scaleX:1 scaleY:1] rate:2];
-    
-    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
-    
-    [_alertMenu runAction:sequence];
-}
-
-- (void)alertMenu {
+    [self fadeAndDelete];
     
 }
 
 - (void)okaySorry {
     
+    [self fadeAndDelete];
+    
 }
 
 - (void)noAlert {
     
+    [self fadeAndDelete];
 }
 
 #pragma mark - Formatter
