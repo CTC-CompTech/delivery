@@ -23,6 +23,7 @@
     CCLabelTTF *_title;
     
     CCNode *_alertMenu;
+    CCNode *_fadeBackground;
     
     CCButton *_backButton;
     
@@ -32,13 +33,22 @@
 
 - (void)didLoadFromCCB {
     [_backButton setHitAreaExpansion:40.f];
+    
+    CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
+    [_fadeBackground runAction:fadeBack];
 }
 
 #pragma mark - Helpers
 
 - (void)runAlertWithAmount:(NSInteger)passedAmount {
-    _alertMenu.position = ccp(480, _alertMenu.position.y);
-    [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.1];
+    
+    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:.8] rate:2];
+    
+    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:1] rate:2];
+    
+    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
+    
+    [_alertMenu runAction:sequence];
     
     NSString *formattedAmount = [self formatter:passedAmount];
     
@@ -49,17 +59,17 @@
     
 }
 
-- (void)sweepContent {
-    CCActionMoveTo *moveContent = [CCActionMoveTo actionWithDuration:.5 position:ccp(0, _alertMenu.position.y)];
-    [_alertMenu runAction:moveContent];
-}
-
 #pragma mark - Buttons
 
 - (void)yesPlease {
     
+    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:.5 scaleX:1 scaleY:.8] rate:2];
     
+    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:.5 scaleX:1 scaleY:1] rate:2];
     
+    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
+    
+    [_alertMenu runAction:sequence];
 }
 
 - (void)alertMenu {
