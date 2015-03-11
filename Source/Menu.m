@@ -28,6 +28,7 @@ static const CGFloat scrollSpeed = 210.f;
     CCButton *_creditsButton;
     CCButton *_optionsButton;
     CCButton *_statsButton;
+    CCButton *_heroButton;
     
     CCNode *_ground1;
     CCNode *_ground2;
@@ -121,6 +122,9 @@ static const CGFloat scrollSpeed = 210.f;
     // Children of Menu - Index of 0 will always be Menu
     NSArray *array = [[runningScene.children objectAtIndex:0] children];
     
+    // Re-enable buttons
+    [self enableButtonsOnNode:array];
+    
     // Re-enable touches
     CCNode *menuNode = [runningScene.children objectAtIndex:0];
     menuNode.userInteractionEnabled = YES;
@@ -158,6 +162,9 @@ static const CGFloat scrollSpeed = 210.f;
     // Children of Menu - Index of 0 will always be Menu
     NSArray *array = [[runningScene.children objectAtIndex:0] children];
     
+    // Re-enable buttons
+    [self enableButtonsOnNode:array];
+    
     // Re-enable touches
     CCNode *menuNode = [runningScene.children objectAtIndex:0];
     menuNode.userInteractionEnabled = YES;
@@ -189,6 +196,24 @@ static const CGFloat scrollSpeed = 210.f;
 
 - (void)removeNode:(CCNode*)node {
     [node removeFromParent];
+}
+
+- (void)enableButtonsOnNode:(NSArray*)array {
+    
+    for (CCButton *button in array) {
+        
+        if ([button isKindOfClass:[CCButton class]]) {
+            button.enabled = YES;
+        }
+        
+    }
+}
+
+- (void)disableButtons {
+    _creditsButton.enabled = NO;
+    _statsButton.enabled = NO;
+    _optionsButton.enabled = NO;
+    _heroButton.enabled = NO;
 }
 
 #pragma mark - Touches
@@ -226,6 +251,9 @@ static const CGFloat scrollSpeed = 210.f;
     // Disable touches for incoming menu
     self.userInteractionEnabled = NO;
     
+    // Disable buttons
+    [self disableButtons];
+    
     [self addChild:credits];
 }
 
@@ -261,6 +289,9 @@ static const CGFloat scrollSpeed = 210.f;
     
     // Disable touches for incoming menu
     self.userInteractionEnabled = NO;
+    
+    // Disable buttons
+    [self disableButtons];
     
     [self addChild:stats];
     

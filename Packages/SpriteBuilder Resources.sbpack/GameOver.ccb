@@ -1124,8 +1124,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1474,8 +1472,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>262.00003051757812</real>
-							<real>0.69718277454376221</real>
+							<real>262</real>
+							<real>0.69542223215103149</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1661,6 +1659,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>584</integer>
+	<integer>593</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -1135,8 +1135,8 @@
 								<string>Position</string>
 								<key>value</key>
 								<array>
-									<real>159.90748596191406</real>
-									<real>1.125</real>
+									<real>160</real>
+									<real>0.35387325286865234</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>2</integer>
@@ -1617,7 +1617,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Credits Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1943,7 +1943,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Settings Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2106,8 +2106,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2436,7 +2434,7 @@
 				<key>displayName</key>
 				<string>HeroButton</string>
 				<key>memberVarAssignmentName</key>
-				<string></string>
+				<string>_heroButton</string>
 				<key>memberVarAssignmentType</key>
 				<integer>1</integer>
 				<key>properties</key>
@@ -2749,6 +2747,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -4001,7 +4001,7 @@
 			<key>offset</key>
 			<real>0.0</real>
 			<key>position</key>
-			<real>1</real>
+			<real>0.0</real>
 			<key>resolution</key>
 			<real>30</real>
 			<key>scale</key>
