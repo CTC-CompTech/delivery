@@ -3,6 +3,7 @@
 #import "fastObstacle.h"
 #import "GameOver.h"
 #import "Stats.h"
+#import "musicRandomizer.h"
 
 typedef NS_ENUM(NSInteger, DrawingOrder) {
     DrawingOrderGround,
@@ -73,7 +74,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     lifeMeter* _lifeMeter;
     
-    OALAudioTrack* _musicHolder;
+    musicRandomizer* _musicHolder;
     
 }
 
@@ -96,8 +97,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     [super onEnter];
     if (_musicHolder == nil){
         
-    _musicHolder = [[OALAudioTrack alloc]init];
-    [_musicHolder playFile:@"Party.mp3"];
+    _musicHolder = [[musicRandomizer alloc]init];
+        [self addChild:_musicHolder];
     }
 }
 
