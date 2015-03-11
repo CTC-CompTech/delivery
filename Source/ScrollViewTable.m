@@ -9,6 +9,7 @@
 #import "ScrollViewTable.h"
 #import "Stats.h"
 #import "CarMenu.h"
+#import "Alert.h"
 
 @interface ScrollViewTable ()
 
@@ -31,6 +32,8 @@
     CCNode *_PLock;
     CCNode *_LRLock;
     CCNode *_SLock;
+    
+    CCNode *_fadeBackground;
     
 }
 
@@ -242,15 +245,23 @@
 
 - (void)displayAlertWithAmount:(NSInteger)amount {
     
-    NSString *formattedAmount = [self formatter:amount];
+    CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
+    [_fadeBackground runAction:fadeBack];
     
-#if __CC_PLATFORM_IOS
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Buy Car?"
-                                                    message:[NSString stringWithFormat:@"Would you like to buy this car for %@ coins?", formattedAmount]
-                                                   delegate:self
-                                          cancelButtonTitle:@"No"
-                                          otherButtonTitles:@"Yes, please", nil];
-    [alert show];
+    // Run to seperate Alert screen
+    Alert *alert = (Alert *)[CCBReader load:@"Alert"];
+    [alert runAlertWithAmount:amount];
+    [self.parent.parent addChild:alert];
+    
+    
+//#if __CC_PLATFORM_IOS
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Buy Car?"
+//                                                    message:[NSString stringWithFormat:@"Would you like to buy this car for %@ coins?", formattedAmount]
+//                                                   delegate:self
+//                                          cancelButtonTitle:@"No"
+//                                          otherButtonTitles:@"Yes, please", nil];
+//    [alert show];
+//#endif
     
 //#if __CC_PLATFORM_ANDROID
 //    dispatch_async(dispatch_get_main_queue(), ^{
@@ -263,66 +274,62 @@
     
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    if (buttonIndex == 1) {
-        
-        if (self.amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
-                                                            message:@"You do not have enough coins to buy this car."
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Okay, sorry."
-                                                  otherButtonTitles:nil];
-            [alert show];
-            
-        } else {
-            
-            NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
-            [Stats instance].currentCoin = [NSNumber numberWithInteger:currentCoin - self.amountToTakeOut];
-            
-            NSInteger carEnum;
-            if ([self.carTouched isEqual: @"Pickup Truck"]) {
-                _PTLock.visible = FALSE;
-                carEnum = pickupTruckEnum;
-            }
-            if ([self.carTouched isEqual: @"Jeep"]) {
-                _JLock.visible = FALSE;
-                carEnum = jeepEnum;
-            }
-            if ([self.carTouched isEqual: @"Police Car"]) {
-                _PLock.visible = FALSE;
-                carEnum = policeCarEnum;
-            }
-            if ([self.carTouched isEqual: @"Light Runner"]) {
-                _LRLock.visible = FALSE;
-                carEnum = lightRunnerEnum;
-            }
-            if ([self.carTouched isEqual: @"Sports Car"]) {
-                _SLock.visible = FALSE;
-                carEnum = sportsCarEnum;
-            }
-            
-            [[Stats instance].ownedCars addObject:self.carTouched];
-            [CarMenu instance].titleCar = self.carTouched;
-            
-            // Fix selected car Object
-            NSString *selectedCarObj = [NSString stringWithFormat:@"Delivery/Heros/%@.png", self.carTouched];
-            
-            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-            [defaults setObject:selectedCarObj forKey:@"selectedCar"];
-            [defaults setInteger:carEnum forKey:@"vehicleIndex"];
-            [defaults synchronize];
-            
-            [self performSelector:@selector(didSet) withObject:nil];
-            
-        }
-        
-    } else {
-        return;
-    }
-}
-#endif
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    
+//    if (buttonIndex == 1) {
+//        
+//        if (self.amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
+//            
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+//                                                            message:@"You do not have enough coins to buy this car."
+//                                                           delegate:nil
+//                                                  cancelButtonTitle:@"Okay, sorry."
+//                                                  otherButtonTitles:nil];
+//            [alert show];
+//            
+//        } else {
+//            
+//            NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
+//            [Stats instance].currentCoin = [NSNumber numberWithInteger:currentCoin - self.amountToTakeOut];
+//            
+//            NSInteger carEnum;
+//            if ([self.carTouched isEqual: @"Pickup Truck"]) {
+//                _PTLock.visible = FALSE;
+//                carEnum = pickupTruckEnum;
+//            }
+//            if ([self.carTouched isEqual: @"Jeep"]) {
+//                _JLock.visible = FALSE;
+//                carEnum = jeepEnum;
+//            }
+//            if ([self.carTouched isEqual: @"Police Car"]) {
+//                _PLock.visible = FALSE;
+//                carEnum = policeCarEnum;
+//            }
+//            if ([self.carTouched isEqual: @"Light Runner"]) {
+//                _LRLock.visible = FALSE;
+//                carEnum = lightRunnerEnum;
+//            }
+//            if ([self.carTouched isEqual: @"Sports Car"]) {
+//                _SLock.visible = FALSE;
+//                carEnum = sportsCarEnum;
+//            }
+//            
+//            [[Stats instance].ownedCars addObject:self.carTouched];
+//            [CarMenu instance].titleCar = self.carTouched;
+//            
+//            NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//            [defaults setObject:self.carTouched forKey:@"selectedCar"];
+//            [defaults setInteger:carEnum forKey:@"vehicleIndex"];
+//            [defaults synchronize];
+//            
+//            [self performSelector:@selector(didSet) withObject:nil];
+//            
+//        }
+//        
+//    } else {
+//        return;
+//    }
+//}
 
 #pragma mark - End methods
 
@@ -343,18 +350,5 @@
     [CarMenu instance].shouldMove = NO;
 }
 
-#pragma mark - Formatter
-
-- (NSString *)formatter:(NSInteger)toFormat {
-    
-    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
-    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    
-    NSNumber *numToFormat = [NSNumber numberWithInteger:toFormat];
-    NSString *formatted = [formatter stringFromNumber:numToFormat];
-    
-    return formatted;
-    
-}
 
 @end

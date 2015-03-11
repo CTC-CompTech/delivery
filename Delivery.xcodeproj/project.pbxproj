@@ -56,6 +56,8 @@
 		60C1711F1A733AF0003BD166 /* whiteTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700C11A72D6B200CD560A /* whiteTruck.m */; };
 		60D07E2B1A8407A80088CE95 /* GameOver.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7D3E5E1A826349003F7A57 /* GameOver.m */; };
 		60DB40221A7342860077CDF2 /* DeliveryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* DeliveryActivity.m */; };
+		60E212F11AAE073D00561E74 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E212F01AAE073D00561E74 /* Alert.m */; };
+		60E212F31AAE0E9F00561E74 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E212F01AAE073D00561E74 /* Alert.m */; };
 		60F2A12F1A87D1CF00B03203 /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DFB291A854B09004DDC64 /* Credits.m */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
@@ -251,6 +253,8 @@
 		603912AB1A7737AA0092CFE8 /* GLActivityKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLActivityKit.framework; path = "../../../../Library/SBAndroidStarter/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/GLActivityKit.framework"; sourceTree = "<group>"; };
 		603912AD1A7737B20092CFE8 /* JavaFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaFoundation.framework; path = "../../../../Library/SBAndroidStarter/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaFoundation.framework"; sourceTree = "<group>"; };
 		603912AF1A7737B70092CFE8 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/SBAndroidStarter/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
+		60E212EF1AAE073D00561E74 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alert.h; path = Source/Alert.h; sourceTree = "<group>"; };
+		60E212F01AAE073D00561E74 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alert.m; path = Source/Alert.m; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* Delivery Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
 		7A40360319DDEE84007B6E8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Platforms/Mac/main.m; sourceTree = "<group>"; };
@@ -619,6 +623,8 @@
 				4D7D3E611A826356003F7A57 /* Menus */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				60E212EF1AAE073D00561E74 /* Alert.h */,
+				60E212F01AAE073D00561E74 /* Alert.m */,
 				D352B48019EC608A00829775 /* MetalShaders */,
 				4CB8C0231A8516FD00214C22 /* fastObstacle.h */,
 				4CB8C0241A8516FD00214C22 /* fastObstacle.m */,
@@ -996,6 +1002,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E212F31AAE0E9F00561E74 /* Alert.m in Sources */,
 				4D70F2C01AA7F00D00ACD917 /* Options.m in Sources */,
 				4D70F2C11AA7F00D00ACD917 /* StatsNode.m in Sources */,
 				60F2A12F1A87D1CF00B03203 /* Credits.m in Sources */,
@@ -1038,6 +1045,7 @@
 				601700CC1A72D6B200CD560A /* ScrollViewTable.m in Sources */,
 				601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */,
 				4CC204801A95A3CF0030C34E /* lifeMeter.m in Sources */,
+				60E212F11AAE073D00561E74 /* Alert.m in Sources */,
 				601700CF1A72D6B200CD560A /* vehicleProxy.m in Sources */,
 				4DDBA3261AA2B0BE008B08E3 /* StatsNode.m in Sources */,
 				B73789871807631A0076A88C /* main.m in Sources */,

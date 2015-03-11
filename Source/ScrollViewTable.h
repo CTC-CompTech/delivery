@@ -9,9 +9,6 @@
 #import "CCNode.h"
 #import "vehicleIncludes.h"
 
-@interface ScrollViewTable : CCNode
-#if __CC_PLATFORM_IOS
-<UIAlertViewDelegate>
-#endif
+@interface ScrollViewTable : CCNode //<UIAlertViewDelegate>
 
 @end
