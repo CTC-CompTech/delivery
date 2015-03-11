@@ -28,9 +28,13 @@
     
 }
 
+#pragma mark - init
+
 - (void)didLoadFromCCB {
     [_backButton setHitAreaExpansion:40.f];
 }
+
+#pragma mark - Helpers
 
 - (void)runAlertWithAmount:(NSInteger)passedAmount {
     _alertMenu.position = ccp(480, _alertMenu.position.y);
@@ -50,6 +54,8 @@
     [_alertMenu runAction:moveContent];
 }
 
+#pragma mark - Buttons
+
 - (void)yesPlease {
     
     
@@ -57,6 +63,14 @@
 }
 
 - (void)alertMenu {
+    
+}
+
+- (void)okaySorry {
+    
+}
+
+- (void)noAlert {
     
 }
 
