@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C175A901AB0918400E57BCA /* musicRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C175A8F1AB0918400E57BCA /* musicRandomizer.m */; };
+		4C175A911AB0918400E57BCA /* musicRandomizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C175A8F1AB0918400E57BCA /* musicRandomizer.m */; };
+		4C175A941AB09CBE00E57BCA /* Dieseldotogg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C175A931AB09CBE00E57BCA /* Dieseldotogg.mp3 */; };
+		4C175A951AB09CBE00E57BCA /* Dieseldotogg.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4C175A931AB09CBE00E57BCA /* Dieseldotogg.mp3 */; };
 		4CABC6601AADF752006A3ADD /* Party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CABC65F1AADF752006A3ADD /* Party.mp3 */; };
 		4CABC6611AADF752006A3ADD /* Party.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4CABC65F1AADF752006A3ADD /* Party.mp3 */; };
 		4CB8C0251A8516FD00214C22 /* fastObstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CB8C0241A8516FD00214C22 /* fastObstacle.m */; };
@@ -192,6 +196,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C175A8E1AB0918400E57BCA /* musicRandomizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = musicRandomizer.h; path = Source/musicRandomizer.h; sourceTree = "<group>"; };
+		4C175A8F1AB0918400E57BCA /* musicRandomizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = musicRandomizer.m; path = Source/musicRandomizer.m; sourceTree = "<group>"; };
+		4C175A931AB09CBE00E57BCA /* Dieseldotogg.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Dieseldotogg.mp3; sourceTree = "<group>"; };
 		4CABC65F1AADF752006A3ADD /* Party.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Party.mp3; sourceTree = "<group>"; };
 		4CB8C0231A8516FD00214C22 /* fastObstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fastObstacle.h; path = Source/fastObstacle.h; sourceTree = "<group>"; };
 		4CB8C0241A8516FD00214C22 /* fastObstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = fastObstacle.m; path = Source/fastObstacle.m; sourceTree = "<group>"; };
@@ -372,6 +379,7 @@
 		4CABC65D1AADF73F006A3ADD /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				4C175A931AB09CBE00E57BCA /* Dieseldotogg.mp3 */,
 				4CABC65F1AADF752006A3ADD /* Party.mp3 */,
 			);
 			name = Audio;
@@ -630,6 +638,8 @@
 				4CB8C0241A8516FD00214C22 /* fastObstacle.m */,
 				4CB8C0291A851F5D00214C22 /* randomObstacle.h */,
 				4CB8C02A1A851F5D00214C22 /* randomObstacle.m */,
+				4C175A8E1AB0918400E57BCA /* musicRandomizer.h */,
+				4C175A8F1AB0918400E57BCA /* musicRandomizer.m */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -901,6 +911,7 @@
 				927F61B0196C771E000F43EF /* iPad.png in Resources */,
 				927F61B1196C771E000F43EF /* iPad-old@2x.png in Resources */,
 				927F61B2196C771E000F43EF /* iPhone-old@2x.png in Resources */,
+				4C175A951AB09CBE00E57BCA /* Dieseldotogg.mp3 in Resources */,
 				927F61B4196C771E000F43EF /* Settings@2x.png in Resources */,
 				4CABC6611AADF752006A3ADD /* Party.mp3 in Resources */,
 				927F61B5196C771E000F43EF /* Default-Landscape~ipad.png in Resources */,
@@ -924,6 +935,7 @@
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
 				B71F5916188484E7003F4D28 /* iPhone-old@2x.png in Resources */,
+				4C175A941AB09CBE00E57BCA /* Dieseldotogg.mp3 in Resources */,
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				4CABC6601AADF752006A3ADD /* Party.mp3 in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
@@ -1018,6 +1030,7 @@
 				60C171171A733AF0003BD166 /* lightRunner.m in Sources */,
 				60C171181A733AF0003BD166 /* Menu.m in Sources */,
 				60C1711A1A733AF0003BD166 /* pickupTruck.m in Sources */,
+				4C175A911AB0918400E57BCA /* musicRandomizer.m in Sources */,
 				60C1711B1A733AF0003BD166 /* policeCar.m in Sources */,
 				60C1711C1A733AF0003BD166 /* ScrollViewTable.m in Sources */,
 				60C1711D1A733AF0003BD166 /* sportsCar.m in Sources */,
@@ -1043,6 +1056,7 @@
 				601700C51A72D6B200CD560A /* Goal.m in Sources */,
 				4D86006D1AA0C4B1007187FF /* Options.m in Sources */,
 				601700CC1A72D6B200CD560A /* ScrollViewTable.m in Sources */,
+				4C175A901AB0918400E57BCA /* musicRandomizer.m in Sources */,
 				601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */,
 				4CC204801A95A3CF0030C34E /* lifeMeter.m in Sources */,
 				60E212F11AAE073D00561E74 /* Alert.m in Sources */,
