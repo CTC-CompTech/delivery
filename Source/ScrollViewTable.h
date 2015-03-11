@@ -11,4 +11,6 @@
 
 @interface ScrollViewTable : CCNode //<UIAlertViewDelegate>
 
+- (void)didWantToBuy;
+
 @end

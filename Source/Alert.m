@@ -7,6 +7,8 @@
 //
 
 #import "Alert.h"
+#import "ScrollViewTable.h"
+#import "CarMenu.h"
 
 @interface Alert ()
 
@@ -66,19 +68,36 @@
     for (CCNode *node in self.children) {
         CCActionFadeOut *fade = [CCActionFadeOut actionWithDuration:.5];
         [node runAction:fade];
+        
+        // Handle buttons
+        if ([node isKindOfClass:[CCButton class]]) {
+            [node setCascadeOpacityEnabled:TRUE];
+        }
     }
     
+    [self performSelector:@selector(deleteSelf) withObject:nil afterDelay:.6f];
+    
     // Remove buttons
-    [self removeChildByName:@"Yes"];
-    [self removeChildByName:@"No"];
-    [self removeChildByName:@"Okay"];
+//    [self removeChildByName:@"Yes"];
+//    [self removeChildByName:@"No"];
+//    [self removeChildByName:@"Okay"];
+}
+
+- (void)deleteSelf {
+    [self removeFromParent];
 }
 
 #pragma mark - Buttons
 
 - (void)yesPlease {
     
+    // Delete and send back to scrollviewtable as yes
     [self fadeAndDelete];
+    
+//    // Prepare for later use
+//    if ([self.parent isKindOfClass:[CarMenu class]]) {
+//        [scrollView didWantToBuy];
+//    }
     
 }
 
@@ -90,6 +109,7 @@
 
 - (void)noAlert {
     
+    // Don't do anything
     [self fadeAndDelete];
 }
 
