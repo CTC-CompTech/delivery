@@ -58,6 +58,7 @@
         self.vehicleSpeed = 500.0f;
         self.parentVehicle.physicsBody.collisionType = @"ability";
         self.abilityStatus = 0;
+        self.abilityButton.visible = false;
         self.canUseAbility = false;
     }
 }
@@ -102,6 +103,7 @@
         else { // Do on ability reset
             self.canUseAbility = true;
             self.countdownTimer.visible = false;
+            self.abilityButton.visible = true;
         }
         
         
