@@ -9,14 +9,20 @@
 #import "jeep.h"
 #define JEEP_ABILITY_DURATION 5.0f
 #define JEEP_ABILITY_COOLDOWN 5.0f
+#define JEEP_MAX_SCALE 3.0f
+#define JEEP_ABILITY_JUMP_TIME 3.5f
 
 @interface jeep ()
 
 @property (nonatomic) double preAbilitySpeed;
 
-@property (nonatomic, weak) CCParticleSystem* particleEffect;
-
 @property (nonatomic, weak) CCNode* abilityButton;
+
+@property (nonatomic, weak) CCLabelTTF* countdownTimer;
+
+@property (nonatomic) double preAbilityScale;
+
+@property (nonatomic) double abilityStatus;
 
 @end
 
@@ -39,10 +45,7 @@
 
 -(void)setupVehicle{
     [self.parentVehicle.scene addChild:[CCBReader load:@"Jeep Overlay" owner:self]];
-    self.particleEffect.visible = false;
-    [self.particleEffect removeFromParentAndCleanup:NO];
-    [self.parentVehicle addChild:self.particleEffect];
-    self.particleEffect.position = ccp(self.parentVehicle.boundingBox.size.width / 2.0, self.parentVehicle.boundingBox.size.height / 2.0);
+    self.preAbilityScale = self.parentVehicle.scale;
 }
 
 #pragma mark - Ability
@@ -53,10 +56,8 @@
         self.abilityCooldown = JEEP_ABILITY_COOLDOWN;
         self.abilityTimeout = JEEP_ABILITY_DURATION;
         self.vehicleSpeed = 500.0f;
-        [self.particleEffect resetSystem];
-        self.particleEffect.visible = true;
         self.parentVehicle.physicsBody.collisionType = @"ability";
-        
+        self.abilityStatus = 0;
         self.canUseAbility = false;
     }
 }
@@ -64,12 +65,20 @@
 -(void)abilityUpdate:(CCTime)delta{
     if (!self.canUseAbility){
         
-        if ((self.abilityTimeout >= 1.5) && ((self.abilityTimeout - delta) < 1.5)){// Do when 1 seconds are remaining on the ability
+        if ((self.abilityTimeout >= 1.5) && ((self.abilityTimeout - delta) < 1.5)){// Do when 1.5 seconds are remaining on the ability
+            CCPhysicsBody* tempBody = self.parentVehicle.physicsBody;
+            self.parentVehicle.physicsBody = nil;
             self.vehicleSpeed = self.preAbilitySpeed;
-            [self.particleEffect stopSystem];
+            self.parentVehicle.scale = self.preAbilityScale;
+            self.parentVehicle.physicsBody = tempBody;
         }
         
-        if (self.abilityTimeout >= 0){ // Do while the ability is running
+        if (self.abilityTimeout >= 0){ // Do while the ability is running;
+            self.abilityStatus += delta * JEEP_ABILITY_JUMP_TIME * (M_2_PI / JEEP_ABILITY_JUMP_TIME);
+            CCPhysicsBody* tempBody = self.parentVehicle.physicsBody;
+            self.parentVehicle.physicsBody = nil;
+            self.parentVehicle.scale = self.preAbilityScale + (self.preAbilityScale * (JEEP_MAX_SCALE - 1) * sin(self.abilityStatus));
+            self.parentVehicle.physicsBody = tempBody;
             self.abilityTimeout -= delta;
         }
         
@@ -77,15 +86,22 @@
         else if (self.abilityCooldown >= 0){ // Do while the ability is cooling down
             
             if ((self.abilityTimeout <= 0) && (self.abilityCooldown == JEEP_ABILITY_COOLDOWN)){ // Do when the ability first cools down
-                self.particleEffect.visible = false;
+                self.countdownTimer.visible = true;
+                self.countdownTimer.string = [NSString stringWithFormat:@"%i", (int)self.abilityCooldown];
                 self.parentVehicle.physicsBody.collisionType = @"hero";
+                CCPhysicsBody* tempBody = self.parentVehicle.physicsBody;
+                self.parentVehicle.physicsBody = nil;
+                self.vehicleSpeed = self.preAbilitySpeed;
+                self.parentVehicle.scale = self.preAbilityScale;
+                self.parentVehicle.physicsBody = tempBody;
             }
-            
+            self.countdownTimer.string = [NSString stringWithFormat:@"%i", (int)self.abilityCooldown];
             self.abilityCooldown -= delta;
         }
         
         else { // Do on ability reset
             self.canUseAbility = true;
+            self.countdownTimer.visible = false;
         }
         
         
@@ -96,13 +112,11 @@
 -(void)onPause{
     [super onPause];
     [self.abilityOverlay setVisible:false];
-    self.particleEffect.paused = true;
 }
 
 -(void)onResume{
     [super onResume];
     [self.abilityOverlay setVisible:true];
-    self.particleEffect.paused = false;
 }
 
 @end
