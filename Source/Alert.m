@@ -94,10 +94,11 @@
     // Delete and send back to scrollviewtable as yes
     [self fadeAndDelete];
     
-//    // Prepare for later use
-//    if ([self.parent isKindOfClass:[CarMenu class]]) {
-//        [scrollView didWantToBuy];
-//    }
+    // Prepare for later use
+    if ([self.parent isKindOfClass:[CarMenu class]]) {
+        ScrollViewTable *scrollView = [[ScrollViewTable alloc] init];
+        [scrollView didWantToBuy];
+    }
     
 }
 

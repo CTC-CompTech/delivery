@@ -9,8 +9,11 @@
 #import "CCNode.h"
 #import "vehicleIncludes.h"
 
-@interface ScrollViewTable : CCNode //<UIAlertViewDelegate>
+@interface ScrollViewTable : CCNode
 
 - (void)didWantToBuy;
+
+- (id)init;
++ (ScrollViewTable*)instance;
 
 @end
