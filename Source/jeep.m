@@ -114,11 +114,15 @@
 -(void)onPause{
     [super onPause];
     [self.abilityOverlay setVisible:false];
+    self.abilityButton.visible = false;
+    self.countdownTimer.visible = false;
 }
 
 -(void)onResume{
     [super onResume];
     [self.abilityOverlay setVisible:true];
+    self.abilityButton.visible = true;
+    self.countdownTimer.visible = true;
 }
 
 @end
