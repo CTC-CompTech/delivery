@@ -27,14 +27,14 @@
     CCNode *_alertMenu;
     CCNode *_fadeBackground;
     
-    CCButton *_backButton;
-    
 }
 
 #pragma mark - init
 
 - (void)didLoadFromCCB {
-    [_backButton setHitAreaExpansion:40.f];
+    [_okaySorry setHitAreaExpansion:40.f];
+    [_yesPlease setHitAreaExpansion:40.f];
+    [_no setHitAreaExpansion:40.f];
     
     CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
     [_fadeBackground runAction:fadeBack];
@@ -58,6 +58,14 @@
     
     _yesPlease.visible = TRUE;
     _no.visible = TRUE;
+    
+}
+
+- (void)runOkayAlertScrollView {
+    
+     _title.string = @"You do not have enough\r\ncoins to buy this car.";
+    
+    _okaySorry.visible = TRUE;
     
 }
 

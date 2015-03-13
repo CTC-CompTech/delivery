@@ -13,10 +13,6 @@
 
 @interface ScrollViewTable ()
 
-@property NSInteger amountToTakeOut;
-@property (strong, nonatomic) NSString *carTouched;
-@property (strong, nonatomic) NSMutableArray *locks;
-
 @end
 
 static ScrollViewTable *inst = nil;
@@ -297,12 +293,27 @@ static ScrollViewTable *inst = nil;
     
     if ([ScrollViewTable instance].amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
-                                                        message:@"You do not have enough coins to buy this car."
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Okay, sorry."
-                                              otherButtonTitles:nil];
-        [alert show];
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+//                                                        message:@"You do not have enough coins to buy this car."
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"Okay, sorry."
+//                                              otherButtonTitles:nil];
+//        [alert show];
+        
+        // Run to seperate Alert screen
+        Alert *alert = (Alert *)[CCBReader load:@"Alert"];
+        [alert runOkayAlertScrollView];
+        
+        // Get scenes
+        CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+        
+        // Children of Menu - Index of 0 will always be Menu
+        CCNode *carMenu = [runningScene.children objectAtIndex:0];
+        
+        [carMenu addChild:alert];
+        
+        // Doesn't work - Parent is nil
+//        [self.parent.parent addChild:alert];
         
     } else {
         
@@ -338,11 +349,7 @@ static ScrollViewTable *inst = nil;
             carEnum = sportsCarEnum;
         }
         
-        NSString *test = [ScrollViewTable instance].carTouched;
-        
         [[Stats instance].ownedCars addObject:[ScrollViewTable instance].carTouched];
-        
-        NSLog(@"%@", [Stats instance].ownedCars);
         
         [CarMenu instance].titleCar = [ScrollViewTable instance].carTouched;
         

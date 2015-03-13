@@ -8,6 +8,8 @@
 
 #import "CarMenu.h"
 #import "Stats.h"
+// TEMP
+#import "ScrollViewTable.h"
 
 static const CGFloat scrollSpeed = 150.f;
 
@@ -279,6 +281,9 @@ static CarMenu *inst = nil;
     [Stats instance].ownedCars = [[NSMutableArray alloc] init];
 //    [[Stats instance].ownedCars addObject:@"DeliveryTruck"];
     NSLog(@"%@", [Stats instance].ownedCars);
+    
+    // REMOVE THIS + IMPORT AT TOP
+    [ScrollViewTable instance].locks = [[NSMutableArray alloc] init];
 }
 
 - (void)addBtn {

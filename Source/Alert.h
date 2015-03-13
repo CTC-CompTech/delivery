@@ -11,5 +11,6 @@
 @interface Alert : CCNode
 
 - (void)runAlertWithAmount:(NSInteger)passedAmount;
+- (void)runOkayAlertScrollView;
 
 @end
