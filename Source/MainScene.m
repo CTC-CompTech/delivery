@@ -551,7 +551,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (void)menu {
     CCScene *scene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
 - (void)pause {

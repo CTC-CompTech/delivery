@@ -16,7 +16,7 @@
 
 - (void)back {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
+    [[CCDirector sharedDirector] replaceScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 

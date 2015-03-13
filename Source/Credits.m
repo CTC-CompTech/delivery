@@ -42,7 +42,7 @@
     [mainMenu creditsRemove];
     
 //    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
-//    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+//    [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
 -(void)SecretGame {

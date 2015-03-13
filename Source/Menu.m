@@ -227,7 +227,7 @@ static const CGFloat scrollSpeed = 210.f;
         
         if (!CGPointEqualToPoint(touchLocation, CGPointZero)) {
             CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-            [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+            [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
             return;
         }
         
@@ -239,7 +239,7 @@ static const CGFloat scrollSpeed = 210.f;
 
 - (void)credits {
 //    CCScene *gameplayScene = [CCBReader loadAsScene:@"Credits"];
-//    [[CCDirector sharedDirector] pushScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+//    [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
     
     CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
     [_fadeBackground runAction:fadeBack];
@@ -265,19 +265,19 @@ static const CGFloat scrollSpeed = 210.f;
 
 - (void)moveScene {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
+    [[CCDirector sharedDirector] replaceScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
 - (void)options {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Options"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
+    [[CCDirector sharedDirector] replaceScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
 - (void)stats {
 //    CCScene *gameplayScene = [CCBReader loadAsScene:@"Stats"];
-//    [[CCDirector sharedDirector] pushScene:gameplayScene
+//    [[CCDirector sharedDirector] replaceScene:gameplayScene
 //                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
     
     CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
