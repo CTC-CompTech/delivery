@@ -264,7 +264,7 @@
 				<key>customClass</key>
 				<string></string>
 				<key>displayName</key>
-				<string>Ok Sorry</string>
+				<string>Okay</string>
 				<key>memberVarAssignmentName</key>
 				<string>_okaySorry</string>
 				<key>memberVarAssignmentType</key>
@@ -377,7 +377,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Ok, Sorry</string>
+							<string>Okay</string>
 							<false/>
 						</array>
 					</dict>
@@ -817,6 +817,14 @@ for %@ coins?</string>
 				<array>
 					<dict>
 						<key>name</key>
+						<string>visible</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>name</string>
 						<key>type</key>
 						<string>StringSimple</string>
@@ -1175,6 +1183,14 @@ for %@ coins?</string>
 				<integer>1</integer>
 				<key>properties</key>
 				<array>
+					<dict>
+						<key>name</key>
+						<string>visible</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<false/>
+					</dict>
 					<dict>
 						<key>name</key>
 						<string>name</string>
