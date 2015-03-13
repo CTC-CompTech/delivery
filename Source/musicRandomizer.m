@@ -43,11 +43,7 @@
 }
 
 -(OALAudioTrack*)getRandomTrack{
-    OALAudioTrack* tempAudio;
-    int tempRandom = arc4random_uniform((unsigned int)self.musicArray.count);
-    tempAudio = [self.musicArray objectAtIndex:tempRandom];
-    
-    return tempAudio;
+    return [self.musicArray objectAtIndex:arc4random_uniform((unsigned int)self.musicArray.count)];
 }
 
 -(void)dealloc{
