@@ -9,6 +9,7 @@
 #import "Alert.h"
 #import "ScrollViewTable.h"
 #import "CarMenu.h"
+#import "Options.h"
 
 @interface Alert ()
 
@@ -69,6 +70,15 @@
     
 }
 
+- (void)runAlertReset {
+    
+    _title.string = @"Are you sure you would\r\nlike to reset all stats?";
+    
+    _yesPlease.visible = TRUE;
+    _no.visible = TRUE;
+    
+}
+
 - (void)fadeAndDelete {
     CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
     [_fadeBackground runAction:fadeBack];
@@ -106,6 +116,11 @@
     if ([self.parent isKindOfClass:[CarMenu class]]) {
         ScrollViewTable *scrollView = [[ScrollViewTable alloc] init];
         [scrollView didWantToBuy];
+    }
+    
+    if ([self.parent isKindOfClass:[Options class]]) {
+        Options *options = [[Options alloc] init];
+        [options didWantReset];
     }
     
 }
