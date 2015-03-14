@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>614</integer>
+	<integer>626</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -2747,8 +2747,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -3415,8 +3413,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>39.964668273925781</real>
-							<real>27.283412933349609</real>
+							<real>43.700489044189453</real>
+							<real>23.283412933349609</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -3440,8 +3438,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.62149250507354736</real>
+							<real>0.62149250507354736</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -3464,8 +3462,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>115</real>
+							<real>50</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -3498,7 +3496,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Stats</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -3510,7 +3508,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Stats Button.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -3521,7 +3519,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>Delivery/Menu/Stats Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -3564,7 +3562,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Stats Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -3708,6 +3706,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
