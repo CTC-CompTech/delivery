@@ -1074,8 +1074,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.37377157807350159</real>
+							<real>0.37377157807350159</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -1098,8 +1098,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>215</real>
+							<real>87</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -1132,7 +1132,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Reset</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -1144,7 +1144,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Reset Button.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -1155,7 +1155,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>Delivery/Menu/Reset Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -1179,7 +1179,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Reset Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -1198,7 +1198,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Reset Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -1342,6 +1342,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
