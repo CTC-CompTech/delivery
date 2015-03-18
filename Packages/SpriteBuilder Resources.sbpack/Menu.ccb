@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>626</integer>
+	<integer>629</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -3543,7 +3543,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Stats Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
