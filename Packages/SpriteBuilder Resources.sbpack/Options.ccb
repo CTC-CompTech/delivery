@@ -748,8 +748,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>1</real>
+							<real>0.38081943988800049</real>
+							<real>0.38081943988800049</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -772,8 +772,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>40</real>
-							<real>40</real>
+							<real>215</real>
+							<real>87</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -806,7 +806,7 @@
 						<string>String</string>
 						<key>value</key>
 						<array>
-							<string>Play Tutorial</string>
+							<string></string>
 							<false/>
 						</array>
 					</dict>
@@ -818,7 +818,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Tutorial Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -829,7 +829,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonHighlighted.png</string>
+							<string>Delivery/Menu/Tutorial Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -853,7 +853,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Tutorial Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -872,7 +872,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Menu/Tutorial Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -1016,6 +1016,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1342,8 +1344,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
