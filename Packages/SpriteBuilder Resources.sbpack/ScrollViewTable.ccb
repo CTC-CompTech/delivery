@@ -364,6 +364,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1139,7 +1141,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>Pickup Truck Lock</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -1968,7 +1970,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>Jeep Lock</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -2348,8 +2350,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2799,7 +2799,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>Police Car Lock</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -3628,7 +3628,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>Light Runner Lock</string>
 					</dict>
 					<dict>
 						<key>name</key>
@@ -4457,7 +4457,7 @@
 						<key>type</key>
 						<string>StringSimple</string>
 						<key>value</key>
-						<string></string>
+						<string>Sports Car Lock</string>
 					</dict>
 					<dict>
 						<key>name</key>

@@ -330,7 +330,8 @@ static ScrollViewTable *inst = nil;
         }
         if ([[ScrollViewTable instance].carTouched isEqual: @"Jeep"]) {
             lock = [[ScrollViewTable instance].locks objectAtIndex:1];
-            lock.visible = FALSE;
+//            lock.visible = FALSE;
+            [lock removeFromParent];
             carEnum = jeepEnum;
         }
         if ([[ScrollViewTable instance].carTouched isEqual: @"Police Car"]) {
@@ -353,8 +354,10 @@ static ScrollViewTable *inst = nil;
         
         [CarMenu instance].titleCar = [ScrollViewTable instance].carTouched;
         
+        NSString *selectedCar = [NSString stringWithFormat:@"Delivery/Heros/%@.png", [ScrollViewTable instance].carTouched];
+        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:[ScrollViewTable instance].carTouched forKey:@"selectedCar"];
+        [defaults setObject:selectedCar forKey:@"selectedCar"];
         [defaults setInteger:carEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
         
