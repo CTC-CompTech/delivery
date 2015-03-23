@@ -480,8 +480,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1177,7 +1175,7 @@ for %@ coins?</string>
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>223.9888916015625</real>
+							<real>96.26483154296875</real>
 							<real>244.08963012695312</real>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1504,6 +1502,8 @@ for %@ coins?</string>
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -1545,7 +1545,7 @@ for %@ coins?</string>
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>96.26483154296875</real>
+							<real>221.73516845703125</real>
 							<real>244.08963012695312</real>
 							<integer>0</integer>
 							<integer>0</integer>
