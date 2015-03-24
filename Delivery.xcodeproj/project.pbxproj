@@ -62,6 +62,7 @@
 		60DB40221A7342860077CDF2 /* DeliveryActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B12102F197484FA004C1E1D /* DeliveryActivity.m */; };
 		60E212F11AAE073D00561E74 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E212F01AAE073D00561E74 /* Alert.m */; };
 		60E212F31AAE0E9F00561E74 /* Alert.m in Sources */ = {isa = PBXBuildFile; fileRef = 60E212F01AAE073D00561E74 /* Alert.m */; };
+		60E33E781AC1D593003078B8 /* AndroidKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E33E771AC1D593003078B8 /* AndroidKit.framework */; };
 		60F2A12F1A87D1CF00B03203 /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DFB291A854B09004DDC64 /* Credits.m */; };
 		7A046D8C19E8A20E004C4763 /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B7378993180767190076A88C /* MainScene.m */; };
 		7A40360419DDEE84007B6E8F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A40360319DDEE84007B6E8F /* main.m */; };
@@ -262,6 +263,7 @@
 		603912AF1A7737B70092CFE8 /* JavaKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaKit.framework; path = "../../../../Library/SBAndroidStarter/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/JavaKit.framework"; sourceTree = "<group>"; };
 		60E212EF1AAE073D00561E74 /* Alert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alert.h; path = Source/Alert.h; sourceTree = "<group>"; };
 		60E212F01AAE073D00561E74 /* Alert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alert.m; path = Source/Alert.m; sourceTree = "<group>"; };
+		60E33E771AC1D593003078B8 /* AndroidKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AndroidKit.framework; path = "../../../../../Library/SBAndroidStarter/Application Support/Developer/Shared/Xcode/Platforms/Android.platform/Developer/SDKs/SBAndroid.sdk/System/Library/Frameworks/AndroidKit.framework"; sourceTree = "<group>"; };
 		7A4035FF19DDEE84007B6E8F /* Delivery Mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Delivery Mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A40360219DDEE84007B6E8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = Platforms/Mac/Info.plist; sourceTree = "<group>"; };
 		7A40360319DDEE84007B6E8F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Source/Platforms/Mac/main.m; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E33E781AC1D593003078B8 /* AndroidKit.framework in Frameworks */,
 				BC5399D81A44DCC90063F482 /* AndroidKit.framework in Frameworks */,
 				BC5399D91A44DCC90063F482 /* CoreJava.framework in Frameworks */,
 				BC5399DA1A44DCC90063F482 /* GLActivityKit.framework in Frameworks */,
@@ -690,6 +693,7 @@
 		B77F1B3017B978D7009739AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				60E33E771AC1D593003078B8 /* AndroidKit.framework */,
 				603912AF1A7737B70092CFE8 /* JavaKit.framework */,
 				603912AD1A7737B20092CFE8 /* JavaFoundation.framework */,
 				603912AB1A7737AA0092CFE8 /* GLActivityKit.framework */,

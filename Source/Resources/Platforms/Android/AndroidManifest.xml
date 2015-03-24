@@ -17,13 +17,18 @@
         <screen android:screenSize="normal" android:screenDensity="mdpi" />
         <screen android:screenSize="normal" android:screenDensity="hdpi" />
         <screen android:screenSize="normal" android:screenDensity="xhdpi" />
+        <!-- all large size screens -->
+        <screen android:screenSize="large" android:screenDensity="ldpi" />
+        <screen android:screenSize="large" android:screenDensity="mdpi" />
+        <screen android:screenSize="large" android:screenDensity="hdpi" />
+        <screen android:screenSize="large" android:screenDensity="xhdpi" />
     </compatible-screens>
     <application
         android:versionCode="1"
         android:versionName="1.3"
         android:allowBackup="true"
         android:label="Delivery"
-        android:debuggable="false"
+        android:debuggable="true"
         android:icon="@drawable/ic_launcher">
         <activity
             android:versionCode="1"
