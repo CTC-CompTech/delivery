@@ -9,6 +9,15 @@
 #import "CCNode.h"
 #import "vehicleIncludes.h"
 
-@interface ScrollViewTable : CCNode //<UIAlertViewDelegate>
+@interface ScrollViewTable : CCNode
+
+@property NSInteger amountToTakeOut;
+@property (strong, nonatomic) NSString *carTouched;
+@property (strong, nonatomic) NSMutableArray *locks;
+
+- (void)didWantToBuy;
+
+- (id)init;
++ (ScrollViewTable*)instance;
 
 @end

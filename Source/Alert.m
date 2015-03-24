@@ -7,6 +7,9 @@
 //
 
 #import "Alert.h"
+#import "ScrollViewTable.h"
+#import "CarMenu.h"
+#import "Options.h"
 
 @interface Alert ()
 
@@ -25,14 +28,14 @@
     CCNode *_alertMenu;
     CCNode *_fadeBackground;
     
-    CCButton *_backButton;
-    
 }
 
 #pragma mark - init
 
 - (void)didLoadFromCCB {
-    [_backButton setHitAreaExpansion:40.f];
+    [_okaySorry setHitAreaExpansion:40.f];
+    [_yesPlease setHitAreaExpansion:40.f];
+    [_no setHitAreaExpansion:40.f];
     
     CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
     [_fadeBackground runAction:fadeBack];
@@ -42,13 +45,13 @@
 
 - (void)runAlertWithAmount:(NSInteger)passedAmount {
     
-    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:.8] rate:2];
-    
-    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:1] rate:2];
-    
-    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
-    
-    [_alertMenu runAction:sequence];
+//    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:.8] rate:2];
+//    
+//    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:1 scaleX:1 scaleY:1] rate:2];
+//    
+//    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
+//    
+//    [_alertMenu runAction:sequence];
     
     NSString *formattedAmount = [self formatter:passedAmount];
     
@@ -59,28 +62,91 @@
     
 }
 
+- (void)runOkayAlertScrollView {
+    
+     _title.string = @"You do not have enough\r\ncoins to buy this car.";
+    
+    _okaySorry.visible = TRUE;
+    
+}
+
+- (void)runAlertReset {
+    
+    _title.string = @"Are you sure you would\r\nlike to reset all stats?";
+    
+    _yesPlease.visible = TRUE;
+    _no.visible = TRUE;
+    
+}
+
+- (void)fadeAndDelete {
+    CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
+    [_fadeBackground runAction:fadeBack];
+    
+    for (CCNode *node in self.children) {
+        CCActionFadeOut *fade = [CCActionFadeOut actionWithDuration:.5];
+        [node runAction:fade];
+        
+        // Handle buttons
+        if ([node isKindOfClass:[CCButton class]]) {
+            [node setCascadeOpacityEnabled:TRUE];
+        }
+    }
+    
+    [self performSelector:@selector(deleteSelf) withObject:nil afterDelay:.6f];
+    
+    // Remove buttons
+//    [self removeChildByName:@"Yes"];
+//    [self removeChildByName:@"No"];
+//    [self removeChildByName:@"Okay"];
+}
+
+- (void)disableButtons {
+    _okaySorry.enabled = FALSE;
+    _yesPlease.enabled = FALSE;
+    _no.enabled = FALSE;
+}
+
+- (void)deleteSelf {
+    [self removeFromParent];
+}
+
 #pragma mark - Buttons
 
 - (void)yesPlease {
     
-    CCActionEaseOut *squeze1 = [CCActionEaseOut actionWithAction:[CCActionScaleTo actionWithDuration:.5 scaleX:1 scaleY:.8] rate:2];
+    // Delete and send back to scrollviewtable as yes
+    [self fadeAndDelete];
     
-    CCActionEaseIn *expand1 = [CCActionEaseIn actionWithAction:[CCActionScaleTo actionWithDuration:.5 scaleX:1 scaleY:1] rate:2];
+    [self disableButtons];
     
-    CCActionSequence *sequence = [CCActionSequence actions: squeze1, expand1, nil];
+    // Prepare for later use
+    if ([self.parent isKindOfClass:[CarMenu class]]) {
+        ScrollViewTable *scrollView = [[ScrollViewTable alloc] init];
+        [scrollView didWantToBuy];
+    }
     
-    [_alertMenu runAction:sequence];
-}
-
-- (void)alertMenu {
+    if ([self.parent isKindOfClass:[Options class]]) {
+        Options *options = [[Options alloc] init];
+        [options didWantReset];
+    }
     
 }
 
 - (void)okaySorry {
     
+    [self fadeAndDelete];
+    
+    [self disableButtons];
+    
 }
 
 - (void)noAlert {
+    
+    // Don't do anything
+    [self fadeAndDelete];
+    
+    [self disableButtons];
     
 }
 

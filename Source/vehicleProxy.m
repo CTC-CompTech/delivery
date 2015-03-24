@@ -120,6 +120,8 @@
     if (self = [super init]){
         NSUserDefaults *getCarIndex = [NSUserDefaults standardUserDefaults];
         [self setVehicleType:(vehicleType)[getCarIndex integerForKey:@"vehicleIndex"]];
+        // Forces the car type
+//        [self setVehicleType:(vehicleType)jeepEnum]; // REMOVE LATER
         getCarIndex = nil;
         [(CCSprite *)self setSpriteFrame:self.containedCar.carFrame];
         return self;

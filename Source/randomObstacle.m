@@ -37,8 +37,8 @@ static NSArray* _obstacleTextures;
         self.physicsBody.collisionGroup = @0x02;
         
         // Respond to lighting
-        NSArray *lightGroups = @[@"g1", @"g2"];
-        self.effect = [CCEffectLighting effectWithGroups:lightGroups specularColor:[CCColor whiteColor] shininess:.1f];
+ //       NSArray *lightGroups = @[@"g1", @"g2"];
+ //       self.effect = [CCEffectLighting effectWithGroups:lightGroups specularColor:[CCColor whiteColor] shininess:.1f];
         
         return self;
     }

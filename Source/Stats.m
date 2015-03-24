@@ -15,6 +15,7 @@ static Stats *inst = nil;
 - (id)init {
     if(self=[super init]) {
         self.obstacleCount = 0;
+        self.ownedCars = [[NSMutableArray alloc] init];
     }
     return self;
 }

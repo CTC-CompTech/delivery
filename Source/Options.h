@@ -10,4 +10,6 @@
 
 @interface Options : CCNode
 
+- (void)didWantReset;
+
 @end

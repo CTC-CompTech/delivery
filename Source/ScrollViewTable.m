@@ -13,10 +13,9 @@
 
 @interface ScrollViewTable ()
 
-@property NSInteger amountToTakeOut;
-@property (strong, nonatomic) NSString *carTouched;
-
 @end
+
+static ScrollViewTable *inst = nil;
 
 @implementation ScrollViewTable {
     
@@ -35,6 +34,13 @@
     
     CCNode *_fadeBackground;
     
+}
+
++ (ScrollViewTable*)instance {
+    if (!inst) {
+        inst = [[ScrollViewTable alloc] init];
+    }
+    return inst;
 }
 
 - (id)init {
@@ -64,12 +70,29 @@
         }
         
         [CarMenu instance].titleCar = carTitle;
+        
+        self.locks = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
 
 - (void)onEnter {
     [super onEnter];
+    
+    if ([[ScrollViewTable instance].locks count] == 0) {
+        [[ScrollViewTable instance].locks addObject:_PTLock];
+        [[ScrollViewTable instance].locks addObject:_JLock];
+        [[ScrollViewTable instance].locks addObject:_PLock];
+        [[ScrollViewTable instance].locks addObject:_LRLock];
+        [[ScrollViewTable instance].locks addObject:_SLock];
+    } else {
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:0 withObject:_PTLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:1 withObject:_JLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:2 withObject:_PLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:3 withObject:_LRLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:4 withObject:_SLock];
+    }
     
     for (NSString *grabbedCar in [Stats instance].ownedCars) {
         
@@ -130,9 +153,9 @@
         [CarMenu instance].titleCar = @"Pickup Truck";
         
     } else {
-        self.amountToTakeOut = 5000;
-        self.carTouched = @"Pickup Truck";
-        [self displayAlertWithAmount:self.amountToTakeOut];
+        [ScrollViewTable instance].amountToTakeOut = 5000;
+        [ScrollViewTable instance].carTouched = @"Pickup Truck";
+        [self displayAlertWithAmount:[ScrollViewTable instance].amountToTakeOut];
     }
 }
 
@@ -153,9 +176,9 @@
         [CarMenu instance].titleCar = @"Jeep";
         
     } else {
-        self.amountToTakeOut = 10000;
-        self.carTouched = @"Jeep";
-        [self displayAlertWithAmount:self.amountToTakeOut];
+        [ScrollViewTable instance].amountToTakeOut = 10000;
+        [ScrollViewTable instance].carTouched = @"Jeep";
+        [self displayAlertWithAmount:[ScrollViewTable instance].amountToTakeOut];
     }
 }
 
@@ -176,9 +199,9 @@
         [CarMenu instance].titleCar = @"Police Car";
         
     } else {
-        self.amountToTakeOut = 20000;
-        self.carTouched = @"Police Car";
-        [self displayAlertWithAmount:self.amountToTakeOut];
+        [ScrollViewTable instance].amountToTakeOut = 20000;
+        [ScrollViewTable instance].carTouched = @"Police Car";
+        [self displayAlertWithAmount:[ScrollViewTable instance].amountToTakeOut];
     }
 }
 
@@ -199,9 +222,9 @@
         [CarMenu instance].titleCar = @"Light Runner";
         
     } else {
-        self.amountToTakeOut = 50000;
-        self.carTouched = @"Light Runner";
-        [self displayAlertWithAmount:self.amountToTakeOut];
+        [ScrollViewTable instance].amountToTakeOut = 50000;
+        [ScrollViewTable instance].carTouched = @"Light Runner";
+        [self displayAlertWithAmount:[ScrollViewTable instance].amountToTakeOut];
     }
 }
 
@@ -222,9 +245,9 @@
         [CarMenu instance].titleCar = @"Sports Car";
         
     } else {
-        self.amountToTakeOut = 100000;
-        self.carTouched = @"Sports Car";
-        [self displayAlertWithAmount:self.amountToTakeOut];
+        [ScrollViewTable instance].amountToTakeOut = 100000;
+        [ScrollViewTable instance].carTouched = @"Sports Car";
+        [self displayAlertWithAmount:[ScrollViewTable instance].amountToTakeOut];
     }
 }
 
@@ -274,12 +297,88 @@
     
 }
 
+- (void)didWantToBuy {
+    
+    if ([ScrollViewTable instance].amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
+        
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+//                                                        message:@"You do not have enough coins to buy this car."
+//                                                       delegate:nil
+//                                              cancelButtonTitle:@"Okay, sorry."
+//                                              otherButtonTitles:nil];
+//        [alert show];
+        
+        // Run to seperate Alert screen
+        Alert *alert = (Alert *)[CCBReader load:@"Alert"];
+        [alert runOkayAlertScrollView];
+        
+        // Get scenes
+        CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+        
+        // Children of Menu - Index of 0 will always be Menu
+        CCNode *carMenu = [runningScene.children objectAtIndex:0];
+        
+        [carMenu addChild:alert];
+        
+        // Doesn't work - Parent is nil
+//        [self.parent.parent addChild:alert];
+        
+    } else {
+        
+        NSInteger currentCoin = [[Stats instance].currentCoin integerValue];
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:currentCoin - [ScrollViewTable instance].amountToTakeOut];
+        
+        CCNode *lock;
+        
+        NSInteger carEnum = 0;
+        if ([[ScrollViewTable instance].carTouched isEqual: @"Pickup Truck"]) {
+            lock = [[ScrollViewTable instance].locks objectAtIndex:0];
+            lock.visible = FALSE;
+            carEnum = pickupTruckEnum;
+        }
+        if ([[ScrollViewTable instance].carTouched isEqual: @"Jeep"]) {
+            lock = [[ScrollViewTable instance].locks objectAtIndex:1];
+            lock.visible = FALSE;
+            carEnum = jeepEnum;
+        }
+        if ([[ScrollViewTable instance].carTouched isEqual: @"Police Car"]) {
+            lock = [[ScrollViewTable instance].locks objectAtIndex:2];
+            lock.visible = FALSE;
+            carEnum = policeCarEnum;
+        }
+        if ([[ScrollViewTable instance].carTouched isEqual: @"Light Runner"]) {
+            lock = [[ScrollViewTable instance].locks objectAtIndex:3];
+            lock.visible = FALSE;
+            carEnum = lightRunnerEnum;
+        }
+        if ([[ScrollViewTable instance].carTouched isEqual: @"Sports Car"]) {
+            lock = [[ScrollViewTable instance].locks objectAtIndex:4];
+            lock.visible = FALSE;
+            carEnum = sportsCarEnum;
+        }
+        
+        [[Stats instance].ownedCars addObject:[ScrollViewTable instance].carTouched];
+        
+        [CarMenu instance].titleCar = [ScrollViewTable instance].carTouched;
+        
+        NSString *selectedCar = [NSString stringWithFormat:@"Delivery/Heros/%@.png", [ScrollViewTable instance].carTouched];
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:selectedCar forKey:@"selectedCar"];
+        [defaults setInteger:carEnum forKey:@"vehicleIndex"];
+        [defaults synchronize];
+        
+        [self performSelector:@selector(didSet) withObject:nil];
+    }
+    
+}
+
 //- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    
+//
 //    if (buttonIndex == 1) {
-//        
+//
 //        if (self.amountToTakeOut > [[Stats instance].currentCoin integerValue]) {
-//            
+//
 //            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
 //                                                            message:@"You do not have enough coins to buy this car."
 //                                                           delegate:nil

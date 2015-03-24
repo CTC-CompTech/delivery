@@ -9,6 +9,7 @@
 #import "Options.h"
 #import "Stats.h"
 #import "vehicleIncludes.h"
+#import "Alert.h"
 
 @implementation Options
 
@@ -16,11 +17,21 @@
 
 - (void)back {
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] pushScene:gameplayScene
+    [[CCDirector sharedDirector] replaceScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
 }
 
 - (void)reset {
+    
+    // Run to seperate Alert screen
+    Alert *alert = (Alert *)[CCBReader load:@"Alert"];
+    [alert runAlertReset];
+    [self addChild:alert];
+    
+}
+
+- (void)didWantReset {
+    
     [Stats instance].ownedCars = nil;
     [Stats instance].currentCoin = nil;
     

@@ -3,6 +3,7 @@
 #import "fastObstacle.h"
 #import "GameOver.h"
 #import "Stats.h"
+#import "musicRandomizer.h"
 
 typedef NS_ENUM(NSInteger, DrawingOrder) {
     DrawingOrderGround,
@@ -73,7 +74,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     
     lifeMeter* _lifeMeter;
     
-    OALAudioTrack* _musicHolder;
+    musicRandomizer* _musicHolder;
     
 }
 
@@ -96,8 +97,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     [super onEnter];
     if (_musicHolder == nil){
         
-    _musicHolder = [[OALAudioTrack alloc]init];
-    [_musicHolder playFile:@"Party.mp3"];
+    _musicHolder = [[musicRandomizer alloc]init];
+        [self addChild:_musicHolder];
     }
 }
 
@@ -374,34 +375,25 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)hero goal:(CCNode *)goal {
     [goal removeFromParent];
-    NSInteger coinReturn = [self getCoins];
-    NSInteger totalRunCoin = _currentScore + coinReturn;
+    _currentScore += [self getCoins];
     
-    _currentScore = totalRunCoin;
-    
-    _scoreLabel.string = [self formatter:totalRunCoin];
+    _scoreLabel.string = [self formatter:_currentScore];
     return TRUE;
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair policeCar:(CCNode *)hero goal:(CCNode *)goal {
     [goal removeFromParent];
-    NSInteger coinReturn = [self getCoins];
-    NSInteger totalRunCoin = _currentScore + coinReturn;
+    _currentScore += [self getCoins];
+
     
-    _currentScore = totalRunCoin;
-    
-    _scoreLabel.string = [self formatter:totalRunCoin];
+    _scoreLabel.string = [self formatter:_currentScore];
     return TRUE;
 }
 
 - (BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair ability:(CCNode *)hero goal:(CCNode *)goal {
     [goal removeFromParent];
-    NSInteger coinReturn = [self getCoins];
-    NSInteger totalRunCoin = _currentScore + coinReturn;
-    
-    _currentScore = totalRunCoin;
-    
-    _scoreLabel.string = [self formatter:totalRunCoin];
+    _currentScore += [self getCoins];
+    _scoreLabel.string = [self formatter:_currentScore];
     return TRUE;
 }
 
@@ -451,27 +443,27 @@ static const CGFloat firstObstaclePosition = 450.f;
 - (NSInteger)getCoins {
     
     NSInteger coinAmount = 0;
-        
-    if ([Stats instance].level == [NSNumber numberWithInt:1]) {
-        
-        coinAmount = 10;
-        
-    } else if ([Stats instance].level == [NSNumber numberWithInt:2]) {
-        
-        coinAmount = 25;
-        
-    } else if ([Stats instance].level == [NSNumber numberWithInt:3]) {
-        
-        coinAmount = 50;
-        
-    } else if ([Stats instance].level == [NSNumber numberWithInt:4]) {
-        
-        coinAmount = 100;
-        
-    } else if ([Stats instance].level == [NSNumber numberWithInt:5]) {
-        
-        coinAmount = 150;
-        
+    
+    switch ([Stats instance].level.integerValue) {
+        case 1:
+            coinAmount = 10;
+            break;
+        case 2:
+            coinAmount = 25;
+            break;
+        case 3:
+            coinAmount = 50;
+            break;
+        case 4:
+            coinAmount = 100;
+            break;
+        case 5:
+            coinAmount = 150;
+            break;
+            
+        default:
+            coinAmount = 50;
+            break;
     }
     
     return coinAmount;
@@ -550,7 +542,7 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (void)menu {
     CCScene *scene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] pushScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+    [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
 - (void)pause {
