@@ -330,7 +330,7 @@ static ScrollViewTable *inst = nil;
         
         CCNode *lock;
         
-        NSInteger carEnum;
+        NSInteger carEnum = 0;
         if ([[ScrollViewTable instance].carTouched isEqual: @"Pickup Truck"]) {
             lock = [[ScrollViewTable instance].locks objectAtIndex:0];
             lock.visible = FALSE;
