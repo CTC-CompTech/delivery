@@ -46,7 +46,7 @@
 
 
 -(void)setupVehicle{
-    [self.parentVehicle.scene addChild:[CCBReader load:@"Jeep Overlay" owner:self]];
+    [self.parentVehicle.scene addChild:[CCBReader load:@"Sports Car Overlay" owner:self]];
     self.particleEffect.visible = false;
     [self.particleEffect removeFromParentAndCleanup:NO];
     [self.parentVehicle addChild:self.particleEffect];
