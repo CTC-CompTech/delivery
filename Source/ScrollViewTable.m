@@ -80,12 +80,20 @@ static ScrollViewTable *inst = nil;
 - (void)onEnter {
     [super onEnter];
     
-    [[ScrollViewTable instance].locks addObject:_PTLock];
-    [[ScrollViewTable instance].locks addObject:_JLock];
-    [[ScrollViewTable instance].locks addObject:_PLock];
-    [[ScrollViewTable instance].locks addObject:_LRLock];
-    [[ScrollViewTable instance].locks addObject:_SLock];
-        
+    if ([[ScrollViewTable instance].locks count] == 0) {
+        [[ScrollViewTable instance].locks addObject:_PTLock];
+        [[ScrollViewTable instance].locks addObject:_JLock];
+        [[ScrollViewTable instance].locks addObject:_PLock];
+        [[ScrollViewTable instance].locks addObject:_LRLock];
+        [[ScrollViewTable instance].locks addObject:_SLock];
+    } else {
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:0 withObject:_PTLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:1 withObject:_JLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:2 withObject:_PLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:3 withObject:_LRLock];
+        [[ScrollViewTable instance].locks replaceObjectAtIndex:4 withObject:_SLock];
+    }
+    
     for (NSString *grabbedCar in [Stats instance].ownedCars) {
         
         if ([grabbedCar isEqual: @"Pickup Truck"]) {
@@ -330,8 +338,7 @@ static ScrollViewTable *inst = nil;
         }
         if ([[ScrollViewTable instance].carTouched isEqual: @"Jeep"]) {
             lock = [[ScrollViewTable instance].locks objectAtIndex:1];
-//            lock.visible = FALSE;
-            [lock removeFromParent];
+            lock.visible = FALSE;
             carEnum = jeepEnum;
         }
         if ([[ScrollViewTable instance].carTouched isEqual: @"Police Car"]) {
