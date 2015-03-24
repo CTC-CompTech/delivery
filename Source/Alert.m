@@ -101,6 +101,12 @@
 //    [self removeChildByName:@"Okay"];
 }
 
+- (void)disableButtons {
+    _okaySorry.enabled = FALSE;
+    _yesPlease.enabled = FALSE;
+    _no.enabled = FALSE;
+}
+
 - (void)deleteSelf {
     [self removeFromParent];
 }
@@ -111,6 +117,8 @@
     
     // Delete and send back to scrollviewtable as yes
     [self fadeAndDelete];
+    
+    [self disableButtons];
     
     // Prepare for later use
     if ([self.parent isKindOfClass:[CarMenu class]]) {
@@ -129,12 +137,17 @@
     
     [self fadeAndDelete];
     
+    [self disableButtons];
+    
 }
 
 - (void)noAlert {
     
     // Don't do anything
     [self fadeAndDelete];
+    
+    [self disableButtons];
+    
 }
 
 #pragma mark - Formatter
