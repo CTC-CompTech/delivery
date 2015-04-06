@@ -89,6 +89,7 @@
                 self.parentVehicle.physicsBody.collisionType = @"hero";
                 self.parentVehicle.physicsBody.sensor = false;
                 self.countdownTimer.string = [NSString stringWithFormat:@"%i", (int)self.abilityCooldown];
+                self.vehicleSpeed = self.preAbilitySpeed;
             }
             self.countdownTimer.string = [NSString stringWithFormat:@"%i", (int)self.abilityCooldown];
             self.abilityCooldown -= delta;
