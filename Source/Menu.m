@@ -141,9 +141,10 @@ static const CGFloat scrollSpeed = 210.f;
         }
     }
     
-    for (CCButton *node in array) {
-        if ([node isKindOfClass:[CCButton class]]) {
-            node.enabled = NO;
+    for (CCButton *button in array) {
+        if ([button isKindOfClass:[CCButton class]]) {
+            if (![button.name isEqual:@"heroButton"])
+                button.enabled = NO;
         }
     }
     
