@@ -28,6 +28,9 @@
 
 @property BOOL abilityUse;
 
+@property BOOL shouldTutorial;
+@property BOOL isTutorial;
+
 -(id)init;
 +(Stats*)instance;
 

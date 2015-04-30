@@ -16,6 +16,8 @@ static Stats *inst = nil;
     if(self=[super init]) {
         self.obstacleCount = 0;
         self.ownedCars = [[NSMutableArray alloc] init];
+        self.shouldTutorial = YES;
+        self.isTutorial = NO;
     }
     return self;
 }
@@ -37,6 +39,9 @@ static Stats *inst = nil;
     [coder encodeObject:_bestCoin forKey:@"bestCoin"];
     
     [coder encodeObject:_ownedCars forKey:@"ownedCars"];
+    
+    [coder encodeBool:_shouldTutorial forKey:@"shouldTutorial"];
+    [coder encodeBool:_isTutorial forKey:@"isTutorial"];
 
 }
 
@@ -53,6 +58,9 @@ static Stats *inst = nil;
         _bestCoin = [coder decodeObjectForKey:@"bestCoin"];
         
         _ownedCars = [coder decodeObjectForKey:@"ownedCars"];
+        
+        _shouldTutorial = [coder decodeBoolForKey:@"shouldTutorial"];
+        _isTutorial = [coder decodeBoolForKey:@"isTutorial"];
         
     }
     return self;

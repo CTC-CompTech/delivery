@@ -11,6 +11,7 @@
 #import "vehicleIncludes.h"
 #import "Credits.h"
 #import "StatsNode.h"
+#import "Alert.h"
 
 static const CGFloat scrollSpeed = 210.f;
 
@@ -33,6 +34,8 @@ static const CGFloat scrollSpeed = 210.f;
     CCNode *_ground1;
     CCNode *_ground2;
     
+    CCNode *_tutorial;
+    
     CCSprite *_hero;
     
     NSArray *_grounds;
@@ -46,6 +49,7 @@ static const CGFloat scrollSpeed = 210.f;
     
     [_creditsButton setHitAreaExpansion:20.f];
     [_optionsButton setHitAreaExpansion:20.f];
+    
 }
 
 - (void)update:(CCTime)delta {
@@ -109,10 +113,43 @@ static const CGFloat scrollSpeed = 210.f;
         _blueLight.visible = YES;
     }
     
+    if ([Stats instance].shouldTutorial) {
+        
+        // Run to seperate Alert screen
+        Alert *alert = (Alert *)[CCBReader load:@"Alert"];
+        [alert runAlertTutorial];
+        [self addChild:alert];
+        
+    }
+    
 }
 
 
 #pragma mark - Helping methods
+
+- (void)didSayYes {
+    
+    // Get scenes
+    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+    
+    // Children of Menu - Index of 0 will always be Menu
+    NSArray *array = [[runningScene.children objectAtIndex:0] children];
+    
+    for (CCNode *node in array) {
+        if ([node.name isEqual:@"tutorial"]) {
+            node.visible = YES;
+        }
+    }
+    
+    for (CCButton *node in array) {
+        if ([node isKindOfClass:[CCButton class]]) {
+            node.enabled = NO;
+        }
+    }
+    
+    [Stats instance].shouldTutorial = NO;
+    
+}
 
 - (void)creditsRemove {
     

@@ -13,5 +13,6 @@
 - (void)runAlertWithAmount:(NSInteger)passedAmount;
 - (void)runOkayAlertScrollView;
 - (void)runAlertReset;
+- (void)runAlertTutorial;
 
 @end

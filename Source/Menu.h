@@ -12,5 +12,6 @@
 
 - (void)creditsRemove;
 - (void)statsRemove;
+- (void)didSayYes;
 
 @end

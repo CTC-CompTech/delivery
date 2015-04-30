@@ -10,6 +10,7 @@
 #import "ScrollViewTable.h"
 #import "CarMenu.h"
 #import "Options.h"
+#import "Menu.h"
 
 @interface Alert ()
 
@@ -79,6 +80,15 @@
     
 }
 
+- (void)runAlertTutorial {
+    
+    _title.string = @"Would you like to run\r\nthrough the tutorial?";
+    
+    _yesPlease.visible = TRUE;
+    _no.visible = TRUE;
+    
+}
+
 - (void)fadeAndDelete {
     CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
     [_fadeBackground runAction:fadeBack];
@@ -129,6 +139,11 @@
     if ([self.parent isKindOfClass:[Options class]]) {
         Options *options = [[Options alloc] init];
         [options didWantReset];
+    }
+    
+    if ([self.parent isKindOfClass:[Menu class]]) {
+        Menu *menu = [[Menu alloc] init];
+        [menu didSayYes];
     }
     
 }
