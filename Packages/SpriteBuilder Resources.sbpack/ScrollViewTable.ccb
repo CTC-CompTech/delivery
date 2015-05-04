@@ -201,7 +201,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Car Menu/Delivery Truck Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -364,8 +364,6 @@
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -529,7 +527,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Car Menu/Pickup Truck Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1358,7 +1356,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Car Menu/Jeep Car Menu Table.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -2187,7 +2185,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Car Menu/Police Car Car Menu Table.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -3016,7 +3014,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Car Menu/Light Runner Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -3845,7 +3843,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
+							<string>Delivery/Car Menu/Sports Car Car Menu Table New.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -4008,6 +4006,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>

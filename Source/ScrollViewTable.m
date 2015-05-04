@@ -114,6 +114,17 @@ static ScrollViewTable *inst = nil;
         
     }
     
+    if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
+        
+        // Disabling buttons so they can only tap pick truck
+        _deliveryTruck.enabled = NO;
+        _jeep.enabled = NO;
+        _policeCar.enabled = NO;
+        _lightRunner.enabled = NO;
+        _sportsCar.enabled = NO;
+        
+    }
+    
 }
 
 #pragma mark - Scroll buttons

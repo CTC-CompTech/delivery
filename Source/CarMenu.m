@@ -46,6 +46,8 @@ static CarMenu *inst = nil;
     
     NSArray *_grounds;
     
+    CCNode *_tutorial;
+    
     // TEMP
     CCButton *_addBtn;
     CCButton *_clear;
@@ -113,6 +115,19 @@ static CarMenu *inst = nil;
     CCActionMoveTo *animate = [CCActionMoveTo actionWithDuration:1.5f position:initial];
     [_hero runAction:animate];
     [self performSelector:@selector(loadAnimationEnd) withObject:nil afterDelay:1.6f];
+    
+}
+
+- (void)onEnter {
+    
+    [super onEnter];
+    
+    
+    if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
+        
+        _tutorial.visible = YES;
+        
+    }
     
 }
 
