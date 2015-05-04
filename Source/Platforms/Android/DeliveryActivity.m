@@ -48,6 +48,9 @@
         
         [Stats instance].ownedCars = stats.ownedCars;
         
+        [Stats instance].shouldTutorial = stats.shouldTutorial;
+        [Stats instance].whereTutorial = stats.whereTutorial;
+        
         if (![Stats instance].ownedCars) {
             
             [Stats instance].ownedCars = [[NSMutableArray alloc] initWithObjects:stats.ownedCars, nil];
@@ -80,8 +83,15 @@
         [Stats instance].totalCoin = [NSNumber numberWithInteger:totalDayCoin];
         
     }
-
-    return [CCBReader loadAsScene:@"Menu"];
+    
+    if ([[Stats instance].whereTutorial isEqual:@"Menu"]) {
+        return [CCBReader loadAsScene:@"Menu"];
+    } else if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
+        return [CCBReader loadAsScene:@"CarMenu"];
+    } else {
+        return [CCBReader loadAsScene:@"Menu"];
+    }
+    
 }
 
 - (BOOL)onKeyUp:(int32_t)keyCode keyEvent:(AndroidKeyEvent *)event
