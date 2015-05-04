@@ -71,6 +71,9 @@
         
         [Stats instance].ownedCars = stats.ownedCars;
         
+        [Stats instance].shouldTutorial = stats.shouldTutorial;
+        [Stats instance].isTutorial = stats.isTutorial;
+        
         if (![Stats instance].ownedCars) {
             
             [Stats instance].ownedCars = [[NSMutableArray alloc] initWithObjects:stats.ownedCars, nil];

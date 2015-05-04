@@ -11,6 +11,7 @@
 #import "CarMenu.h"
 #import "Options.h"
 #import "Menu.h"
+#import "Stats.h"
 
 @interface Alert ()
 
@@ -157,6 +158,11 @@
 }
 
 - (void)noAlert {
+    
+    if ([self.parent isKindOfClass:[Menu class]]) {
+        [Stats instance].shouldTutorial = NO;
+        [Stats instance].isTutorial = NO;
+    }
     
     // Don't do anything
     [self fadeAndDelete];

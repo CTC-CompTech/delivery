@@ -113,12 +113,24 @@ static const CGFloat scrollSpeed = 210.f;
         _blueLight.visible = YES;
     }
     
+    [Stats instance].shouldTutorial = YES;
+    
+    // Should we try a tutorial?
     if ([Stats instance].shouldTutorial) {
         
         // Run to seperate Alert screen
         Alert *alert = (Alert *)[CCBReader load:@"Alert"];
         [alert runAlertTutorial];
         [self addChild:alert];
+        
+        NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
+        NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
+        
+        NSInteger currentTutorial = currentCoinCount + 2000;
+        NSInteger totalTutorial = totalCoinCount + 2000;
+        
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:currentTutorial];
+        [Stats instance].totalCoin = [NSNumber numberWithInteger:totalTutorial];
         
     }
     
