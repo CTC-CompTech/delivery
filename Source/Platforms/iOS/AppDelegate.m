@@ -118,7 +118,15 @@
 
 - (CCScene*) startScene
 {
-    return [CCBReader loadAsScene:@"Menu"];
+    
+    if ([[Stats instance].whereTutorial isEqual:@"Menu"]) {
+        return [CCBReader loadAsScene:@"Menu"];
+    } else if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
+        return [CCBReader loadAsScene:@"CarMenu"];
+    } else {
+        return [CCBReader loadAsScene:@"Menu"];
+    }
+    
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
