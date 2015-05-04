@@ -72,7 +72,7 @@
         [Stats instance].ownedCars = stats.ownedCars;
         
         [Stats instance].shouldTutorial = stats.shouldTutorial;
-        [Stats instance].isTutorial = stats.isTutorial;
+        [Stats instance].whereTutorial = stats.whereTutorial;
         
         if (![Stats instance].ownedCars) {
             

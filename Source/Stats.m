@@ -17,7 +17,7 @@ static Stats *inst = nil;
         self.obstacleCount = 0;
         self.ownedCars = [[NSMutableArray alloc] init];
         self.shouldTutorial = YES;
-        self.isTutorial = NO;
+        self.whereTutorial = @"";
     }
     return self;
 }
@@ -41,7 +41,7 @@ static Stats *inst = nil;
     [coder encodeObject:_ownedCars forKey:@"ownedCars"];
     
     [coder encodeBool:_shouldTutorial forKey:@"shouldTutorial"];
-    [coder encodeBool:_isTutorial forKey:@"isTutorial"];
+    [coder encodeObject:_whereTutorial forKey:@"isTutorial"];
 
 }
 
@@ -60,7 +60,7 @@ static Stats *inst = nil;
         _ownedCars = [coder decodeObjectForKey:@"ownedCars"];
         
         _shouldTutorial = [coder decodeBoolForKey:@"shouldTutorial"];
-        _isTutorial = [coder decodeBoolForKey:@"isTutorial"];
+        _whereTutorial = [coder decodeObjectForKey:@"isTutorial"];
         
     }
     return self;

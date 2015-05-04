@@ -29,7 +29,7 @@
 @property BOOL abilityUse;
 
 @property BOOL shouldTutorial;
-@property BOOL isTutorial;
+@property (retain, nonatomic) NSString *whereTutorial;
 
 -(id)init;
 +(Stats*)instance;

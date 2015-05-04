@@ -161,7 +161,7 @@
     
     if ([self.parent isKindOfClass:[Menu class]]) {
         [Stats instance].shouldTutorial = NO;
-        [Stats instance].isTutorial = NO;
+        [Stats instance].whereTutorial = @"";
     }
     
     // Don't do anything

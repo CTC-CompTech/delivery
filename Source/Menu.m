@@ -160,6 +160,7 @@ static const CGFloat scrollSpeed = 210.f;
         }
     }
     
+    [Stats instance].whereTutorial = @"Menu";
     [Stats instance].shouldTutorial = NO;
     
 }
@@ -314,6 +315,13 @@ static const CGFloat scrollSpeed = 210.f;
 }
 
 - (void)moveScene {
+    
+    if (![[Stats instance].whereTutorial isEqual:@""]) {
+        
+        [Stats instance].whereTutorial = @"CarMenu";
+        
+    }
+    
     CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene
                             withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
