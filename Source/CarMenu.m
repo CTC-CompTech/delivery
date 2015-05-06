@@ -123,7 +123,7 @@ static CarMenu *inst = nil;
     
     [super onEnter];
     
-    NSLog(@"%@", [Stats instance].whereTutorial);
+//    NSLog(@"%@", [Stats instance].whereTutorial);
     
     if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
         

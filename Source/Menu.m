@@ -123,15 +123,6 @@ static const CGFloat scrollSpeed = 210.f;
         [alert runAlertTutorial];
         [self addChild:alert];
         
-        NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
-        NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
-        
-        NSInteger currentTutorial = currentCoinCount + 2000;
-        NSInteger totalTutorial = totalCoinCount + 2000;
-        
-        [Stats instance].currentCoin = [NSNumber numberWithInteger:currentTutorial];
-        [Stats instance].totalCoin = [NSNumber numberWithInteger:totalTutorial];
-        
     }
     
 }
@@ -160,8 +151,18 @@ static const CGFloat scrollSpeed = 210.f;
         }
     }
     
+    // Add tutorial coins
+    NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
+    NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
+    
+    NSInteger currentTutorial = currentCoinCount + 2000;
+    NSInteger totalTutorial = totalCoinCount + 2000;
+    
+    [Stats instance].currentCoin = [NSNumber numberWithInteger:currentTutorial];
+    [Stats instance].totalCoin = [NSNumber numberWithInteger:totalTutorial];
+    
+    // Cleanup
     [Stats instance].whereTutorial = @"Menu";
-    [Stats instance].shouldTutorial = NO;
     
 }
 
@@ -320,6 +321,7 @@ static const CGFloat scrollSpeed = 210.f;
     if ([[Stats instance].whereTutorial isEqual:@"Menu"]) {
         
         [Stats instance].whereTutorial = @"CarMenu";
+        [Stats instance].shouldTutorial = NO;
         
     }
     
