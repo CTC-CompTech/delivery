@@ -59,6 +59,8 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCLabelTTF *_scoreLabel;
     CCLabelTTF *_cooldownTimer;
     
+    CCNode *_tutorial;
+    
     BOOL _gameOver;
     BOOL _paused;
     CGFloat distanceBetweenObstacles;
@@ -93,13 +95,26 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 #pragma mark - Load
 
--(void)onEnter{
+- (void)onEnter {
     [super onEnter];
     if (_musicHolder == nil){
         
-    _musicHolder = [[musicRandomizer alloc]init];
+        _musicHolder = [[musicRandomizer alloc]init];
         [self addChild:_musicHolder];
     }
+    
+    if ([[Stats instance].whereTutorial isEqual:@"SuperPower"]) {
+        
+        [self performSelector:@selector(beginAbilityTutorial) withObject:nil afterDelay:2.0f];
+        
+    }
+}
+
+- (void)beginAbilityTutorial {
+    
+    [_hero onPause];
+    _tutorial.visible = YES;
+    
 }
 
 - (void)didLoadFromCCB {
@@ -625,6 +640,33 @@ static const CGFloat firstObstaclePosition = 450.f;
         
     }
     */
+}
+
+- (void)didAbility {
+    
+    // Get scenes
+    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+    
+    // Children of Menu - Index of 0 will always be Menu
+    NSArray *array = [[runningScene.children objectAtIndex:0] children];
+    
+    for (CCNode *node in array) {
+        if ([node.name isEqual:@"tutorial"]) {
+            node.visible = NO;
+        }
+        
+        // Unpause
+        if ([node isKindOfClass:[CCPhysicsNode class]]) {
+            NSArray *physicsChildren = node.children;
+            
+            for (vehicleProxy *hero in physicsChildren) {
+                if ([hero isKindOfClass:[vehicleProxy class]]) {
+                    [hero onResume];
+                }
+            }
+        }
+    }
+    
 }
 
 - (void)unfreeze:(NSNumber*)speedBefore {

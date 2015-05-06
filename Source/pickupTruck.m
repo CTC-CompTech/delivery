@@ -52,6 +52,28 @@
         self.abilityTimeout = PICKUP_TRUCK_ABILITY_DURATION;
         self.vehicleSpeed = self.preAbilitySpeed/1.5;
         self.canUseAbility = false;
+        
+        if ([[Stats instance].whereTutorial isEqual:@"SuperPower"]) {
+            
+            // Resume
+            [self onResume];
+            
+            [Stats instance].whereTutorial = @"";
+            
+            // Get scenes
+            CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+            
+            // Children of Menu - Index of 0 will always be Menu
+            NSArray *array = [[runningScene.children objectAtIndex:0] children];
+            
+            for (CCNode *node in array) {
+                if ([node.name isEqual:@"tutorial"]) {
+                    node.visible = NO;
+                }
+                
+            }
+            
+        }
     }
 }
 
@@ -90,7 +112,11 @@
 -(void)onPause{
     [super onPause];
     [self.abilityOverlay setVisible:false];
-    self.abilityButton.visible = false;
+    
+    if (![[Stats instance].whereTutorial isEqual:@"SuperPower"]) {
+        self.abilityButton.visible = false;
+    }
+    
     self.countdownTimer.visible = false;
 }
 
@@ -98,7 +124,10 @@
     [super onResume];
     [self.abilityOverlay setVisible:true];
     self.abilityButton.visible = true;
-    self.countdownTimer.visible = true;
+    if ([[Stats instance].whereTutorial isEqual:@"SuperPower"])
+        self.countdownTimer.visible = false;
+    else
+        self.countdownTimer.visible = true;
 }
 
 

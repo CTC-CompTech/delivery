@@ -7,6 +7,8 @@
 //
 
 #import "defaultVehicle.h"
+#import "Stats.h"
+//#import "MainScene.h"
 
 @interface pickupTruck : defaultVehicle
 

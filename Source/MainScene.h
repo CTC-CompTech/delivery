@@ -11,4 +11,6 @@
 //
 //@property BOOL abilityUse;
 
+- (void)didAbility;
+
 @end
