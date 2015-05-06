@@ -642,33 +642,6 @@ static const CGFloat firstObstaclePosition = 450.f;
     */
 }
 
-- (void)didAbility {
-    
-    // Get scenes
-    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
-    
-    // Children of Menu - Index of 0 will always be Menu
-    NSArray *array = [[runningScene.children objectAtIndex:0] children];
-    
-    for (CCNode *node in array) {
-        if ([node.name isEqual:@"tutorial"]) {
-            node.visible = NO;
-        }
-        
-        // Unpause
-        if ([node isKindOfClass:[CCPhysicsNode class]]) {
-            NSArray *physicsChildren = node.children;
-            
-            for (vehicleProxy *hero in physicsChildren) {
-                if ([hero isKindOfClass:[vehicleProxy class]]) {
-                    [hero onResume];
-                }
-            }
-        }
-    }
-    
-}
-
 - (void)unfreeze:(NSNumber*)speedBefore {
     
     CGFloat speed = [speedBefore floatValue];
