@@ -379,6 +379,14 @@ static ScrollViewTable *inst = nil;
         [defaults setInteger:carEnum forKey:@"vehicleIndex"];
         [defaults synchronize];
         
+        // Check Tutorial
+        if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
+            
+            CarMenu *view = (CarMenu *)[CCBReader load:@"CarMenu"];
+            [view changeTutorial];
+            
+        }
+        
         [self performSelector:@selector(didSet) withObject:nil];
     }
     

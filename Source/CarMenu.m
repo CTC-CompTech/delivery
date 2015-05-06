@@ -47,6 +47,7 @@ static CarMenu *inst = nil;
     NSArray *_grounds;
     
     CCNode *_tutorial;
+    CCNode *_tutorialBack;
     
     // TEMP
     CCButton *_addBtn;
@@ -122,12 +123,49 @@ static CarMenu *inst = nil;
     
     [super onEnter];
     
+    NSLog(@"%@", [Stats instance].whereTutorial);
     
     if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
         
         _tutorial.visible = YES;
+        _backCar.enabled = NO;
         
     }
+    
+}
+
+#pragma mark - Tutorial
+
+- (void)changeTutorial {
+    
+    // This hides the current gradients and displays the other tutorial.
+    
+    // Get scenes
+    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+    
+    // Children of Menu - Index of 0 will always be Menu
+    NSArray *array = [[runningScene.children objectAtIndex:0] children];
+    
+    for (CCNode *node in array) {
+        if ([node.name isEqual:@"tutorial"]) {
+            node.visible = NO;
+        }
+        
+        if ([node.name isEqual:@"tutorialBack"]) {
+            node.visible = YES;
+        }
+    }
+    
+    // Re-enable back button
+    for (CCButton *button in array) {
+        
+        if ([button.name isEqual:@"backBtn"]) {
+            button.enabled = YES;
+        }
+        
+    }
+    
+    [Stats instance].whereTutorial = @"SuperPower";
     
 }
 

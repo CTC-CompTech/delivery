@@ -19,4 +19,6 @@
 @property BOOL shouldMove;
 @property BOOL didPressWhileMoving;
 
+-(void)changeTutorial;
+
 @end

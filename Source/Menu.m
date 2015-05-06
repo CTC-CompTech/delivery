@@ -113,10 +113,10 @@ static const CGFloat scrollSpeed = 210.f;
         _blueLight.visible = YES;
     }
     
-    [Stats instance].shouldTutorial = YES;
+//    [Stats instance].shouldTutorial = YES;
     
     // Should we try a tutorial?
-    if ([Stats instance].shouldTutorial) {
+    if ([Stats instance].shouldTutorial && [[Stats instance].whereTutorial isEqual:@""]) {
         
         // Run to seperate Alert screen
         Alert *alert = (Alert *)[CCBReader load:@"Alert"];
@@ -269,19 +269,20 @@ static const CGFloat scrollSpeed = 210.f;
 
 #pragma mark - Touches
 
-- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event
-{
+- (void)touchBegan:(CCTouch *)touch withEvent:(CCTouchEvent *)event {
     
-    for (CCNode *ground in _grounds) {
-        
-        CGPoint touchLocation = [touch locationInNode:ground];
-        
-        if (!CGPointEqualToPoint(touchLocation, CGPointZero)) {
-            CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
-            [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
-            return;
+    if (![Stats instance].shouldTutorial) {
+        for (CCNode *ground in _grounds) {
+            
+            CGPoint touchLocation = [touch locationInNode:ground];
+            
+            if (!CGPointEqualToPoint(touchLocation, CGPointZero)) {
+                CCScene *gameplayScene = [CCBReader loadAsScene:@"MainScene"];
+                [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+                return;
+            }
+            
         }
-        
     }
     
 }
@@ -316,7 +317,7 @@ static const CGFloat scrollSpeed = 210.f;
 
 - (void)moveScene {
     
-    if (![[Stats instance].whereTutorial isEqual:@""]) {
+    if ([[Stats instance].whereTutorial isEqual:@"Menu"]) {
         
         [Stats instance].whereTutorial = @"CarMenu";
         
