@@ -10,7 +10,7 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>16</integer>
+	<integer>17</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
@@ -325,8 +325,6 @@
 						<string>Delivery/Coin Newest.png</string>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -399,7 +397,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Game Over Stat Box v2.png</string>
+							<string>Delivery/Menu/Game Over Stat boxes.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -469,7 +467,7 @@
 						<key>value</key>
 						<array>
 							<real>160.00006103515625</real>
-							<real>0.30836275219917297</real>
+							<real>0.25378528237342834</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -493,8 +491,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.59466302394866943</real>
-							<real>0.59466302394866943</real>
+							<real>0.51626181602478027</real>
+							<real>0.51626181602478027</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -517,8 +515,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>250</real>
-							<real>75</real>
+							<real>215</real>
+							<real>87</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -563,7 +561,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Game Over Try Again Button.png</string>
+							<string>Delivery/Menu/Try Again Button.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -574,7 +572,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Game Over Try Again Button Selected.png</string>
+							<string>Delivery/Menu/Try Again Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -617,7 +615,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Game Over Try Again Button Selected.png</string>
+							<string>Delivery/Menu/Try Again Button Selected.PNG</string>
 						</array>
 					</dict>
 					<dict>
@@ -761,6 +759,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -794,8 +794,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>120.00006103515625</real>
-							<real>0.2066902220249176</real>
+							<real>160.00006103515625</real>
+							<real>0.14330993592739105</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -819,8 +819,8 @@
 						<string>ScaleLock</string>
 						<key>value</key>
 						<array>
-							<real>0.59466302394866943</real>
-							<real>0.59466302394866943</real>
+							<real>0.41894400119781494</real>
+							<real>0.41894400119781494</real>
 							<false/>
 							<integer>0</integer>
 						</array>
@@ -843,8 +843,8 @@
 						<string>Size</string>
 						<key>value</key>
 						<array>
-							<real>125</real>
-							<real>62</real>
+							<real>215</real>
+							<real>87</real>
 							<integer>0</integer>
 							<integer>0</integer>
 						</array>
@@ -889,7 +889,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Game Over Menu Button.png</string>
+							<string>Delivery/Menu/Main Menu Button.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -900,7 +900,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Game Over Menu Button Selected.png</string>
+							<string>Delivery/Menu/Main Menu Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -943,333 +943,7 @@
 						<key>value</key>
 						<array>
 							<string></string>
-							<string>Delivery/Menu/Game Over Menu Button Selected.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>labelOpacity|Selected</string>
-						<key>type</key>
-						<string>Float</string>
-						<key>value</key>
-						<real>1</real>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>fontName</string>
-						<key>type</key>
-						<string>FontTTF</string>
-						<key>value</key>
-						<string>Helvetica</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>fontSize</string>
-						<key>type</key>
-						<string>FloatScale</string>
-						<key>value</key>
-						<array>
-							<real>17</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>horizontalAlignment</string>
-						<key>type</key>
-						<string>IntegerLabeled</string>
-						<key>value</key>
-						<integer>1</integer>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>verticalAlignment</string>
-						<key>type</key>
-						<string>IntegerLabeled</string>
-						<key>value</key>
-						<integer>1</integer>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>horizontalPadding</string>
-						<key>type</key>
-						<string>FloatScale</string>
-						<key>value</key>
-						<array>
-							<real>10</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>verticalPadding</string>
-						<key>type</key>
-						<string>FloatScale</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>fontColor</string>
-						<key>type</key>
-						<string>Color4</string>
-						<key>value</key>
-						<array>
-							<real>255</real>
-							<real>255</real>
-							<real>255</real>
-							<real>255</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>outlineColor</string>
-						<key>type</key>
-						<string>Color4</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>0.0</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>outlineWidth</string>
-						<key>type</key>
-						<string>FloatScale</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>shadowColor</string>
-						<key>type</key>
-						<string>Color4</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>0.0</real>
-							<real>127</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>shadowBlurRadius</string>
-						<key>type</key>
-						<string>FloatScale</string>
-						<key>value</key>
-						<array>
-							<real>2</real>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>shadowOffset</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>-2</real>
-							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
-						</array>
-					</dict>
-				</array>
-			</dict>
-			<dict>
-				<key>UUID</key>
-				<integer>11</integer>
-				<key>baseClass</key>
-				<string>CCButton</string>
-				<key>children</key>
-				<array/>
-				<key>customClass</key>
-				<string></string>
-				<key>displayName</key>
-				<string>CCButton</string>
-				<key>memberVarAssignmentName</key>
-				<string>_carsButton</string>
-				<key>memberVarAssignmentType</key>
-				<integer>1</integer>
-				<key>properties</key>
-				<array>
-					<dict>
-						<key>name</key>
-						<string>name</string>
-						<key>type</key>
-						<string>StringSimple</string>
-						<key>value</key>
-						<string>Cars Button</string>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>position</string>
-						<key>type</key>
-						<string>Position</string>
-						<key>value</key>
-						<array>
-							<real>201.00006103515625</real>
-							<real>0.2066902220249176</real>
-							<integer>0</integer>
-							<integer>0</integer>
-							<integer>2</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>anchorPoint</string>
-						<key>type</key>
-						<string>Point</string>
-						<key>value</key>
-						<array>
-							<real>0.5</real>
-							<real>0.5</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>scale</string>
-						<key>type</key>
-						<string>ScaleLock</string>
-						<key>value</key>
-						<array>
-							<real>0.59466302394866943</real>
-							<real>0.59466302394866943</real>
-							<false/>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>block</string>
-						<key>type</key>
-						<string>Block</string>
-						<key>value</key>
-						<array>
-							<string>cars</string>
-							<integer>1</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>preferredSize</string>
-						<key>type</key>
-						<string>Size</string>
-						<key>value</key>
-						<array>
-							<real>125</real>
-							<real>62</real>
-							<integer>0</integer>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>maxSize</string>
-						<key>type</key>
-						<string>Size</string>
-						<key>value</key>
-						<array>
-							<real>0.0</real>
-							<real>0.0</real>
-							<integer>0</integer>
-							<integer>0</integer>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>userInteractionEnabled</string>
-						<key>type</key>
-						<string>Check</string>
-						<key>value</key>
-						<true/>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>title</string>
-						<key>type</key>
-						<string>String</string>
-						<key>value</key>
-						<array>
-							<string></string>
-							<false/>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundSpriteFrame|Normal</string>
-						<key>type</key>
-						<string>SpriteFrame</string>
-						<key>value</key>
-						<array>
-							<string></string>
-							<string>Delivery/Menu/Game Over Cars Button.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundSpriteFrame|Highlighted</string>
-						<key>type</key>
-						<string>SpriteFrame</string>
-						<key>value</key>
-						<array>
-							<string></string>
-							<string>Delivery/Menu/Game Over Cars Button Selected.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>labelColor|Highlighted</string>
-						<key>type</key>
-						<string>Color3</string>
-						<key>value</key>
-						<array>
-							<real>1</real>
-							<real>1</real>
-							<real>1</real>
-							<real>1</real>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundSpriteFrame|Disabled</string>
-						<key>type</key>
-						<string>SpriteFrame</string>
-						<key>value</key>
-						<array>
-							<string></string>
-							<string>ccbResources/ccbButtonNormal.png</string>
-						</array>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>labelOpacity|Disabled</string>
-						<key>type</key>
-						<string>Float</string>
-						<key>value</key>
-						<real>1</real>
-					</dict>
-					<dict>
-						<key>name</key>
-						<string>backgroundSpriteFrame|Selected</string>
-						<key>type</key>
-						<string>SpriteFrame</string>
-						<key>value</key>
-						<array>
-							<string></string>
-							<string>Delivery/Menu/Game Over Cars Button Selected.png</string>
+							<string>Delivery/Menu/Main Menu Button Selected.png</string>
 						</array>
 					</dict>
 					<dict>
@@ -1554,8 +1228,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>160</real>
-							<real>0.49471831321716309</real>
+							<real>209</real>
+							<real>0.62499994039535522</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1761,8 +1435,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>262</real>
-							<real>0.69542223215103149</real>
+							<real>106</real>
+							<real>0.42253533005714417</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -1981,8 +1655,8 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>262</real>
-							<real>0.60739433765411377</real>
+							<real>233</real>
+							<real>0.42253533005714417</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>

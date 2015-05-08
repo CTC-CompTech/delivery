@@ -17,7 +17,6 @@
     CCButton *_restartButton;
     CCButton *_abilityButton;
     CCButton *_mainMenu;
-    CCButton *_carsButton;
     
     CCLabelTTF *_bestCoin;
     CCLabelTTF *_pocketCoin;
@@ -62,7 +61,7 @@
     _gameOverBackground.position = ccp(480, _gameOverBackground.position.y);
     _restartButton.position = ccp(480, _restartButton.position.y);
     _mainMenu.position = ccp(440, _mainMenu.position.y);
-    _carsButton.position = ccp(521, _carsButton.position.y);
+//    _carsButton.position = ccp(521, _carsButton.position.y);
     _gameOverCount.position = ccp(480, _gameOverCount.position.y);
     _bestCoin.position = ccp(480 + 65, _bestCoin.position.y);
     _pocketCoin.position = ccp(480 + 65, _pocketCoin.position.y);
@@ -81,16 +80,16 @@
 - (void)sweepContent {
     CCActionMoveTo *moveBackground = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverBackground.position.y)];
     CCActionMoveTo *moveRestart = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _restartButton.position.y)];
-    CCActionMoveTo *moveMenu = [CCActionMoveTo actionWithDuration:.25 position:ccp(120, _mainMenu.position.y)];
-    CCActionMoveTo *moveCars = [CCActionMoveTo actionWithDuration:.25 position:ccp(201, _carsButton.position.y)];
-    CCActionMoveTo *moveScore = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _gameOverCount.position.y)];
-    CCActionMoveTo *moveBest = [CCActionMoveTo actionWithDuration:.25 position:ccp(262, _bestCoin.position.y)];
-    CCActionMoveTo *movePocket = [CCActionMoveTo actionWithDuration:.25 position:ccp(262, _pocketCoin.position.y)];
+    CCActionMoveTo *moveMenu = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _mainMenu.position.y)];
+//    CCActionMoveTo *moveCars = [CCActionMoveTo actionWithDuration:.25 position:ccp(201, _carsButton.position.y)];
+    CCActionMoveTo *moveScore = [CCActionMoveTo actionWithDuration:.25 position:ccp(209, _gameOverCount.position.y)];
+    CCActionMoveTo *moveBest = [CCActionMoveTo actionWithDuration:.25 position:ccp(106, _bestCoin.position.y)];
+    CCActionMoveTo *movePocket = [CCActionMoveTo actionWithDuration:.25 position:ccp(233, _pocketCoin.position.y)];
     
     [_gameOverBackground runAction:moveBackground];
     [_restartButton runAction:moveRestart];
     [_mainMenu runAction:moveMenu];
-    [_carsButton runAction:moveCars];
+//    [_carsButton runAction:moveCars];
     [_gameOverCount runAction:moveScore];
     [_bestCoin runAction:moveBest];
     [_pocketCoin runAction:movePocket];
@@ -115,11 +114,11 @@
     [[CCDirector sharedDirector] replaceScene:scene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
-- (void)cars {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene
-                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
-}
+//- (void)cars {
+//    CCScene *gameplayScene = [CCBReader loadAsScene:@"CarMenu"];
+//    [[CCDirector sharedDirector] replaceScene:gameplayScene
+//                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+//}
 
 - (NSString *)formatter:(NSInteger)toFormat {
     
