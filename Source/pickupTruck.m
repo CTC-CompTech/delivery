@@ -58,7 +58,7 @@
             // Resume
             [self onResume];
             
-            [Stats instance].whereTutorial = @"";
+            [Stats instance].whereTutorial = @"Swipe";
             
             // Get scenes
             CCScene* runningScene = [CCDirector sharedDirector].runningScene;
@@ -73,8 +73,29 @@
                 
             }
             
+            [self performSelector:@selector(swipeTutorial) withObject:nil afterDelay:1.0];
+            
         }
     }
+}
+
+- (void)swipeTutorial {
+    
+    [self onPause];
+    
+    // Get scenes
+    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+    
+    // Children of Menu - Index of 0 will always be Menu
+    NSArray *array = [[runningScene.children objectAtIndex:0] children];
+    
+    for (CCNode *node in array) {
+        if ([node.name isEqual:@"tutorialSwipe"]) {
+            node.visible = YES;
+        }
+        
+    }
+    
 }
 
 -(void)abilityUpdate:(CCTime)delta{
@@ -123,11 +144,16 @@
 -(void)onResume{
     [super onResume];
     [self.abilityOverlay setVisible:true];
-    self.abilityButton.visible = true;
-    if ([[Stats instance].whereTutorial isEqual:@"SuperPower"])
+//    self.abilityButton.visible = true;
+    if ([[Stats instance].whereTutorial isEqual:@"SuperPower"] || [[Stats instance].whereTutorial isEqual:@"Swipe"])
         self.countdownTimer.visible = false;
     else
         self.countdownTimer.visible = true;
+    
+    if ([[Stats instance].whereTutorial isEqual:@"Swipe"])
+        self.abilityButton.visible = false;
+    else
+        self.abilityButton.visible = true;
 }
 
 

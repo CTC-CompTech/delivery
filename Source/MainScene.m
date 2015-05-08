@@ -60,6 +60,7 @@ static const CGFloat firstObstaclePosition = 450.f;
     CCLabelTTF *_cooldownTimer;
     
     CCNode *_tutorial;
+    CCNode *_tutorialSwipe;
     
     BOOL _gameOver;
     BOOL _paused;
@@ -722,7 +723,18 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    CCLOG(@"swipeLeft");
     if (!_gameOver) {
         if (!_paused) {
-            [_hero moveLeft];
+            if ([[Stats instance].whereTutorial isEqual:@"Swipe"]) {
+                
+                // Unpause
+                [_hero onResume];
+                
+                [_hero moveLeft];
+                _tutorialSwipe.visible = NO;
+                [Stats instance].whereTutorial = @"";
+                
+            } else {
+                [_hero moveLeft];
+            }
             /*
             CGPoint byPoint;
             if (_hero.position.x <= 50) {
@@ -748,7 +760,18 @@ static const CGFloat firstObstaclePosition = 450.f;
 //    CCLOG(@"swipeRight");
     if (!_gameOver) {
         if (!_paused) {
-            [_hero moveRight];
+            if ([[Stats instance].whereTutorial isEqual:@"Swipe"]) {
+                
+                // Unpause
+                [_hero onResume];
+                
+                [_hero moveRight];
+                _tutorialSwipe.visible = NO;
+                [Stats instance].whereTutorial = @"";
+                
+            } else {
+                [_hero moveRight];
+            }
             /*
             CGPoint byPoint;
             if (_hero.position.x >= 250) {
