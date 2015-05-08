@@ -54,6 +54,11 @@
     
 }
 
+- (void)tutorial {
+    [Stats instance].shouldTutorial = YES;
+    [Stats instance].whereTutorial = @"";
+}
+
 #pragma mark - Custom Actions
 
 - (void)saveCustomObject:(Stats *)object key:(NSString *)key {
