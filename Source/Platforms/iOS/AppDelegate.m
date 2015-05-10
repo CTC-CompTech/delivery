@@ -29,7 +29,7 @@
 #import "CCBuilderReader.h"
 
 #import "Stats.h"
-#import "gamecentercontrol.h"
+//#import "gamecentercontrol.h"
 
 @implementation AppController
 
@@ -84,8 +84,8 @@
         }
     }
     
-    // Game Center
-    [[gamecentercontrol sharedInstance] authenticateLocalUser];
+//    // Game Center
+//    [[gamecentercontrol sharedInstance] authenticateLocalUser];
     
     // Coin-per-day
     NSDate *currentDate = [NSDate date];

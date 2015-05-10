@@ -33,7 +33,6 @@
 		600DFB2A1A854B09004DDC64 /* Credits.m in Sources */ = {isa = PBXBuildFile; fileRef = 600DFB291A854B09004DDC64 /* Credits.m */; };
 		601700C21A72D6B200CD560A /* CarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A41A72D6B200CD560A /* CarMenu.m */; };
 		601700C31A72D6B200CD560A /* defaultVehicle.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A61A72D6B200CD560A /* defaultVehicle.m */; };
-		601700C41A72D6B200CD560A /* gamecentercontrol.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700A81A72D6B200CD560A /* gamecentercontrol.m */; };
 		601700C51A72D6B200CD560A /* Goal.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700AA1A72D6B200CD560A /* Goal.m */; };
 		601700C61A72D6B200CD560A /* jeep.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700AC1A72D6B200CD560A /* jeep.m */; };
 		601700C71A72D6B200CD560A /* lightRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 601700AE1A72D6B200CD560A /* lightRunner.m */; };
@@ -152,6 +151,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		4D3ED3651AFF00AB00DC670E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7378940180761A80076A88C /* cocos2d.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B7E7DE341A76DB7D004234B7;
+			remoteInfo = cocos2dMacFramework;
+		};
 		7A9790FD19E62E40001FFC4D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B7378940180761A80076A88C /* cocos2d.xcodeproj */;
@@ -231,8 +237,6 @@
 		601700A41A72D6B200CD560A /* CarMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CarMenu.m; path = Source/CarMenu.m; sourceTree = "<group>"; };
 		601700A51A72D6B200CD560A /* defaultVehicle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defaultVehicle.h; path = Source/defaultVehicle.h; sourceTree = "<group>"; };
 		601700A61A72D6B200CD560A /* defaultVehicle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = defaultVehicle.m; path = Source/defaultVehicle.m; sourceTree = "<group>"; };
-		601700A71A72D6B200CD560A /* gamecentercontrol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gamecentercontrol.h; path = Source/gamecentercontrol.h; sourceTree = "<group>"; };
-		601700A81A72D6B200CD560A /* gamecentercontrol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = gamecentercontrol.m; path = Source/gamecentercontrol.m; sourceTree = "<group>"; };
 		601700A91A72D6B200CD560A /* Goal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Goal.h; path = Source/Goal.h; sourceTree = "<group>"; };
 		601700AA1A72D6B200CD560A /* Goal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Goal.m; path = Source/Goal.m; sourceTree = "<group>"; };
 		601700AB1A72D6B200CD560A /* jeep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = jeep.h; path = Source/jeep.h; sourceTree = "<group>"; };
@@ -520,8 +524,6 @@
 			children = (
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
-				601700A71A72D6B200CD560A /* gamecentercontrol.h */,
-				601700A81A72D6B200CD560A /* gamecentercontrol.m */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -602,6 +604,7 @@
 				7A9790FE19E62E40001FFC4D /* libcocos2d.a */,
 				7A97910019E62E40001FFC4D /* libcocos2dAndroid.a */,
 				7A97910419E62E40001FFC4D /* libcocos2d-mac.a */,
+				4D3ED3661AFF00AB00DC670E /* cocos2dMacFramework.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -858,6 +861,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		4D3ED3661AFF00AB00DC670E /* cocos2dMacFramework.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = cocos2dMacFramework.framework;
+			remoteRef = 4D3ED3651AFF00AB00DC670E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		7A9790FE19E62E40001FFC4D /* libcocos2d.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1056,7 +1066,6 @@
 				4CB8C02B1A851F5D00214C22 /* randomObstacle.m in Sources */,
 				601700C71A72D6B200CD560A /* lightRunner.m in Sources */,
 				600DFB2A1A854B09004DDC64 /* Credits.m in Sources */,
-				601700C41A72D6B200CD560A /* gamecentercontrol.m in Sources */,
 				601700C51A72D6B200CD560A /* Goal.m in Sources */,
 				4D86006D1AA0C4B1007187FF /* Options.m in Sources */,
 				601700CC1A72D6B200CD560A /* ScrollViewTable.m in Sources */,
