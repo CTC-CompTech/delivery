@@ -42,6 +42,9 @@
     [Stats instance].collision = nil;
     [Stats instance].bestCoin = nil;
     
+    [Stats instance].shouldTutorial = YES;
+    [Stats instance].whereTutorial = @"";
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Set this car as default.
@@ -55,8 +58,20 @@
 }
 
 - (void)tutorial {
+
+    // Run to Alert screen
+    Alert *alert = (Alert *)[CCBReader load:@"Alert"];
+    [alert runAlertResetTutorial];
+    [self addChild:alert];
+    
+}
+
+- (void)didTut {
     [Stats instance].shouldTutorial = YES;
     [Stats instance].whereTutorial = @"";
+    
+    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
+    [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
 
 #pragma mark - Custom Actions

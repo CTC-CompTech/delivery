@@ -11,5 +11,6 @@
 @interface Options : CCNode
 
 - (void)didWantReset;
+- (void)didTut;
 
 @end

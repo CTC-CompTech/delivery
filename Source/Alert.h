@@ -14,5 +14,6 @@
 - (void)runOkayAlertScrollView;
 - (void)runAlertReset;
 - (void)runAlertTutorial;
+- (void)runAlertResetTutorial;
 
 @end

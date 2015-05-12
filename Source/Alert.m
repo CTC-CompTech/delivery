@@ -24,6 +24,7 @@
     CCButton *_okaySorry;
     CCButton *_yesPlease;
     CCButton *_no;
+    CCButton *_reset;
     
     CCLabelTTF *_title;
     
@@ -38,6 +39,7 @@
     [_okaySorry setHitAreaExpansion:40.f];
     [_yesPlease setHitAreaExpansion:40.f];
     [_no setHitAreaExpansion:40.f];
+    [_reset setHitAreaExpansion:40.f];
     
     CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
     [_fadeBackground runAction:fadeBack];
@@ -90,6 +92,13 @@
     
 }
 
+-(void)runAlertResetTutorial {
+    _title.string = @"Would you like\r\nto restart the tutorial?";
+    
+    _reset.visible = TRUE;
+    _no.visible = TRUE;
+}
+
 - (void)fadeAndDelete {
     CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
     [_fadeBackground runAction:fadeBack];
@@ -116,6 +125,7 @@
     _okaySorry.enabled = FALSE;
     _yesPlease.enabled = FALSE;
     _no.enabled = FALSE;
+    _reset.enabled = FALSE;
 }
 
 - (void)deleteSelf {
@@ -169,6 +179,18 @@
     
     [self disableButtons];
     
+}
+
+- (void)resetTut {
+    
+    [self fadeAndDelete];
+    
+    [self disableButtons];
+    
+    if ([self.parent isKindOfClass:[Options class]]) {
+        Options *options = [[Options alloc] init];
+        [options didTut];
+    }
 }
 
 #pragma mark - Formatter
