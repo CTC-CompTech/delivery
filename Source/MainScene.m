@@ -98,11 +98,11 @@ static const CGFloat firstObstaclePosition = 450.f;
 
 - (void)onEnter {
     [super onEnter];
-    if (_musicHolder == nil){
-        
-        _musicHolder = [[musicRandomizer alloc]init];
-        [self addChild:_musicHolder];
-    }
+//    if (_musicHolder == nil){
+//        
+//        _musicHolder = [[musicRandomizer alloc]init];
+//        [self addChild:_musicHolder];
+//    }
     
     if ([[Stats instance].whereTutorial isEqual:@"SuperPower"]) {
         
