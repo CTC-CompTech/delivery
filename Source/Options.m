@@ -10,15 +10,23 @@
 #import "Stats.h"
 #import "vehicleIncludes.h"
 #import "Alert.h"
+#import "Menu.h"
 
-@implementation Options
+@implementation Options {
+    
+    CCNode *_optionsMenu;
+    
+}
 
 #pragma mark - Buttons
 
 - (void)back {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene
-                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+//    CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
+//    [[CCDirector sharedDirector] replaceScene:gameplayScene
+//                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+    
+    Menu *mainMenu = (Menu *)[CCBReader load:@"Menu"];
+    [mainMenu optionsRemove];
 }
 
 - (void)reset {
@@ -72,6 +80,18 @@
     
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
+}
+
+- (void)runOptions {
+    
+    _optionsMenu.position = ccp(480, _optionsMenu.position.y);
+    [self performSelector:@selector(sweepContent) withObject:nil afterDelay:.1];
+
+}
+
+- (void)sweepContent {
+    CCActionMoveTo *moveContent = [CCActionMoveTo actionWithDuration:.5 position:ccp(0, _optionsMenu.position.y)];
+    [_optionsMenu runAction:moveContent];
 }
 
 #pragma mark - Custom Actions

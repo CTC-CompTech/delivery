@@ -12,6 +12,7 @@
 #import "Credits.h"
 #import "StatsNode.h"
 #import "Alert.h"
+#import "Options.h"
 
 static const CGFloat scrollSpeed = 210.f;
 
@@ -246,6 +247,51 @@ static const CGFloat scrollSpeed = 210.f;
     }
 }
 
+- (void)optionsRemove {
+    
+    // Get scenes
+    CCScene* runningScene = [CCDirector sharedDirector].runningScene;
+    
+    // Children of Menu - Index of 0 will always be Menu
+    NSArray *array = [[runningScene.children objectAtIndex:0] children];
+    
+    // Re-enable buttons
+    [self enableButtonsOnNode:array];
+    
+    // Re-enable touches
+    CCNode *menuNode = [runningScene.children objectAtIndex:0];
+    menuNode.userInteractionEnabled = YES;
+    
+    // Find the node that is of Credits class.
+    for (CCNode *node in array) {
+        if ([node isKindOfClass:[Options class]]) {
+            
+            for (CCNode *childNode in node.children) {
+                CCActionFadeOut *fadeNode = [CCActionFadeOut actionWithDuration:.5];
+                [childNode runAction:fadeNode];
+                
+                // Handle buttons
+                if ([childNode isKindOfClass:[CCButton class]]) {
+                    [childNode setCascadeOpacityEnabled:TRUE];
+                }
+            }
+            
+            [node removeChildByName:@"Back Button"];
+            
+            [self performSelector:@selector(removeNode:) withObject:node afterDelay:.6f];
+            
+        }
+        
+        if ([node.name isEqualToString:@"Fade"]) {
+            
+            // Fade background
+            CCActionFadeOut *fadeBack = [CCActionFadeOut actionWithDuration:.5];
+            [node runAction:fadeBack];
+            
+        }
+    }
+}
+
 - (void)removeNode:(CCNode*)node {
     [node removeFromParent];
 }
@@ -331,9 +377,25 @@ static const CGFloat scrollSpeed = 210.f;
 }
 
 - (void)options {
-    CCScene *gameplayScene = [CCBReader loadAsScene:@"Options"];
-    [[CCDirector sharedDirector] replaceScene:gameplayScene
-                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+//    CCScene *gameplayScene = [CCBReader loadAsScene:@"Options"];
+//    [[CCDirector sharedDirector] replaceScene:gameplayScene
+//                            withTransition:[CCTransition transitionCrossFadeWithDuration:.5]];
+    
+    CCActionFadeIn *fadeBack = [CCActionFadeIn actionWithDuration:.5];
+    [_fadeBackground runAction:fadeBack];
+    
+    // Run to seperate credits screen
+    Options *options = (Options *)[CCBReader load:@"Options"];
+    [options runOptions];
+    
+    // Disable touches for incoming menu
+    self.userInteractionEnabled = NO;
+    
+    // Disable buttons
+    [self disableButtons];
+    
+    [self addChild:options];
+    
 }
 
 - (void)stats {

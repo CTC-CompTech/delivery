@@ -13,4 +13,6 @@
 - (void)didWantReset;
 - (void)didTut;
 
+- (void)runOptions;
+
 @end

@@ -12,6 +12,7 @@
 
 - (void)creditsRemove;
 - (void)statsRemove;
+- (void)optionsRemove;
 - (void)didSayYes;
 
 @end
