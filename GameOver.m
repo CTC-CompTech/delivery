@@ -83,8 +83,8 @@
     CCActionMoveTo *moveMenu = [CCActionMoveTo actionWithDuration:.25 position:ccp(160, _mainMenu.position.y)];
 //    CCActionMoveTo *moveCars = [CCActionMoveTo actionWithDuration:.25 position:ccp(201, _carsButton.position.y)];
     CCActionMoveTo *moveScore = [CCActionMoveTo actionWithDuration:.25 position:ccp(209, _gameOverCount.position.y)];
-    CCActionMoveTo *moveBest = [CCActionMoveTo actionWithDuration:.25 position:ccp(106, _bestCoin.position.y)];
-    CCActionMoveTo *movePocket = [CCActionMoveTo actionWithDuration:.25 position:ccp(233, _pocketCoin.position.y)];
+    CCActionMoveTo *moveBest = [CCActionMoveTo actionWithDuration:.25 position:ccp(97, _bestCoin.position.y)];
+    CCActionMoveTo *movePocket = [CCActionMoveTo actionWithDuration:.25 position:ccp(223, _pocketCoin.position.y)];
     
     [_gameOverBackground runAction:moveBackground];
     [_restartButton runAction:moveRestart];
