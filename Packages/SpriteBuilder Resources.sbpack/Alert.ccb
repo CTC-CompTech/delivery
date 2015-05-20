@@ -960,10 +960,10 @@
 						<key>value</key>
 						<array>
 							<real>160</real>
-							<real>308.84201049804688</real>
+							<real>0.54373592138290405</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -1176,10 +1176,10 @@ for %@ coins?</string>
 						<key>value</key>
 						<array>
 							<real>96.26483154296875</real>
-							<real>244.08963012695312</real>
+							<real>0.42973527312278748</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -1544,10 +1544,10 @@ for %@ coins?</string>
 						<key>value</key>
 						<array>
 							<real>221.73516845703125</real>
-							<real>244.08963012695312</real>
+							<real>0.42973527312278748</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -1938,10 +1938,10 @@ for %@ coins?</string>
 						<key>value</key>
 						<array>
 							<real>96.26483154296875</real>
-							<real>244.08963012695312</real>
+							<real>0.42973527312278748</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
