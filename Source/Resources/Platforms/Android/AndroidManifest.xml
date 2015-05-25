@@ -27,7 +27,7 @@
         android:versionCode="1"
         android:versionName="1.3"
         android:allowBackup="true"
-        android:label="Delivery"
+        android:label="Delivery Co."
         android:debuggable="true"
         android:icon="@drawable/ic_launcher">
         <activity
