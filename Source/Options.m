@@ -53,6 +53,9 @@
     [Stats instance].shouldTutorial = YES;
     [Stats instance].whereTutorial = @"";
     
+    // Add coins as default coins
+    [Stats instance].currentCoin = [NSNumber numberWithInteger:[[Stats instance].currentCoin integerValue] + 3000];
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // Set this car as default.
