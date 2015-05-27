@@ -63,6 +63,9 @@
     
     [self saveCustomObject:[Stats instance] key:@"stats"];
     
+    Menu *mainMenu = (Menu *)[CCBReader load:@"Menu"];
+    [mainMenu resetRemove];
+    
 }
 
 - (void)tutorial {

@@ -15,4 +15,6 @@
 - (void)optionsRemove;
 - (void)didSayYes;
 
+- (void)resetRemove;
+
 @end
