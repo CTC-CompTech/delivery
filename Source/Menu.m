@@ -162,6 +162,13 @@ static const CGFloat scrollSpeed = 210.f;
     [Stats instance].currentCoin = [NSNumber numberWithInteger:currentTutorial];
     [Stats instance].totalCoin = [NSNumber numberWithInteger:totalTutorial];
     
+    // Unown the pickuptruck
+    for (NSInteger i = 0; i < [[Stats instance].ownedCars count]; i++) {
+        if ([[[Stats instance].ownedCars objectAtIndex:i] isEqualToString:@"Pickup Truck"]) {
+            [[Stats instance].ownedCars removeObjectAtIndex:i];
+        }
+    }
+    
     // Cleanup
     [Stats instance].whereTutorial = @"Menu";
     
