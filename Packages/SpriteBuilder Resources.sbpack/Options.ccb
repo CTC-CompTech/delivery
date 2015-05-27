@@ -58,6 +58,14 @@
 				<array>
 					<dict>
 						<key>name</key>
+						<string>visible</string>
+						<key>type</key>
+						<string>Check</string>
+						<key>value</key>
+						<false/>
+					</dict>
+					<dict>
+						<key>name</key>
 						<string>name</string>
 						<key>type</key>
 						<string>StringSimple</string>
@@ -398,7 +406,7 @@
 						<key>value</key>
 						<array>
 							<real>166</real>
-							<real>0.39084506034851074</real>
+							<real>0.44366195797920227</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>2</integer>
@@ -724,7 +732,7 @@
 						<key>value</key>
 						<array>
 							<real>166</real>
-							<real>301</real>
+							<real>329.9556884765625</real>
 							<integer>0</integer>
 							<integer>0</integer>
 							<integer>0</integer>
@@ -1414,8 +1422,6 @@
 				</array>
 			</dict>
 		</array>
-		<key>selected</key>
-		<true/>
 	</dict>
 	<key>notes</key>
 	<array/>
