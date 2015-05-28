@@ -621,10 +621,10 @@
 						<key>value</key>
 						<array>
 							<real>160</real>
-							<real>244.08963012695312</real>
+							<real>0.42973527312278748</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -926,6 +926,8 @@
 						</array>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -2264,8 +2266,6 @@ for %@ coins?</string>
 						</array>
 					</dict>
 				</array>
-				<key>selected</key>
-				<true/>
 			</dict>
 		</array>
 		<key>customClass</key>
