@@ -152,15 +152,19 @@ static const CGFloat scrollSpeed = 210.f;
         }
     }
     
-    // Add tutorial coins
-    NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
-    NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
+    // Add coins as default coins
+    if ([Stats instance].currentCoin < [NSNumber numberWithInt:5000])
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:[[Stats instance].currentCoin integerValue] + 5000];
     
-    NSInteger currentTutorial = currentCoinCount + 2000;
-    NSInteger totalTutorial = totalCoinCount + 2000;
-    
-    [Stats instance].currentCoin = [NSNumber numberWithInteger:currentTutorial];
-    [Stats instance].totalCoin = [NSNumber numberWithInteger:totalTutorial];
+//    // Add tutorial coins
+//    NSInteger currentCoinCount = [[Stats instance].currentCoin integerValue];
+//    NSInteger totalCoinCount = [[Stats instance].totalCoin integerValue];
+//    
+//    NSInteger currentTutorial = currentCoinCount + 2000;
+//    NSInteger totalTutorial = totalCoinCount + 2000;
+//    
+//    [Stats instance].currentCoin = [NSNumber numberWithInteger:currentTutorial];
+//    [Stats instance].totalCoin = [NSNumber numberWithInteger:totalTutorial];
     
     // Unown the pickuptruck
     for (NSInteger i = 0; i < [[Stats instance].ownedCars count]; i++) {

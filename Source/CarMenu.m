@@ -127,6 +127,10 @@ static CarMenu *inst = nil;
     
     if ([[Stats instance].whereTutorial isEqual:@"CarMenu"]) {
         
+        // Add coins as default coins
+        if ([Stats instance].currentCoin < [NSNumber numberWithInt:5000])
+            [Stats instance].currentCoin = [NSNumber numberWithInteger:[[Stats instance].currentCoin integerValue] + 5000];
+        
         _tutorial.visible = YES;
         _backCar.enabled = NO;
         

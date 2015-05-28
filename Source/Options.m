@@ -81,10 +81,6 @@
     [Stats instance].shouldTutorial = YES;
     [Stats instance].whereTutorial = @"";
     
-    // Add coins as default coins
-    if ([Stats instance].currentCoin < [NSNumber numberWithInt:5000])
-        [Stats instance].currentCoin = [NSNumber numberWithInteger:[[Stats instance].currentCoin integerValue] + 5000];
-    
     CCScene *gameplayScene = [CCBReader loadAsScene:@"Menu"];
     [[CCDirector sharedDirector] replaceScene:gameplayScene withTransition:[CCTransition transitionFadeWithDuration:.5]];
 }
