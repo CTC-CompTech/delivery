@@ -10,11 +10,11 @@
 		<false/>
 	</dict>
 	<key>UUID</key>
-	<integer>380</integer>
+	<integer>1176</integer>
 	<key>centeredOrigin</key>
 	<false/>
 	<key>currentResolution</key>
-	<integer>0</integer>
+	<integer>2</integer>
 	<key>currentSequenceId</key>
 	<integer>0</integer>
 	<key>docDimensionsType</key>
@@ -179,11 +179,11 @@
 						<string>Position</string>
 						<key>value</key>
 						<array>
-							<real>1</real>
-							<real>48</real>
+							<real>0.0</real>
+							<real>0.40774986147880554</real>
+							<integer>1</integer>
 							<integer>0</integer>
-							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -207,7 +207,7 @@
 						<key>value</key>
 						<array>
 							<real>0.0</real>
-							<real>0.0</real>
+							<real>1</real>
 						</array>
 					</dict>
 					<dict>
@@ -264,6 +264,8 @@
 						<false/>
 					</dict>
 				</array>
+				<key>selected</key>
+				<true/>
 			</dict>
 			<dict>
 				<key>UUID</key>
@@ -298,10 +300,10 @@
 						<key>value</key>
 						<array>
 							<real>159.72055053710938</real>
-							<real>452.19903564453125</real>
+							<real>0.79612505435943604</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -347,9 +349,9 @@
 						<key>value</key>
 						<array>
 							<real>40</real>
-							<real>40</real>
+							<real>0.070422537624835968</real>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -362,7 +364,7 @@
 							<real>0.0</real>
 							<real>0.0</real>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -804,10 +806,10 @@
 								<key>value</key>
 								<array>
 									<real>417.48794555664062</real>
-									<real>450.58151245117188</real>
+									<real>0.7932773232460022</real>
 									<integer>0</integer>
 									<integer>0</integer>
-									<integer>0</integer>
+									<integer>2</integer>
 								</array>
 							</dict>
 							<dict>
@@ -1021,10 +1023,10 @@
 								<key>value</key>
 								<array>
 									<real>0.0</real>
-									<real>450.58151245117188</real>
+									<real>0.7932773232460022</real>
 									<integer>0</integer>
 									<integer>0</integer>
-									<integer>0</integer>
+									<integer>2</integer>
 								</array>
 							</dict>
 							<dict>
@@ -1614,8 +1616,6 @@
 										</array>
 									</dict>
 								</array>
-								<key>seqExpanded</key>
-								<true/>
 							</dict>
 						</array>
 						<key>customClass</key>
@@ -1644,10 +1644,10 @@
 								<key>value</key>
 								<array>
 									<real>156</real>
-									<real>450.58151245117188</real>
+									<real>0.7932773232460022</real>
 									<integer>0</integer>
 									<integer>0</integer>
-									<integer>0</integer>
+									<integer>2</integer>
 								</array>
 							</dict>
 							<dict>
@@ -2265,10 +2265,10 @@
 								<key>value</key>
 								<array>
 									<real>-47.000003814697266</real>
-									<real>450.58151245117188</real>
+									<real>0.7932773232460022</real>
 									<integer>0</integer>
 									<integer>0</integer>
-									<integer>0</integer>
+									<integer>2</integer>
 								</array>
 							</dict>
 							<dict>
@@ -2508,10 +2508,10 @@
 						<key>value</key>
 						<array>
 							<real>164</real>
-							<real>549</real>
+							<real>0.96654927730560303</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
@@ -3735,7 +3735,7 @@
 								<key>value</key>
 								<array>
 									<real>156.01484680175781</real>
-									<real>453</real>
+									<real>373</real>
 									<integer>0</integer>
 									<integer>0</integer>
 									<integer>0</integer>
@@ -4072,7 +4072,7 @@ Buy the 5,000 coin car!</string>
 								<key>value</key>
 								<array>
 									<real>3.2015783786773682</real>
-									<real>5.1136245727539062</real>
+									<real>5.1733393669128418</real>
 									<false/>
 									<integer>0</integer>
 								</array>
@@ -4386,7 +4386,7 @@ play the new car!</string>
 							<real>0.0</real>
 							<integer>0</integer>
 							<integer>0</integer>
-							<integer>0</integer>
+							<integer>2</integer>
 						</array>
 					</dict>
 					<dict>
