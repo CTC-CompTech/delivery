@@ -54,7 +54,8 @@
     [Stats instance].whereTutorial = @"";
     
     // Add coins as default coins
-    [Stats instance].currentCoin = [NSNumber numberWithInteger:[[Stats instance].currentCoin integerValue] + 3000];
+    if ([Stats instance].currentCoin < [NSNumber numberWithInt:5000])
+        [Stats instance].currentCoin = [NSNumber numberWithInteger:[[Stats instance].currentCoin integerValue] + 5000];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
