@@ -2,6 +2,7 @@ Delivery
 ========
 
 **SkillsUSA Missouri State Gold Medalist**
+
 **SkillsUSA National Qualifier - 5th place**
 
 ![Delivery Co. Poster](/Assests/DelvieryCoPoster.png)
